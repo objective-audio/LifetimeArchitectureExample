@@ -1,0 +1,33 @@
+/* 
+  Localizable.strings
+*/
+
+"alertLoginErrorTitle" = "エラー";
+"alertLoginFailedMessage" = "ログインに失敗しました";
+"alertLoginAccountDuplicatedMessage" = "すでにログインしているアカウントです";
+"alertLoginInvalidAccountIDMessage" = "アカウントIDが不正です";
+"alertLoginCancelledMessage" = "キャンセルされました";
+"alertOK" = "OK";
+
+"loginButtonTitle" = "ログイン";
+"loginAccountIdPlaceholder" = "アカウントIDを入力（整数のみ）";
+"loginCancelButtonTitle" = "キャンセル";
+
+"accountMenuInfoHeader" = "アカウント情報";
+"accountMenuContentSwiftUI" = "SwiftUIで表示";
+"accountMenuContentUIKit" = "UIKitで表示";
+"accountMenuLogout" = "ログアウト";
+
+"accountInfoNavigationTitle" = "アカウント情報";
+"accountInfoCaptionId" = "ID";
+"accountInfoCaptionName" = "名前";
+"accountInfoEdit" = "編集";
+
+"accountEditTitle" = "アカウント名を編集";
+"accountEditSaveButtonTitle" = "保存";
+"accountEditCancelButtonTitle" = "キャンセル";
+
+"alertAccountEditDestructionTitle" = "アカウント名が変更されています";
+"alertAccountEditDestructionMessage" = "変更を破棄してよろしいですか？";
+"alertAccountEditDestruct" = "破棄";
+"alertAccountEditCancel" = "戻る";

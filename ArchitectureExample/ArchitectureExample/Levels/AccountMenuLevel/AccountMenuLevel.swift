@@ -1,0 +1,6 @@
+//
+//  AccountMenuLevel.swift
+//
+
+struct AccountMenuLevel {
+}
