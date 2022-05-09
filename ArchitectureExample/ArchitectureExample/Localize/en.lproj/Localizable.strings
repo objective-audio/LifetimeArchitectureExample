@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+*/
+
+"alertLoginErrorTitle" = "Error";
+"alertLoginFailedMessage" = "Login failed.";
+"alertLoginAccountDuplicatedMessage" = "Account Duplicated.";
+"alertLoginInvalidAccountIDMessage" = "Invalid account ID.";
+"alertLoginCancelledMessage" = "Cancelled.";
+"alertOK" = "OK";
+
+"loginButtonTitle" = "login";
+"loginAccountIdPlaceholder" = "Input account id (Integer only)";
+"loginCancelButtonTitle" = "Cancel";
+
+"accountMenuInfoHeader" = "Info";
+"accountMenuContentSwiftUI" = "SwiftUI";
+"accountMenuContentUIKit" = "UIKit";
+"accountMenuLogout" = "Logout (L)";
+
+"accountInfoNavigationTitle" = "Account Info";
+"accountInfoCaptionId" = "ID";
+"accountInfoCaptionName" = "Name";
+"accountInfoEdit" = "Edit";
+
+"accountEditTitle" = "Edit Account Name";
+"accountEditSaveButtonTitle" = "Save";
+"accountEditCancelButtonTitle" = "Cancel";
+
+"alertAccountEditDestructionTitle" = "Account name has changed";
+"alertAccountEditDestructionMessage" = "Discard your edits?";
+"alertAccountEditDestruct" = "Destruct";
+"alertAccountEditLogoutTitle" = "Account name has changed";
+"alertAccountEditLogoutMessage" = "Discard your edits and logout?";
+"alertAccountEditLogout" = "Logout";
+"alertAccountEditCancel" = "Cancel";

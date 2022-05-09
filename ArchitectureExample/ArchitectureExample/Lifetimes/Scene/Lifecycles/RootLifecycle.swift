@@ -1,0 +1,68 @@
+//
+//  RootLifecycle.swift
+//
+
+import Combine
+
+/**
+ ルートの階層で切り替えて表示するLifetimeを動的に生成・保持・破棄する
+ */
+
+@MainActor
+final class RootLifecycle<Accessor: LifetimeAccessable> {
+    let sceneLifetimeId: SceneLifetimeId
+
+    @CurrentValue private(set) var current: RootSubLifetime<Accessor>?
+
+    init(sceneLifetimeId: SceneLifetimeId) {
+        self.sceneLifetimeId = sceneLifetimeId
+    }
+}
+
+extension RootLifecycle {
+    func switchToLaunch() {
+        guard self.current == nil else {
+            assertionFailureIfNotTest()
+            return
+        }
+
+        let lifetime = Self.makeLaunchLifetime(sceneLifetimeId: self.sceneLifetimeId)
+        self.current = .launch(lifetime)
+    }
+
+    func switchToLogin() {
+        switch self.current {
+        case .launch, .account:
+            let lifetime = Self.makeLoginLifetime(sceneLifetimeId: self.sceneLifetimeId)
+            self.current = .login(lifetime)
+        case .login, .none:
+            assertionFailureIfNotTest()
+        }
+    }
+
+    func switchToAccount(account: Account) {
+        switch self.current {
+        case .launch, .login:
+            let lifetime = Self.makeAccountLifetime(id: .init(scene: self.sceneLifetimeId,
+                                                              accountId: account.id))
+            self.current = .account(lifetime)
+            lifetime.navigationLifecycle.pushMenu()
+        case .account, .none:
+            assertionFailureIfNotTest()
+        }
+    }
+}
+
+extension RootLifecycle {
+    var isLaunch: Bool {
+        guard case .launch = self.current else { return false }
+        return true
+    }
+
+    var isLoginPublisher: AnyPublisher<Bool, Never> {
+        self.$current.map {
+            guard case .login = $0 else { return false }
+            return true
+        }.eraseToAnyPublisher()
+    }
+}
