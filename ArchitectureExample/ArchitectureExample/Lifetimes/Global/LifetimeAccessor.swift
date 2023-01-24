@@ -79,6 +79,20 @@ enum LifetimeAccessor: LifetimeAccessable {
         return lifetime
     }
 
+    static func accountDetail(id: AccountDetailLifetimeId) -> AccountDetailLifetime? {
+        guard let account = self.account(id: id.account),
+              let subLifetime = account.navigationLifecycle.stack.first(where: {
+                  guard case .detail = $0 else { return false }
+                  return true
+              }),
+              case .detail(let lifetime) = subLifetime,
+              lifetime.lifetimeId == id else {
+            assertionFailure()
+            return nil
+        }
+        return lifetime
+    }
+
     static func accountEdit(id: AccountEditLifetimeId) -> AccountEditLifetime<LifetimeAccessor>? {
         guard case .accountEdit(let lifetime) =
                 self.scene(id: id.account.scene)?.rootModalLifecycle.current,

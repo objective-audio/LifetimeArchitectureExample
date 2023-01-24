@@ -6,16 +6,19 @@ enum AccountInfoContent: Hashable, Identifiable {
     case id(Int)
     case name(String)
     case edit
+    case pushDetail
 }
 
 enum AccountInfoContentID: Hashable {
     case id
     case name
     case edit
+    case pushDetail
 }
 
 enum AccountInfoAction {
     case edit
+    case pushDetail
 }
 
 extension AccountInfoContent {
@@ -27,6 +30,8 @@ extension AccountInfoContent {
             return .name
         case .edit:
             return .edit
+        case .pushDetail:
+            return .pushDetail
         }
     }
 
@@ -38,6 +43,8 @@ extension AccountInfoContent {
             return .accountInfoCaptionName
         case .edit:
             return .accountInfoEdit
+        case .pushDetail:
+            return .accountInfoPushDetail
         }
     }
 
@@ -47,7 +54,7 @@ extension AccountInfoContent {
             return "\(value)"
         case .name(let value):
             return value
-        case .edit:
+        case .edit, .pushDetail:
             return ""
         }
     }
@@ -56,6 +63,8 @@ extension AccountInfoContent {
         switch self {
         case .edit:
             return .edit
+        case .pushDetail:
+            return .pushDetail
         case .id, .name:
             return nil
         }

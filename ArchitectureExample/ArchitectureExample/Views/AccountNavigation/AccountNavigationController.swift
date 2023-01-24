@@ -62,6 +62,8 @@ private extension AccountNavigationElement {
             return Factory.makeAccountInfoHostingController(lifetimeId: lifetimeId)
         case .info(.uiKit, let lifetimeId):
             return Factory.makeAccountInfoViewController(lifetimeId: lifetimeId)
+        case .detail(let lifetimeId):
+            return Factory.makeAccountDetailViewController(lifetimeId: lifetimeId)
         }
     }
 }

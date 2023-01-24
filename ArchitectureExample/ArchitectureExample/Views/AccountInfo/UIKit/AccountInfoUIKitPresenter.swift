@@ -24,7 +24,9 @@ final class AccountInfoUIKitPresenter {
             .store(in: &self.cancellables)
     }
 
-    let contentIds: [[AccountInfoContentID]] = [[.id, .name], [.edit]]
+    let contentIds: [[AccountInfoContentID]] = [[.id, .name],
+                                                [.edit],
+                                                [.pushDetail]]
 
     func content(for contentId: AccountInfoContentID) -> AccountInfoContent {
         switch contentId {
@@ -34,6 +36,8 @@ final class AccountInfoUIKitPresenter {
             return .name(self.name)
         case .edit:
             return .edit
+        case .pushDetail:
+            return .pushDetail
         }
     }
 
@@ -45,6 +49,8 @@ final class AccountInfoUIKitPresenter {
         switch self.content(for: contentId).action {
         case .edit:
             self.interactor?.editAccount()
+        case .pushDetail:
+            self.interactor?.pushDetail()
         case .none:
             break
         }

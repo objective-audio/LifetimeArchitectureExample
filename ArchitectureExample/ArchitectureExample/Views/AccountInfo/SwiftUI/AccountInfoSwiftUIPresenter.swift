@@ -21,7 +21,8 @@ final class AccountInfoSwiftUIPresenter {
 
     var contents: [[AccountInfoContent]] {
         return [[.id(self.accountId), .name(self.name)],
-                [.edit]]
+                [.edit],
+                [.pushDetail]]
     }
 
     func viewDidRemoveFromParent() {
@@ -32,6 +33,8 @@ final class AccountInfoSwiftUIPresenter {
         switch action {
         case .edit:
             self.interactor?.editAccount()
+        case .pushDetail:
+            self.interactor?.pushDetail()
         }
     }
 }

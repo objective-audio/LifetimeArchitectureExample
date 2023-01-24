@@ -15,10 +15,20 @@ private class AccountHolderStub: AccountInfoInteractor.AccountHolder {
 }
 
 private class AccountNavigationLifecycleStub: AccountInfoInteractor.NavigationLifecycle {
+    var canPopInfoHandler: (AccountInfoLifetimeId) -> Bool = { _ in true }
     var popInfoHandler: (AccountInfoLifetimeId) -> Void = { _ in }
+    var pushDetailHandler: () -> Void = {}
+
+    func canPopInfo(lifetimeId: AccountInfoLifetimeId) -> Bool {
+        self.canPopInfoHandler(lifetimeId)
+    }
 
     func popInfo(lifetimeId: AccountInfoLifetimeId) {
         self.popInfoHandler(lifetimeId)
+    }
+
+    func pushDetail() {
+        self.pushDetailHandler()
     }
 }
 

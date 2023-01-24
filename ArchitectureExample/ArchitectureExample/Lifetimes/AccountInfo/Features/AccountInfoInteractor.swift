@@ -44,8 +44,17 @@ final class AccountInfoInteractor {
             .addAccountEdit(accountLifetimeId: self.lifetimeId.account)
     }
 
+    func pushDetail() {
+        self.navigationLifecycle?.pushDetail()
+    }
+
     func finalize() {
-        self.navigationLifecycle?.popInfo(lifetimeId: self.lifetimeId)
+        guard let lifecycle = self.navigationLifecycle,
+              lifecycle.canPopInfo(lifetimeId: self.lifetimeId) else {
+            return
+        }
+
+        lifecycle.popInfo(lifetimeId: self.lifetimeId)
 
         self.navigationLifecycle = nil
     }

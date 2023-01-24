@@ -38,6 +38,8 @@ typealias AccountEditLifetimeId = AccountSubLifetimeId
 typealias AccountMenuLifetimeId = AccountSubLifetimeId
 /// AccountInfoLifetimeのスコープを特定するためのID
 typealias AccountInfoLifetimeId = AccountSubLifetimeId
+/// AccountDetailLifetimeのスコープを特定するためのID
+typealias AccountDetailLifetimeId = AccountSubLifetimeId
 
 /// AccountEditAlertLifetimeのスコープを特定するためのID
 

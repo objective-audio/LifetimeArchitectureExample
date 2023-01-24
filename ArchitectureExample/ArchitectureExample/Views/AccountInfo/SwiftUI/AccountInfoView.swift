@@ -51,3 +51,14 @@ struct AccountInfoView_Previews: PreviewProvider {
         .environment(\.locale, .init(identifier: "ja"))
     }
 }
+
+private extension AccountInfoAction {
+    var color: Color {
+        switch self {
+        case .edit:
+            return .blue
+        case .pushDetail:
+            return .primary
+        }
+    }
+}
