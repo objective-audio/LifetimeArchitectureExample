@@ -8,5 +8,6 @@
 
 struct AccountInfoLifetime {
     let lifetimeId: AccountInfoLifetimeId
+    let uiSystem: UISystem
     let interactor: AccountInfoInteractor
 }

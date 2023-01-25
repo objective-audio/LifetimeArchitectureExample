@@ -5,6 +5,18 @@
 import XCTest
 @testable import ArchitectureExample
 
+private struct SceneLifetimeStub: SceneLifetimeForLifecycle {
+    let lifetimeId: SceneLifetimeId
+    var rootLifecycle: RootLifecycle<RootFactory> { fatalError() }
+    var rootModalLifecycle: RootModalLifecycle<RootModalFactory> { fatalError() }
+}
+
+private struct FactoryStub: FactoryForSceneLifecycle {
+    static func makeSceneLifetime(id: SceneLifetimeId) -> SceneLifetimeStub {
+        .init(lifetimeId: id)
+    }
+}
+
 @MainActor
 class SceneLifecycleTests: XCTestCase {
     override func setUpWithError() throws {
@@ -14,7 +26,7 @@ class SceneLifecycleTests: XCTestCase {
     }
 
     func testAppendAndRemove() throws {
-        let lifecycle = SceneLifecycle<EmptyLifetimeAccessor>()
+        let lifecycle = SceneLifecycle<FactoryStub>()
 
         let idA = SceneLifetimeId(instanceId: .init())
         let idB = SceneLifetimeId(instanceId: .init())
@@ -33,11 +45,6 @@ class SceneLifecycleTests: XCTestCase {
             XCTAssertNil(lifecycle.lifetime(id: idB))
             XCTAssertEqual(lifecycle.index(of: idA), 0)
             XCTAssertNil(lifecycle.index(of: idB))
-        }
-
-        try XCTContext.runActivity(named: "追加されたLifetimeはlaunchの状態になっている") { _ in
-            let lifetime = try XCTUnwrap(lifecycle.lifetime(id: idA))
-            XCTAssertTrue(lifetime.rootLifecycle.isLaunch)
         }
 
         XCTContext.runActivity(named: "sceneBを追加しIndex1に保持") { _ in

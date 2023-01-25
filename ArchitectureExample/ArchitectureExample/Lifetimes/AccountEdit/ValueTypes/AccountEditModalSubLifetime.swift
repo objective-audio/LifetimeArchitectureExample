@@ -2,6 +2,6 @@
 //  AccountEditModalSubLifetime.swift
 //
 
-enum AccountEditModalSubLifetime {
-    case alert(AccountEditAlertLifetime)
+enum AccountEditModalSubLifetime<Factory: FactoryForAccountEditModalLifecycle> {
+    case alert(Factory.AccountEditAlertLifetime)
 }

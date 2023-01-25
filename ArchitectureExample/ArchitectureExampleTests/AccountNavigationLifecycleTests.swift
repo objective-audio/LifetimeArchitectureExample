@@ -5,6 +5,40 @@
 import XCTest
 @testable import ArchitectureExample
 
+private struct AccountMenuLifetimeStub: AccountMenuLifetimeForLifecycle {
+    let lifetimeId: AccountMenuLifetimeId
+    var interactor: AccountMenuInteractor { fatalError() }
+}
+
+private struct AccountInfoLifetimeStub: AccountInfoLifetimeForLifecycle {
+    let lifetimeId: AccountInfoLifetimeId
+    let uiSystem: UISystem
+    var interactor: AccountInfoInteractor { fatalError() }
+}
+
+private struct AccountDetailLifetimeStub: AccountDetailLifetimeForLifecycle {
+    let lifetimeId: AccountDetailLifetimeId
+    var interactor: AccountDetailInteractor { fatalError() }
+}
+
+private struct FactoryStub: FactoryForAccountNavigationLifecycle {
+    static func makeAccountMenuLifetime(
+        lifetimeId: AccountMenuLifetimeId,
+        navigationLifecycle: AccountNavigationLifecycle<Self>
+    ) -> AccountMenuLifetimeStub {
+        AccountMenuLifetimeStub(lifetimeId: lifetimeId)
+    }
+
+    static func makeAccountInfoLifetime(lifetimeId: AccountInfoLifetimeId,
+                                        uiSystem: UISystem) -> AccountInfoLifetimeStub {
+        .init(lifetimeId: lifetimeId, uiSystem: uiSystem)
+    }
+
+    static func makeAccountDetailLifetime(lifetimeId: AccountDetailLifetimeId) -> AccountDetailLifetimeStub {
+        .init(lifetimeId: lifetimeId)
+    }
+}
+
 @MainActor
 class AccountNavigationLifecycleTests: XCTestCase {
     private var accountLifetimeId: AccountLifetimeId!
@@ -24,40 +58,24 @@ class AccountNavigationLifecycleTests: XCTestCase {
     }
 
     func testPushAndPop() {
-        let lifecycle = AccountNavigationLifecycle<EmptyLifetimeAccessor>(accountLifetimeId: self.accountLifetimeId,
+        let lifecycle = AccountNavigationLifecycle<FactoryStub>(accountLifetimeId: self.accountLifetimeId,
                                                                           idGenerator: self.idGenerator)
 
-        var calledStacks: [[AccountNavigationSubLifetime]] = []
+        var calledStacks: [[AccountNavigationSubLifetime<FactoryStub>]] = []
 
         let canceller = lifecycle.$stack.sink { stack in
             calledStacks.append(stack)
         }
 
-        XCTContext.runActivity(named: "初期状態は空") { _ in
-            XCTAssertEqual(lifecycle.stack.count, 0)
-            XCTAssertEqual(calledStacks.count, 1)
-            XCTAssertEqual(calledStacks[0].count, 0)
-        }
-
-        XCTContext.runActivity(named: "menuがなければinfoはpushできない") { _ in
-            lifecycle.pushInfo(uiSystem: .swiftUI)
-
-            XCTAssertEqual(lifecycle.stack.count, 0)
-            XCTAssertEqual(calledStacks.count, 1)
-            XCTAssertEqual(self.idGenerator.genarated.count, 0)
-        }
-
-        XCTContext.runActivity(named: "空ならmenuをpushできる") { _ in
-            lifecycle.pushMenu()
-
+        XCTContext.runActivity(named: "初期状態はmenu") { _ in
             XCTAssertEqual(lifecycle.stack.count, 1)
 
             guard case .menu = lifecycle.stack[0] else {
                 XCTFail("invalid lifetime stack.")
                 return
             }
-            XCTAssertEqual(calledStacks.count, 2)
-            XCTAssertEqual(calledStacks[1].count, 1)
+            XCTAssertEqual(calledStacks.count, 1)
+            XCTAssertEqual(calledStacks[0].count, 1)
             XCTAssertEqual(self.idGenerator.genarated.count, 1)
         }
 
@@ -67,22 +85,21 @@ class AccountNavigationLifecycleTests: XCTestCase {
             XCTAssertEqual(lifecycle.stack.count, 2)
             guard case .menu = lifecycle.stack[0],
                   case .info(let lifetime) = lifecycle.stack[1],
-                  lifetime.interactor.uiSystem == .swiftUI else {
+                  lifetime.uiSystem == .swiftUI else {
                 XCTFail("invalid lifetime stack.")
                 return
             }
-            XCTAssertEqual(calledStacks.count, 3)
-            XCTAssertEqual(calledStacks[2].count, 2)
+            XCTAssertEqual(calledStacks.count, 2)
+            XCTAssertEqual(calledStacks[1].count, 2)
             XCTAssertEqual(self.idGenerator.genarated.count, 2)
         }
 
         XCTContext.runActivity(named: "infoがあれば何もpushできない") { _ in
-            lifecycle.pushMenu()
             lifecycle.pushInfo(uiSystem: .swiftUI)
             lifecycle.pushInfo(uiSystem: .uiKit)
 
             XCTAssertEqual(lifecycle.stack.count, 2)
-            XCTAssertEqual(calledStacks.count, 3)
+            XCTAssertEqual(calledStacks.count, 2)
             XCTAssertEqual(self.idGenerator.genarated.count, 2)
         }
 
@@ -91,7 +108,7 @@ class AccountNavigationLifecycleTests: XCTestCase {
                                                 account: self.accountLifetimeId))
 
             XCTAssertEqual(lifecycle.stack.count, 2)
-            XCTAssertEqual(calledStacks.count, 3)
+            XCTAssertEqual(calledStacks.count, 2)
             XCTAssertEqual(self.idGenerator.genarated.count, 2)
         }
 
@@ -104,8 +121,8 @@ class AccountNavigationLifecycleTests: XCTestCase {
                 XCTFail("invalid lifetime stack.")
                 return
             }
-            XCTAssertEqual(calledStacks.count, 4)
-            XCTAssertEqual(calledStacks[3].count, 1)
+            XCTAssertEqual(calledStacks.count, 3)
+            XCTAssertEqual(calledStacks[2].count, 1)
             XCTAssertEqual(self.idGenerator.genarated.count, 2)
         }
 
@@ -115,14 +132,16 @@ class AccountNavigationLifecycleTests: XCTestCase {
             XCTAssertEqual(lifecycle.stack.count, 2)
             guard case .menu = lifecycle.stack[0],
                   case .info(let lifetime) = lifecycle.stack[1],
-                  lifetime.interactor.uiSystem == .uiKit else {
+                  lifetime.uiSystem == .uiKit else {
                 XCTFail("invalid lifetime stack.")
                 return
             }
-            XCTAssertEqual(calledStacks.count, 5)
-            XCTAssertEqual(calledStacks[4].count, 2)
+            XCTAssertEqual(calledStacks.count, 4)
+            XCTAssertEqual(calledStacks[3].count, 2)
             XCTAssertEqual(self.idGenerator.genarated.count, 3)
         }
+
+        #warning("todo detailへのpushをテストする")
 
         canceller.cancel()
     }

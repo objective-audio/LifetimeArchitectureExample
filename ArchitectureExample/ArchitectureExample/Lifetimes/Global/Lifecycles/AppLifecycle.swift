@@ -3,8 +3,8 @@
 //
 
 @MainActor
-final class AppLifecycle<Accessor: LifetimeAccessable> {
-    @CurrentValue private(set) var lifetime: AppLifetime<Accessor>?
+final class AppLifecycle<Factory: FactoryForAppLifecycle> {
+    @CurrentValue private(set) var lifetime: Factory.AppLifetime?
 }
 
 extension AppLifecycle {
@@ -14,6 +14,6 @@ extension AppLifecycle {
             return
         }
 
-        self.lifetime = Self.makeAppLifetime()
+        self.lifetime = Factory.makeAppLifetime()
     }
 }

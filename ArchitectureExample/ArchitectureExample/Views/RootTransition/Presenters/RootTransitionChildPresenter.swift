@@ -14,7 +14,7 @@ final class RootTransitionChildPresenter {
     private var cancellables: Set<AnyCancellable> = .init()
 
     init(launchInteractor: LaunchInteractor,
-         rootLifecycle: RootLifecycle<LifetimeAccessor>) {
+         rootLifecycle: RootLifecycle<RootFactory>) {
         self.launchInteractor = launchInteractor
 
         rootLifecycle.$current
@@ -30,7 +30,7 @@ final class RootTransitionChildPresenter {
 }
 
 extension RootChild {
-    init?(_ subLifetime: RootSubLifetime<LifetimeAccessor>?) {
+    init?(_ subLifetime: RootSubLifetime<RootFactory>?) {
         switch subLifetime {
         case .none, .launch:
             return nil

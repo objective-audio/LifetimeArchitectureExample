@@ -6,13 +6,13 @@ import Combine
 
 @MainActor
 final class AccountNavigationPresenter {
-    private weak var navigationLifecycle: AccountNavigationLifecycle<LifetimeAccessor>?
+    private weak var navigationLifecycle: AccountNavigationLifecycle<AccountNavigationFactory>?
 
     @CurrentValue private(set) var elements: [AccountNavigationElement] = []
 
     private var cancellables: Set<AnyCancellable> = .init()
 
-    init(navigationLifecycle: AccountNavigationLifecycle<LifetimeAccessor>) {
+    init(navigationLifecycle: AccountNavigationLifecycle<AccountNavigationFactory>) {
         self.navigationLifecycle = navigationLifecycle
 
         navigationLifecycle.$stack
@@ -24,7 +24,7 @@ final class AccountNavigationPresenter {
 }
 
 extension AccountNavigationElement {
-    init(_ subLifetime: AccountNavigationSubLifetime) {
+    init(_ subLifetime: AccountNavigationSubLifetime<AccountNavigationFactory>) {
         switch subLifetime {
         case .menu(let lifetime):
             self = .menu(lifetimeId: lifetime.lifetimeId)

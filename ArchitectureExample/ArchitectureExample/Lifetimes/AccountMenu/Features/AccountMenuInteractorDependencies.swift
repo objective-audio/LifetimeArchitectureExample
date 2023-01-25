@@ -2,7 +2,7 @@
 //  AccountMenuInteractorDependencies.swift
 //
 
-protocol AccountNavigationLifeCycleForAccountMenuInteractor: AnyObject {
+protocol AccountNavigationLifecycleForAccountMenuInteractor: AnyObject {
     var canPushInfo: Bool { get }
     func pushInfo(uiSystem: UISystem)
 }

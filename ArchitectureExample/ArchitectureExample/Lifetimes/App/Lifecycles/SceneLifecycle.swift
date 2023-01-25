@@ -7,12 +7,12 @@
  */
 
 @MainActor
-final class SceneLifecycle<Accessor: LifetimeAccessable> {
-    private(set) var lifetimes: [SceneLifetime<Accessor>] = []
+final class SceneLifecycle<Factory: FactoryForSceneLifecycle> {
+    private(set) var lifetimes: [SceneLifetimeForLifecycle] = []
 }
 
 extension SceneLifecycle {
-    func lifetime(id: SceneLifetimeId) -> SceneLifetime<Accessor>? {
+    func lifetime(id: SceneLifetimeId) -> SceneLifetimeForLifecycle? {
         guard let lifetime = self.lifetimes.first(where: { $0.lifetimeId == id }) else {
             assertionFailureIfNotTest()
             return nil
@@ -34,9 +34,8 @@ extension SceneLifecycle {
             return
         }
 
-        let lifetime = Self.makeSceneLifetime(id: id)
+        let lifetime = Factory.makeSceneLifetime(id: id)
         self.lifetimes.append(lifetime)
-        lifetime.rootLifecycle.switchToLaunch()
     }
 
     func remove(id: SceneLifetimeId) {

@@ -5,7 +5,7 @@
 typealias RootTransitionModalPresenter = ModalPresenter<RootModal>
 
 extension RootModal: ModalConvertible {
-    init?(_ subLifetime: RootModalSubLifetime<LifetimeAccessor>?) {
+    init?(_ subLifetime: RootModalSubLifetime<RootModalFactory>?) {
         switch subLifetime {
         case .alert(let lifetime):
             self = .alert(lifetimeId: lifetime.lifetimeId)

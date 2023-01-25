@@ -9,31 +9,24 @@ import Combine
  */
 
 @MainActor
-final class RootLifecycle<Accessor: LifetimeAccessable> {
+final class RootLifecycle<Factory: FactoryForRootLifecycle> {
     let sceneLifetimeId: SceneLifetimeId
 
-    @CurrentValue private(set) var current: RootSubLifetime<Accessor>?
+    @CurrentValue private(set) var current: RootSubLifetime<Factory>?
 
     init(sceneLifetimeId: SceneLifetimeId) {
         self.sceneLifetimeId = sceneLifetimeId
+
+        let lifetime = Factory.makeLaunchLifetime(sceneLifetimeId: self.sceneLifetimeId, rootLifecycle: self)
+        self.current = .launch(lifetime)
     }
 }
 
 extension RootLifecycle {
-    func switchToLaunch() {
-        guard self.current == nil else {
-            assertionFailureIfNotTest()
-            return
-        }
-
-        let lifetime = Self.makeLaunchLifetime(sceneLifetimeId: self.sceneLifetimeId)
-        self.current = .launch(lifetime)
-    }
-
     func switchToLogin() {
         switch self.current {
         case .launch, .account:
-            let lifetime = Self.makeLoginLifetime(sceneLifetimeId: self.sceneLifetimeId)
+            let lifetime = Factory.makeLoginLifetime(sceneLifetimeId: self.sceneLifetimeId)
             self.current = .login(lifetime)
         case .login, .none:
             assertionFailureIfNotTest()
@@ -43,10 +36,9 @@ extension RootLifecycle {
     func switchToAccount(account: Account) {
         switch self.current {
         case .launch, .login:
-            let lifetime = Self.makeAccountLifetime(id: .init(scene: self.sceneLifetimeId,
+            let lifetime = Factory.makeAccountLifetime(id: .init(scene: self.sceneLifetimeId,
                                                               accountId: account.id))
             self.current = .account(lifetime)
-            lifetime.navigationLifecycle.pushMenu()
         case .account, .none:
             assertionFailureIfNotTest()
         }

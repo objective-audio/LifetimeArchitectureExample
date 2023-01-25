@@ -7,10 +7,10 @@
  */
 
 @MainActor
-final class AccountNavigationLifecycle<Accessor: LifetimeAccessable> {
+final class AccountNavigationLifecycle<Factory: FactoryForAccountNavigationLifecycle> {
     private let accountLifetimeId: AccountLifetimeId
 
-    @CurrentValue private(set) var stack: [AccountNavigationSubLifetime] = []
+    @CurrentValue private(set) var stack: [AccountNavigationSubLifetime<Factory>] = []
 
     private let idGenerator: InstanceIdGeneratable
 
@@ -18,22 +18,16 @@ final class AccountNavigationLifecycle<Accessor: LifetimeAccessable> {
          idGenerator: InstanceIdGeneratable = InstanceIdGenerator()) {
         self.accountLifetimeId = accountLifetimeId
         self.idGenerator = idGenerator
+
+        let lifetimeId = AccountMenuLifetimeId(instanceId: idGenerator.generate(),
+                                               account: accountLifetimeId)
+        let lifetime = Factory.makeAccountMenuLifetime(lifetimeId: lifetimeId,
+                                                       navigationLifecycle: self)
+        self.stack = [.menu(lifetime)]
     }
 }
 
 extension AccountNavigationLifecycle {
-    func pushMenu() {
-        guard self.stack.isEmpty else {
-            assertionFailureIfNotTest()
-            return
-        }
-
-        let lifetimeId = AccountMenuLifetimeId(instanceId: self.idGenerator.generate(),
-                                               account: self.accountLifetimeId)
-        let lifetime = Self.makeAccountMenuLifetime(lifetimeId: lifetimeId)
-        self.stack.append(.menu(lifetime))
-    }
-
     var canPushInfo: Bool {
         if self.stack.count == 1, case .menu = self.stack[0] {
             return true
@@ -50,7 +44,7 @@ extension AccountNavigationLifecycle {
 
         let lifetimeId = AccountInfoLifetimeId(instanceId: self.idGenerator.generate(),
                                                account: self.accountLifetimeId)
-        let lifetime = Self.makeAccountInfoLifetime(lifetimeId: lifetimeId,
+        let lifetime = Factory.makeAccountInfoLifetime(lifetimeId: lifetimeId,
                                                     uiSystem: uiSystem)
         self.stack.append(.info(lifetime))
     }
@@ -88,7 +82,7 @@ extension AccountNavigationLifecycle {
 
         let lifetimeId = AccountDetailLifetimeId(instanceId: self.idGenerator.generate(),
                                                  account: self.accountLifetimeId)
-        let lifetime = Self.makeAccountDetailLifetime(lifetimeId: lifetimeId)
+        let lifetime = Factory.makeAccountDetailLifetime(lifetimeId: lifetimeId)
 
         self.stack.append(.detail(lifetime))
     }

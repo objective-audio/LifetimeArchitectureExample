@@ -2,7 +2,7 @@
 //  RootModalSubLifetime.swift
 //
 
-enum RootModalSubLifetime<Accessor: LifetimeAccessable> {
-    case alert(RootAlertLifetime)
-    case accountEdit(AccountEditLifetime<Accessor>)
+enum RootModalSubLifetime<Factory: FactoryForRootModalLifecycle> {
+    case alert(Factory.RootAlertLifetime)
+    case accountEdit(Factory.AccountEditLifetime)
 }

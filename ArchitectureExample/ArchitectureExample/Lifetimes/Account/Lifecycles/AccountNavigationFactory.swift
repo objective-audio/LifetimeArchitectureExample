@@ -1,22 +1,29 @@
 //
-//  AccountNavigationLifecycle+Factory.swift
+//  AccountNavigationFactory.swift
 //
 
 import Combine
 
+@MainActor
+struct AccountNavigationFactory {}
+
 // MARK: -
 
 extension ActionSender: AccountMenuInteractor.ActionSender {}
-extension AccountNavigationLifecycle: AccountMenuInteractor.NavigationLifeCycle {}
+extension AccountNavigationLifecycle: AccountMenuInteractor.NavigationLifecycle {}
+extension AccountMenuLifetime: AccountMenuLifetimeForLifecycle {}
+extension AccountNavigationFactory: FactoryForAccountNavigationLifecycle {}
 
-extension AccountNavigationLifecycle {
-    static func makeAccountMenuLifetime(lifetimeId: AccountMenuLifetimeId) -> AccountMenuLifetime {
-        let appLifetime = Accessor.app
-        let accountLifetime = Accessor.account(id: lifetimeId.account)
+extension AccountNavigationFactory {
+    static func makeAccountMenuLifetime(
+        lifetimeId: AccountMenuLifetimeId,
+        navigationLifecycle: AccountNavigationLifecycle<Self>
+    ) -> AccountMenuLifetime {
+        let appLifetime = LifetimeAccessor.app
 
         return .init(lifetimeId: lifetimeId,
                      interactor: .init(lifetimeId: lifetimeId,
-                                       navigationLifecycle: accountLifetime?.navigationLifecycle,
+                                       navigationLifecycle: navigationLifecycle,
                                        actionSender: appLifetime?.actionSender))
     }
 }
@@ -26,14 +33,18 @@ extension AccountNavigationLifecycle {
 extension AccountNavigationLifecycle: AccountInfoInteractor.NavigationLifecycle {}
 extension AccountHolder: AccountInfoInteractor.AccountHolder {}
 extension RootModalLifecycle: AccountInfoInteractor.RootModalLifecycle {}
+extension AccountInfoLifetime: AccountInfoLifetimeForLifecycle {}
 
-extension AccountNavigationLifecycle {
-    static func makeAccountInfoLifetime(lifetimeId: AccountInfoLifetimeId,
-                                        uiSystem: UISystem) -> AccountInfoLifetime {
-        let sceneLifetime = Accessor.scene(id: lifetimeId.account.scene)
-        let accountLifetime = Accessor.account(id: lifetimeId.account)
+extension AccountNavigationFactory {
+    static func makeAccountInfoLifetime(
+        lifetimeId: AccountInfoLifetimeId,
+        uiSystem: UISystem
+    ) -> AccountInfoLifetime {
+        let sceneLifetime = LifetimeAccessor.scene(id: lifetimeId.account.scene)
+        let accountLifetime = LifetimeAccessor.account(id: lifetimeId.account)
 
         return .init(lifetimeId: lifetimeId,
+                     uiSystem: uiSystem,
                      interactor: .init(uiSystem: uiSystem,
                                        lifetimeId: lifetimeId,
                                        accountHolder: accountLifetime?.accountHolder,
@@ -45,10 +56,11 @@ extension AccountNavigationLifecycle {
 // MARK: -
 
 extension AccountNavigationLifecycle: AccountDetailInteractor.NavigationLifecycle {}
+extension AccountDetailLifetime: AccountDetailLifetimeForLifecycle {}
 
-extension AccountNavigationLifecycle {
+extension AccountNavigationFactory {
     static func makeAccountDetailLifetime(lifetimeId: AccountDetailLifetimeId) -> AccountDetailLifetime {
-        let accountLifetime = Accessor.account(id: lifetimeId.account)
+        let accountLifetime = LifetimeAccessor.account(id: lifetimeId.account)
 
         return .init(lifetimeId: lifetimeId,
                      interactor: .init(lifetimeId: lifetimeId,

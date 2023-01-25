@@ -2,8 +2,6 @@
 //  RootTransitionViewController+ViewFactory.swift
 //
 
-import Foundation
-
 // MARK: -
 
 extension RootTransitionViewController {

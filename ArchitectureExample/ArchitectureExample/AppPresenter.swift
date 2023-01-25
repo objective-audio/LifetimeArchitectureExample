@@ -4,9 +4,9 @@
 
 @MainActor
 final class AppPresenter {
-    private weak var appLifecycle: AppLifecycle<LifetimeAccessor>?
+    private weak var appLifecycle: AppLifecycle<AppFactory>?
 
-    init(appLifecycle: AppLifecycle<LifetimeAccessor>) {
+    init(appLifecycle: AppLifecycle<AppFactory>) {
         self.appLifecycle = appLifecycle
     }
 

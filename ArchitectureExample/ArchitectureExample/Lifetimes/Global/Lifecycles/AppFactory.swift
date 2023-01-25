@@ -1,12 +1,18 @@
 //
-//  AppLifecycle+Factory.swift
+//  AppFactory.swift
 //
 
 import Foundation
 
-extension AppLifecycle {
-    static func makeAppLifetime() -> AppLifetime<Accessor> {
-        let sceneLifecycle = SceneLifecycle<Accessor>()
+extension AppLifetime: AppLifetimeForLifecycle {}
+extension SceneFactory: FactoryForSceneLifecycle {}
+
+@MainActor
+struct AppFactory {}
+
+extension AppFactory {
+    static func makeAppLifetime() -> AppLifetime {
+        let sceneLifecycle = SceneLifecycle<SceneFactory>()
         let userDefaults = UserDefaults.standard
 
         return .init(sceneLifecycle: sceneLifecycle,

@@ -5,6 +5,19 @@
 import XCTest
 @testable import ArchitectureExample
 
+private struct AppLifetimeStub: AppLifetimeForLifecycle {
+    var sceneLifecycle: SceneLifecycle<SceneFactory> { fatalError() }
+    var userDefaults: UserDefaults { fatalError() }
+    var accountRepository: AccountRepository { fatalError() }
+    var actionSender: ActionSender { fatalError() }
+}
+
+private struct FactoryStub: FactoryForAppLifecycle {
+    static func makeAppLifetime() -> AppLifetimeStub {
+        .init()
+    }
+}
+
 @MainActor
 class AppLifecycleTests: XCTestCase {
 
@@ -15,9 +28,9 @@ class AppLifecycleTests: XCTestCase {
     }
 
     func testAdd() {
-        let lifecycle = AppLifecycle<EmptyLifetimeAccessor>()
+        let lifecycle = AppLifecycle<FactoryStub>()
 
-        var called: [AppLifetime<EmptyLifetimeAccessor>?] = []
+        var called: [AppLifetimeStub?] = []
 
         let canceller = lifecycle.$lifetime.sink {
             called.append($0)

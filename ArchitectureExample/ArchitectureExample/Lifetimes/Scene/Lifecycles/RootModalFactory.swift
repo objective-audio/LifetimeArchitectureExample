@@ -1,6 +1,11 @@
 //
-//  RootModalLifecycle+Factory.swift
+//  RootModalFactory.swift
 //
+
+@MainActor
+struct RootModalFactory {}
+
+// MARK: -
 
 extension AccountHolder: AccountEditInteractor.AccountHolder {}
 extension RootModalLifecycle: AccountEditInteractor.RootModalLifecycle {}
@@ -10,15 +15,18 @@ extension ActionSender: AccountEditInteractor.ActionSender {}
 extension AccountEditModalLifecycle: AccountEditReceiver.AccountEditModalLifecycle {}
 extension AccountEditInteractor: AccountEditReceiver.AccountEditInteractor {}
 
-extension RootModalLifecycle {
-    static func makeAccountEditLifetime(lifetimeId: AccountEditLifetimeId) -> AccountEditLifetime<Accessor> {
+extension AccountEditLifetime: AccountEditLifetimeForLifecycle {}
+extension AccountEditModalFactory: FactoryForAccountEditModalLifecycle {}
+
+extension RootModalFactory {
+    static func makeAccountEditLifetime(lifetimeId: AccountEditLifetimeId) -> AccountEditLifetime {
         let accountLifetimeId = lifetimeId.account
 
-        let appLifetime = Accessor.app
-        let sceneLifetime = Accessor.scene(id: accountLifetimeId.scene)
-        let accountLifetime = Accessor.account(id: accountLifetimeId)
+        let appLifetime = LifetimeAccessor.app
+        let sceneLifetime = LifetimeAccessor.scene(id: accountLifetimeId.scene)
+        let accountLifetime = LifetimeAccessor.account(id: accountLifetimeId)
 
-        let modalLifecycle = AccountEditModalLifecycle<Accessor>(lifetimeId: lifetimeId)
+        let modalLifecycle = AccountEditModalLifecycle<AccountEditModalFactory>(lifetimeId: lifetimeId)
         let interactor = AccountEditInteractor(lifetimeId: lifetimeId,
                                                accountHolder: accountLifetime?.accountHolder,
                                                rootModalLifecycle: sceneLifetime?.rootModalLifecycle,
@@ -38,11 +46,12 @@ extension RootModalLifecycle {
 // MARK: -
 
 extension RootModalLifecycle: RootModalLifecycleForRootAlertInteractor {}
+extension RootAlertLifetime: RootAlertLifetimeForLifecycle {}
 
-extension RootModalLifecycle {
+extension RootModalFactory {
     static func makeRootAlertLifetime(lifetimeId: RootAlertLifetimeId,
                                       alertId: RootAlertId) -> RootAlertLifetime {
-        let sceneLifetime = Accessor.scene(id: lifetimeId.scene)
+        let sceneLifetime = LifetimeAccessor.scene(id: lifetimeId.scene)
 
         return .init(lifetimeId: lifetimeId,
                      alertId: alertId,

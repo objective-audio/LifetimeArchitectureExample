@@ -1,15 +1,17 @@
 //
-//  AccountEditModalLifecycle+Factory.swift
+//  AccountEditModalFactory.swift
 //
 
 extension AccountEditModalLifecycle: AccountEditAlertInteractor.ModalLifecycle {}
 extension AccountEditInteractor: AccountEditAlertInteractor.AccountEditInteractor {}
 extension AccountEditAlertInteractor: AccountEditAlertReceiver.Interactor {}
+extension AccountEditAlertLifetime: AccountEditAlertLifetimeForLifecycle {}
 
-extension AccountEditModalLifecycle {
+@MainActor
+struct AccountEditModalFactory {
     static func makeAccountEditAlertLifetime(lifetimeId: AccountEditAlertLifetimeId,
                                              alertId: AccountEditAlertId) -> AccountEditAlertLifetime {
-        let accountEditLifetime = Accessor.accountEdit(id: lifetimeId.accountEdit)
+        let accountEditLifetime = LifetimeAccessor.accountEdit(id: lifetimeId.accountEdit)
         let interactor = AccountEditAlertInteractor(lifetimeId: lifetimeId,
                                                     alertId: alertId,
                                                     accountEditInteractor: accountEditLifetime?.interactor,
@@ -22,4 +24,5 @@ extension AccountEditModalLifecycle {
                                      alertId: alertId,
                                      interactor: interactor))
     }
+
 }
