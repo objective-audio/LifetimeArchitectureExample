@@ -9,7 +9,7 @@ import Foundation
  */
 
 final class AccountRepository {
-    private weak var userDefaults: UserDefaults!
+    private unowned let userDefaults: UserDefaults
 
     init(userDefaults: UserDefaults) {
         self.userDefaults = userDefaults
