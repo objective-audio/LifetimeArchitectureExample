@@ -19,6 +19,16 @@ struct AccountInfoCell: View {
             }
         case .action:
             Text(content.localizedCaption.key)
+        case .navigation:
+            HStack {
+                Text(content.localizedCaption.key)
+                    .foregroundColor(.primary)
+                Spacer()
+                Image(systemName: "chevron.forward")
+                    .font(.system(.caption).weight(.bold))
+                    .foregroundColor(.init(.tertiaryLabel))
+                    .layoutPriority(1)
+            }
         }
 
     }
@@ -28,6 +38,7 @@ private extension AccountInfoContent {
     enum ViewKind {
         case info
         case action
+        case navigation
     }
 
     var kind: ViewKind {
@@ -36,6 +47,8 @@ private extension AccountInfoContent {
             return .info
         case .edit:
             return .action
+        case .pushDetail:
+            return .navigation
         }
     }
 }

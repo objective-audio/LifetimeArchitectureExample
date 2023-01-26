@@ -41,3 +41,17 @@ extension AccountNavigationLifecycle {
                                        rootModalLifecycle: sceneLifetime?.rootModalLifecycle))
     }
 }
+
+// MARK: -
+
+extension AccountNavigationLifecycle: AccountDetailInteractor.NavigationLifecycle {}
+
+extension AccountNavigationLifecycle {
+    static func makeAccountDetailLifetime(lifetimeId: AccountDetailLifetimeId) -> AccountDetailLifetime {
+        let accountLifetime = Accessor.account(id: lifetimeId.account)
+
+        return .init(lifetimeId: lifetimeId,
+                     interactor: .init(lifetimeId: lifetimeId,
+                                       navigationLifecycle: accountLifetime?.navigationLifecycle))
+    }
+}

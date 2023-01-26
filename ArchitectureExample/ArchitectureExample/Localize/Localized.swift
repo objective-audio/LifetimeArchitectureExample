@@ -26,6 +26,9 @@ enum Localized: String, CaseIterable {
     case accountInfoCaptionId
     case accountInfoCaptionName
     case accountInfoEdit
+    case accountInfoPushDetail
+
+    case accountDetailNavigationTitle
 
     case accountEditTitle
     case accountEditSaveButtonTitle

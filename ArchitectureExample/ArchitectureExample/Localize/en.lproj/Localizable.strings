@@ -22,6 +22,9 @@
 "accountInfoCaptionId" = "ID";
 "accountInfoCaptionName" = "Name";
 "accountInfoEdit" = "Edit";
+"accountInfoPushDetail" = "Detail";
+
+"accountDetailNavigationTitle" = "Account Detail";
 
 "accountEditTitle" = "Edit Account Name";
 "accountEditSaveButtonTitle" = "Save";

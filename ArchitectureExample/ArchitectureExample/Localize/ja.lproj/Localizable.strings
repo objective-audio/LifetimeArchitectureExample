@@ -22,6 +22,9 @@
 "accountInfoCaptionId" = "ID";
 "accountInfoCaptionName" = "名前";
 "accountInfoEdit" = "編集";
+"accountInfoPushDetail" = "詳細";
+
+"accountDetailNavigationTitle" = "アカウント詳細";
 
 "accountEditTitle" = "アカウント名を編集";
 "accountEditSaveButtonTitle" = "保存";

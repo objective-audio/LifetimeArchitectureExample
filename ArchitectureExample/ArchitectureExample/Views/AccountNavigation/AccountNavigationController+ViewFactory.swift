@@ -60,3 +60,20 @@ extension AccountNavigationController {
         return AccountInfoViewController.instantiate(presenter: presenter)
     }
 }
+
+// MARK: -
+
+extension AccountNavigationController {
+    static func makeAccountDetailViewController(
+        lifetimeId: AccountDetailLifetimeId
+    ) -> AccountDetailHostingController? {
+        guard let accountDetailLifetime = LifetimeAccessor.accountDetail(id: lifetimeId) else {
+            assertionFailure()
+            return nil
+        }
+
+        let presenter = AccountDetailPresenter(interactor: accountDetailLifetime.interactor)
+
+        return .init(presenter: presenter)
+    }
+}

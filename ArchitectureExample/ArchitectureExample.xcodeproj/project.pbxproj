@@ -173,6 +173,12 @@
 		B6F8FAE328598AAC0038BC3D /* AccountEditReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FAE228598AAC0038BC3D /* AccountEditReceiver.swift */; };
 		B6F8FAE628598D7B0038BC3D /* RootAlertReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FAE528598D7B0038BC3D /* RootAlertReceiver.swift */; };
 		B6FA3942281E73AA00C102AB /* AppLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FA3941281E73AA00C102AB /* AppLifecycle.swift */; };
+		B6FC37072980050000D3CC4C /* AccountDetailLifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC37062980050000D3CC4C /* AccountDetailLifetime.swift */; };
+		B6FC370A2980058800D3CC4C /* AccountDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC37092980058800D3CC4C /* AccountDetailInteractor.swift */; };
+		B6FC370C298005D100D3CC4C /* AccountDetailInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC370B298005D100D3CC4C /* AccountDetailInteractorDependencies.swift */; };
+		B6FC37102980077E00D3CC4C /* AccountDetailHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC370F2980077E00D3CC4C /* AccountDetailHostingController.swift */; };
+		B6FC3713298007B000D3CC4C /* AccountDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC3712298007B000D3CC4C /* AccountDetailPresenter.swift */; };
+		B6FC3715298007E600D3CC4C /* AccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC3714298007E600D3CC4C /* AccountDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -356,6 +362,12 @@
 		B6F8FAE228598AAC0038BC3D /* AccountEditReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditReceiver.swift; sourceTree = "<group>"; };
 		B6F8FAE528598D7B0038BC3D /* RootAlertReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertReceiver.swift; sourceTree = "<group>"; };
 		B6FA3941281E73AA00C102AB /* AppLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLifecycle.swift; sourceTree = "<group>"; };
+		B6FC37062980050000D3CC4C /* AccountDetailLifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailLifetime.swift; sourceTree = "<group>"; };
+		B6FC37092980058800D3CC4C /* AccountDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailInteractor.swift; sourceTree = "<group>"; };
+		B6FC370B298005D100D3CC4C /* AccountDetailInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailInteractorDependencies.swift; sourceTree = "<group>"; };
+		B6FC370F2980077E00D3CC4C /* AccountDetailHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailHostingController.swift; sourceTree = "<group>"; };
+		B6FC3712298007B000D3CC4C /* AccountDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailPresenter.swift; sourceTree = "<group>"; };
+		B6FC3714298007E600D3CC4C /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -726,6 +738,7 @@
 				B68D820C283740BA00C2FC23 /* RootAlert */,
 				B63D1E87282A3641005F606E /* AccountMenu */,
 				B63D1E88282A3645005F606E /* AccountInfo */,
+				B6FC37052980048E00D3CC4C /* AccountDetail */,
 				B63B345E281823B9009E9A70 /* AccountEdit */,
 				B6DB6FE92859D4700070596B /* AccountEditAlert */,
 			);
@@ -743,6 +756,7 @@
 				B65801662801A4D0009EAB96 /* AccountNavigation */,
 				B625F5962806E2B800230B5D /* AccountMenu */,
 				B625F58F2806DDF000230B5D /* AccountInfo */,
+				B6FC370D2980073000D3CC4C /* AccountDetail */,
 				B6E876C428366D7000BC42DE /* AccountEditTransition */,
 				B63B3463281829A4009E9A70 /* AccountEdit */,
 			);
@@ -959,6 +973,42 @@
 				B69E4EFA286C90C000911280 /* RootAlertInteractor.swift */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		B6FC37052980048E00D3CC4C /* AccountDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B6FC37062980050000D3CC4C /* AccountDetailLifetime.swift */,
+				B6FC37082980057C00D3CC4C /* Features */,
+			);
+			path = AccountDetail;
+			sourceTree = "<group>";
+		};
+		B6FC37082980057C00D3CC4C /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				B6FC370B298005D100D3CC4C /* AccountDetailInteractorDependencies.swift */,
+				B6FC37092980058800D3CC4C /* AccountDetailInteractor.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B6FC370D2980073000D3CC4C /* AccountDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B6FC370F2980077E00D3CC4C /* AccountDetailHostingController.swift */,
+				B6FC3714298007E600D3CC4C /* AccountDetailView.swift */,
+				B6FC3711298007A500D3CC4C /* Presenters */,
+			);
+			path = AccountDetail;
+			sourceTree = "<group>";
+		};
+		B6FC3711298007A500D3CC4C /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				B6FC3712298007B000D3CC4C /* AccountDetailPresenter.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		B6FEED7528654881002EA4A3 /* ValueTypes */ = {
@@ -1215,10 +1265,13 @@
 				B658015828013FFF009EAB96 /* LoginLifetime.swift in Sources */,
 				B63640BC285EA86300F37479 /* AccountEditTransitionModalPresenter.swift in Sources */,
 				B658017C2802B22A009EAB96 /* Account.swift in Sources */,
+				B6FC37102980077E00D3CC4C /* AccountDetailHostingController.swift in Sources */,
 				B67758B12811857000403DC6 /* AccountMenuCell.swift in Sources */,
 				B636F6462848FDBD00CD2265 /* AccountNavigationElement.swift in Sources */,
 				B69A0852280A76E6008E0430 /* AccountInfoHostingController.swift in Sources */,
 				B6376FE428144528004D5F9C /* SceneLifecycle.swift in Sources */,
+				B6FC370C298005D100D3CC4C /* AccountDetailInteractorDependencies.swift in Sources */,
+				B6FC37072980050000D3CC4C /* AccountDetailLifetime.swift in Sources */,
 				B60D63F92816EAE300EC7732 /* RootSubLifetime.swift in Sources */,
 				B68D3AAA280D818F00C4C0E9 /* AccountMenuView.swift in Sources */,
 				B69E4EF7286C8B0E00911280 /* AccountEditAlertInteractor.swift in Sources */,
@@ -1252,6 +1305,7 @@
 				B68D3AAE280D840B00C4C0E9 /* AccountMenuViewDependencies.swift in Sources */,
 				B636F6442848FB3100CD2265 /* RootChild.swift in Sources */,
 				B6BC1CBA28609CB500B28D18 /* RootCommandPresenter.swift in Sources */,
+				B6FC370A2980058800D3CC4C /* AccountDetailInteractor.swift in Sources */,
 				B658012428012FA0009EAB96 /* RootTransitionViewController.swift in Sources */,
 				B6C08E982812CD910047ABBE /* RootModalLifecycle.swift in Sources */,
 				B621766B286FCAB70068EB8B /* LifetimeIds.swift in Sources */,
@@ -1284,6 +1338,7 @@
 				B6F8FAD02858B8FB0038BC3D /* Action.swift in Sources */,
 				B658015628013FF8009EAB96 /* AccountLifetime.swift in Sources */,
 				B6EFA1B1281C2ABA0002371B /* RootTransitionViewController+AlertFactory.swift in Sources */,
+				B6FC3713298007B000D3CC4C /* AccountDetailPresenter.swift in Sources */,
 				B636F6202846B11F00CD2265 /* SceneLifecycle+Factory.swift in Sources */,
 				B69A0850280A5EC0008E0430 /* AccountInfoView.swift in Sources */,
 				B68D3AAC280D829800C4C0E9 /* AccountMenuHostingController.swift in Sources */,
@@ -1326,6 +1381,7 @@
 				B666DD802830F49B0074B8F9 /* AccountEditModalSubLifetime.swift in Sources */,
 				B652BBF6280FC6DB00B7741B /* LoginView.swift in Sources */,
 				B6031B0B2807188E003AD07E /* AccountNavigationPresenter.swift in Sources */,
+				B6FC3715298007E600D3CC4C /* AccountDetailView.swift in Sources */,
 				B666DD7E2830F41E0074B8F9 /* AccountEditModalLifecycle.swift in Sources */,
 				B67E5E402850B43D00B53C2B /* AccountInfoInteractor.swift in Sources */,
 			);

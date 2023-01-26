@@ -31,6 +31,8 @@ extension AccountNavigationElement {
         case .info(let lifetime):
             self = .info(uiSystem: lifetime.interactor.uiSystem,
                          lifetimeId: lifetime.lifetimeId)
+        case .detail(let lifetime):
+            self = .detail(lifetimeId: lifetime.lifetimeId)
         }
     }
 }

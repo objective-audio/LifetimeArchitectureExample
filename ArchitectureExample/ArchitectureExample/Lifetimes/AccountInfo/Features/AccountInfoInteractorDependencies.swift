@@ -5,6 +5,8 @@
 import Combine
 
 protocol AccountNavigationLifecycleForAccountInfoInteractor: AnyObject {
+    func pushDetail()
+    func canPopInfo(lifetimeId: AccountInfoLifetimeId) -> Bool
     func popInfo(lifetimeId: AccountInfoLifetimeId)
 }
 
