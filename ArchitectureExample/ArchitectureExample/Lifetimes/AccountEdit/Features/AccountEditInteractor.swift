@@ -29,18 +29,18 @@ final class AccountEditInteractor {
     private var cancellables: Set<AnyCancellable> = .init()
 
     init(lifetimeId: AccountEditLifetimeId,
-         accountHolder: AccountHolder?,
-         rootModalLifecycle: RootModalLifecycle?,
-         accountEditModalLifecycle: AccountEditModalLifecycle?,
+         accountHolder: AccountHolder,
+         rootModalLifecycle: RootModalLifecycle,
+         accountEditModalLifecycle: AccountEditModalLifecycle,
          actionSender: ActionSender?) {
         self.lifetimeId = lifetimeId
         self.accountHolder = accountHolder
         self.rootModalLifecycle = rootModalLifecycle
         self.accountEditModalLifecycle = accountEditModalLifecycle
         self.actionSender = actionSender
-        self.name = accountHolder?.name ?? ""
+        self.name = accountHolder.name
 
-        let originalName = self.accountHolder?.name
+        let originalName = accountHolder.name
         self.$name
             .map { !$0.isEmpty && $0 != originalName }
             .removeDuplicates()
@@ -48,7 +48,7 @@ final class AccountEditInteractor {
                     on: $isEdited)
             .store(in: &self.cancellables)
 
-        accountEditModalLifecycle?.hasCurrentPublisher
+        accountEditModalLifecycle.hasCurrentPublisher
             .map { !$0 }
             .assign(to: \.value,
                     on: self.$canEdit)
