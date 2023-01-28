@@ -37,14 +37,16 @@ extension LoginLifetime: LoginLifetimeForLifecycle {}
 
 extension RootFactory {
     static func makeLoginLifetime(sceneLifetimeId: SceneLifetimeId) -> LoginLifetime {
-        let appLifetime = LifetimeAccessor.app
-        let sceneLifetime = LifetimeAccessor.scene(id: sceneLifetimeId)
+        guard let appLifetime = LifetimeAccessor.app,
+              let sceneLifetime = LifetimeAccessor.scene(id: sceneLifetimeId) else {
+            fatalError()
+        }
 
         let network = LoginNetwork()
         let interactor = LoginInteractor(sceneLifetimeId: sceneLifetimeId,
-                                         rootLifecycle: sceneLifetime?.rootLifecycle,
-                                         rootModalLifecycle: sceneLifetime?.rootModalLifecycle,
-                                         accountRepository: appLifetime?.accountRepository,
+                                         rootLifecycle: sceneLifetime.rootLifecycle,
+                                         rootModalLifecycle: sceneLifetime.rootModalLifecycle,
+                                         accountRepository: appLifetime.accountRepository,
                                          network: network)
 
         return .init(sceneLifetimeId: sceneLifetimeId,
