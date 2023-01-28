@@ -13,16 +13,16 @@ final class LaunchInteractor {
     typealias AccountRepository = AccountRepositoryForLaunchInteractor
 
     private let sceneLifetimeId: SceneLifetimeId
-    private weak var sceneLifecycle: SceneLifecycle?
-    private weak var rootLifecycle: RootLifecycle?
-    private weak var accountRepository: AccountRepository?
+    private unowned var sceneLifecycle: SceneLifecycle?
+    private unowned var rootLifecycle: RootLifecycle?
+    private unowned var accountRepository: AccountRepository?
 
     init(sceneLifetimeId: SceneLifetimeId,
          sceneLifecycle: SceneLifecycle?,
          rootLifecycle: RootLifecycle?,
          accountRepository: AccountRepository?) {
         self.sceneLifetimeId = sceneLifetimeId
-        self.sceneLifecycle =          sceneLifecycle
+        self.sceneLifecycle = sceneLifecycle
         self.rootLifecycle = rootLifecycle
         self.accountRepository = accountRepository
     }
