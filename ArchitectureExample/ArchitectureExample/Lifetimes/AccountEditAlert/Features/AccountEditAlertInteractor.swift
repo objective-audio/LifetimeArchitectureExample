@@ -13,13 +13,13 @@ final class AccountEditAlertInteractor {
 
     private let lifetimeId: AccountEditAlertLifetimeId
     private let alertId: AccountEditAlertId
-    private weak var accountEditInteractor: AccountEditInteractor?
-    private weak var modalLifecycle: ModalLifecycle?
+    private unowned var accountEditInteractor: AccountEditInteractor
+    private unowned var modalLifecycle: ModalLifecycle?
 
     init(lifetimeId: AccountEditAlertLifetimeId,
          alertId: AccountEditAlertId,
-         accountEditInteractor: AccountEditInteractor?,
-         modalLifecycle: ModalLifecycle?) {
+         accountEditInteractor: AccountEditInteractor,
+         modalLifecycle: ModalLifecycle) {
         self.lifetimeId = lifetimeId
         self.alertId = alertId
         self.accountEditInteractor = accountEditInteractor
@@ -27,11 +27,8 @@ final class AccountEditAlertInteractor {
     }
 
     var content: AlertContent<AccountEditAlertId> {
-        guard let interactor = self.accountEditInteractor else {
-            fatalError()
-        }
-
-        return .init(id: self.alertId, interactor: interactor)
+        return .init(id: self.alertId,
+                     interactor: self.accountEditInteractor)
     }
 
     func finalize() {
