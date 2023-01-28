@@ -11,11 +11,14 @@ extension AccountEditAlertLifetime: AccountEditAlertLifetimeForLifecycle {}
 struct AccountEditModalFactory {
     static func makeAccountEditAlertLifetime(lifetimeId: AccountEditAlertLifetimeId,
                                              alertId: AccountEditAlertId) -> AccountEditAlertLifetime {
-        let accountEditLifetime = LifetimeAccessor.accountEdit(id: lifetimeId.accountEdit)
+        guard let accountEditLifetime = LifetimeAccessor.accountEdit(id: lifetimeId.accountEdit) else {
+            fatalError()
+        }
+
         let interactor = AccountEditAlertInteractor(lifetimeId: lifetimeId,
                                                     alertId: alertId,
-                                                    accountEditInteractor: accountEditLifetime?.interactor,
-                                                    modalLifecycle: accountEditLifetime?.modalLifecycle)
+                                                    accountEditInteractor: accountEditLifetime.interactor,
+                                                    modalLifecycle: accountEditLifetime.modalLifecycle)
 
         return .init(lifetimeId: lifetimeId,
                      alertId: alertId,
