@@ -670,8 +670,8 @@
 			isa = PBXGroup;
 			children = (
 				B63D1E8B282A3662005F606E /* AccountInfoLifetime.swift */,
-				B67E5E3E2850B43000B53C2B /* Features */,
 				B636F6362848D48F00CD2265 /* ValueTypes */,
+				B67E5E3E2850B43000B53C2B /* Features */,
 			);
 			path = AccountInfo;
 			sourceTree = "<group>";
