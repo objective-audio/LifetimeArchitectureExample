@@ -19,12 +19,12 @@ final class AccountHolder {
         didSet { self.saveToRepository() }
     }
 
-    private weak var repository: Repository!
+    private unowned var repository: Repository
 
     init(id: Int,
-         accountRepository: Repository?) {
+         accountRepository: Repository) {
         self.id = id
-        self.name = accountRepository?.account(forId: id)?.name ?? ""
+        self.name = accountRepository.account(forId: id)?.name ?? ""
         self.repository = accountRepository
     }
 }

@@ -2,16 +2,16 @@
 //  AccountReceiver.swift
 //
 
-final class AccountReceiver<Factor: FactoryForRootModalLifecycle>: ActionReceivable {
+final class AccountReceiver<Factory: FactoryForRootModalLifecycle>: ActionReceivable {
     typealias LogoutInteractor = LogoutInteractorForAccountReceiver
 
     private let accountLifetimeId: AccountLifetimeId
     private unowned let logoutInteractor: LogoutInteractor
-    private weak var rootModalLifecycle: RootModalLifecycle<Factor>!
+    private unowned let rootModalLifecycle: RootModalLifecycle<Factory>
 
     init(accountLifetimeId: AccountLifetimeId,
          logoutInteractor: LogoutInteractor,
-         rootModalLifecycle: RootModalLifecycle<Factor>?) {
+         rootModalLifecycle: RootModalLifecycle<Factory>) {
         self.accountLifetimeId = accountLifetimeId
         self.logoutInteractor = logoutInteractor
         self.rootModalLifecycle = rootModalLifecycle
@@ -29,7 +29,7 @@ final class AccountReceiver<Factor: FactoryForRootModalLifecycle>: ActionReceiva
             return .break
         case .reopenEdit:
             // ここまで辿り着いたらアカウント編集画面を開く
-            self.rootModalLifecycle?.addAccountEdit(accountLifetimeId: self.accountLifetimeId)
+            self.rootModalLifecycle.addAccountEdit(accountLifetimeId: self.accountLifetimeId)
             return .break
         }
     }
