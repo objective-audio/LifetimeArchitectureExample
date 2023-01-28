@@ -9,10 +9,10 @@ import Combine
  */
 
 @MainActor
-final class RootModalLifecycle<Accessor: LifetimeAccessable> {
+final class RootModalLifecycle<Factory: FactoryForRootModalLifecycle> {
     let sceneLifetimeId: SceneLifetimeId
 
-    @CurrentValue private(set) var current: RootModalSubLifetime<Accessor>?
+    @CurrentValue private(set) var current: RootModalSubLifetime<Factory>?
 
     private let idGenerator: InstanceIdGeneratable
 
@@ -38,7 +38,7 @@ extension RootModalLifecycle {
 
         let lifetimeId = RootAlertLifetimeId(instanceId: self.idGenerator.generate(),
                                              scene: self.sceneLifetimeId)
-        let lifetime = Self.makeRootAlertLifetime(lifetimeId: lifetimeId,
+        let lifetime = Factory.makeRootAlertLifetime(lifetimeId: lifetimeId,
                                                   alertId: alertId)
         self.current = .init(.alert(lifetime))
     }
@@ -63,7 +63,7 @@ extension RootModalLifecycle {
 
         let lifetimeId = AccountEditLifetimeId(instanceId: self.idGenerator.generate(),
                                                account: accountLifetimeId)
-        let lifetime = Self.makeAccountEditLifetime(lifetimeId: lifetimeId)
+        let lifetime = Factory.makeAccountEditLifetime(lifetimeId: lifetimeId)
         self.current = .accountEdit(lifetime)
     }
 

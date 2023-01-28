@@ -2,16 +2,16 @@
 //  AccountReceiver.swift
 //
 
-final class AccountReceiver<Accessor: LifetimeAccessable>: ActionReceivable {
+final class AccountReceiver<Factor: FactoryForRootModalLifecycle>: ActionReceivable {
     typealias LogoutInteractor = LogoutInteractorForAccountReceiver
 
     private let accountLifetimeId: AccountLifetimeId
     private unowned let logoutInteractor: LogoutInteractor
-    private weak var rootModalLifecycle: RootModalLifecycle<Accessor>!
+    private weak var rootModalLifecycle: RootModalLifecycle<Factor>!
 
     init(accountLifetimeId: AccountLifetimeId,
          logoutInteractor: LogoutInteractor,
-         rootModalLifecycle: RootModalLifecycle<Accessor>?) {
+         rootModalLifecycle: RootModalLifecycle<Factor>?) {
         self.accountLifetimeId = accountLifetimeId
         self.logoutInteractor = logoutInteractor
         self.rootModalLifecycle = rootModalLifecycle

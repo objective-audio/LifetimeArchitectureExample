@@ -4,9 +4,9 @@
 
 @MainActor
 final class ScenePresenter {
-    private weak var lifecycle: SceneLifecycle<LifetimeAccessor>?
+    private weak var lifecycle: SceneLifecycle<SceneFactory>?
 
-    init(lifecycle: SceneLifecycle<LifetimeAccessor>) {
+    init(lifecycle: SceneLifecycle<SceneFactory>) {
         self.lifecycle = lifecycle
     }
 

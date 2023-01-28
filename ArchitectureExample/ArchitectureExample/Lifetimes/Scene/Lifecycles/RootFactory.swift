@@ -1,21 +1,25 @@
 //
-//  RootLifecycle+Factory.swift
+//  RootFactory.swift
 //
+
+@MainActor
+struct RootFactory {}
 
 // MARK: -
 
 extension SceneLifecycle: LaunchInteractor.SceneLifecycle {}
 extension RootLifecycle: LaunchInteractor.RootLifecycle {}
 extension AccountRepository: LaunchInteractor.AccountRepository {}
+extension LaunchLifetime: LaunchLifetimeForLifecycle {}
 
-extension RootLifecycle {
-    static func makeLaunchLifetime(sceneLifetimeId: SceneLifetimeId) -> LaunchLifetime {
-        let appLifetime = Accessor.app
-        let sceneLifetime = Accessor.scene(id: sceneLifetimeId)
+extension RootFactory {
+    static func makeLaunchLifetime(sceneLifetimeId: SceneLifetimeId,
+                                   rootLifecycle: RootLifecycle<Self>) -> LaunchLifetime {
+        let appLifetime = LifetimeAccessor.app
 
         let interactor = LaunchInteractor(sceneLifetimeId: sceneLifetimeId,
                                           sceneLifecycle: appLifetime?.sceneLifecycle,
-                                          rootLifecycle: sceneLifetime?.rootLifecycle,
+                                          rootLifecycle: rootLifecycle,
                                           accountRepository: appLifetime?.accountRepository)
 
         return .init(sceneLifetimeId: sceneLifetimeId,
@@ -29,11 +33,12 @@ extension RootLifecycle: LoginInteractor.RootLifecycle {}
 extension RootModalLifecycle: LoginInteractor.RootModalLifecycle {}
 extension AccountRepository: LoginInteractor.AccountRepository {}
 extension LoginNetwork: LoginInteractor.Network {}
+extension LoginLifetime: LoginLifetimeForLifecycle {}
 
-extension RootLifecycle {
+extension RootFactory {
     static func makeLoginLifetime(sceneLifetimeId: SceneLifetimeId) -> LoginLifetime {
-        let appLifetime = Accessor.app
-        let sceneLifetime = Accessor.scene(id: sceneLifetimeId)
+        let appLifetime = LifetimeAccessor.app
+        let sceneLifetime = LifetimeAccessor.scene(id: sceneLifetimeId)
 
         let network = LoginNetwork()
         let interactor = LoginInteractor(sceneLifetimeId: sceneLifetimeId,
@@ -54,11 +59,12 @@ extension RootLifecycle: LogoutInteractor.RootLifecycle {}
 extension AccountRepository: LogoutInteractor.AccountRepository {}
 extension AccountRepository: AccountHolder.Repository {}
 extension LogoutInteractor: AccountReceiver.LogoutInteractor {}
+extension AccountLifetime: AccountLifetimeForLifecycle {}
 
-extension RootLifecycle {
-    static func makeAccountLifetime(id: AccountLifetimeId) -> AccountLifetime<Accessor> {
-        let appLifetime = Accessor.app
-        let sceneLifetime = Accessor.scene(id: id.scene)
+extension RootFactory {
+    static func makeAccountLifetime(id: AccountLifetimeId) -> AccountLifetime {
+        let appLifetime = LifetimeAccessor.app
+        let sceneLifetime = LifetimeAccessor.scene(id: id.scene)
         let accountId = id.accountId
         let logoutInteractor = LogoutInteractor(accountId: accountId,
                                                 rootLifecycle: sceneLifetime?.rootLifecycle,

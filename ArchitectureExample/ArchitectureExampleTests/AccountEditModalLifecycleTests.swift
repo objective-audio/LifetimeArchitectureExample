@@ -5,6 +5,20 @@
 import XCTest
 @testable import ArchitectureExample
 
+private struct AccountEditAlertLifetimeStub: AccountEditAlertLifetimeForLifecycle {
+    let lifetimeId: ArchitectureExample.AccountEditAlertLifetimeId
+    let alertId: ArchitectureExample.AccountEditAlertId
+    var interactor: ArchitectureExample.AccountEditAlertInteractor { fatalError() }
+    var receiver: ArchitectureExample.AccountEditAlertReceiver { fatalError() }
+}
+
+private struct FactoryStub: FactoryForAccountEditModalLifecycle {
+    static func makeAccountEditAlertLifetime(lifetimeId: AccountEditAlertLifetimeId,
+                                             alertId: AccountEditAlertId) -> AccountEditAlertLifetimeStub {
+        .init(lifetimeId: lifetimeId, alertId: alertId)
+    }
+}
+
 @MainActor
 class AccountEditModalLifecycleTests: XCTestCase {
     private var accountEditLifetimeId: AccountEditLifetimeId!
@@ -25,10 +39,10 @@ class AccountEditModalLifecycleTests: XCTestCase {
     }
 
     func testAddAndRemoveAlert() throws {
-        let lifecycle = AccountEditModalLifecycle<EmptyLifetimeAccessor>(lifetimeId: self.accountEditLifetimeId,
-                                                                         idGenerator: self.idGenerator)
+        let lifecycle = AccountEditModalLifecycle<FactoryStub>(lifetimeId: self.accountEditLifetimeId,
+                                                               idGenerator: self.idGenerator)
 
-        var called: [AccountEditModalSubLifetime?] = []
+        var called: [AccountEditModalSubLifetime<FactoryStub>?] = []
 
         let canceller = lifecycle.$current.sink { lifetime in
             called.append(lifetime)

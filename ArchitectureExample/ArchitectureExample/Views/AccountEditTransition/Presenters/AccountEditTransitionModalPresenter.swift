@@ -5,7 +5,7 @@
 typealias AccountEditTransitionModalPresenter = ModalPresenter<AccountEditModal>
 
 extension AccountEditModal: ModalConvertible {
-    init?(_ subLifetime: AccountEditModalSubLifetime?) {
+    init?(_ subLifetime: AccountEditModalSubLifetime<AccountEditModalFactory>?) {
         switch subLifetime {
         case .alert(let lifetime):
             self = .alert(lifetimeId: lifetime.lifetimeId,

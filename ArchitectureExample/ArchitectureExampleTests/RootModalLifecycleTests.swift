@@ -5,6 +5,31 @@
 import XCTest
 @testable import ArchitectureExample
 
+private struct AccountEditLifetimeStub: AccountEditLifetimeForLifecycle {
+    let lifetimeId: AccountEditLifetimeId
+    var interactor: AccountEditInteractor { fatalError() }
+    var modalLifecycle: AccountEditModalLifecycle<AccountEditModalFactory> { fatalError() }
+    var receiver: AccountEditReceiver { fatalError() }
+}
+
+private struct RootAlertLifetimeStub: RootAlertLifetimeForLifecycle {
+    let lifetimeId: RootAlertLifetimeId
+    let alertId: RootAlertId
+    var interactor: RootAlertInteractor { fatalError() }
+    var receiver: RootAlertReceiver { fatalError() }
+}
+
+private struct FactoryStub: FactoryForRootModalLifecycle {
+    static func makeAccountEditLifetime(lifetimeId: AccountEditLifetimeId) -> AccountEditLifetimeStub {
+        .init(lifetimeId: lifetimeId)
+    }
+
+    static func makeRootAlertLifetime(lifetimeId: RootAlertLifetimeId,
+                                      alertId: RootAlertId) -> RootAlertLifetimeStub {
+        .init(lifetimeId: lifetimeId, alertId: alertId)
+    }
+}
+
 @MainActor
 class RootModalLifecycleTests: XCTestCase {
     private var sceneLifetimeId: SceneLifetimeId!
@@ -23,10 +48,10 @@ class RootModalLifecycleTests: XCTestCase {
     }
 
     func testAddAndRemoveAlert() throws {
-        let lifecycle = RootModalLifecycle<EmptyLifetimeAccessor>(sceneLifetimeId: self.sceneLifetimeId,
-                                                                  idGenerator: self.idGenerator)
+        let lifecycle = RootModalLifecycle<FactoryStub>(sceneLifetimeId: self.sceneLifetimeId,
+                                                        idGenerator: self.idGenerator)
 
-        var called: [RootModalSubLifetime<EmptyLifetimeAccessor>?] = []
+        var called: [RootModalSubLifetime<FactoryStub>?] = []
 
         let canceller = lifecycle.$current.sink { lifetime in
             called.append(lifetime)
@@ -105,10 +130,10 @@ class RootModalLifecycleTests: XCTestCase {
         let accountLifetimeId = AccountLifetimeId(scene: self.sceneLifetimeId,
                                                   accountId: 123)
 
-        let lifecycle = RootModalLifecycle<EmptyLifetimeAccessor>(sceneLifetimeId: self.sceneLifetimeId,
-                                                                  idGenerator: self.idGenerator)
+        let lifecycle = RootModalLifecycle<FactoryStub>(sceneLifetimeId: self.sceneLifetimeId,
+                                                        idGenerator: self.idGenerator)
 
-        var called: [RootModalSubLifetime<EmptyLifetimeAccessor>?] = []
+        var called: [RootModalSubLifetime<FactoryStub>?] = []
 
         let canceller = lifecycle.$current.sink { lifetime in
             called.append(lifetime)

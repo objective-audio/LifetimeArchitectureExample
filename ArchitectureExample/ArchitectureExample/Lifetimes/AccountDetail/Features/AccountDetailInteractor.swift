@@ -2,8 +2,6 @@
 //  AccountDetailInteractor.swift
 //
 
-import Foundation
-
 /**
  アカウント詳細画面の処理
  */

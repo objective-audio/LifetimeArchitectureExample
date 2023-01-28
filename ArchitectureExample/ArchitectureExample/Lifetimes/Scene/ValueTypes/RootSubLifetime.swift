@@ -2,8 +2,8 @@
 //  RootSubLifetime.swift
 //
 
-enum RootSubLifetime<Accessor: LifetimeAccessable> {
-    case launch(LaunchLifetime)
-    case login(LoginLifetime)
-    case account(AccountLifetime<Accessor>)
+enum RootSubLifetime<Factory: FactoryForRootLifecycle> {
+    case launch(Factory.LaunchLifetime)
+    case login(Factory.LoginLifetime)
+    case account(Factory.AccountLifetime)
 }

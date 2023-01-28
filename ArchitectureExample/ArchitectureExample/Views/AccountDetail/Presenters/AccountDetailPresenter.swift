@@ -2,8 +2,6 @@
 //  AccountDetailPresenter.swift
 //
 
-import Foundation
-
 @MainActor
 final class AccountDetailPresenter {
     private weak var interactor: AccountDetailInteractor?

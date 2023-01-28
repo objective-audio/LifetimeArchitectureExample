@@ -9,10 +9,10 @@ import Combine
  */
 
 @MainActor
-final class AccountEditModalLifecycle<Accessor: LifetimeAccessable> {
+final class AccountEditModalLifecycle<Factory: FactoryForAccountEditModalLifecycle> {
     let lifetimeId: AccountEditLifetimeId
 
-    @CurrentValue private(set) var current: AccountEditModalSubLifetime?
+    @CurrentValue private(set) var current: AccountEditModalSubLifetime<Factory>?
 
     private let idGenerator: InstanceIdGeneratable
 
@@ -38,8 +38,8 @@ extension AccountEditModalLifecycle {
 
         let lifetimeId = AccountEditAlertLifetimeId(instanceId: self.idGenerator.generate(),
                                                     accountEdit: self.lifetimeId)
-        let lifetime = Self.makeAccountEditAlertLifetime(lifetimeId: lifetimeId,
-                                                         alertId: alertId)
+        let lifetime = Factory.makeAccountEditAlertLifetime(lifetimeId: lifetimeId,
+                                                            alertId: alertId)
         self.current = .init(.alert(lifetime))
     }
 
