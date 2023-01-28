@@ -899,8 +899,8 @@
 			isa = PBXGroup;
 			children = (
 				B68D820A283740AB00C2FC23 /* RootAlertLifetime.swift */,
-				B6F8FAE428598D6E0038BC3D /* Features */,
 				B636F6372848D56700CD2265 /* ValueTypes */,
+				B6F8FAE428598D6E0038BC3D /* Features */,
 			);
 			path = RootAlert;
 			sourceTree = "<group>";
