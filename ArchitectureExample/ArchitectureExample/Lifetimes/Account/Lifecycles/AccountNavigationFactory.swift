@@ -19,12 +19,14 @@ extension AccountNavigationFactory {
         lifetimeId: AccountMenuLifetimeId,
         navigationLifecycle: AccountNavigationLifecycle<Self>
     ) -> AccountMenuLifetime {
-        let appLifetime = LifetimeAccessor.app
+        guard let appLifetime = LifetimeAccessor.app else {
+            fatalError()
+        }
 
         return .init(lifetimeId: lifetimeId,
                      interactor: .init(lifetimeId: lifetimeId,
                                        navigationLifecycle: navigationLifecycle,
-                                       actionSender: appLifetime?.actionSender))
+                                       actionSender: appLifetime.actionSender))
     }
 }
 
