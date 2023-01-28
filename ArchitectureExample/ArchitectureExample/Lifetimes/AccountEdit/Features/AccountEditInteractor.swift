@@ -17,10 +17,10 @@ final class AccountEditInteractor {
 
     private let lifetimeId: AccountEditLifetimeId
 
-    private weak var accountHolder: AccountHolder?
-    private weak var rootModalLifecycle: RootModalLifecycle?
-    private weak var accountEditModalLifecycle: AccountEditModalLifecycle?
-    private weak var actionSender: ActionSender?
+    private unowned var accountHolder: AccountHolder?
+    private unowned var rootModalLifecycle: RootModalLifecycle?
+    private unowned var accountEditModalLifecycle: AccountEditModalLifecycle?
+    private unowned var actionSender: ActionSender?
 
     @CurrentValue var name: String
     @CurrentValue private(set) var isEdited: Bool = false
