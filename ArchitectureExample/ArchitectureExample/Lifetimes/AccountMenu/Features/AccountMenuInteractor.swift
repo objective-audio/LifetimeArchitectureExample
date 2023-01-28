@@ -11,12 +11,12 @@ final class AccountMenuInteractor {
     typealias ActionSender = ActionSenderForAccountMenuInteractor
 
     private let lifetimeId: AccountMenuLifetimeId
-    private weak var navigationLifecycle: NavigationLifecycle!
-    private weak var actionSender: ActionSender!
+    private unowned let navigationLifecycle: NavigationLifecycle
+    private unowned let actionSender: ActionSender
 
     init(lifetimeId: AccountMenuLifetimeId,
-         navigationLifecycle: NavigationLifecycle?,
-         actionSender: ActionSender?) {
+         navigationLifecycle: NavigationLifecycle,
+         actionSender: ActionSender) {
         self.lifetimeId = lifetimeId
         self.navigationLifecycle = navigationLifecycle
         self.actionSender = actionSender
