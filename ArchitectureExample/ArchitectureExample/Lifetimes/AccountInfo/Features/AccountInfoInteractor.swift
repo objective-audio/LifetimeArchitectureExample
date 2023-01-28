@@ -17,15 +17,15 @@ final class AccountInfoInteractor {
     let uiSystem: UISystem
     private let lifetimeId: AccountInfoLifetimeId
 
-    private weak var accountHolder: AccountHolder!
-    private weak var navigationLifecycle: NavigationLifecycle?
-    private weak var rootModalLifecycle: RootModalLifecycle!
+    private unowned let accountHolder: AccountHolder
+    private unowned var navigationLifecycle: NavigationLifecycle?
+    private unowned let rootModalLifecycle: RootModalLifecycle
 
     init(uiSystem: UISystem,
          lifetimeId: AccountInfoLifetimeId,
-         accountHolder: AccountHolder?,
-         navigationLifecycle: NavigationLifecycle?,
-         rootModalLifecycle: RootModalLifecycle?) {
+         accountHolder: AccountHolder,
+         navigationLifecycle: NavigationLifecycle,
+         rootModalLifecycle: RootModalLifecycle) {
         self.uiSystem = uiSystem
         self.lifetimeId = lifetimeId
         self.accountHolder = accountHolder
