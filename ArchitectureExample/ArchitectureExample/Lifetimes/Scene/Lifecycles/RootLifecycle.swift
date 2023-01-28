@@ -17,7 +17,8 @@ final class RootLifecycle<Factory: FactoryForRootLifecycle> {
     init(sceneLifetimeId: SceneLifetimeId) {
         self.sceneLifetimeId = sceneLifetimeId
 
-        let lifetime = Factory.makeLaunchLifetime(sceneLifetimeId: self.sceneLifetimeId, rootLifecycle: self)
+        let lifetime = Factory.makeLaunchLifetime(sceneLifetimeId: self.sceneLifetimeId,
+                                                  rootLifecycle: self)
         self.current = .launch(lifetime)
     }
 }
@@ -37,7 +38,7 @@ extension RootLifecycle {
         switch self.current {
         case .launch, .login:
             let lifetime = Factory.makeAccountLifetime(id: .init(scene: self.sceneLifetimeId,
-                                                              accountId: account.id))
+                                                                 accountId: account.id))
             self.current = .account(lifetime)
         case .account, .none:
             assertionFailureIfNotTest()
