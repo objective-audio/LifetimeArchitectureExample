@@ -11,7 +11,8 @@ struct SceneFactory {}
 
 extension SceneFactory {
     static func makeSceneLifetime(id: SceneLifetimeId) -> SceneLifetime {
-        let lifecycle = RootModalLifecycle<RootModalFactory>(sceneLifetimeId: id)
+        let lifecycle = RootModalLifecycle<RootModalFactory>(sceneLifetimeId: id,
+                                                             idGenerator: InstanceIdGenerator())
 
         return .init(lifetimeId: id,
                      rootLifecycle: .init(sceneLifetimeId: id),

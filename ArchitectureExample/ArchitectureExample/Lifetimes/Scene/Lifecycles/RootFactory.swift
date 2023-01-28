@@ -81,7 +81,8 @@ extension RootFactory {
                      accountHolder: .init(id: accountId,
                                               accountRepository: appLifetime.accountRepository),
                      logoutInteractor: logoutInteractor,
-                     navigationLifecycle: .init(accountLifetimeId: id),
+                     navigationLifecycle: .init(accountLifetimeId: id,
+                                                idGenerator: InstanceIdGenerator()),
                      receiver: .init(accountLifetimeId: id,
                                      logoutInteractor: logoutInteractor,
                                      rootModalLifecycle: sceneLifetime.rootModalLifecycle))

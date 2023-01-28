@@ -15,7 +15,7 @@ final class AccountNavigationLifecycle<Factory: FactoryForAccountNavigationLifec
     private let idGenerator: InstanceIdGeneratable
 
     init(accountLifetimeId: AccountLifetimeId,
-         idGenerator: InstanceIdGeneratable = InstanceIdGenerator()) {
+         idGenerator: InstanceIdGeneratable) {
         self.accountLifetimeId = accountLifetimeId
         self.idGenerator = idGenerator
 

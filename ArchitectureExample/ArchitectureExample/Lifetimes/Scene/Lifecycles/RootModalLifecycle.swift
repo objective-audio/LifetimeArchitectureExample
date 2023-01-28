@@ -17,7 +17,7 @@ final class RootModalLifecycle<Factory: FactoryForRootModalLifecycle> {
     private let idGenerator: InstanceIdGeneratable
 
     init(sceneLifetimeId: SceneLifetimeId,
-         idGenerator: InstanceIdGeneratable = InstanceIdGenerator()) {
+         idGenerator: InstanceIdGeneratable) {
         self.sceneLifetimeId = sceneLifetimeId
         self.idGenerator = idGenerator
     }

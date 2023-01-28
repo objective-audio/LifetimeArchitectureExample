@@ -17,7 +17,7 @@ final class AccountEditModalLifecycle<Factory: FactoryForAccountEditModalLifecyc
     private let idGenerator: InstanceIdGeneratable
 
     init(lifetimeId: AccountEditLifetimeId,
-         idGenerator: InstanceIdGeneratable = InstanceIdGenerator()) {
+         idGenerator: InstanceIdGeneratable) {
         self.lifetimeId = lifetimeId
         self.idGenerator = idGenerator
     }
