@@ -7,6 +7,12 @@ struct RootModalFactory {}
 
 // MARK: -
 
+extension RootModalFactory {
+    static func makeInstanceId() -> InstanceId { .init() }
+}
+
+// MARK: -
+
 extension AccountHolder: AccountEditInteractor.AccountHolder {}
 extension RootModalLifecycle: AccountEditInteractor.RootModalLifecycle {}
 extension AccountEditModalLifecycle: AccountEditInteractor.AccountEditModalLifecycle {}

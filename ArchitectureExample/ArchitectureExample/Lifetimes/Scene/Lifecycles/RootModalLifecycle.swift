@@ -14,12 +14,8 @@ final class RootModalLifecycle<Factory: FactoryForRootModalLifecycle> {
 
     @CurrentValue private(set) var current: RootModalSubLifetime<Factory>?
 
-    private let idGenerator: InstanceIdGeneratable
-
-    init(sceneLifetimeId: SceneLifetimeId,
-         idGenerator: InstanceIdGeneratable) {
+    init(sceneLifetimeId: SceneLifetimeId) {
         self.sceneLifetimeId = sceneLifetimeId
-        self.idGenerator = idGenerator
     }
 }
 
@@ -36,7 +32,7 @@ extension RootModalLifecycle {
             return
         }
 
-        let lifetimeId = RootAlertLifetimeId(instanceId: self.idGenerator.generate(),
+        let lifetimeId = RootAlertLifetimeId(instanceId: Factory.makeInstanceId(),
                                              scene: self.sceneLifetimeId)
         let lifetime = Factory.makeRootAlertLifetime(lifetimeId: lifetimeId,
                                                   alertId: alertId)
@@ -61,7 +57,7 @@ extension RootModalLifecycle {
             return
         }
 
-        let lifetimeId = AccountEditLifetimeId(instanceId: self.idGenerator.generate(),
+        let lifetimeId = AccountEditLifetimeId(instanceId: Factory.makeInstanceId(),
                                                account: accountLifetimeId)
         let lifetime = Factory.makeAccountEditLifetime(lifetimeId: lifetimeId)
         self.current = .accountEdit(lifetime)
