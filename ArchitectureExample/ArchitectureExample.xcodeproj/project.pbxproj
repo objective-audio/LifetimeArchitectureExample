@@ -507,11 +507,11 @@
 			isa = PBXGroup;
 			children = (
 				B6FC37202983836F00D3CC4C /* RootLifecycleDependencies.swift */,
-				B65801642801A0E1009EAB96 /* RootLifecycle.swift */,
 				B69E477B28293453002F2AFF /* RootFactory.swift */,
+				B65801642801A0E1009EAB96 /* RootLifecycle.swift */,
 				B6F8FADC2858BFB60038BC3D /* RootLifecycle+Action.swift */,
-				B60E4EA5281A1EA3005E2F32 /* RootModalFactory.swift */,
 				B6FC371E2982CFAB00D3CC4C /* RootModalLifecycleDependencies.swift */,
+				B60E4EA5281A1EA3005E2F32 /* RootModalFactory.swift */,
 				B6C08E972812CD910047ABBE /* RootModalLifecycle.swift */,
 				B6F8FADE2858BFCE0038BC3D /* RootModalLifecycle+Action.swift */,
 			);
