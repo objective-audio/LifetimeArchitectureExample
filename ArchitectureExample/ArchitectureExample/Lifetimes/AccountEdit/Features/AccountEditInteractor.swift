@@ -32,7 +32,7 @@ final class AccountEditInteractor {
          accountHolder: AccountHolder,
          rootModalLifecycle: RootModalLifecycle,
          accountEditModalLifecycle: AccountEditModalLifecycle,
-         actionSender: ActionSender?) {
+         actionSender: ActionSender) {
         self.lifetimeId = lifetimeId
         self.accountHolder = accountHolder
         self.rootModalLifecycle = rootModalLifecycle
