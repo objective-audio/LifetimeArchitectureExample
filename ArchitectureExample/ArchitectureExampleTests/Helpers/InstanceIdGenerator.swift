@@ -1,10 +1,10 @@
 //
-//  InstanceIdGeneratorStub.swift
+//  InstanceIdGenerator.swift
 //
 
 @testable import ArchitectureExample
 
-class InstanceIdGeneratorStub: InstanceIdGeneratable {
+class InstanceIdGenerator {
     private(set) var genarated: [InstanceId] = []
 
     func generate() -> InstanceId {

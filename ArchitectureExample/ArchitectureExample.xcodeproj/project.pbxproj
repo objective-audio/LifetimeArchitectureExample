@@ -24,7 +24,7 @@
 		B61753BF28110C470057DC15 /* UINavigationController+Updation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61753BE28110C470057DC15 /* UINavigationController+Updation.swift */; };
 		B61D576129841124009E084C /* AppLifecycleDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61D576029841124009E084C /* AppLifecycleDependencies.swift */; };
 		B621766B286FCAB70068EB8B /* LifetimeIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B621766A286FCAB70068EB8B /* LifetimeIds.swift */; };
-		B621766D287028DE0068EB8B /* InstanceIdGeneratorStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = B621766C287028DE0068EB8B /* InstanceIdGeneratorStub.swift */; };
+		B621766D287028DE0068EB8B /* InstanceIdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B621766C287028DE0068EB8B /* InstanceIdGenerator.swift */; };
 		B625F58C2805D03B00230B5D /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B625F58B2805D03B00230B5D /* AccountRepository.swift */; };
 		B625F58E2806823E00230B5D /* LifetimeAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B625F58D2806823E00230B5D /* LifetimeAccessor.swift */; };
 		B625F5932806DE6A00230B5D /* AccountInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B625F5922806DE6A00230B5D /* AccountInfo.storyboard */; };
@@ -214,7 +214,7 @@
 		B61753BE28110C470057DC15 /* UINavigationController+Updation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Updation.swift"; sourceTree = "<group>"; };
 		B61D576029841124009E084C /* AppLifecycleDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLifecycleDependencies.swift; sourceTree = "<group>"; };
 		B621766A286FCAB70068EB8B /* LifetimeIds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifetimeIds.swift; sourceTree = "<group>"; };
-		B621766C287028DE0068EB8B /* InstanceIdGeneratorStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceIdGeneratorStub.swift; sourceTree = "<group>"; };
+		B621766C287028DE0068EB8B /* InstanceIdGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceIdGenerator.swift; sourceTree = "<group>"; };
 		B625F58B2805D03B00230B5D /* AccountRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepository.swift; sourceTree = "<group>"; };
 		B625F58D2806823E00230B5D /* LifetimeAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifetimeAccessor.swift; sourceTree = "<group>"; };
 		B625F5922806DE6A00230B5D /* AccountInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountInfo.storyboard; sourceTree = "<group>"; };
@@ -870,7 +870,7 @@
 			isa = PBXGroup;
 			children = (
 				B6B2D791286888AE008DF3F6 /* ActionId+Test.swift */,
-				B621766C287028DE0068EB8B /* InstanceIdGeneratorStub.swift */,
+				B621766C287028DE0068EB8B /* InstanceIdGenerator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1427,7 +1427,7 @@
 				B6C68802285D9212008220B6 /* ModalSuspendingTests.swift in Sources */,
 				B6B2D796286934CA008DF3F6 /* ActionIdTests.swift in Sources */,
 				B6EFA1AB281BED5F0002371B /* AccountHolderTests.swift in Sources */,
-				B621766D287028DE0068EB8B /* InstanceIdGeneratorStub.swift in Sources */,
+				B621766D287028DE0068EB8B /* InstanceIdGenerator.swift in Sources */,
 				B63FE02E280BAFBC00A508A1 /* LogoutInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,11 +9,3 @@ extension InstanceId: Equatable {
         ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
     }
 }
-
-protocol InstanceIdGeneratable {
-    func generate() -> InstanceId
-}
-
-struct InstanceIdGenerator: InstanceIdGeneratable {
-    func generate() -> InstanceId { .init() }
-}

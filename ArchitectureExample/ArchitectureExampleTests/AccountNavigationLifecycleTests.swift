@@ -22,7 +22,7 @@ private struct AccountDetailLifetimeStub: AccountDetailLifetimeForLifecycle {
 }
 
 private struct FactoryStub: FactoryForAccountNavigationLifecycle {
-    static var idGenerator: InstanceIdGeneratorStub!
+    static var idGenerator: InstanceIdGenerator!
 
     static func makeInstanceId() -> InstanceId {
         self.idGenerator.generate()
