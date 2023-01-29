@@ -12,7 +12,7 @@ final class SceneLifecycle<Factory: FactoryForSceneLifecycle> {
 }
 
 extension SceneLifecycle {
-    func lifetime(id: SceneLifetimeId) -> SceneLifetimeForLifecycle? {
+    func lifetime(id: SceneLifetimeId) -> Factory.SceneLifetime? {
         guard let lifetime = self.lifetimes.first(where: { $0.lifetimeId == id }) else {
             assertionFailureIfNotTest()
             return nil
