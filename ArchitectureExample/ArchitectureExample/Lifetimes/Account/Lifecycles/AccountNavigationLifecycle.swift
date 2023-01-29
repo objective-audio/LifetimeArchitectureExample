@@ -12,14 +12,10 @@ final class AccountNavigationLifecycle<Factory: FactoryForAccountNavigationLifec
 
     @CurrentValue private(set) var stack: [AccountNavigationSubLifetime<Factory>] = []
 
-    private let idGenerator: InstanceIdGeneratable
-
-    init(accountLifetimeId: AccountLifetimeId,
-         idGenerator: InstanceIdGeneratable) {
+    init(accountLifetimeId: AccountLifetimeId) {
         self.accountLifetimeId = accountLifetimeId
-        self.idGenerator = idGenerator
 
-        let lifetimeId = AccountMenuLifetimeId(instanceId: idGenerator.generate(),
+        let lifetimeId = AccountMenuLifetimeId(instanceId: Factory.makeInstanceId(),
                                                account: accountLifetimeId)
         let lifetime = Factory.makeAccountMenuLifetime(lifetimeId: lifetimeId,
                                                        navigationLifecycle: self)
@@ -42,7 +38,7 @@ extension AccountNavigationLifecycle {
             return
         }
 
-        let lifetimeId = AccountInfoLifetimeId(instanceId: self.idGenerator.generate(),
+        let lifetimeId = AccountInfoLifetimeId(instanceId: Factory.makeInstanceId(),
                                                account: self.accountLifetimeId)
         let lifetime = Factory.makeAccountInfoLifetime(lifetimeId: lifetimeId,
                                                     uiSystem: uiSystem)
@@ -80,7 +76,7 @@ extension AccountNavigationLifecycle {
             return
         }
 
-        let lifetimeId = AccountDetailLifetimeId(instanceId: self.idGenerator.generate(),
+        let lifetimeId = AccountDetailLifetimeId(instanceId: Factory.makeInstanceId(),
                                                  account: self.accountLifetimeId)
         let lifetime = Factory.makeAccountDetailLifetime(lifetimeId: lifetimeId)
 

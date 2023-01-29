@@ -23,6 +23,7 @@ protocol FactoryForAccountNavigationLifecycle {
     associatedtype AccountInfoLifetime: AccountInfoLifetimeForLifecycle
     associatedtype AccountDetailLifetime: AccountDetailLifetimeForLifecycle
 
+    static func makeInstanceId() -> InstanceId
     static func makeAccountMenuLifetime(
         lifetimeId: AccountMenuLifetimeId,
         navigationLifecycle: AccountNavigationLifecycle<Self>

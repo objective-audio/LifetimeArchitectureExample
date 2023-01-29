@@ -9,6 +9,12 @@ struct AccountNavigationFactory {}
 
 // MARK: -
 
+extension AccountNavigationFactory {
+    static func makeInstanceId() -> InstanceId { .init() }
+}
+
+// MARK: -
+
 extension ActionSender: AccountMenuInteractor.ActionSender {}
 extension AccountNavigationLifecycle: AccountMenuInteractor.NavigationLifecycle {}
 extension AccountMenuLifetime: AccountMenuLifetimeForLifecycle {}
