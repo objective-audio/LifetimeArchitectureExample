@@ -18,9 +18,9 @@ final class LaunchInteractor {
     private unowned var accountRepository: AccountRepository?
 
     init(sceneLifetimeId: SceneLifetimeId,
-         sceneLifecycle: SceneLifecycle?,
-         rootLifecycle: RootLifecycle?,
-         accountRepository: AccountRepository?) {
+         sceneLifecycle: SceneLifecycle,
+         rootLifecycle: RootLifecycle,
+         accountRepository: AccountRepository) {
         self.sceneLifetimeId = sceneLifetimeId
         self.sceneLifecycle = sceneLifecycle
         self.rootLifecycle = rootLifecycle
