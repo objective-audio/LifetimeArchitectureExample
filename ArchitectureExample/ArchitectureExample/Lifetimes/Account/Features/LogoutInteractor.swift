@@ -12,12 +12,12 @@ final class LogoutInteractor {
     typealias AccountRepository = AccountRepositoryForLogoutInteractor
 
     private let accountId: Int
-    private weak var rootLifecycle: RootLifecycle?
-    private weak var accountRepository: AccountRepository?
+    private unowned var rootLifecycle: RootLifecycle?
+    private unowned var accountRepository: AccountRepository?
 
     init(accountId: Int,
-         rootLifecycle: RootLifecycle?,
-         accountRepository: AccountRepository?) {
+         rootLifecycle: RootLifecycle,
+         accountRepository: AccountRepository) {
         self.accountId = accountId
         self.rootLifecycle = rootLifecycle
         self.accountRepository = accountRepository

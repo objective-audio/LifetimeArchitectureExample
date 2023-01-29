@@ -16,9 +16,9 @@ final class LoginInteractor {
     typealias Network = LoginNetworkForLoginInteractor
 
     private let sceneLifetimeId: SceneLifetimeId
-    private weak var rootLifecycle: RootLifecycle!
-    private weak var rootModalLifecycle: RootModalLifecycle!
-    private weak var accountRepository: AccountRepository!
+    private unowned let rootLifecycle: RootLifecycle
+    private unowned let rootModalLifecycle: RootModalLifecycle
+    private unowned let accountRepository: AccountRepository
     private unowned let network: Network
 
     @CurrentValue var accountId: String = ""
@@ -31,9 +31,9 @@ final class LoginInteractor {
     private var cancellables: Set<AnyCancellable> = .init()
 
     init(sceneLifetimeId: SceneLifetimeId,
-         rootLifecycle: RootLifecycle?,
-         rootModalLifecycle: RootModalLifecycle?,
-         accountRepository: AccountRepository?,
+         rootLifecycle: RootLifecycle,
+         rootModalLifecycle: RootModalLifecycle,
+         accountRepository: AccountRepository,
          network: Network) {
         self.sceneLifetimeId = sceneLifetimeId
         self.rootLifecycle = rootLifecycle
@@ -52,12 +52,6 @@ final class LoginInteractor {
             .assign(to: \.value,
                     on: self.$isConnecting)
             .store(in: &self.cancellables)
-
-        guard let rootLifecycle = rootLifecycle,
-           let rootModalLifecycle = rootModalLifecycle else {
-            assertionFailureIfNotTest()
-            return
-        }
 
         rootLifecycle.isLoginPublisher
             .combineLatest(rootModalLifecycle.hasCurrentPublisher)

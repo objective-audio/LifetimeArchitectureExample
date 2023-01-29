@@ -12,10 +12,10 @@ final class AccountDetailInteractor {
 
     private let lifetimeId: AccountDetailLifetimeId
 
-    private weak var navigationLifecycle: NavigationLifecycle?
+    private unowned var navigationLifecycle: NavigationLifecycle?
 
     init(lifetimeId: AccountDetailLifetimeId,
-         navigationLifecycle: NavigationLifecycle?) {
+         navigationLifecycle: NavigationLifecycle) {
         self.lifetimeId = lifetimeId
         self.navigationLifecycle = navigationLifecycle
     }

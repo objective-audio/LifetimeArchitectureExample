@@ -9,6 +9,12 @@ struct AccountNavigationFactory {}
 
 // MARK: -
 
+extension AccountNavigationFactory {
+    static func makeInstanceId() -> InstanceId { .init() }
+}
+
+// MARK: -
+
 extension ActionSender: AccountMenuInteractor.ActionSender {}
 extension AccountNavigationLifecycle: AccountMenuInteractor.NavigationLifecycle {}
 extension AccountMenuLifetime: AccountMenuLifetimeForLifecycle {}
@@ -19,12 +25,14 @@ extension AccountNavigationFactory {
         lifetimeId: AccountMenuLifetimeId,
         navigationLifecycle: AccountNavigationLifecycle<Self>
     ) -> AccountMenuLifetime {
-        let appLifetime = LifetimeAccessor.app
+        guard let appLifetime = LifetimeAccessor.app else {
+            fatalError()
+        }
 
         return .init(lifetimeId: lifetimeId,
                      interactor: .init(lifetimeId: lifetimeId,
                                        navigationLifecycle: navigationLifecycle,
-                                       actionSender: appLifetime?.actionSender))
+                                       actionSender: appLifetime.actionSender))
     }
 }
 
@@ -40,16 +48,18 @@ extension AccountNavigationFactory {
         lifetimeId: AccountInfoLifetimeId,
         uiSystem: UISystem
     ) -> AccountInfoLifetime {
-        let sceneLifetime = LifetimeAccessor.scene(id: lifetimeId.account.scene)
-        let accountLifetime = LifetimeAccessor.account(id: lifetimeId.account)
+        guard let sceneLifetime = LifetimeAccessor.scene(id: lifetimeId.account.scene),
+              let accountLifetime = LifetimeAccessor.account(id: lifetimeId.account) else {
+            fatalError()
+        }
 
         return .init(lifetimeId: lifetimeId,
                      uiSystem: uiSystem,
                      interactor: .init(uiSystem: uiSystem,
                                        lifetimeId: lifetimeId,
-                                       accountHolder: accountLifetime?.accountHolder,
-                                       navigationLifecycle: accountLifetime?.navigationLifecycle,
-                                       rootModalLifecycle: sceneLifetime?.rootModalLifecycle))
+                                       accountHolder: accountLifetime.accountHolder,
+                                       navigationLifecycle: accountLifetime.navigationLifecycle,
+                                       rootModalLifecycle: sceneLifetime.rootModalLifecycle))
     }
 }
 
@@ -60,10 +70,12 @@ extension AccountDetailLifetime: AccountDetailLifetimeForLifecycle {}
 
 extension AccountNavigationFactory {
     static func makeAccountDetailLifetime(lifetimeId: AccountDetailLifetimeId) -> AccountDetailLifetime {
-        let accountLifetime = LifetimeAccessor.account(id: lifetimeId.account)
+        guard let accountLifetime = LifetimeAccessor.account(id: lifetimeId.account) else {
+            fatalError()
+        }
 
         return .init(lifetimeId: lifetimeId,
                      interactor: .init(lifetimeId: lifetimeId,
-                                       navigationLifecycle: accountLifetime?.navigationLifecycle))
+                                       navigationLifecycle: accountLifetime.navigationLifecycle))
     }
 }

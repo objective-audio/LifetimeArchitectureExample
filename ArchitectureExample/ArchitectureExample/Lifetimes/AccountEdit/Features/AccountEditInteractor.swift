@@ -17,10 +17,10 @@ final class AccountEditInteractor {
 
     private let lifetimeId: AccountEditLifetimeId
 
-    private weak var accountHolder: AccountHolder?
-    private weak var rootModalLifecycle: RootModalLifecycle?
-    private weak var accountEditModalLifecycle: AccountEditModalLifecycle?
-    private weak var actionSender: ActionSender?
+    private unowned var accountHolder: AccountHolder?
+    private unowned var rootModalLifecycle: RootModalLifecycle?
+    private unowned var accountEditModalLifecycle: AccountEditModalLifecycle?
+    private unowned var actionSender: ActionSender?
 
     @CurrentValue var name: String
     @CurrentValue private(set) var isEdited: Bool = false
@@ -29,18 +29,18 @@ final class AccountEditInteractor {
     private var cancellables: Set<AnyCancellable> = .init()
 
     init(lifetimeId: AccountEditLifetimeId,
-         accountHolder: AccountHolder?,
-         rootModalLifecycle: RootModalLifecycle?,
-         accountEditModalLifecycle: AccountEditModalLifecycle?,
-         actionSender: ActionSender?) {
+         accountHolder: AccountHolder,
+         rootModalLifecycle: RootModalLifecycle,
+         accountEditModalLifecycle: AccountEditModalLifecycle,
+         actionSender: ActionSender) {
         self.lifetimeId = lifetimeId
         self.accountHolder = accountHolder
         self.rootModalLifecycle = rootModalLifecycle
         self.accountEditModalLifecycle = accountEditModalLifecycle
         self.actionSender = actionSender
-        self.name = accountHolder?.name ?? ""
+        self.name = accountHolder.name
 
-        let originalName = self.accountHolder?.name
+        let originalName = accountHolder.name
         self.$name
             .map { !$0.isEmpty && $0 != originalName }
             .removeDuplicates()
@@ -48,7 +48,7 @@ final class AccountEditInteractor {
                     on: $isEdited)
             .store(in: &self.cancellables)
 
-        accountEditModalLifecycle?.hasCurrentPublisher
+        accountEditModalLifecycle.hasCurrentPublisher
             .map { !$0 }
             .assign(to: \.value,
                     on: self.$canEdit)

@@ -20,6 +20,7 @@ protocol FactoryForRootModalLifecycle {
     associatedtype AccountEditLifetime: AccountEditLifetimeForLifecycle
     associatedtype RootAlertLifetime: RootAlertLifetimeForLifecycle
 
+    static func makeInstanceId() -> InstanceId
     static func makeAccountEditLifetime(lifetimeId: AccountEditLifetimeId) -> AccountEditLifetime
     static func makeRootAlertLifetime(lifetimeId: RootAlertLifetimeId,
                                       alertId: RootAlertId) -> RootAlertLifetime

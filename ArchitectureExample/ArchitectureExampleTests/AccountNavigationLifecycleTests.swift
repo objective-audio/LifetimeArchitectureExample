@@ -22,6 +22,12 @@ private struct AccountDetailLifetimeStub: AccountDetailLifetimeForLifecycle {
 }
 
 private struct FactoryStub: FactoryForAccountNavigationLifecycle {
+    static var idGenerator: InstanceIdGenerator!
+
+    static func makeInstanceId() -> InstanceId {
+        self.idGenerator.generate()
+    }
+
     static func makeAccountMenuLifetime(
         lifetimeId: AccountMenuLifetimeId,
         navigationLifecycle: AccountNavigationLifecycle<Self>
@@ -42,24 +48,21 @@ private struct FactoryStub: FactoryForAccountNavigationLifecycle {
 @MainActor
 class AccountNavigationLifecycleTests: XCTestCase {
     private var accountLifetimeId: AccountLifetimeId!
-    private var idGenerator: InstanceIdGeneratorStub!
 
     @MainActor
     override func setUpWithError() throws {
         self.accountLifetimeId = AccountLifetimeId(scene: .init(instanceId: .init()),
                                                    accountId: 1)
-        self.idGenerator = .init()
+        FactoryStub.idGenerator = .init()
     }
 
     @MainActor
     override func tearDownWithError() throws {
         self.accountLifetimeId = nil
-        self.idGenerator = nil
     }
 
     func testPushAndPop() {
-        let lifecycle = AccountNavigationLifecycle<FactoryStub>(accountLifetimeId: self.accountLifetimeId,
-                                                                          idGenerator: self.idGenerator)
+        let lifecycle = AccountNavigationLifecycle<FactoryStub>(accountLifetimeId: self.accountLifetimeId)
 
         var calledStacks: [[AccountNavigationSubLifetime<FactoryStub>]] = []
 
@@ -76,7 +79,7 @@ class AccountNavigationLifecycleTests: XCTestCase {
             }
             XCTAssertEqual(calledStacks.count, 1)
             XCTAssertEqual(calledStacks[0].count, 1)
-            XCTAssertEqual(self.idGenerator.genarated.count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         XCTContext.runActivity(named: "menuがあればinfoをpushできる") { _ in
@@ -91,7 +94,7 @@ class AccountNavigationLifecycleTests: XCTestCase {
             }
             XCTAssertEqual(calledStacks.count, 2)
             XCTAssertEqual(calledStacks[1].count, 2)
-            XCTAssertEqual(self.idGenerator.genarated.count, 2)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 2)
         }
 
         XCTContext.runActivity(named: "infoがあれば何もpushできない") { _ in
@@ -100,7 +103,7 @@ class AccountNavigationLifecycleTests: XCTestCase {
 
             XCTAssertEqual(lifecycle.stack.count, 2)
             XCTAssertEqual(calledStacks.count, 2)
-            XCTAssertEqual(self.idGenerator.genarated.count, 2)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 2)
         }
 
         XCTContext.runActivity(named: "lifetimeIdが一致しなければinfoをpopできない") { _ in
@@ -109,11 +112,11 @@ class AccountNavigationLifecycleTests: XCTestCase {
 
             XCTAssertEqual(lifecycle.stack.count, 2)
             XCTAssertEqual(calledStacks.count, 2)
-            XCTAssertEqual(self.idGenerator.genarated.count, 2)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 2)
         }
 
         XCTContext.runActivity(named: "lifetimeIdが一致すればinfoをpopできる") { _ in
-            lifecycle.popInfo(lifetimeId: .init(instanceId: self.idGenerator.genarated[1],
+            lifecycle.popInfo(lifetimeId: .init(instanceId: FactoryStub.idGenerator.genarated[1],
                                                 account: self.accountLifetimeId))
 
             XCTAssertEqual(lifecycle.stack.count, 1)
@@ -123,7 +126,7 @@ class AccountNavigationLifecycleTests: XCTestCase {
             }
             XCTAssertEqual(calledStacks.count, 3)
             XCTAssertEqual(calledStacks[2].count, 1)
-            XCTAssertEqual(self.idGenerator.genarated.count, 2)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 2)
         }
 
         XCTContext.runActivity(named: "menuだけがあればinfoをpushできる") { _ in
@@ -138,7 +141,7 @@ class AccountNavigationLifecycleTests: XCTestCase {
             }
             XCTAssertEqual(calledStacks.count, 4)
             XCTAssertEqual(calledStacks[3].count, 2)
-            XCTAssertEqual(self.idGenerator.genarated.count, 3)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 3)
         }
 
         #warning("todo detailへのpushをテストする")

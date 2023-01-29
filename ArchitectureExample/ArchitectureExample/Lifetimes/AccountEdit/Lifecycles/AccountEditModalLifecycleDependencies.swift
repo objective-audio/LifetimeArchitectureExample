@@ -12,6 +12,7 @@ protocol AccountEditAlertLifetimeForLifecycle {
 protocol FactoryForAccountEditModalLifecycle {
     associatedtype AccountEditAlertLifetime: AccountEditAlertLifetimeForLifecycle
 
+    static func makeInstanceId() -> InstanceId
     static func makeAccountEditAlertLifetime(lifetimeId: AccountEditAlertLifetimeId,
                                              alertId: AccountEditAlertId) -> AccountEditAlertLifetime
 }

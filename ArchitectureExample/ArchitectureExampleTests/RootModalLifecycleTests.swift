@@ -20,6 +20,11 @@ private struct RootAlertLifetimeStub: RootAlertLifetimeForLifecycle {
 }
 
 private struct FactoryStub: FactoryForRootModalLifecycle {
+    static var idGenerator: InstanceIdGenerator!
+    static func makeInstanceId() -> InstanceId {
+        self.idGenerator.generate()
+    }
+
     static func makeAccountEditLifetime(lifetimeId: AccountEditLifetimeId) -> AccountEditLifetimeStub {
         .init(lifetimeId: lifetimeId)
     }
@@ -33,23 +38,21 @@ private struct FactoryStub: FactoryForRootModalLifecycle {
 @MainActor
 class RootModalLifecycleTests: XCTestCase {
     private var sceneLifetimeId: SceneLifetimeId!
-    private var idGenerator: InstanceIdGeneratorStub!
 
     @MainActor
     override func setUpWithError() throws {
         self.sceneLifetimeId = .init(instanceId: .init())
-        self.idGenerator = .init()
+        FactoryStub.idGenerator = .init()
     }
 
     @MainActor
     override func tearDownWithError() throws {
         self.sceneLifetimeId = nil
-        self.idGenerator = nil
+        FactoryStub.idGenerator = nil
     }
 
     func testAddAndRemoveAlert() throws {
-        let lifecycle = RootModalLifecycle<FactoryStub>(sceneLifetimeId: self.sceneLifetimeId,
-                                                        idGenerator: self.idGenerator)
+        let lifecycle = RootModalLifecycle<FactoryStub>(sceneLifetimeId: self.sceneLifetimeId)
 
         var called: [RootModalSubLifetime<FactoryStub>?] = []
 
@@ -66,7 +69,7 @@ class RootModalLifecycleTests: XCTestCase {
                                                     scene: self.sceneLifetimeId))
 
             XCTAssertEqual(called.count, 1)
-            XCTAssertEqual(self.idGenerator.genarated.count, 0)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 0)
         }
 
         XCTContext.runActivity(named: "currentがnilでaddを呼んだらcurrentが更新される") { _ in
@@ -88,14 +91,14 @@ class RootModalLifecycleTests: XCTestCase {
                 return
             }
 
-            XCTAssertEqual(self.idGenerator.genarated.count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         XCTContext.runActivity(named: "currentがあるときにaddを呼んでも何もしない") { _ in
             lifecycle.addAlert(id: .loginFailed(.other))
 
             XCTAssertEqual(called.count, 2)
-            XCTAssertEqual(self.idGenerator.genarated.count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         XCTContext.runActivity(named: "addされているalertと違うlifetimeIdでremoveしようとしても何もしない") { _ in
@@ -103,7 +106,7 @@ class RootModalLifecycleTests: XCTestCase {
                                                     scene: self.sceneLifetimeId))
 
             XCTAssertEqual(called.count, 2)
-            XCTAssertEqual(self.idGenerator.genarated.count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         XCTContext.runActivity(named: "addされているalertをremoveしたらcurrentがnilになる") { _ in
@@ -113,14 +116,14 @@ class RootModalLifecycleTests: XCTestCase {
                 return
             }
 
-            let lifetimeId = RootAlertLifetimeId(instanceId: self.idGenerator.genarated[0],
+            let lifetimeId = RootAlertLifetimeId(instanceId: FactoryStub.idGenerator.genarated[0],
                                                  scene: self.sceneLifetimeId)
             lifecycle.removeAlert(lifetimeId: lifetimeId)
 
             XCTAssertNil(lifecycle.current)
             XCTAssertEqual(called.count, 3)
             XCTAssertNil(called[2])
-            XCTAssertEqual(self.idGenerator.genarated.count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         canceller.cancel()
@@ -130,8 +133,7 @@ class RootModalLifecycleTests: XCTestCase {
         let accountLifetimeId = AccountLifetimeId(scene: self.sceneLifetimeId,
                                                   accountId: 123)
 
-        let lifecycle = RootModalLifecycle<FactoryStub>(sceneLifetimeId: self.sceneLifetimeId,
-                                                        idGenerator: self.idGenerator)
+        let lifecycle = RootModalLifecycle<FactoryStub>(sceneLifetimeId: self.sceneLifetimeId)
 
         var called: [RootModalSubLifetime<FactoryStub>?] = []
 
@@ -148,7 +150,7 @@ class RootModalLifecycleTests: XCTestCase {
                                                           account: accountLifetimeId))
 
             XCTAssertEqual(called.count, 1)
-            XCTAssertEqual(self.idGenerator.genarated.count, 0)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 0)
         }
 
         XCTContext.runActivity(named: "currentがnilでaddを呼んだらcurrentが更新される") { _ in
@@ -170,14 +172,14 @@ class RootModalLifecycleTests: XCTestCase {
                 return
             }
 
-            XCTAssertEqual(self.idGenerator.genarated.count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         XCTContext.runActivity(named: "currentがあるときにaddを呼んでも何もしない") { _ in
             lifecycle.addAccountEdit(accountLifetimeId: accountLifetimeId)
 
             XCTAssertEqual(called.count, 2)
-            XCTAssertEqual(self.idGenerator.genarated.count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         XCTContext.runActivity(named: "addされているものと違うlifetimeIdでremoveを呼んでも何もしない") { _ in
@@ -193,7 +195,7 @@ class RootModalLifecycleTests: XCTestCase {
             lifecycle.removeAccountEdit(lifetimeId: otherId)
 
             XCTAssertEqual(called.count, 2)
-            XCTAssertEqual(self.idGenerator.genarated.count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         XCTContext.runActivity(named: "addされているものをremoveしたらcurrentがnilになる") { _ in
@@ -208,7 +210,7 @@ class RootModalLifecycleTests: XCTestCase {
             XCTAssertNil(lifecycle.current)
             XCTAssertEqual(called.count, 3)
             XCTAssertNil(called[2])
-            XCTAssertEqual(self.idGenerator.genarated.count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         canceller.cancel()

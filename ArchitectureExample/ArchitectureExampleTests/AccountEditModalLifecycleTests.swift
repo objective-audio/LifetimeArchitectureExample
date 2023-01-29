@@ -6,13 +6,18 @@ import XCTest
 @testable import ArchitectureExample
 
 private struct AccountEditAlertLifetimeStub: AccountEditAlertLifetimeForLifecycle {
-    let lifetimeId: ArchitectureExample.AccountEditAlertLifetimeId
-    let alertId: ArchitectureExample.AccountEditAlertId
-    var interactor: ArchitectureExample.AccountEditAlertInteractor { fatalError() }
-    var receiver: ArchitectureExample.AccountEditAlertReceiver { fatalError() }
+    let lifetimeId: AccountEditAlertLifetimeId
+    let alertId: AccountEditAlertId
+    var interactor: AccountEditAlertInteractor { fatalError() }
+    var receiver: AccountEditAlertReceiver { fatalError() }
 }
 
 private struct FactoryStub: FactoryForAccountEditModalLifecycle {
+    static var idGenerator: InstanceIdGenerator!
+    static func makeInstanceId() -> InstanceId {
+        self.idGenerator.generate()
+    }
+
     static func makeAccountEditAlertLifetime(lifetimeId: AccountEditAlertLifetimeId,
                                              alertId: AccountEditAlertId) -> AccountEditAlertLifetimeStub {
         .init(lifetimeId: lifetimeId, alertId: alertId)
@@ -22,25 +27,23 @@ private struct FactoryStub: FactoryForAccountEditModalLifecycle {
 @MainActor
 class AccountEditModalLifecycleTests: XCTestCase {
     private var accountEditLifetimeId: AccountEditLifetimeId!
-    private var idGenerator: InstanceIdGeneratorStub!
 
     @MainActor
     override func setUpWithError() throws {
         self.accountEditLifetimeId = .init(instanceId: .init(),
                                            account: .init(scene: .init(instanceId: .init()),
                                                           accountId: 123))
-        self.idGenerator = .init()
+        FactoryStub.idGenerator = .init()
     }
 
     @MainActor
     override func tearDownWithError() throws {
         self.accountEditLifetimeId = nil
-        self.idGenerator = nil
+        FactoryStub.idGenerator = nil
     }
 
     func testAddAndRemoveAlert() throws {
-        let lifecycle = AccountEditModalLifecycle<FactoryStub>(lifetimeId: self.accountEditLifetimeId,
-                                                               idGenerator: self.idGenerator)
+        let lifecycle = AccountEditModalLifecycle<FactoryStub>(lifetimeId: self.accountEditLifetimeId)
 
         var called: [AccountEditModalSubLifetime<FactoryStub>?] = []
 
@@ -57,7 +60,7 @@ class AccountEditModalLifecycleTests: XCTestCase {
                                                     accountEdit: self.accountEditLifetimeId))
 
             XCTAssertEqual(called.count, 1)
-            XCTAssertEqual(self.idGenerator.genarated.count, 0)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 0)
         }
 
         XCTContext.runActivity(named: "currentがnilでaddAlertを呼んでcurrentが更新される") { _ in
@@ -78,14 +81,14 @@ class AccountEditModalLifecycleTests: XCTestCase {
                 return
             }
 
-            XCTAssertEqual(self.idGenerator.genarated.count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         XCTContext.runActivity(named: "currentがあるときにaddAlertを呼んでも何もしない") { _ in
             lifecycle.addAlert(id: .destruct)
 
             XCTAssertEqual(called.count, 2)
-            XCTAssertEqual(self.idGenerator.genarated.count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         XCTContext.runActivity(named: "addされているものと違うlifetimeIdでremoveを呼んでも何もしない") { _ in
@@ -93,7 +96,7 @@ class AccountEditModalLifecycleTests: XCTestCase {
                                                     accountEdit: self.accountEditLifetimeId))
 
             XCTAssertEqual(called.count, 2)
-            XCTAssertEqual(self.idGenerator.genarated.count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         XCTContext.runActivity(named: "addされているものと一致するidでremoveを呼ぶとcurrentがnilになる") { _ in
@@ -108,7 +111,7 @@ class AccountEditModalLifecycleTests: XCTestCase {
             XCTAssertNil(lifecycle.current)
             XCTAssertEqual(called.count, 3)
             XCTAssertNil(called[2])
-            XCTAssertEqual(self.idGenerator.genarated.count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         canceller.cancel()

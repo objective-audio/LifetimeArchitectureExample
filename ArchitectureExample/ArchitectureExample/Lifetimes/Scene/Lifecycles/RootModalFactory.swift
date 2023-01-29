@@ -7,6 +7,12 @@ struct RootModalFactory {}
 
 // MARK: -
 
+extension RootModalFactory {
+    static func makeInstanceId() -> InstanceId { .init() }
+}
+
+// MARK: -
+
 extension AccountHolder: AccountEditInteractor.AccountHolder {}
 extension RootModalLifecycle: AccountEditInteractor.RootModalLifecycle {}
 extension AccountEditModalLifecycle: AccountEditInteractor.AccountEditModalLifecycle {}
@@ -22,16 +28,18 @@ extension RootModalFactory {
     static func makeAccountEditLifetime(lifetimeId: AccountEditLifetimeId) -> AccountEditLifetime {
         let accountLifetimeId = lifetimeId.account
 
-        let appLifetime = LifetimeAccessor.app
-        let sceneLifetime = LifetimeAccessor.scene(id: accountLifetimeId.scene)
-        let accountLifetime = LifetimeAccessor.account(id: accountLifetimeId)
+        guard let appLifetime = LifetimeAccessor.app,
+              let sceneLifetime = LifetimeAccessor.scene(id: accountLifetimeId.scene),
+              let accountLifetime = LifetimeAccessor.account(id: accountLifetimeId) else {
+            fatalError()
+        }
 
         let modalLifecycle = AccountEditModalLifecycle<AccountEditModalFactory>(lifetimeId: lifetimeId)
         let interactor = AccountEditInteractor(lifetimeId: lifetimeId,
-                                               accountHolder: accountLifetime?.accountHolder,
-                                               rootModalLifecycle: sceneLifetime?.rootModalLifecycle,
+                                               accountHolder: accountLifetime.accountHolder,
+                                               rootModalLifecycle: sceneLifetime.rootModalLifecycle,
                                                accountEditModalLifecycle: modalLifecycle,
-                                               actionSender: appLifetime?.actionSender)
+                                               actionSender: appLifetime.actionSender)
         let actionReceiver = AccountEditReceiver(accountLifetimeId: accountLifetimeId,
                                                  accountEditModalLifecycle: modalLifecycle,
                                                  interactor: interactor)
@@ -51,13 +59,15 @@ extension RootAlertLifetime: RootAlertLifetimeForLifecycle {}
 extension RootModalFactory {
     static func makeRootAlertLifetime(lifetimeId: RootAlertLifetimeId,
                                       alertId: RootAlertId) -> RootAlertLifetime {
-        let sceneLifetime = LifetimeAccessor.scene(id: lifetimeId.scene)
+        guard let sceneLifetime = LifetimeAccessor.scene(id: lifetimeId.scene) else {
+            fatalError()
+        }
 
         return .init(lifetimeId: lifetimeId,
                      alertId: alertId,
                      interactor: .init(lifetimeId: lifetimeId,
                                        alertId: alertId,
-                                       modalLifecycle: sceneLifetime?.rootModalLifecycle),
+                                       modalLifecycle: sceneLifetime.rootModalLifecycle),
                      receiver: .init())
     }
 }
