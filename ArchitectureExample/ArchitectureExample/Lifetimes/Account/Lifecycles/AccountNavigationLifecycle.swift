@@ -41,7 +41,7 @@ extension AccountNavigationLifecycle {
         let lifetimeId = AccountInfoLifetimeId(instanceId: Factory.makeInstanceId(),
                                                account: self.accountLifetimeId)
         let lifetime = Factory.makeAccountInfoLifetime(lifetimeId: lifetimeId,
-                                                    uiSystem: uiSystem)
+                                                       uiSystem: uiSystem)
         self.stack.append(.info(lifetime))
     }
 
