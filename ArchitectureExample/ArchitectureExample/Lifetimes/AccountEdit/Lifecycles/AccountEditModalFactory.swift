@@ -9,6 +9,8 @@ extension AccountEditAlertLifetime: AccountEditAlertLifetimeForLifecycle {}
 
 @MainActor
 struct AccountEditModalFactory {
+    static func makeInstanceId() -> InstanceId { .init() }
+
     static func makeAccountEditAlertLifetime(lifetimeId: AccountEditAlertLifetimeId,
                                              alertId: AccountEditAlertId) -> AccountEditAlertLifetime {
         guard let accountEditLifetime = LifetimeAccessor.accountEdit(id: lifetimeId.accountEdit) else {

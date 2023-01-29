@@ -14,12 +14,8 @@ final class AccountEditModalLifecycle<Factory: FactoryForAccountEditModalLifecyc
 
     @CurrentValue private(set) var current: AccountEditModalSubLifetime<Factory>?
 
-    private let idGenerator: InstanceIdGeneratable
-
-    init(lifetimeId: AccountEditLifetimeId,
-         idGenerator: InstanceIdGeneratable) {
+    init(lifetimeId: AccountEditLifetimeId) {
         self.lifetimeId = lifetimeId
-        self.idGenerator = idGenerator
     }
 }
 
@@ -36,7 +32,7 @@ extension AccountEditModalLifecycle {
             return
         }
 
-        let lifetimeId = AccountEditAlertLifetimeId(instanceId: self.idGenerator.generate(),
+        let lifetimeId = AccountEditAlertLifetimeId(instanceId: Factory.makeInstanceId(),
                                                     accountEdit: self.lifetimeId)
         let lifetime = Factory.makeAccountEditAlertLifetime(lifetimeId: lifetimeId,
                                                             alertId: alertId)
