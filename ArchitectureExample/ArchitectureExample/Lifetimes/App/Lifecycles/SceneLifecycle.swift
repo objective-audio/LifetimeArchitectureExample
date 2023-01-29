@@ -8,7 +8,7 @@
 
 @MainActor
 final class SceneLifecycle<Factory: FactoryForSceneLifecycle> {
-    private(set) var lifetimes: [SceneLifetimeForLifecycle] = []
+    private(set) var lifetimes: [Factory.SceneLifetime] = []
 }
 
 extension SceneLifecycle {
