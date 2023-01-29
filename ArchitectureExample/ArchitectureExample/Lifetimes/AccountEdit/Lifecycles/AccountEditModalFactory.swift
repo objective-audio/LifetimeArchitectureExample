@@ -8,7 +8,7 @@ extension AccountEditAlertInteractor: AccountEditAlertReceiver.Interactor {}
 extension AccountEditAlertLifetime: AccountEditAlertLifetimeForLifecycle {}
 
 @MainActor
-struct AccountEditModalFactory {
+enum AccountEditModalFactory {
     static func makeInstanceId() -> InstanceId { .init() }
 
     static func makeAccountEditAlertLifetime(lifetimeId: AccountEditAlertLifetimeId,

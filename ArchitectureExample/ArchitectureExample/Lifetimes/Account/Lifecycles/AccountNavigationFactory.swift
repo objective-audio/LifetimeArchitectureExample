@@ -5,7 +5,7 @@
 import Combine
 
 @MainActor
-struct AccountNavigationFactory {}
+enum AccountNavigationFactory {}
 
 // MARK: -
 

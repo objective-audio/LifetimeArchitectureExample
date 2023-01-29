@@ -8,7 +8,7 @@ extension AppLifetime: AppLifetimeForLifecycle {}
 extension SceneFactory: FactoryForSceneLifecycle {}
 
 @MainActor
-struct AppFactory {}
+enum AppFactory {}
 
 extension AppFactory {
     static func makeAppLifetime() -> AppLifetime {
