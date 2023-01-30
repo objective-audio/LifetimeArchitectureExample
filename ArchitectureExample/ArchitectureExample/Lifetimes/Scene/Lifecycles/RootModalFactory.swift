@@ -3,7 +3,7 @@
 //
 
 @MainActor
-struct RootModalFactory {}
+enum RootModalFactory {}
 
 // MARK: -
 

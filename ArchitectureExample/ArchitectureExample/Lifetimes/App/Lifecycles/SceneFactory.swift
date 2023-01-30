@@ -7,7 +7,7 @@ extension RootFactory: FactoryForRootLifecycle {}
 extension RootModalFactory: FactoryForRootModalLifecycle {}
 
 @MainActor
-struct SceneFactory {}
+enum SceneFactory {}
 
 extension SceneFactory {
     static func makeSceneLifetime(id: SceneLifetimeId) -> SceneLifetime {
