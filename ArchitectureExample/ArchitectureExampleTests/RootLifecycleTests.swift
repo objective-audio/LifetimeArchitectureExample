@@ -24,7 +24,7 @@ private struct AccountLifetimeStub: AccountLifetimeForLifecycle {
     var receiver: AccountReceiver<RootModalFactory> { fatalError() }
 }
 
-private struct FactoryStub: FactoryForRootLifecycle {
+private enum FactoryStub: FactoryForRootLifecycle {
     static func makeLaunchLifetime(sceneLifetimeId: SceneLifetimeId,
                                    rootLifecycle: RootLifecycle<Self>) -> LaunchLifetimeStub {
         .init(sceneLifetimeId: sceneLifetimeId)

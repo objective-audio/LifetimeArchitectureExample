@@ -21,7 +21,7 @@ private struct AccountDetailLifetimeStub: AccountDetailLifetimeForLifecycle {
     var interactor: AccountDetailInteractor { fatalError() }
 }
 
-private struct FactoryStub: FactoryForAccountNavigationLifecycle {
+private enum FactoryStub: FactoryForAccountNavigationLifecycle {
     static var idGenerator: InstanceIdGenerator!
 
     static func makeInstanceId() -> InstanceId {

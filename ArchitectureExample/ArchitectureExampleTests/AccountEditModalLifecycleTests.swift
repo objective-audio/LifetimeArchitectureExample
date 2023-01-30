@@ -12,7 +12,7 @@ private struct AccountEditAlertLifetimeStub: AccountEditAlertLifetimeForLifecycl
     var receiver: AccountEditAlertReceiver { fatalError() }
 }
 
-private struct FactoryStub: FactoryForAccountEditModalLifecycle {
+private enum FactoryStub: FactoryForAccountEditModalLifecycle {
     static var idGenerator: InstanceIdGenerator!
     static func makeInstanceId() -> InstanceId {
         self.idGenerator.generate()

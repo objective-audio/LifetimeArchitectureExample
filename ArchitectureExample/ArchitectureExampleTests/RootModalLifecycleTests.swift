@@ -19,7 +19,7 @@ private struct RootAlertLifetimeStub: RootAlertLifetimeForLifecycle {
     var receiver: RootAlertReceiver { fatalError() }
 }
 
-private struct FactoryStub: FactoryForRootModalLifecycle {
+private enum FactoryStub: FactoryForRootModalLifecycle {
     static var idGenerator: InstanceIdGenerator!
     static func makeInstanceId() -> InstanceId {
         self.idGenerator.generate()
