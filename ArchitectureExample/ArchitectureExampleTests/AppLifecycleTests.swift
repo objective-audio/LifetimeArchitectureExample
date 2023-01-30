@@ -12,7 +12,7 @@ private struct AppLifetimeStub: AppLifetimeForLifecycle {
     var actionSender: ActionSender { fatalError() }
 }
 
-private struct FactoryStub: FactoryForAppLifecycle {
+private enum FactoryStub: FactoryForAppLifecycle {
     static func makeAppLifetime() -> AppLifetimeStub {
         .init()
     }

@@ -11,7 +11,7 @@ private struct SceneLifetimeStub: SceneLifetimeForLifecycle {
     var rootModalLifecycle: RootModalLifecycle<RootModalFactory> { fatalError() }
 }
 
-private struct FactoryStub: FactoryForSceneLifecycle {
+private enum FactoryStub: FactoryForSceneLifecycle {
     static func makeSceneLifetime(id: SceneLifetimeId) -> SceneLifetimeStub {
         .init(lifetimeId: id)
     }
