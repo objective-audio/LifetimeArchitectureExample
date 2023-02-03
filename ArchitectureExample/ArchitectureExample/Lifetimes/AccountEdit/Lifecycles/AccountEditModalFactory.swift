@@ -2,8 +2,8 @@
 //  AccountEditModalFactory.swift
 //
 
-extension AccountEditModalLifecycle: AccountEditAlertInteractor.ModalLifecycle {}
-extension AccountEditInteractor: AccountEditAlertInteractor.AccountEditInteractor {}
+extension AccountEditModalLifecycle: AccountEditModalLifecycleForAccountEditAlertInteractor {}
+extension AccountEditInteractor: AccountEditInteractorForAccountEditAlertInteractor {}
 extension AccountEditAlertInteractor: AccountEditAlertReceiver.Interactor {}
 extension AccountEditAlertLifetime: AccountEditAlertLifetimeForLifecycle {}
 
