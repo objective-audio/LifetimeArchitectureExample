@@ -15,8 +15,8 @@ extension AccountNavigationFactory {
 
 // MARK: -
 
-extension ActionSender: AccountMenuInteractor.ActionSender {}
-extension AccountNavigationLifecycle: AccountMenuInteractor.NavigationLifecycle {}
+extension ActionSender: ActionSenderForAccountMenuInteractor {}
+extension AccountNavigationLifecycle: AccountNavigationLifecycleForAccountMenuInteractor {}
 extension AccountMenuLifetime: AccountMenuLifetimeForLifecycle {}
 extension AccountNavigationFactory: FactoryForAccountNavigationLifecycle {}
 
