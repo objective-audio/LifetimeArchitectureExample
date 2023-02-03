@@ -13,10 +13,10 @@ extension RootModalFactory {
 
 // MARK: -
 
-extension AccountHolder: AccountEditInteractor.AccountHolder {}
-extension RootModalLifecycle: AccountEditInteractor.RootModalLifecycle {}
-extension AccountEditModalLifecycle: AccountEditInteractor.AccountEditModalLifecycle {}
-extension ActionSender: AccountEditInteractor.ActionSender {}
+extension AccountHolder: AccountHolderForAccountEditInteractor {}
+extension RootModalLifecycle: RootModalLifecycleForAccountEditInteractor {}
+extension AccountEditModalLifecycle: AccountEditModalLifecycleForAccountEditInteractor {}
+extension ActionSender: ActionSenderForAccountEditInteractor {}
 
 extension AccountEditModalLifecycle: AccountEditModalLifecycleForAccountEditReceiver {}
 extension AccountEditInteractor: AccountEditInteractorForAccountEditReceiver {}

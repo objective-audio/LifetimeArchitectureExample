@@ -6,11 +6,11 @@ import XCTest
 import Combine
 @testable import ArchitectureExample
 
-private class AccountHolderStub: AccountEditInteractor.AccountHolder {
+private class AccountHolderStub: AccountHolderForAccountEditInteractor {
     var name: String = ""
 }
 
-private class RootModalLifecycleStub: AccountEditInteractor.RootModalLifecycle {
+private class RootModalLifecycleStub: RootModalLifecycleForAccountEditInteractor {
     var removeHandler: (AccountEditLifetimeId) -> Void = { _ in }
 
     func removeAccountEdit(lifetimeId: AccountEditLifetimeId) {
@@ -18,7 +18,7 @@ private class RootModalLifecycleStub: AccountEditInteractor.RootModalLifecycle {
     }
 }
 
-private class AccountEditModalLifecycleStub: AccountEditInteractor.AccountEditModalLifecycle {
+private class AccountEditModalLifecycleStub: AccountEditModalLifecycleForAccountEditInteractor {
     var addHandler: (AccountEditAlertId) -> Void = { _ in }
 
     @CurrentValue var hasCurrent: Bool = false
@@ -32,7 +32,7 @@ private class AccountEditModalLifecycleStub: AccountEditInteractor.AccountEditMo
     }
 }
 
-private class ActionSenderStub: AccountEditInteractor.ActionSender {
+private class ActionSenderStub: ActionSenderForAccountEditInteractor {
     func sendLogout(accountLifetimeId: AccountLifetimeId) {}
 }
 
