@@ -8,19 +8,15 @@
 
 @MainActor
 final class LaunchInteractor {
-    typealias SceneLifecycle = SceneLifecycleForLaunchInteractor
-    typealias RootLifecycle = RootLifecycleForLaunchInteractor
-    typealias AccountRepository = AccountRepositoryForLaunchInteractor
-
     private let sceneLifetimeId: SceneLifetimeId
-    private unowned var sceneLifecycle: SceneLifecycle?
-    private unowned var rootLifecycle: RootLifecycle?
-    private unowned var accountRepository: AccountRepository?
+    private unowned var sceneLifecycle: SceneLifecycleForLaunchInteractor?
+    private unowned var rootLifecycle: RootLifecycleForLaunchInteractor?
+    private unowned var accountRepository: AccountRepositoryForLaunchInteractor?
 
     init(sceneLifetimeId: SceneLifetimeId,
-         sceneLifecycle: SceneLifecycle,
-         rootLifecycle: RootLifecycle,
-         accountRepository: AccountRepository) {
+         sceneLifecycle: SceneLifecycleForLaunchInteractor,
+         rootLifecycle: RootLifecycleForLaunchInteractor,
+         accountRepository: AccountRepositoryForLaunchInteractor) {
         self.sceneLifetimeId = sceneLifetimeId
         self.sceneLifecycle = sceneLifecycle
         self.rootLifecycle = rootLifecycle

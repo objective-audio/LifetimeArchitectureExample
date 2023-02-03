@@ -7,9 +7,9 @@ enum RootFactory {}
 
 // MARK: -
 
-extension SceneLifecycle: LaunchInteractor.SceneLifecycle {}
-extension RootLifecycle: LaunchInteractor.RootLifecycle {}
-extension AccountRepository: LaunchInteractor.AccountRepository {}
+extension SceneLifecycle: SceneLifecycleForLaunchInteractor {}
+extension RootLifecycle: RootLifecycleForLaunchInteractor {}
+extension AccountRepository: AccountRepositoryForLaunchInteractor {}
 extension LaunchLifetime: LaunchLifetimeForLifecycle {}
 
 extension RootFactory {
