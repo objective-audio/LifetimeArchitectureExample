@@ -18,8 +18,8 @@ extension RootModalLifecycle: AccountEditInteractor.RootModalLifecycle {}
 extension AccountEditModalLifecycle: AccountEditInteractor.AccountEditModalLifecycle {}
 extension ActionSender: AccountEditInteractor.ActionSender {}
 
-extension AccountEditModalLifecycle: AccountEditReceiver.AccountEditModalLifecycle {}
-extension AccountEditInteractor: AccountEditReceiver.AccountEditInteractor {}
+extension AccountEditModalLifecycle: AccountEditModalLifecycleForAccountEditReceiver {}
+extension AccountEditInteractor: AccountEditInteractorForAccountEditReceiver {}
 
 extension AccountEditLifetime: AccountEditLifetimeForLifecycle {}
 extension AccountEditModalFactory: FactoryForAccountEditModalLifecycle {}

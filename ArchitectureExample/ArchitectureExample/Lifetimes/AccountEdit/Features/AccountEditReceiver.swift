@@ -3,16 +3,13 @@
 //
 
 final class AccountEditReceiver: ActionReceivable {
-    typealias AccountEditModalLifecycle = AccountEditModalLifecycleForAccountEditReceiver
-    typealias AccountEditInteractor = AccountEditInteractorForAccountEditReceiver
-
     private let accountLifetimeId: AccountLifetimeId
-    private unowned let accountEditModalLifecycle: AccountEditModalLifecycle
-    private unowned let interactor: AccountEditInteractor
+    private unowned let accountEditModalLifecycle: AccountEditModalLifecycleForAccountEditReceiver
+    private unowned let interactor: AccountEditInteractorForAccountEditReceiver
 
     init(accountLifetimeId: AccountLifetimeId,
-         accountEditModalLifecycle: AccountEditModalLifecycle,
-         interactor: AccountEditInteractor) {
+         accountEditModalLifecycle: AccountEditModalLifecycleForAccountEditReceiver,
+         interactor: AccountEditInteractorForAccountEditReceiver) {
         self.accountLifetimeId = accountLifetimeId
         self.receivableId = .init(accountLifetimeId: accountLifetimeId)
         self.accountEditModalLifecycle = accountEditModalLifecycle
