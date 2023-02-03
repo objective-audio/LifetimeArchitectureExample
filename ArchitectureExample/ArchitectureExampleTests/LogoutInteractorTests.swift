@@ -5,7 +5,7 @@
 import XCTest
 @testable import ArchitectureExample
 
-private class RepositoryStub: LogoutInteractor.AccountRepository {
+private class RepositoryStub: AccountRepositoryForLogoutInteractor {
     var removeHandler: (Int) -> Void = { _ in }
 
     func remove(accountId: Int) {
@@ -13,7 +13,7 @@ private class RepositoryStub: LogoutInteractor.AccountRepository {
     }
 }
 
-private class RootLifecycleStub: LogoutInteractor.RootLifecycle {
+private class RootLifecycleStub: RootLifecycleForLogoutInteractor {
     var switchToLoginHandler: () -> Void = {}
 
     func switchToLogin() {
