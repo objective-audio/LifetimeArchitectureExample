@@ -31,10 +31,10 @@ extension RootFactory {
 
 // MARK: -
 
-extension RootLifecycle: LoginInteractor.RootLifecycle {}
-extension RootModalLifecycle: LoginInteractor.RootModalLifecycle {}
-extension AccountRepository: LoginInteractor.AccountRepository {}
-extension LoginNetwork: LoginInteractor.Network {}
+extension RootLifecycle: RootLifecycleForLoginInteractor {}
+extension RootModalLifecycle: RootModalLifecycleForLoginInteractor {}
+extension AccountRepository: AccountRepositoryForLoginInteractor {}
+extension LoginNetwork: LoginNetworkForLoginInteractor {}
 extension LoginLifetime: LoginLifetimeForLifecycle {}
 
 extension RootFactory {
