@@ -3,14 +3,12 @@
 //
 
 final class AccountReceiver<Factory: FactoryForRootModalLifecycle>: ActionReceivable {
-    typealias LogoutInteractor = LogoutInteractorForAccountReceiver
-
     private let accountLifetimeId: AccountLifetimeId
-    private unowned let logoutInteractor: LogoutInteractor
+    private unowned let logoutInteractor: LogoutInteractorForAccountReceiver
     private unowned let rootModalLifecycle: RootModalLifecycle<Factory>
 
     init(accountLifetimeId: AccountLifetimeId,
-         logoutInteractor: LogoutInteractor,
+         logoutInteractor: LogoutInteractorForAccountReceiver,
          rootModalLifecycle: RootModalLifecycle<Factory>) {
         self.accountLifetimeId = accountLifetimeId
         self.logoutInteractor = logoutInteractor
