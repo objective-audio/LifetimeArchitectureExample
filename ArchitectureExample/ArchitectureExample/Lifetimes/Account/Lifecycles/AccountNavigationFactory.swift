@@ -38,9 +38,9 @@ extension AccountNavigationFactory {
 
 // MARK: -
 
-extension AccountNavigationLifecycle: AccountInfoInteractor.NavigationLifecycle {}
-extension AccountHolder: AccountInfoInteractor.AccountHolder {}
-extension RootModalLifecycle: AccountInfoInteractor.RootModalLifecycle {}
+extension AccountNavigationLifecycle: AccountNavigationLifecycleForAccountInfoInteractor {}
+extension AccountHolder: AccountHolderForAccountInfoInteractor {}
+extension RootModalLifecycle: RootModalLifecycleForAccountInfoInteractor {}
 extension AccountInfoLifetime: AccountInfoLifetimeForLifecycle {}
 
 extension AccountNavigationFactory {

@@ -6,7 +6,7 @@ import XCTest
 import Combine
 @testable import ArchitectureExample
 
-private class AccountHolderStub: AccountInfoInteractor.AccountHolder {
+private class AccountHolderStub: AccountHolderForAccountInfoInteractor {
     @CurrentValue var name: String = ""
 
     var namePublisher: AnyPublisher<String, Never> {
@@ -14,7 +14,7 @@ private class AccountHolderStub: AccountInfoInteractor.AccountHolder {
     }
 }
 
-private class AccountNavigationLifecycleStub: AccountInfoInteractor.NavigationLifecycle {
+private class AccountNavigationLifecycleStub: AccountNavigationLifecycleForAccountInfoInteractor {
     var canPopInfoHandler: (AccountInfoLifetimeId) -> Bool = { _ in true }
     var popInfoHandler: (AccountInfoLifetimeId) -> Void = { _ in }
     var pushDetailHandler: () -> Void = {}
@@ -32,7 +32,7 @@ private class AccountNavigationLifecycleStub: AccountInfoInteractor.NavigationLi
     }
 }
 
-private class RootModalLifecycleStub: AccountInfoInteractor.RootModalLifecycle {
+private class RootModalLifecycleStub: RootModalLifecycleForAccountInfoInteractor {
     var addHandler: (AccountLifetimeId) -> Void  = { _ in }
 
     func addAccountEdit(accountLifetimeId: AccountLifetimeId) {
