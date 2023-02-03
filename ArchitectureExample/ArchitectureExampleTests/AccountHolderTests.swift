@@ -5,7 +5,7 @@
 import XCTest
 @testable import ArchitectureExample
 
-private class RepositoryStub: AccountHolder.Repository {
+private class RepositoryStub: AccountRepositoryForAccountHolder {
     var accounts: [Int: Account] = [:]
 
     func account(forId id: Int) -> Account? {

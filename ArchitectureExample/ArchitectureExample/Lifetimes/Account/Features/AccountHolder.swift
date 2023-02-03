@@ -11,18 +11,16 @@ import Combine
 
 @MainActor
 final class AccountHolder {
-    typealias Repository = AccountRepositoryForAccountHolder
-
     let id: Int
 
     @CurrentValue var name: String {
         didSet { self.saveToRepository() }
     }
 
-    private unowned var repository: Repository
+    private unowned var repository: AccountRepositoryForAccountHolder
 
     init(id: Int,
-         accountRepository: Repository) {
+         accountRepository: AccountRepositoryForAccountHolder) {
         self.id = id
         self.name = accountRepository.account(forId: id)?.name ?? ""
         self.repository = accountRepository

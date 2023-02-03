@@ -61,7 +61,7 @@ extension RootFactory {
 
 extension RootLifecycle: RootLifecycleForLogoutInteractor {}
 extension AccountRepository: AccountRepositoryForLogoutInteractor {}
-extension AccountRepository: AccountHolder.Repository {}
+extension AccountRepository: AccountRepositoryForAccountHolder {}
 extension LogoutInteractor: LogoutInteractorForAccountReceiver {}
 extension AccountLifetime: AccountLifetimeForLifecycle {}
 
