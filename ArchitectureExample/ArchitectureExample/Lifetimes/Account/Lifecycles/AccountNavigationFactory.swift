@@ -65,7 +65,7 @@ extension AccountNavigationFactory {
 
 // MARK: -
 
-extension AccountNavigationLifecycle: AccountDetailInteractor.NavigationLifecycle {}
+extension AccountNavigationLifecycle: AccountNavigationLifecycleForAccountDetailInteractor {}
 extension AccountDetailLifetime: AccountDetailLifetimeForLifecycle {}
 
 extension AccountNavigationFactory {
