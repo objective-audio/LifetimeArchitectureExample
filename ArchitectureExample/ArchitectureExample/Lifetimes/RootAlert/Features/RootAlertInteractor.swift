@@ -8,15 +8,13 @@
 
 @MainActor
 final class RootAlertInteractor {
-    typealias ModalLifecycle = RootModalLifecycleForRootAlertInteractor
-
     private let lifetimeId: RootAlertLifetimeId
     private let alertId: RootAlertId
-    private unowned var modalLifecycle: ModalLifecycle?
+    private unowned var modalLifecycle: RootModalLifecycleForRootAlertInteractor?
 
     init(lifetimeId: RootAlertLifetimeId,
          alertId: RootAlertId,
-         modalLifecycle: ModalLifecycle) {
+         modalLifecycle: RootModalLifecycleForRootAlertInteractor) {
         self.lifetimeId = lifetimeId
         self.alertId = alertId
         self.modalLifecycle = modalLifecycle
