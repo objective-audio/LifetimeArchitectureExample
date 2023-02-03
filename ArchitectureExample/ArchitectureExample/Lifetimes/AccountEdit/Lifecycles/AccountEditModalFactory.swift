@@ -4,7 +4,7 @@
 
 extension AccountEditModalLifecycle: AccountEditModalLifecycleForAccountEditAlertInteractor {}
 extension AccountEditInteractor: AccountEditInteractorForAccountEditAlertInteractor {}
-extension AccountEditAlertInteractor: AccountEditAlertReceiver.Interactor {}
+extension AccountEditAlertInteractor: AccountEditAlertInteractorForAccountEditAlertReceiver {}
 extension AccountEditAlertLifetime: AccountEditAlertLifetimeForLifecycle {}
 
 @MainActor
