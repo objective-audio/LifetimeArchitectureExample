@@ -2,12 +2,14 @@
 //  SceneFactory.swift
 //
 
+@MainActor
+enum SceneFactory {}
+
+// MARK: -
+
 extension SceneLifetime: SceneLifetimeForLifecycle {}
 extension RootFactory: FactoryForRootLifecycle {}
 extension RootModalFactory: FactoryForRootModalLifecycle {}
-
-@MainActor
-enum SceneFactory {}
 
 extension SceneFactory {
     static func makeSceneLifetime(id: SceneLifetimeId) -> SceneLifetime {
