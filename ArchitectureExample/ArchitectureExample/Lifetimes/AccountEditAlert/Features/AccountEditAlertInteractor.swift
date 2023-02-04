@@ -8,18 +8,15 @@
 
 @MainActor
 final class AccountEditAlertInteractor {
-    typealias ModalLifecycle = AccountEditModalLifecycleForAccountEditAlertInteractor
-    typealias AccountEditInteractor = AccountEditInteractorForAccountEditAlertInteractor
-
     private let lifetimeId: AccountEditAlertLifetimeId
     private let alertId: AccountEditAlertId
-    private unowned var accountEditInteractor: AccountEditInteractor
-    private unowned var modalLifecycle: ModalLifecycle?
+    private unowned var accountEditInteractor: AccountEditInteractorForAccountEditAlertInteractor
+    private unowned var modalLifecycle: AccountEditModalLifecycleForAccountEditAlertInteractor?
 
     init(lifetimeId: AccountEditAlertLifetimeId,
          alertId: AccountEditAlertId,
-         accountEditInteractor: AccountEditInteractor,
-         modalLifecycle: ModalLifecycle) {
+         accountEditInteractor: AccountEditInteractorForAccountEditAlertInteractor,
+         modalLifecycle: AccountEditModalLifecycleForAccountEditAlertInteractor) {
         self.lifetimeId = lifetimeId
         self.alertId = alertId
         self.accountEditInteractor = accountEditInteractor
@@ -60,7 +57,7 @@ private extension AccountEditAlertId {
     }
 
     @MainActor
-    func actions(interactor: AccountEditAlertInteractor.AccountEditInteractor) -> [AlertContent<Self>.Action] {
+    func actions(interactor: AccountEditInteractorForAccountEditAlertInteractor) -> [AlertContent<Self>.Action] {
         switch self {
         case .destruct:
             return [.init(title: Localized.alertAccountEditCancel.value,
@@ -83,7 +80,7 @@ private extension AccountEditAlertId {
 private extension AlertContent where ID == AccountEditAlertId {
     @MainActor
     init(id alertId: AccountEditAlertId,
-         interactor: AccountEditAlertInteractor.AccountEditInteractor) {
+         interactor: AccountEditInteractorForAccountEditAlertInteractor) {
         self.init(id: alertId,
                   title: alertId.localizedTitle.value,
                   message: alertId.localizedMessage.value,

@@ -4,11 +4,13 @@
 
 import Foundation
 
-extension AppLifetime: AppLifetimeForLifecycle {}
-extension SceneFactory: FactoryForSceneLifecycle {}
-
 @MainActor
 enum AppFactory {}
+
+// MARK: -
+
+extension AppLifetime: AppLifetimeForLifecycle {}
+extension SceneFactory: FactoryForSceneLifecycle {}
 
 extension AppFactory {
     static func makeAppLifetime() -> AppLifetime {

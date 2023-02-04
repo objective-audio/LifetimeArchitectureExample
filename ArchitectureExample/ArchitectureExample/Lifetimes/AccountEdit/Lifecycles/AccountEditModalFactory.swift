@@ -2,13 +2,17 @@
 //  AccountEditModalFactory.swift
 //
 
-extension AccountEditModalLifecycle: AccountEditAlertInteractor.ModalLifecycle {}
-extension AccountEditInteractor: AccountEditAlertInteractor.AccountEditInteractor {}
-extension AccountEditAlertInteractor: AccountEditAlertReceiver.Interactor {}
+@MainActor
+enum AccountEditModalFactory {}
+
+// MARK: -
+
+extension AccountEditModalLifecycle: AccountEditModalLifecycleForAccountEditAlertInteractor {}
+extension AccountEditInteractor: AccountEditInteractorForAccountEditAlertInteractor {}
+extension AccountEditAlertInteractor: AccountEditAlertInteractorForAccountEditAlertReceiver {}
 extension AccountEditAlertLifetime: AccountEditAlertLifetimeForLifecycle {}
 
-@MainActor
-enum AccountEditModalFactory {
+extension AccountEditModalFactory {
     static func makeInstanceId() -> InstanceId { .init() }
 
     static func makeAccountEditAlertLifetime(lifetimeId: AccountEditAlertLifetimeId,

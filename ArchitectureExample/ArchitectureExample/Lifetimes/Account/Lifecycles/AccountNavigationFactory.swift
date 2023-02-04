@@ -15,8 +15,8 @@ extension AccountNavigationFactory {
 
 // MARK: -
 
-extension ActionSender: AccountMenuInteractor.ActionSender {}
-extension AccountNavigationLifecycle: AccountMenuInteractor.NavigationLifecycle {}
+extension ActionSender: ActionSenderForAccountMenuInteractor {}
+extension AccountNavigationLifecycle: AccountNavigationLifecycleForAccountMenuInteractor {}
 extension AccountMenuLifetime: AccountMenuLifetimeForLifecycle {}
 extension AccountNavigationFactory: FactoryForAccountNavigationLifecycle {}
 
@@ -38,9 +38,9 @@ extension AccountNavigationFactory {
 
 // MARK: -
 
-extension AccountNavigationLifecycle: AccountInfoInteractor.NavigationLifecycle {}
-extension AccountHolder: AccountInfoInteractor.AccountHolder {}
-extension RootModalLifecycle: AccountInfoInteractor.RootModalLifecycle {}
+extension AccountNavigationLifecycle: AccountNavigationLifecycleForAccountInfoInteractor {}
+extension AccountHolder: AccountHolderForAccountInfoInteractor {}
+extension RootModalLifecycle: RootModalLifecycleForAccountInfoInteractor {}
 extension AccountInfoLifetime: AccountInfoLifetimeForLifecycle {}
 
 extension AccountNavigationFactory {
@@ -65,7 +65,7 @@ extension AccountNavigationFactory {
 
 // MARK: -
 
-extension AccountNavigationLifecycle: AccountDetailInteractor.NavigationLifecycle {}
+extension AccountNavigationLifecycle: AccountNavigationLifecycleForAccountDetailInteractor {}
 extension AccountDetailLifetime: AccountDetailLifetimeForLifecycle {}
 
 extension AccountNavigationFactory {

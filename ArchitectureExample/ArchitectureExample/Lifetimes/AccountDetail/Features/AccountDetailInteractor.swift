@@ -8,14 +8,12 @@
 
 @MainActor
 final class AccountDetailInteractor {
-    typealias NavigationLifecycle = AccountNavigationLifecycleForAccountDetailInteractor
-
     private let lifetimeId: AccountDetailLifetimeId
 
-    private unowned var navigationLifecycle: NavigationLifecycle?
+    private unowned var navigationLifecycle: AccountNavigationLifecycleForAccountDetailInteractor?
 
     init(lifetimeId: AccountDetailLifetimeId,
-         navigationLifecycle: NavigationLifecycle) {
+         navigationLifecycle: AccountNavigationLifecycleForAccountDetailInteractor) {
         self.lifetimeId = lifetimeId
         self.navigationLifecycle = navigationLifecycle
     }

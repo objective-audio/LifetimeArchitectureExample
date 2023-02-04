@@ -10,16 +10,11 @@ import Combine
 
 @MainActor
 final class LoginInteractor {
-    typealias RootLifecycle = RootLifecycleForLoginInteractor
-    typealias RootModalLifecycle = RootModalLifecycleForLoginInteractor
-    typealias AccountRepository = AccountRepositoryForLoginInteractor
-    typealias Network = LoginNetworkForLoginInteractor
-
     private let sceneLifetimeId: SceneLifetimeId
-    private unowned let rootLifecycle: RootLifecycle
-    private unowned let rootModalLifecycle: RootModalLifecycle
-    private unowned let accountRepository: AccountRepository
-    private unowned let network: Network
+    private unowned let rootLifecycle: RootLifecycleForLoginInteractor
+    private unowned let rootModalLifecycle: RootModalLifecycleForLoginInteractor
+    private unowned let accountRepository: AccountRepositoryForLoginInteractor
+    private unowned let network: LoginNetworkForLoginInteractor
 
     @CurrentValue var accountId: String = ""
     @CurrentValue private var task: Task<Void, Never>?
@@ -31,10 +26,10 @@ final class LoginInteractor {
     private var cancellables: Set<AnyCancellable> = .init()
 
     init(sceneLifetimeId: SceneLifetimeId,
-         rootLifecycle: RootLifecycle,
-         rootModalLifecycle: RootModalLifecycle,
-         accountRepository: AccountRepository,
-         network: Network) {
+         rootLifecycle: RootLifecycleForLoginInteractor,
+         rootModalLifecycle: RootModalLifecycleForLoginInteractor,
+         accountRepository: AccountRepositoryForLoginInteractor,
+         network: LoginNetworkForLoginInteractor) {
         self.sceneLifetimeId = sceneLifetimeId
         self.rootLifecycle = rootLifecycle
         self.rootModalLifecycle = rootModalLifecycle

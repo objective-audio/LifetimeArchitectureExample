@@ -21,7 +21,7 @@ private struct AccountLifetimeStub: AccountLifetimeForLifecycle {
     var accountHolder: AccountHolder { fatalError() }
     var logoutInteractor: LogoutInteractor { fatalError() }
     var navigationLifecycle: AccountNavigationLifecycle<AccountNavigationFactory> { fatalError() }
-    var receiver: AccountReceiver<RootModalFactory> { fatalError() }
+    var receiver: AccountReceiver { fatalError() }
 }
 
 private enum FactoryStub: FactoryForRootLifecycle {

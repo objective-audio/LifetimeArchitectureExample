@@ -5,7 +5,7 @@
 import XCTest
 @testable import ArchitectureExample
 
-private class SceneLifecycleStub: LaunchInteractor.SceneLifecycle {
+private class SceneLifecycleStub: SceneLifecycleForLaunchInteractor {
     var indexHandler: (SceneLifetimeId) -> Int? = { _ in nil }
 
     func index(of id: SceneLifetimeId) -> Int? {
@@ -13,7 +13,7 @@ private class SceneLifecycleStub: LaunchInteractor.SceneLifecycle {
     }
 }
 
-private class RootLifecycleStub: LaunchInteractor.RootLifecycle {
+private class RootLifecycleStub: RootLifecycleForLaunchInteractor {
     var switchToLoginHandler: () -> Void = {}
     var switchToAccountHandler: (Account) -> Void = { _ in }
 
@@ -28,7 +28,7 @@ private class RootLifecycleStub: LaunchInteractor.RootLifecycle {
     }
 }
 
-private class RepositoryStub: LaunchInteractor.AccountRepository {
+private class RepositoryStub: AccountRepositoryForLaunchInteractor {
     var accounts: [Account] = []
 }
 

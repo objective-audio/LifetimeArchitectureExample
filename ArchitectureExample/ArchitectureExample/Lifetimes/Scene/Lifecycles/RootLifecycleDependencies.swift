@@ -18,7 +18,7 @@ protocol AccountLifetimeForLifecycle {
     var accountHolder: AccountHolder { get }
     var logoutInteractor: LogoutInteractor { get }
     var navigationLifecycle: AccountNavigationLifecycle<AccountNavigationFactory> { get }
-    var receiver: AccountReceiver<RootModalFactory> { get }
+    var receiver: AccountReceiver { get }
 }
 
 protocol FactoryForRootLifecycle {

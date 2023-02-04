@@ -7,9 +7,9 @@ enum RootFactory {}
 
 // MARK: -
 
-extension SceneLifecycle: LaunchInteractor.SceneLifecycle {}
-extension RootLifecycle: LaunchInteractor.RootLifecycle {}
-extension AccountRepository: LaunchInteractor.AccountRepository {}
+extension SceneLifecycle: SceneLifecycleForLaunchInteractor {}
+extension RootLifecycle: RootLifecycleForLaunchInteractor {}
+extension AccountRepository: AccountRepositoryForLaunchInteractor {}
 extension LaunchLifetime: LaunchLifetimeForLifecycle {}
 
 extension RootFactory {
@@ -31,10 +31,10 @@ extension RootFactory {
 
 // MARK: -
 
-extension RootLifecycle: LoginInteractor.RootLifecycle {}
-extension RootModalLifecycle: LoginInteractor.RootModalLifecycle {}
-extension AccountRepository: LoginInteractor.AccountRepository {}
-extension LoginNetwork: LoginInteractor.Network {}
+extension RootLifecycle: RootLifecycleForLoginInteractor {}
+extension RootModalLifecycle: RootModalLifecycleForLoginInteractor {}
+extension AccountRepository: AccountRepositoryForLoginInteractor {}
+extension LoginNetwork: LoginNetworkForLoginInteractor {}
 extension LoginLifetime: LoginLifetimeForLifecycle {}
 
 extension RootFactory {
@@ -59,10 +59,11 @@ extension RootFactory {
 
 // MARK: -
 
-extension RootLifecycle: LogoutInteractor.RootLifecycle {}
-extension AccountRepository: LogoutInteractor.AccountRepository {}
-extension AccountRepository: AccountHolder.Repository {}
-extension LogoutInteractor: AccountReceiver.LogoutInteractor {}
+extension RootLifecycle: RootLifecycleForLogoutInteractor {}
+extension AccountRepository: AccountRepositoryForLogoutInteractor {}
+extension AccountRepository: AccountRepositoryForAccountHolder {}
+extension LogoutInteractor: LogoutInteractorForAccountReceiver {}
+extension RootModalLifecycle: RootModalLifecycleForAccountReceiver {}
 extension AccountLifetime: AccountLifetimeForLifecycle {}
 
 extension RootFactory {

@@ -3,15 +3,13 @@
 //
 
 final class AccountEditAlertReceiver: ActionReceivable {
-    typealias Interactor = AccountEditAlertInteractorForAccountEditAlertReceiver
-
     private let accountLifetimeId: AccountLifetimeId
     private let alertId: AccountEditAlertId
-    private unowned let interactor: Interactor
+    private unowned let interactor: AccountEditAlertInteractorForAccountEditAlertReceiver
 
     init(accountLifetimeId: AccountLifetimeId,
          alertId: AccountEditAlertId,
-         interactor: Interactor) {
+         interactor: AccountEditAlertInteractorForAccountEditAlertReceiver) {
         self.accountLifetimeId = accountLifetimeId
         self.receivableId = .init(accountLifetimeId: accountLifetimeId)
         self.alertId = alertId

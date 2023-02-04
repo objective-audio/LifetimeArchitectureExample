@@ -6,7 +6,7 @@ import XCTest
 import Combine
 @testable import ArchitectureExample
 
-private class RootLifecycleStub: LoginInteractor.RootLifecycle {
+private class RootLifecycleStub: RootLifecycleForLoginInteractor {
     @CurrentValue var isLogin: Bool = true
 
     var isLoginPublisher: AnyPublisher<Bool, Never> {
@@ -20,7 +20,7 @@ private class RootLifecycleStub: LoginInteractor.RootLifecycle {
     }
 }
 
-private class RootModalLifecycleStub: LoginInteractor.RootModalLifecycle {
+private class RootModalLifecycleStub: RootModalLifecycleForLoginInteractor {
     @CurrentValue var hasCurrent: Bool = false
     var showAlertHandler: (RootAlertId) -> Void = { _ in }
 
@@ -33,7 +33,7 @@ private class RootModalLifecycleStub: LoginInteractor.RootModalLifecycle {
     }
 }
 
-private class RepositoryStub: LoginInteractor.AccountRepository {
+private class RepositoryStub: AccountRepositoryForLoginInteractor {
     var accounts: [Account] = []
 
     var appendAccountHandler: (Account?) -> Void = { _ in }
@@ -43,7 +43,7 @@ private class RepositoryStub: LoginInteractor.AccountRepository {
     }
 }
 
-private class NetworkStub: LoginInteractor.Network {
+private class NetworkStub: LoginNetworkForLoginInteractor {
     var getAccountHandler: (String) -> Void = { _ in }
     var continuationHandler: (CheckedContinuation<Result<Account, LoginNetworkError>, Never>) -> Void = { _ in }
 

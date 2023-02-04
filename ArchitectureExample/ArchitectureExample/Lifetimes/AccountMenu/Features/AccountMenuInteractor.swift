@@ -7,16 +7,13 @@
  */
 
 final class AccountMenuInteractor {
-    typealias NavigationLifecycle = AccountNavigationLifecycleForAccountMenuInteractor
-    typealias ActionSender = ActionSenderForAccountMenuInteractor
-
     private let lifetimeId: AccountMenuLifetimeId
-    private unowned let navigationLifecycle: NavigationLifecycle
-    private unowned let actionSender: ActionSender
+    private unowned let navigationLifecycle: AccountNavigationLifecycleForAccountMenuInteractor
+    private unowned let actionSender: ActionSenderForAccountMenuInteractor
 
     init(lifetimeId: AccountMenuLifetimeId,
-         navigationLifecycle: NavigationLifecycle,
-         actionSender: ActionSender) {
+         navigationLifecycle: AccountNavigationLifecycleForAccountMenuInteractor,
+         actionSender: ActionSenderForAccountMenuInteractor) {
         self.lifetimeId = lifetimeId
         self.navigationLifecycle = navigationLifecycle
         self.actionSender = actionSender

@@ -8,16 +8,13 @@
 
 @MainActor
 final class LogoutInteractor {
-    typealias RootLifecycle = RootLifecycleForLogoutInteractor
-    typealias AccountRepository = AccountRepositoryForLogoutInteractor
-
     private let accountId: Int
-    private unowned var rootLifecycle: RootLifecycle?
-    private unowned var accountRepository: AccountRepository?
+    private unowned var rootLifecycle: RootLifecycleForLogoutInteractor?
+    private unowned var accountRepository: AccountRepositoryForLogoutInteractor?
 
     init(accountId: Int,
-         rootLifecycle: RootLifecycle,
-         accountRepository: AccountRepository) {
+         rootLifecycle: RootLifecycleForLogoutInteractor,
+         accountRepository: AccountRepositoryForLogoutInteractor) {
         self.accountId = accountId
         self.rootLifecycle = rootLifecycle
         self.accountRepository = accountRepository

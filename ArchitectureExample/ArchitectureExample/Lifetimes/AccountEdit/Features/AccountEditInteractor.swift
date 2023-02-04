@@ -10,17 +10,12 @@ import Combine
 
 @MainActor
 final class AccountEditInteractor {
-    typealias AccountHolder = AccountHolderForAccountEditInteractor
-    typealias RootModalLifecycle = RootModalLifecycleForAccountEditInteractor
-    typealias AccountEditModalLifecycle = AccountEditModalLifecycleForAccountEditInteractor
-    typealias ActionSender = ActionSenderForAccountEditInteractor
-
     private let lifetimeId: AccountEditLifetimeId
 
-    private unowned var accountHolder: AccountHolder?
-    private unowned var rootModalLifecycle: RootModalLifecycle?
-    private unowned var accountEditModalLifecycle: AccountEditModalLifecycle?
-    private unowned var actionSender: ActionSender?
+    private unowned var accountHolder: AccountHolderForAccountEditInteractor?
+    private unowned var rootModalLifecycle: RootModalLifecycleForAccountEditInteractor?
+    private unowned var accountEditModalLifecycle: AccountEditModalLifecycleForAccountEditInteractor?
+    private unowned var actionSender: ActionSenderForAccountEditInteractor?
 
     @CurrentValue var name: String
     @CurrentValue private(set) var isEdited: Bool = false
@@ -29,10 +24,10 @@ final class AccountEditInteractor {
     private var cancellables: Set<AnyCancellable> = .init()
 
     init(lifetimeId: AccountEditLifetimeId,
-         accountHolder: AccountHolder,
-         rootModalLifecycle: RootModalLifecycle,
-         accountEditModalLifecycle: AccountEditModalLifecycle,
-         actionSender: ActionSender) {
+         accountHolder: AccountHolderForAccountEditInteractor,
+         rootModalLifecycle: RootModalLifecycleForAccountEditInteractor,
+         accountEditModalLifecycle: AccountEditModalLifecycleForAccountEditInteractor,
+         actionSender: ActionSenderForAccountEditInteractor) {
         self.lifetimeId = lifetimeId
         self.accountHolder = accountHolder
         self.rootModalLifecycle = rootModalLifecycle
