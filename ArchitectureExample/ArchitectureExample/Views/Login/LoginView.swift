@@ -7,25 +7,20 @@ import SwiftUI
 struct LoginView<Presenter: PresenterForLoginView>: View {
     typealias Presenter = PresenterForLoginView
 
-    @State private var accountId: String = ""
     @ObservedObject private var presenter: Presenter
     // TextFieldをdisableにする時に警告が表示される対策。先にフォーカスを外す
     @FocusState private var isTextFieldFocused: Bool
 
     init(presenter: Presenter) {
-        self.accountId = presenter.accountId
         self.presenter = presenter
     }
 
     var body: some View {
         VStack {
             TextField(Localized.loginAccountIdPlaceholder.key,
-                      text: $accountId)
+                      text: $presenter.accountId)
                 .textFieldStyle(.roundedBorder)
                 .padding()
-                .onChange(of: accountId) { value in
-                    presenter.accountId = value
-                }
                 .onSubmit {
                     isTextFieldFocused = false
                     presenter.login()

@@ -8,12 +8,10 @@ struct AccountEditView<Presenter: PresenterForAccountEditView>: View {
     typealias Presenter = PresenterForAccountEditView
 
     @ObservedObject private var presenter: Presenter
-    @State private var name: String = ""
     // TextFieldをdisableにする時に警告が表示される対策。先にフォーカスを外す
     @FocusState private var isTextFieldFocused: Bool
 
     init(presenter: Presenter) {
-        self.name = presenter.name
         self.presenter = presenter
     }
 
@@ -21,12 +19,9 @@ struct AccountEditView<Presenter: PresenterForAccountEditView>: View {
         NavigationView {
             VStack {
                 TextField(Localized.loginAccountIdPlaceholder.key,
-                          text: $name)
+                          text: $presenter.name)
                 .textFieldStyle(.roundedBorder)
                 .padding()
-                .onChange(of: name) { value in
-                    presenter.name = value
-                }
                 .onSubmit {
                     isTextFieldFocused = false
                     presenter.commit()
