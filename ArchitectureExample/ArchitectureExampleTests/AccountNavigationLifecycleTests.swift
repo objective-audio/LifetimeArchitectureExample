@@ -5,11 +5,6 @@
 import XCTest
 @testable import ArchitectureExample
 
-private struct AccountMenuLifetimeStub: AccountMenuLifetimeForLifecycle {
-    let lifetimeId: AccountMenuLifetimeId
-    var interactor: AccountMenuInteractor { fatalError() }
-}
-
 private struct AccountInfoLifetimeStub: AccountInfoLifetimeForLifecycle {
     let lifetimeId: AccountInfoLifetimeId
     let uiSystem: UISystem
@@ -26,13 +21,6 @@ private enum FactoryStub: FactoryForAccountNavigationLifecycle {
 
     static func makeInstanceId() -> InstanceId {
         self.idGenerator.generate()
-    }
-
-    static func makeAccountMenuLifetime(
-        lifetimeId: AccountMenuLifetimeId,
-        navigationLifecycle: AccountNavigationLifecycle<Self>
-    ) -> AccountMenuLifetimeStub {
-        AccountMenuLifetimeStub(lifetimeId: lifetimeId)
     }
 
     static func makeAccountInfoLifetime(lifetimeId: AccountInfoLifetimeId,
@@ -70,119 +58,107 @@ class AccountNavigationLifecycleTests: XCTestCase {
             calledStacks.append(stack)
         }
 
-        XCTContext.runActivity(named: "初期状態はmenu") { _ in
-            XCTAssertEqual(lifecycle.stack.count, 1)
+        XCTContext.runActivity(named: "初期状態は空") { _ in
+            XCTAssertTrue(lifecycle.stack.isEmpty)
 
-            guard case .menu = lifecycle.stack[0] else {
-                XCTFail("invalid lifetime stack.")
-                return
-            }
             XCTAssertEqual(calledStacks.count, 1)
-            XCTAssertEqual(calledStacks[0].count, 1)
-            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
+            XCTAssertEqual(calledStacks[0].count, 0)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 0)
         }
 
-        XCTContext.runActivity(named: "menuだけがあればinfoをpushできる") { _ in
+        XCTContext.runActivity(named: "空ならinfoをpushできる") { _ in
             lifecycle.pushInfo(uiSystem: .swiftUI)
 
-            XCTAssertEqual(lifecycle.stack.count, 2)
-            guard case .menu = lifecycle.stack[0],
-                  case .info(let lifetime) = lifecycle.stack[1],
+            XCTAssertEqual(lifecycle.stack.count, 1)
+            guard case .info(let lifetime) = lifecycle.stack[0],
                   lifetime.uiSystem == .swiftUI else {
                 XCTFail("invalid lifetime stack.")
                 return
             }
             XCTAssertEqual(calledStacks.count, 2)
-            XCTAssertEqual(calledStacks[1].count, 2)
-            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 2)
+            XCTAssertEqual(calledStacks[1].count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         XCTContext.runActivity(named: "infoがあればinfoをpushできない") { _ in
             lifecycle.pushInfo(uiSystem: .swiftUI)
             lifecycle.pushInfo(uiSystem: .uiKit)
 
-            XCTAssertEqual(lifecycle.stack.count, 2)
+            XCTAssertEqual(lifecycle.stack.count, 1)
             XCTAssertEqual(calledStacks.count, 2)
-            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 2)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         XCTContext.runActivity(named: "lifetimeIdが一致しなければinfoをpopできない") { _ in
             lifecycle.popInfo(lifetimeId: .init(instanceId: .init(),
                                                 account: self.accountLifetimeId))
 
-            XCTAssertEqual(lifecycle.stack.count, 2)
+            XCTAssertEqual(lifecycle.stack.count, 1)
             XCTAssertEqual(calledStacks.count, 2)
-            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 2)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
         XCTContext.runActivity(named: "lifetimeIdが一致すればinfoをpopできる") { _ in
-            lifecycle.popInfo(lifetimeId: .init(instanceId: FactoryStub.idGenerator.genarated[1],
+            lifecycle.popInfo(lifetimeId: .init(instanceId: FactoryStub.idGenerator.genarated[0],
                                                 account: self.accountLifetimeId))
 
-            XCTAssertEqual(lifecycle.stack.count, 1)
-            guard case .menu = lifecycle.stack[0] else {
-                XCTFail("invalid lifetime stack.")
-                return
-            }
+            XCTAssertEqual(lifecycle.stack.count, 0)
             XCTAssertEqual(calledStacks.count, 3)
-            XCTAssertEqual(calledStacks[2].count, 1)
-            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 2)
+            XCTAssertEqual(calledStacks[2].count, 0)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 1)
         }
 
-        XCTContext.runActivity(named: "menuだけがあればinfoをpushできる") { _ in
+        XCTContext.runActivity(named: "空ならinfoをpushできる") { _ in
             lifecycle.pushInfo(uiSystem: .uiKit)
 
-            XCTAssertEqual(lifecycle.stack.count, 2)
-            guard case .menu = lifecycle.stack[0],
-                  case .info(let lifetime) = lifecycle.stack[1],
+            XCTAssertEqual(lifecycle.stack.count, 1)
+            guard case .info(let lifetime) = lifecycle.stack[0],
                   lifetime.uiSystem == .uiKit else {
                 XCTFail("invalid lifetime stack.")
                 return
             }
             XCTAssertEqual(calledStacks.count, 4)
-            XCTAssertEqual(calledStacks[3].count, 2)
-            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 3)
+            XCTAssertEqual(calledStacks[3].count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 2)
         }
 
-        XCTContext.runActivity(named: "menuとinfoがあればdetailをpushできる") { _ in
+        XCTContext.runActivity(named: "infoだけがあればdetailをpushできる") { _ in
             lifecycle.pushDetail()
 
-            XCTAssertEqual(lifecycle.stack.count, 3)
-            guard case .menu = lifecycle.stack[0],
-                  case .info(let lifetime) = lifecycle.stack[1],
+            XCTAssertEqual(lifecycle.stack.count, 2)
+            guard case .info(let lifetime) = lifecycle.stack[0],
                   lifetime.uiSystem == .uiKit,
-                  case .detail = lifecycle.stack[2] else {
+                  case .detail = lifecycle.stack[1] else {
                 XCTFail("invalid lifetime stack.")
                 return
             }
             XCTAssertEqual(calledStacks.count, 5)
-            XCTAssertEqual(calledStacks[4].count, 3)
-            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 4)
+            XCTAssertEqual(calledStacks[4].count, 2)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 3)
         }
 
         XCTContext.runActivity(named: "lifetimeIdが一致してもdetailからはinfoをpopできない") { _ in
-            lifecycle.popInfo(lifetimeId: .init(instanceId: FactoryStub.idGenerator.genarated[2],
+            lifecycle.popInfo(lifetimeId: .init(instanceId: FactoryStub.idGenerator.genarated[1],
                                                 account: self.accountLifetimeId))
 
-            XCTAssertEqual(lifecycle.stack.count, 3)
+            XCTAssertEqual(lifecycle.stack.count, 2)
             XCTAssertEqual(calledStacks.count, 5)
-            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 4)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 3)
         }
 
         XCTContext.runActivity(named: "lifetimeIdが一致していればdetailをpopできる") { _ in
-            lifecycle.popDetail(lifetimeId: .init(instanceId: FactoryStub.idGenerator.genarated[3],
+            lifecycle.popDetail(lifetimeId: .init(instanceId: FactoryStub.idGenerator.genarated[2],
                                                   account: self.accountLifetimeId))
 
-            XCTAssertEqual(lifecycle.stack.count, 2)
-            guard case .menu = lifecycle.stack[0],
-                  case .info(let lifetime) = lifecycle.stack[1],
+            XCTAssertEqual(lifecycle.stack.count, 1)
+            guard case .info(let lifetime) = lifecycle.stack[0],
                   lifetime.uiSystem == .uiKit else {
                 XCTFail("invalid lifetime stack.")
                 return
             }
             XCTAssertEqual(calledStacks.count, 6)
-            XCTAssertEqual(calledStacks[5].count, 2)
-            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 4)
+            XCTAssertEqual(calledStacks[5].count, 1)
+            XCTAssertEqual(FactoryStub.idGenerator.genarated.count, 3)
         }
 
         canceller.cancel()

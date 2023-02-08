@@ -35,7 +35,6 @@
 		B636F61C2846AD7400CD2265 /* RootModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636F61B2846AD7400CD2265 /* RootModal.swift */; };
 		B636F6202846B11F00CD2265 /* SceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636F61F2846B11F00CD2265 /* SceneFactory.swift */; };
 		B636F63328486B1400CD2265 /* RootTransitionViewController+ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636F63228486B1400CD2265 /* RootTransitionViewController+ViewFactory.swift */; };
-		B636F6352848903100CD2265 /* AccountNavigationController+ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636F6342848903100CD2265 /* AccountNavigationController+ViewFactory.swift */; };
 		B636F63D2848DC2A00CD2265 /* AccountEditModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636F63C2848DC2A00CD2265 /* AccountEditModal.swift */; };
 		B636F6442848FB3100CD2265 /* RootChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636F6432848FB3100CD2265 /* RootChild.swift */; };
 		B636F6462848FDBD00CD2265 /* AccountNavigationElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636F6452848FDBD00CD2265 /* AccountNavigationElement.swift */; };
@@ -51,7 +50,6 @@
 		B63B346928182B1E009E9A70 /* AccountEditViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B346828182B1E009E9A70 /* AccountEditViewDependencies.swift */; };
 		B63B346B28182C62009E9A70 /* AccountEditHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B346A28182C62009E9A70 /* AccountEditHostingController.swift */; };
 		B63B346D2818F05B009E9A70 /* AccountHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63B346C2818F05B009E9A70 /* AccountHolder.swift */; };
-		B63D1E8A282A365C005F606E /* AccountMenuLifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D1E89282A365C005F606E /* AccountMenuLifetime.swift */; };
 		B63D1E8C282A3662005F606E /* AccountInfoLifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D1E8B282A3662005F606E /* AccountInfoLifetime.swift */; };
 		B63FE02C280BAC3800A508A1 /* LogoutInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FE02B280BAC3800A508A1 /* LogoutInteractorDependencies.swift */; };
 		B63FE02E280BAFBC00A508A1 /* LogoutInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FE02D280BAFBC00A508A1 /* LogoutInteractorTests.swift */; };
@@ -59,10 +57,15 @@
 		B63FE032280BE97100A508A1 /* LoginInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FE031280BE97100A508A1 /* LoginInteractorTests.swift */; };
 		B645D8A9281FF3F400D0D224 /* Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645D8A8281FF3F400D0D224 /* Assert.swift */; };
 		B645D8AB281FF42300D0D224 /* TestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645D8AA281FF42300D0D224 /* TestStatus.swift */; };
+		B64F1AE929936E3B0096C543 /* AccountNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64F1AE829936E3B0096C543 /* AccountNavigationView.swift */; };
+		B64F1AEB29936EE20096C543 /* AccountNavigationHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64F1AEA29936EE20096C543 /* AccountNavigationHostingController.swift */; };
+		B64F1AED29938E9A0096C543 /* AccountInfoUIKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64F1AEC29938E9A0096C543 /* AccountInfoUIKitView.swift */; };
 		B652BBF6280FC6DB00B7741B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652BBF5280FC6DB00B7741B /* LoginView.swift */; };
 		B652BBF8280FC87C00B7741B /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652BBF7280FC87C00B7741B /* ActivityIndicator.swift */; };
 		B652BBFC28101A3E00B7741B /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652BBFB28101A3E00B7741B /* LoginPresenter.swift */; };
 		B652BBFE28101C8900B7741B /* LoginHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652BBFD28101C8900B7741B /* LoginHostingController.swift */; };
+		B65671092994848C007DE355 /* AccountNavigationViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65671082994848C007DE355 /* AccountNavigationViewFactory.swift */; };
+		B656710B29948F67007DE355 /* AccountNavigationViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B656710A29948F67007DE355 /* AccountNavigationViewDependencies.swift */; };
 		B658012028012FA0009EAB96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658011F28012FA0009EAB96 /* AppDelegate.swift */; };
 		B658012228012FA0009EAB96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658012128012FA0009EAB96 /* SceneDelegate.swift */; };
 		B658012428012FA0009EAB96 /* RootTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658012328012FA0009EAB96 /* RootTransitionViewController.swift */; };
@@ -75,14 +78,12 @@
 		B658015A280140D8009EAB96 /* LaunchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6580159280140D8009EAB96 /* LaunchInteractor.swift */; };
 		B658016028014BD7009EAB96 /* RootTransitionChildPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658015F28014BD7009EAB96 /* RootTransitionChildPresenter.swift */; };
 		B65801652801A0E1009EAB96 /* RootLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65801642801A0E1009EAB96 /* RootLifecycle.swift */; };
-		B658016A2801A7A2009EAB96 /* AccountNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65801692801A7A2009EAB96 /* AccountNavigation.storyboard */; };
 		B65801702801BD0A009EAB96 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658016F2801BD0A009EAB96 /* LoginInteractor.swift */; };
 		B65801732801C351009EAB96 /* LaunchLifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65801722801C351009EAB96 /* LaunchLifetime.swift */; };
 		B658017528026B5E009EAB96 /* LogoutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658017428026B5E009EAB96 /* LogoutInteractor.swift */; };
 		B658017728026C88009EAB96 /* AccountMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658017628026C88009EAB96 /* AccountMenuPresenter.swift */; };
 		B658017A28026FF7009EAB96 /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658017928026FF7009EAB96 /* UIViewController+Child.swift */; };
 		B658017C2802B22A009EAB96 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658017B2802B22A009EAB96 /* Account.swift */; };
-		B658017E2802B31A009EAB96 /* AccountNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658017D2802B31A009EAB96 /* AccountNavigationController.swift */; };
 		B65ABF5528328BFA0096B6C7 /* AlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65ABF5428328BFA0096B6C7 /* AlertFactory.swift */; };
 		B666DD7E2830F41E0074B8F9 /* AccountEditModalLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666DD7D2830F41E0074B8F9 /* AccountEditModalLifecycle.swift */; };
 		B666DD802830F49B0074B8F9 /* AccountEditModalSubLifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666DD7F2830F49B0074B8F9 /* AccountEditModalSubLifetime.swift */; };
@@ -101,7 +102,6 @@
 		B68D3AA6280D1B1A00C4C0E9 /* AccountInfoContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D3AA5280D1B1A00C4C0E9 /* AccountInfoContent.swift */; };
 		B68D3AA8280D1BB900C4C0E9 /* RootAlertId.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D3AA7280D1BB900C4C0E9 /* RootAlertId.swift */; };
 		B68D3AAA280D818F00C4C0E9 /* AccountMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D3AA9280D818F00C4C0E9 /* AccountMenuView.swift */; };
-		B68D3AAC280D829800C4C0E9 /* AccountMenuHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D3AAB280D829800C4C0E9 /* AccountMenuHostingController.swift */; };
 		B68D3AAE280D840B00C4C0E9 /* AccountMenuViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D3AAD280D840B00C4C0E9 /* AccountMenuViewDependencies.swift */; };
 		B68D3AB2280D8C2B00C4C0E9 /* AccountMenuContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D3AB1280D8C2B00C4C0E9 /* AccountMenuContent.swift */; };
 		B68D3AB4280D9A5E00C4C0E9 /* AccountMenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D3AB3280D9A5E00C4C0E9 /* AccountMenuSection.swift */; };
@@ -111,7 +111,6 @@
 		B68D820B283740AB00C2FC23 /* RootAlertLifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D820A283740AB00C2FC23 /* RootAlertLifetime.swift */; };
 		B68E3CE12803D9EC0040F3F1 /* LoginNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68E3CE02803D9EC0040F3F1 /* LoginNetwork.swift */; };
 		B69A0850280A5EC0008E0430 /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A084F280A5EC0008E0430 /* AccountInfoView.swift */; };
-		B69A0852280A76E6008E0430 /* AccountInfoHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A0851280A76E6008E0430 /* AccountInfoHostingController.swift */; };
 		B69C41B12810317400340A92 /* LoginViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69C41B02810317400340A92 /* LoginViewDependencies.swift */; };
 		B69E477C28293453002F2AFF /* RootFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E477B28293453002F2AFF /* RootFactory.swift */; };
 		B69E4EF7286C8B0E00911280 /* AccountEditAlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E4EF6286C8B0E00911280 /* AccountEditAlertInteractor.swift */; };
@@ -175,7 +174,6 @@
 		B6FC37072980050000D3CC4C /* AccountDetailLifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC37062980050000D3CC4C /* AccountDetailLifetime.swift */; };
 		B6FC370A2980058800D3CC4C /* AccountDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC37092980058800D3CC4C /* AccountDetailInteractor.swift */; };
 		B6FC370C298005D100D3CC4C /* AccountDetailInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC370B298005D100D3CC4C /* AccountDetailInteractorDependencies.swift */; };
-		B6FC37102980077E00D3CC4C /* AccountDetailHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC370F2980077E00D3CC4C /* AccountDetailHostingController.swift */; };
 		B6FC3713298007B000D3CC4C /* AccountDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC3712298007B000D3CC4C /* AccountDetailPresenter.swift */; };
 		B6FC3715298007E600D3CC4C /* AccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC3714298007E600D3CC4C /* AccountDetailView.swift */; };
 		B6FC37192981783100D3CC4C /* AccountEditModalLifecycleDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC37182981783100D3CC4C /* AccountEditModalLifecycleDependencies.swift */; };
@@ -225,7 +223,6 @@
 		B636F61B2846AD7400CD2265 /* RootModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModal.swift; sourceTree = "<group>"; };
 		B636F61F2846B11F00CD2265 /* SceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneFactory.swift; sourceTree = "<group>"; };
 		B636F63228486B1400CD2265 /* RootTransitionViewController+ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootTransitionViewController+ViewFactory.swift"; sourceTree = "<group>"; };
-		B636F6342848903100CD2265 /* AccountNavigationController+ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountNavigationController+ViewFactory.swift"; sourceTree = "<group>"; };
 		B636F63C2848DC2A00CD2265 /* AccountEditModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditModal.swift; sourceTree = "<group>"; };
 		B636F6432848FB3100CD2265 /* RootChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootChild.swift; sourceTree = "<group>"; };
 		B636F6452848FDBD00CD2265 /* AccountNavigationElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNavigationElement.swift; sourceTree = "<group>"; };
@@ -241,7 +238,6 @@
 		B63B346828182B1E009E9A70 /* AccountEditViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditViewDependencies.swift; sourceTree = "<group>"; };
 		B63B346A28182C62009E9A70 /* AccountEditHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditHostingController.swift; sourceTree = "<group>"; };
 		B63B346C2818F05B009E9A70 /* AccountHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHolder.swift; sourceTree = "<group>"; };
-		B63D1E89282A365C005F606E /* AccountMenuLifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuLifetime.swift; sourceTree = "<group>"; };
 		B63D1E8B282A3662005F606E /* AccountInfoLifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoLifetime.swift; sourceTree = "<group>"; };
 		B63FE02B280BAC3800A508A1 /* LogoutInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutInteractorDependencies.swift; sourceTree = "<group>"; };
 		B63FE02D280BAFBC00A508A1 /* LogoutInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutInteractorTests.swift; sourceTree = "<group>"; };
@@ -249,10 +245,15 @@
 		B63FE031280BE97100A508A1 /* LoginInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractorTests.swift; sourceTree = "<group>"; };
 		B645D8A8281FF3F400D0D224 /* Assert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assert.swift; sourceTree = "<group>"; };
 		B645D8AA281FF42300D0D224 /* TestStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStatus.swift; sourceTree = "<group>"; };
+		B64F1AE829936E3B0096C543 /* AccountNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNavigationView.swift; sourceTree = "<group>"; };
+		B64F1AEA29936EE20096C543 /* AccountNavigationHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNavigationHostingController.swift; sourceTree = "<group>"; };
+		B64F1AEC29938E9A0096C543 /* AccountInfoUIKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoUIKitView.swift; sourceTree = "<group>"; };
 		B652BBF5280FC6DB00B7741B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B652BBF7280FC87C00B7741B /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		B652BBFB28101A3E00B7741B /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		B652BBFD28101C8900B7741B /* LoginHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHostingController.swift; sourceTree = "<group>"; };
+		B65671082994848C007DE355 /* AccountNavigationViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNavigationViewFactory.swift; sourceTree = "<group>"; };
+		B656710A29948F67007DE355 /* AccountNavigationViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNavigationViewDependencies.swift; sourceTree = "<group>"; };
 		B658011C28012FA0009EAB96 /* ArchitectureExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArchitectureExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B658011F28012FA0009EAB96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B658012128012FA0009EAB96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -268,14 +269,12 @@
 		B6580159280140D8009EAB96 /* LaunchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInteractor.swift; sourceTree = "<group>"; };
 		B658015F28014BD7009EAB96 /* RootTransitionChildPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransitionChildPresenter.swift; sourceTree = "<group>"; };
 		B65801642801A0E1009EAB96 /* RootLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootLifecycle.swift; sourceTree = "<group>"; };
-		B65801692801A7A2009EAB96 /* AccountNavigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountNavigation.storyboard; sourceTree = "<group>"; };
 		B658016F2801BD0A009EAB96 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		B65801722801C351009EAB96 /* LaunchLifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchLifetime.swift; sourceTree = "<group>"; };
 		B658017428026B5E009EAB96 /* LogoutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutInteractor.swift; sourceTree = "<group>"; };
 		B658017628026C88009EAB96 /* AccountMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuPresenter.swift; sourceTree = "<group>"; };
 		B658017928026FF7009EAB96 /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
 		B658017B2802B22A009EAB96 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		B658017D2802B31A009EAB96 /* AccountNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNavigationController.swift; sourceTree = "<group>"; };
 		B65ABF5428328BFA0096B6C7 /* AlertFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertFactory.swift; sourceTree = "<group>"; };
 		B666DD7D2830F41E0074B8F9 /* AccountEditModalLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditModalLifecycle.swift; sourceTree = "<group>"; };
 		B666DD7F2830F49B0074B8F9 /* AccountEditModalSubLifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditModalSubLifetime.swift; sourceTree = "<group>"; };
@@ -294,7 +293,6 @@
 		B68D3AA5280D1B1A00C4C0E9 /* AccountInfoContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoContent.swift; sourceTree = "<group>"; };
 		B68D3AA7280D1BB900C4C0E9 /* RootAlertId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertId.swift; sourceTree = "<group>"; };
 		B68D3AA9280D818F00C4C0E9 /* AccountMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuView.swift; sourceTree = "<group>"; };
-		B68D3AAB280D829800C4C0E9 /* AccountMenuHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuHostingController.swift; sourceTree = "<group>"; };
 		B68D3AAD280D840B00C4C0E9 /* AccountMenuViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuViewDependencies.swift; sourceTree = "<group>"; };
 		B68D3AB1280D8C2B00C4C0E9 /* AccountMenuContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuContent.swift; sourceTree = "<group>"; };
 		B68D3AB3280D9A5E00C4C0E9 /* AccountMenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuSection.swift; sourceTree = "<group>"; };
@@ -304,7 +302,6 @@
 		B68D820A283740AB00C2FC23 /* RootAlertLifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertLifetime.swift; sourceTree = "<group>"; };
 		B68E3CE02803D9EC0040F3F1 /* LoginNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetwork.swift; sourceTree = "<group>"; };
 		B69A084F280A5EC0008E0430 /* AccountInfoView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; tabWidth = 4; };
-		B69A0851280A76E6008E0430 /* AccountInfoHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoHostingController.swift; sourceTree = "<group>"; };
 		B69C41B02810317400340A92 /* LoginViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDependencies.swift; sourceTree = "<group>"; };
 		B69E477B28293453002F2AFF /* RootFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFactory.swift; sourceTree = "<group>"; };
 		B69E4EF6286C8B0E00911280 /* AccountEditAlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditAlertInteractor.swift; sourceTree = "<group>"; };
@@ -368,7 +365,6 @@
 		B6FC37062980050000D3CC4C /* AccountDetailLifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailLifetime.swift; sourceTree = "<group>"; };
 		B6FC37092980058800D3CC4C /* AccountDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailInteractor.swift; sourceTree = "<group>"; };
 		B6FC370B298005D100D3CC4C /* AccountDetailInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailInteractorDependencies.swift; sourceTree = "<group>"; };
-		B6FC370F2980077E00D3CC4C /* AccountDetailHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailHostingController.swift; sourceTree = "<group>"; };
 		B6FC3712298007B000D3CC4C /* AccountDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailPresenter.swift; sourceTree = "<group>"; };
 		B6FC3714298007E600D3CC4C /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
 		B6FC37182981783100D3CC4C /* AccountEditModalLifecycleDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditModalLifecycleDependencies.swift; sourceTree = "<group>"; };
@@ -452,7 +448,6 @@
 		B625F5962806E2B800230B5D /* AccountMenu */ = {
 			isa = PBXGroup;
 			children = (
-				B68D3AAB280D829800C4C0E9 /* AccountMenuHostingController.swift */,
 				B68D3AAD280D840B00C4C0E9 /* AccountMenuViewDependencies.swift */,
 				B68D3AA9280D818F00C4C0E9 /* AccountMenuView.swift */,
 				B67758B02811857000403DC6 /* AccountMenuCell.swift */,
@@ -525,6 +520,8 @@
 				B63B346C2818F05B009E9A70 /* AccountHolder.swift */,
 				B63FE02B280BAC3800A508A1 /* LogoutInteractorDependencies.swift */,
 				B658017428026B5E009EAB96 /* LogoutInteractor.swift */,
+				B6F222442860253E0074A0D2 /* AccountMenuInteractorDependencies.swift */,
+				B6F22242286024F20074A0D2 /* AccountMenuInteractor.swift */,
 				B6F22246286086D60074A0D2 /* AccountReceiverDependencies.swift */,
 				B6F8FAE02858C1BA0038BC3D /* AccountReceiver.swift */,
 			);
@@ -616,7 +613,6 @@
 		B63B2699280AAB57009117B9 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				B69A0851280A76E6008E0430 /* AccountInfoHostingController.swift */,
 				B63B2690280A8462009117B9 /* AccountInfoViewDependencies.swift */,
 				B69A084F280A5EC0008E0430 /* AccountInfoView.swift */,
 				B67758B22811869100403DC6 /* AccountInfoCell.swift */,
@@ -629,6 +625,7 @@
 			isa = PBXGroup;
 			children = (
 				B625F5922806DE6A00230B5D /* AccountInfo.storyboard */,
+				B64F1AEC29938E9A0096C543 /* AccountInfoUIKitView.swift */,
 				B63B2692280AA0C8009117B9 /* AccountInfoViewController.swift */,
 				B606DDC6284C49F700CCEECD /* AccountInfoUIKitPresenter.swift */,
 			);
@@ -655,15 +652,6 @@
 				B6FEED802865643E002EA4A3 /* Presenters */,
 			);
 			path = AccountEdit;
-			sourceTree = "<group>";
-		};
-		B63D1E87282A3641005F606E /* AccountMenu */ = {
-			isa = PBXGroup;
-			children = (
-				B63D1E89282A365C005F606E /* AccountMenuLifetime.swift */,
-				B6F22241286024E50074A0D2 /* Features */,
-			);
-			path = AccountMenu;
 			sourceTree = "<group>";
 		};
 		B63D1E88282A3645005F606E /* AccountInfo */ = {
@@ -749,7 +737,6 @@
 				B658015C28014B3A009EAB96 /* Login */,
 				B658015E28014BB6009EAB96 /* Account */,
 				B68D820C283740BA00C2FC23 /* RootAlert */,
-				B63D1E87282A3641005F606E /* AccountMenu */,
 				B63D1E88282A3645005F606E /* AccountInfo */,
 				B6FC37052980048E00D3CC4C /* AccountDetail */,
 				B63B345E281823B9009E9A70 /* AccountEdit */,
@@ -836,9 +823,10 @@
 		B65801662801A4D0009EAB96 /* AccountNavigation */ = {
 			isa = PBXGroup;
 			children = (
-				B65801692801A7A2009EAB96 /* AccountNavigation.storyboard */,
-				B658017D2802B31A009EAB96 /* AccountNavigationController.swift */,
-				B636F6342848903100CD2265 /* AccountNavigationController+ViewFactory.swift */,
+				B656710A29948F67007DE355 /* AccountNavigationViewDependencies.swift */,
+				B64F1AE829936E3B0096C543 /* AccountNavigationView.swift */,
+				B65671082994848C007DE355 /* AccountNavigationViewFactory.swift */,
+				B64F1AEA29936EE20096C543 /* AccountNavigationHostingController.swift */,
 				B6FEED7A286563D7002EA4A3 /* ValueTypes */,
 				B6FEED79286563D1002EA4A3 /* Presenters */,
 			);
@@ -959,15 +947,6 @@
 			path = AlertTemplate;
 			sourceTree = "<group>";
 		};
-		B6F22241286024E50074A0D2 /* Features */ = {
-			isa = PBXGroup;
-			children = (
-				B6F222442860253E0074A0D2 /* AccountMenuInteractorDependencies.swift */,
-				B6F22242286024F20074A0D2 /* AccountMenuInteractor.swift */,
-			);
-			path = Features;
-			sourceTree = "<group>";
-		};
 		B6F8FACB2858A8A60038BC3D /* protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -1008,7 +987,6 @@
 		B6FC370D2980073000D3CC4C /* AccountDetail */ = {
 			isa = PBXGroup;
 			children = (
-				B6FC370F2980077E00D3CC4C /* AccountDetailHostingController.swift */,
 				B6FC3714298007E600D3CC4C /* AccountDetailView.swift */,
 				B6FC3711298007A500D3CC4C /* Presenters */,
 			);
@@ -1212,7 +1190,6 @@
 				B61753B5281054BF0057DC15 /* Localizable.strings in Resources */,
 				B658012928012FA0009EAB96 /* Assets.xcassets in Resources */,
 				B625F5932806DE6A00230B5D /* AccountInfo.storyboard in Resources */,
-				B658016A2801A7A2009EAB96 /* AccountNavigation.storyboard in Resources */,
 				B658012728012FA0009EAB96 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1266,10 +1243,10 @@
 				B60D63F52816B78100EC7732 /* CurrentValue.swift in Sources */,
 				B60E4EB4281A9849005E2F32 /* UserDefaults+Helper.swift in Sources */,
 				B60E4EA6281A1EA3005E2F32 /* RootModalFactory.swift in Sources */,
+				B64F1AEB29936EE20096C543 /* AccountNavigationHostingController.swift in Sources */,
 				B652BBF8280FC87C00B7741B /* ActivityIndicator.swift in Sources */,
 				B6E86FF9280C4E0200BEFE87 /* LaunchInteractorDependencies.swift in Sources */,
 				B6DB6FF52859DCBA0070596B /* AccountEditModalFactory.swift in Sources */,
-				B658017E2802B31A009EAB96 /* AccountNavigationController.swift in Sources */,
 				B6DB6FF12859D7280070596B /* AccountEditAlertReceiver.swift in Sources */,
 				B63B346928182B1E009E9A70 /* AccountEditViewDependencies.swift in Sources */,
 				B606DDC7284C49F700CCEECD /* AccountInfoUIKitPresenter.swift in Sources */,
@@ -1277,10 +1254,8 @@
 				B658015828013FFF009EAB96 /* LoginLifetime.swift in Sources */,
 				B63640BC285EA86300F37479 /* AccountEditTransitionModalPresenter.swift in Sources */,
 				B658017C2802B22A009EAB96 /* Account.swift in Sources */,
-				B6FC37102980077E00D3CC4C /* AccountDetailHostingController.swift in Sources */,
 				B67758B12811857000403DC6 /* AccountMenuCell.swift in Sources */,
 				B636F6462848FDBD00CD2265 /* AccountNavigationElement.swift in Sources */,
-				B69A0852280A76E6008E0430 /* AccountInfoHostingController.swift in Sources */,
 				B6376FE428144528004D5F9C /* SceneLifecycle.swift in Sources */,
 				B6FC370C298005D100D3CC4C /* AccountDetailInteractorDependencies.swift in Sources */,
 				B6FC37072980050000D3CC4C /* AccountDetailLifetime.swift in Sources */,
@@ -1318,6 +1293,7 @@
 				B68D3AAE280D840B00C4C0E9 /* AccountMenuViewDependencies.swift in Sources */,
 				B636F6442848FB3100CD2265 /* RootChild.swift in Sources */,
 				B6BC1CBA28609CB500B28D18 /* RootCommandPresenter.swift in Sources */,
+				B656710B29948F67007DE355 /* AccountNavigationViewDependencies.swift in Sources */,
 				B6FC370A2980058800D3CC4C /* AccountDetailInteractor.swift in Sources */,
 				B6FC371B2982B5AD00D3CC4C /* AccountNavigationLifecycleDependencies.swift in Sources */,
 				B658012428012FA0009EAB96 /* RootTransitionViewController.swift in Sources */,
@@ -1346,7 +1322,6 @@
 				B6FC371F2982CFAB00D3CC4C /* RootModalLifecycleDependencies.swift in Sources */,
 				B69E4EF9286C8BC400911280 /* AccountEditAlertInteractorDependencies.swift in Sources */,
 				B63B2693280AA0C8009117B9 /* AccountInfoViewController.swift in Sources */,
-				B63D1E8A282A365C005F606E /* AccountMenuLifetime.swift in Sources */,
 				B63B346728182A00009E9A70 /* AccountEditPresenter.swift in Sources */,
 				B6F8FADD2858BFB60038BC3D /* RootLifecycle+Action.swift in Sources */,
 				B6FC37212983836F00D3CC4C /* RootLifecycleDependencies.swift in Sources */,
@@ -1357,7 +1332,6 @@
 				B6FC3713298007B000D3CC4C /* AccountDetailPresenter.swift in Sources */,
 				B636F6202846B11F00CD2265 /* SceneFactory.swift in Sources */,
 				B69A0850280A5EC0008E0430 /* AccountInfoView.swift in Sources */,
-				B68D3AAC280D829800C4C0E9 /* AccountMenuHostingController.swift in Sources */,
 				B658015128013045009EAB96 /* AppLifetime.swift in Sources */,
 				B61D576129841124009E084C /* AppLifecycleDependencies.swift in Sources */,
 				B61753BB281055360057DC15 /* Localized.swift in Sources */,
@@ -1372,7 +1346,6 @@
 				B658012228012FA0009EAB96 /* SceneDelegate.swift in Sources */,
 				B60D63FD2816EEEA00EC7732 /* RootModalSubLifetime.swift in Sources */,
 				B68D820B283740AB00C2FC23 /* RootAlertLifetime.swift in Sources */,
-				B636F6352848903100CD2265 /* AccountNavigationController+ViewFactory.swift in Sources */,
 				B69E4EFD286C90F200911280 /* RootAlertInteractorDependencies.swift in Sources */,
 				B6376FE628144550004D5F9C /* SceneLifetime.swift in Sources */,
 				B67E5E422850B49E00B53C2B /* AccountNavigationFactory.swift in Sources */,
@@ -1389,7 +1362,9 @@
 				B6F8FADF2858BFCE0038BC3D /* RootModalLifecycle+Action.swift in Sources */,
 				B65ABF5528328BFA0096B6C7 /* AlertFactory.swift in Sources */,
 				B68D3AA8280D1BB900C4C0E9 /* RootAlertId.swift in Sources */,
+				B65671092994848C007DE355 /* AccountNavigationViewFactory.swift in Sources */,
 				B63B3460281823FA009E9A70 /* AccountEditLifetime.swift in Sources */,
+				B64F1AE929936E3B0096C543 /* AccountNavigationView.swift in Sources */,
 				B6F22249286087A60074A0D2 /* AccountEditAlertReceiverDependencies.swift in Sources */,
 				B6C687FE285D6610008220B6 /* ModalSuspending.swift in Sources */,
 				B6F8FAD52858B9CC0038BC3D /* ActionReceivable.swift in Sources */,
@@ -1400,6 +1375,7 @@
 				B6031B0B2807188E003AD07E /* AccountNavigationPresenter.swift in Sources */,
 				B6FC3715298007E600D3CC4C /* AccountDetailView.swift in Sources */,
 				B666DD7E2830F41E0074B8F9 /* AccountEditModalLifecycle.swift in Sources */,
+				B64F1AED29938E9A0096C543 /* AccountInfoUIKitView.swift in Sources */,
 				B67E5E402850B43D00B53C2B /* AccountInfoInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

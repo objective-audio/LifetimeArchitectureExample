@@ -39,10 +39,15 @@ extension RootTransitionViewController {
 
 // MARK: -
 
+extension AccountNavigationPresenter: PresenterForAccountNavigationView {}
+
 extension RootTransitionViewController {
-    static func makeAccountNavigationController(accountLifetimeId: AccountLifetimeId) -> AccountNavigationController? {
+    static func makeAccountNavigationHostingController(
+        accountLifetimeId: AccountLifetimeId
+    ) -> AccountNavigationHostingController? {
         guard let lifetime = LifetimeAccessor.account(id: accountLifetimeId) else { return nil }
-        let presenter = AccountNavigationPresenter(navigationLifecycle: lifetime.navigationLifecycle)
-        return AccountNavigationController.instantiate(presenter: presenter)
+        let presenter = AccountNavigationPresenter(accountLifetimeId: accountLifetimeId,
+                                                   navigationLifecycle: lifetime.navigationLifecycle)
+        return AccountNavigationHostingController(presenter: presenter)
     }
 }

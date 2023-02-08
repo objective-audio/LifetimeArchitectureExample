@@ -33,8 +33,6 @@ final class AccountInfoViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = Localized.accountInfoNavigationTitle.value
-
         self.dataSource = DataSource(tableView: self.tableView) { [weak self] tableView, indexPath, contentId in
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
@@ -74,14 +72,6 @@ final class AccountInfoViewController: UITableViewController {
                 snapShot.reloadItems([.name])
                 self.dataSource.apply(snapShot)
             }.store(in: &self.cancellables)
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        if self.isMovingFromParent {
-            self.presenter.viewDidRemoveFromParent()
-        }
-
-        super.viewDidDisappear(animated)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -11,5 +11,6 @@ struct AccountLifetime {
     let accountHolder: AccountHolder
     let logoutInteractor: LogoutInteractor
     let navigationLifecycle: AccountNavigationLifecycle<AccountNavigationFactory>
+    let accountMenuInteractor: AccountMenuInteractor
     let receiver: AccountReceiver
 }

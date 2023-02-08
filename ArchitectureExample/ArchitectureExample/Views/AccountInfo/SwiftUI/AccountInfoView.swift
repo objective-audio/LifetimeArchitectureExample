@@ -31,6 +31,7 @@ struct AccountInfoView<Presenter: PresenterForAccountInfoView>: View {
                 }
             }
         }
+        .navigationTitle(Localized.accountInfoNavigationTitle.key)
     }
 }
 

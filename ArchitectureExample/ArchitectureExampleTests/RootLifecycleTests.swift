@@ -21,6 +21,7 @@ private struct AccountLifetimeStub: AccountLifetimeForLifecycle {
     var accountHolder: AccountHolder { fatalError() }
     var logoutInteractor: LogoutInteractor { fatalError() }
     var navigationLifecycle: AccountNavigationLifecycle<AccountNavigationFactory> { fatalError() }
+    var accountMenuInteractor: AccountMenuInteractor { fatalError() }
     var receiver: AccountReceiver { fatalError() }
 }
 

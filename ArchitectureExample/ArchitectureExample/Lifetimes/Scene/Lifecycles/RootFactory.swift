@@ -63,6 +63,9 @@ extension RootLifecycle: RootLifecycleForLogoutInteractor {}
 extension AccountRepository: AccountRepositoryForLogoutInteractor {}
 extension AccountRepository: AccountRepositoryForAccountHolder {}
 extension LogoutInteractor: LogoutInteractorForAccountReceiver {}
+extension ActionSender: ActionSenderForAccountMenuInteractor {}
+extension AccountNavigationLifecycle: AccountNavigationLifecycleForAccountMenuInteractor {}
+extension AccountNavigationFactory: FactoryForAccountNavigationLifecycle {}
 extension RootModalLifecycle: RootModalLifecycleForAccountReceiver {}
 extension AccountLifetime: AccountLifetimeForLifecycle {}
 
@@ -77,12 +80,16 @@ extension RootFactory {
         let logoutInteractor = LogoutInteractor(accountId: accountId,
                                                 rootLifecycle: sceneLifetime.rootLifecycle,
                                                 accountRepository: appLifetime.accountRepository)
+        let navigationLifecycle = AccountNavigationLifecycle<AccountNavigationFactory>(accountLifetimeId: id)
 
         return .init(lifetimeId: id,
                      accountHolder: .init(id: accountId,
                                               accountRepository: appLifetime.accountRepository),
                      logoutInteractor: logoutInteractor,
-                     navigationLifecycle: .init(accountLifetimeId: id),
+                     navigationLifecycle: navigationLifecycle,
+                     accountMenuInteractor: .init(lifetimeId: id,
+                                                  navigationLifecycle: navigationLifecycle,
+                                                  actionSender: appLifetime.actionSender),
                      receiver: .init(accountLifetimeId: id,
                                      logoutInteractor: logoutInteractor,
                                      rootModalLifecycle: sceneLifetime.rootModalLifecycle))

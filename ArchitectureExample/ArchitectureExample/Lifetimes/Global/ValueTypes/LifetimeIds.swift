@@ -34,8 +34,6 @@ struct AccountSubLifetimeId: Hashable {
 
 /// AccountEditLifetimeのスコープを特定するためのID
 typealias AccountEditLifetimeId = AccountSubLifetimeId
-/// AccountMenuLifetimeのスコープを特定するためのID
-typealias AccountMenuLifetimeId = AccountSubLifetimeId
 /// AccountInfoLifetimeのスコープを特定するためのID
 typealias AccountInfoLifetimeId = AccountSubLifetimeId
 /// AccountDetailLifetimeのスコープを特定するためのID

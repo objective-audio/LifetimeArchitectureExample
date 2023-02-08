@@ -14,7 +14,7 @@ final class AccountInfoInteractor {
     private let lifetimeId: AccountInfoLifetimeId
 
     private unowned let accountHolder: AccountHolderForAccountInfoInteractor
-    private unowned var navigationLifecycle: AccountNavigationLifecycleForAccountInfoInteractor?
+    private unowned let navigationLifecycle: AccountNavigationLifecycleForAccountInfoInteractor
     private unowned let rootModalLifecycle: RootModalLifecycleForAccountInfoInteractor
 
     init(uiSystem: UISystem,
@@ -41,17 +41,6 @@ final class AccountInfoInteractor {
     }
 
     func pushDetail() {
-        self.navigationLifecycle?.pushDetail()
-    }
-
-    func finalize() {
-        guard let lifecycle = self.navigationLifecycle,
-              lifecycle.canPopInfo(lifetimeId: self.lifetimeId) else {
-            return
-        }
-
-        lifecycle.popInfo(lifetimeId: self.lifetimeId)
-
-        self.navigationLifecycle = nil
+        self.navigationLifecycle.pushDetail()
     }
 }

@@ -25,10 +25,6 @@ final class AccountInfoSwiftUIPresenter {
                 [.pushDetail]]
     }
 
-    func viewDidRemoveFromParent() {
-        self.interactor?.finalize()
-    }
-
     func handle(action: AccountInfoAction) {
         switch action {
         case .edit:

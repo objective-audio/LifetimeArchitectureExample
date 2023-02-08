@@ -14,18 +14,16 @@ final class AccountNavigationLifecycle<Factory: FactoryForAccountNavigationLifec
 
     init(accountLifetimeId: AccountLifetimeId) {
         self.accountLifetimeId = accountLifetimeId
-
-        let lifetimeId = AccountMenuLifetimeId(instanceId: Factory.makeInstanceId(),
-                                               account: accountLifetimeId)
-        let lifetime = Factory.makeAccountMenuLifetime(lifetimeId: lifetimeId,
-                                                       navigationLifecycle: self)
-        self.stack = [.menu(lifetime)]
     }
 }
 
 extension AccountNavigationLifecycle {
+    func revert(stack: [AccountNavigationSubLifetime<Factory>]) {
+        self.stack = stack
+    }
+
     var canPushInfo: Bool {
-        if self.stack.count == 1, case .menu = self.stack[0] {
+        if self.stack.count == 0 {
             return true
         } else {
             return false
@@ -63,7 +61,7 @@ extension AccountNavigationLifecycle {
     }
 
     var canPushDetail: Bool {
-        if self.stack.count == 2, case .info = self.stack[1] {
+        if self.stack.count == 1, case .info = self.stack[0] {
             return true
         } else {
             return false
