@@ -114,23 +114,4 @@ class AccountInfoInteractorTests: XCTestCase {
 
         XCTAssertEqual(called.count, 2, "複数回呼べる")
     }
-
-    func testFinalize() {
-        var called: [AccountInfoLifetimeId] = []
-
-        self.navigationLifecycle.popInfoHandler = {
-            called.append($0)
-        }
-
-        XCTAssertEqual(called.count, 0)
-
-        self.interactor.finalize()
-
-        XCTAssertEqual(called.count, 1)
-        XCTAssertEqual(called[0], self.lifetimeId)
-
-        self.interactor.finalize()
-
-        XCTAssertEqual(called.count, 1, "複数回呼んでも無視される")
-    }
 }

@@ -7,11 +7,11 @@
  */
 
 final class AccountMenuInteractor {
-    private let lifetimeId: AccountMenuLifetimeId
+    private let lifetimeId: AccountLifetimeId
     private unowned let navigationLifecycle: AccountNavigationLifecycleForAccountMenuInteractor
     private unowned let actionSender: ActionSenderForAccountMenuInteractor
 
-    init(lifetimeId: AccountMenuLifetimeId,
+    init(lifetimeId: AccountLifetimeId,
          navigationLifecycle: AccountNavigationLifecycleForAccountMenuInteractor,
          actionSender: ActionSenderForAccountMenuInteractor) {
         self.lifetimeId = lifetimeId
@@ -29,6 +29,6 @@ final class AccountMenuInteractor {
     }
 
     func logout() {
-        self.actionSender.sendLogout(accountLifetimeId: self.lifetimeId.account)
+        self.actionSender.sendLogout(accountLifetimeId: self.lifetimeId)
     }
 }

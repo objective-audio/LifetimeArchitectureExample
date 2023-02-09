@@ -18,6 +18,7 @@ protocol AccountLifetimeForLifecycle {
     var accountHolder: AccountHolder { get }
     var logoutInteractor: LogoutInteractor { get }
     var navigationLifecycle: AccountNavigationLifecycle<AccountNavigationFactory> { get }
+    var accountMenuInteractor: AccountMenuInteractor { get }
     var receiver: AccountReceiver { get }
 }
 

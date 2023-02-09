@@ -15,29 +15,6 @@ extension AccountNavigationFactory {
 
 // MARK: -
 
-extension ActionSender: ActionSenderForAccountMenuInteractor {}
-extension AccountNavigationLifecycle: AccountNavigationLifecycleForAccountMenuInteractor {}
-extension AccountMenuLifetime: AccountMenuLifetimeForLifecycle {}
-extension AccountNavigationFactory: FactoryForAccountNavigationLifecycle {}
-
-extension AccountNavigationFactory {
-    static func makeAccountMenuLifetime(
-        lifetimeId: AccountMenuLifetimeId,
-        navigationLifecycle: AccountNavigationLifecycle<Self>
-    ) -> AccountMenuLifetime {
-        guard let appLifetime = LifetimeAccessor.app else {
-            fatalError()
-        }
-
-        return .init(lifetimeId: lifetimeId,
-                     interactor: .init(lifetimeId: lifetimeId,
-                                       navigationLifecycle: navigationLifecycle,
-                                       actionSender: appLifetime.actionSender))
-    }
-}
-
-// MARK: -
-
 extension AccountNavigationLifecycle: AccountNavigationLifecycleForAccountInfoInteractor {}
 extension AccountHolder: AccountHolderForAccountInfoInteractor {}
 extension RootModalLifecycle: RootModalLifecycleForAccountInfoInteractor {}

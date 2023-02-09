@@ -5,29 +5,62 @@
 import Combine
 
 @MainActor
-final class AccountNavigationPresenter {
+final class AccountNavigationPresenter: ObservableObject {
+    let accountLifetimeId: AccountLifetimeId
     private weak var navigationLifecycle: AccountNavigationLifecycle<AccountNavigationFactory>?
 
-    @CurrentValue private(set) var elements: [AccountNavigationElement] = []
+    @Published var elements: [AccountNavigationElement] = [] {
+        didSet {
+            if self.elements != oldValue {
+                self.revertStack()
+            }
+        }
+    }
 
     private var cancellables: Set<AnyCancellable> = .init()
 
-    init(navigationLifecycle: AccountNavigationLifecycle<AccountNavigationFactory>) {
+    init(accountLifetimeId: AccountLifetimeId,
+         navigationLifecycle: AccountNavigationLifecycle<AccountNavigationFactory>) {
+        self.accountLifetimeId = accountLifetimeId
         self.navigationLifecycle = navigationLifecycle
 
-        navigationLifecycle.$stack
+        navigationLifecycle
+            .$stack
             .map { $0.map(AccountNavigationElement.init) }
-            .assign(to: \.value,
-                    on: self.$elements)
-            .store(in: &self.cancellables)
+            .assign(to: &self.$elements)
+    }
+}
+
+private extension AccountNavigationPresenter {
+    func revertStack() {
+        guard let lifecycle = self.navigationLifecycle else {
+            assertionFailure()
+            return
+        }
+
+        var revertedStack: [AccountNavigationSubLifetime<AccountNavigationFactory>] = []
+
+        let lifecycleElements = lifecycle.stack.map(AccountNavigationElement.init)
+
+        for (index, element) in self.elements.enumerated() {
+            guard index < lifecycleElements.count else {
+                break
+            }
+
+            guard element == lifecycleElements[index] else {
+                break
+            }
+
+            revertedStack.append(lifecycle.stack[index])
+        }
+
+        lifecycle.revert(stack: revertedStack)
     }
 }
 
 extension AccountNavigationElement {
     init(_ subLifetime: AccountNavigationSubLifetime<AccountNavigationFactory>) {
         switch subLifetime {
-        case .menu(let lifetime):
-            self = .menu(lifetimeId: lifetime.lifetimeId)
         case .info(let lifetime):
             self = .info(uiSystem: lifetime.interactor.uiSystem,
                          lifetimeId: lifetime.lifetimeId)

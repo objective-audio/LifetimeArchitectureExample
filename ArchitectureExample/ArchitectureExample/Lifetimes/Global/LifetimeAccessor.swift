@@ -53,20 +53,6 @@ enum LifetimeAccessor {
         return lifetime
     }
 
-    static func accountMenu(id: AccountMenuLifetimeId) -> AccountMenuLifetimeForLifecycle? {
-        guard let account = self.account(id: id.account),
-              let subLifetime = account.navigationLifecycle.stack.first(where: {
-                  guard case .menu = $0 else { return false }
-                  return true
-              }),
-              case .menu(let lifetime) = subLifetime,
-              lifetime.lifetimeId == id else {
-            assertionFailure()
-            return nil
-        }
-        return lifetime
-    }
-
     static func accountInfo(id: AccountInfoLifetimeId) -> AccountInfoLifetimeForLifecycle? {
         guard let account = self.account(id: id.account),
               let subLifetime = account.navigationLifecycle.stack.first(where: {

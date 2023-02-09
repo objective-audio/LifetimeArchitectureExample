@@ -17,15 +17,4 @@ final class AccountDetailInteractor {
         self.lifetimeId = lifetimeId
         self.navigationLifecycle = navigationLifecycle
     }
-
-    func finalize() {
-        guard let lifecycle = self.navigationLifecycle,
-              lifecycle.canPopDetail(lifetimeId: self.lifetimeId) else {
-            return
-        }
-
-        lifecycle.popDetail(lifetimeId: self.lifetimeId)
-
-        self.navigationLifecycle = nil
-    }
 }

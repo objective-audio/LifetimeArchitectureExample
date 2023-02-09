@@ -37,8 +37,7 @@ final class RootTransitionViewController: UIViewController {
                 case .login(let sceneLifetimeId):
                     self.replaceChild(Self.makeLoginHostingController(sceneId: sceneLifetimeId))
                 case .account(let lifetimeId):
-                    self.replaceChild(
-                        Self.makeAccountNavigationController(accountLifetimeId: lifetimeId))
+                    self.replaceChild(Self.makeAccountNavigationHostingController(accountLifetimeId: lifetimeId))
                 case .none:
                     self.replaceChild(nil)
                 }

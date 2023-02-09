@@ -41,10 +41,6 @@ final class AccountInfoUIKitPresenter {
         }
     }
 
-    func viewDidRemoveFromParent() {
-        self.interactor?.finalize()
-    }
-
     func didSelect(contentId: AccountInfoContentID) {
         switch self.content(for: contentId).action {
         case .edit:
