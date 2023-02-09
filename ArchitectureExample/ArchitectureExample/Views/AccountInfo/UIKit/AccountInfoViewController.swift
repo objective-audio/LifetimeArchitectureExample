@@ -42,12 +42,12 @@ final class AccountInfoViewController: UITableViewController {
 
             if let presenter = self?.presenter {
                 let content = presenter.content(for: contentId)
-                let hasAction = content.action != nil
                 config.text = content.localizedCaption.value
                 config.secondaryText = content.secondaryText
-                config.textProperties.color = hasAction ? .systemBlue : .label
+                config.textProperties.color = content.action.textColor
                 cell.contentConfiguration = config
-                cell.selectionStyle = hasAction ? .default : .none
+                cell.selectionStyle = content.action.selectionStyle
+                cell.accessoryType = content.action.accessoryType
             } else {
                 cell.contentConfiguration = config
                 cell.selectionStyle = .none
@@ -90,5 +90,34 @@ final class AccountInfoViewController: UITableViewController {
         }
 
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+private extension AccountInfoAction? {
+    var textColor: UIColor {
+        switch self {
+        case .edit:
+            return .systemBlue
+        case .pushDetail, .none:
+            return .label
+        }
+    }
+
+    var selectionStyle: UITableViewCell.SelectionStyle {
+        switch self {
+        case .edit, .pushDetail:
+            return .default
+        case .none:
+            return .none
+        }
+    }
+
+    var accessoryType: UITableViewCell.AccessoryType {
+        switch self {
+        case .edit, .none:
+            return .none
+        case .pushDetail:
+            return .disclosureIndicator
+        }
     }
 }
