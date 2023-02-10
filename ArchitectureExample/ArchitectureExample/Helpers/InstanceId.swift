@@ -2,7 +2,7 @@
 //  InstanceId.swift
 //
 
-class InstanceId {}
+final class InstanceId {}
 
 extension InstanceId: Hashable {
     static func == (lhs: InstanceId, rhs: InstanceId) -> Bool {
