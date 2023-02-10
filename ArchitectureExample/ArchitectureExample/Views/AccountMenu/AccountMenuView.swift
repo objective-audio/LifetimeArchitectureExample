@@ -5,8 +5,6 @@
 import SwiftUI
 
 struct AccountMenuView<Presenter: PresenterForAccountMenuView>: View {
-    typealias Presenter = PresenterForAccountMenuView
-
     @ObservedObject private var presenter: Presenter
 
     init(presenter: Presenter) {
@@ -43,7 +41,7 @@ private extension AccountMenuSection {
 }
 
 struct AccountMenuView_Previews: PreviewProvider {
-    private class PresenterStub: AccountMenuView.Presenter {
+    private class PresenterStub: PresenterForAccountMenuView {
         let sections: [AccountMenuSection] = [
             .init(kind: .info,
                   contents: [.info(.swiftUI), .info(.uiKit)]),

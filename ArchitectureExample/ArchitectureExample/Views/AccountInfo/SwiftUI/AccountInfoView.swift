@@ -5,8 +5,6 @@
 import SwiftUI
 
 struct AccountInfoView<Presenter: PresenterForAccountInfoView>: View {
-    typealias Presenter = PresenterForAccountInfoView
-
     @ObservedObject private var presenter: Presenter
 
     init(presenter: Presenter) {
@@ -36,7 +34,7 @@ struct AccountInfoView<Presenter: PresenterForAccountInfoView>: View {
 }
 
 struct AccountInfoView_Previews: PreviewProvider {
-    private class PresenterStub: AccountInfoView.Presenter {
+    private class PresenterStub: PresenterForAccountInfoView {
         let title: Localized = .accountInfoNavigationTitle
         let contents: [[AccountInfoContent]] = [[.id(1), .name("account-name-1")],
                                                 [.edit]]

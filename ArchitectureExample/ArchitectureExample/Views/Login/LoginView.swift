@@ -5,8 +5,6 @@
 import SwiftUI
 
 struct LoginView<Presenter: PresenterForLoginView>: View {
-    typealias Presenter = PresenterForLoginView
-
     @ObservedObject private var presenter: Presenter
     // TextFieldをdisableにする時に警告が表示される対策。先にフォーカスを外す
     @FocusState private var isTextFieldFocused: Bool
@@ -55,7 +53,7 @@ struct LoginView<Presenter: PresenterForLoginView>: View {
 }
 
 struct LoginView_Previews: PreviewProvider {
-    private class PresenterStub: LoginView.Presenter {
+    private class PresenterStub: PresenterForLoginView {
         var accountId: String = ""
 
         let isTextFieldDisabled = false

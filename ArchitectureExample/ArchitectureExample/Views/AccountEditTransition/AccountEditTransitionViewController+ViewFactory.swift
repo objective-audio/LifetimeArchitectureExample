@@ -2,7 +2,7 @@
 //  AccountEditTransitionViewController+ViewFactory.swift
 //
 
-extension AccountEditPresenter: AccountEditView.Presenter {}
+extension AccountEditPresenter: PresenterForAccountEditView {}
 
 extension AccountEditTransitionViewController {
     static func makeAccountEditHostingController(
