@@ -4,7 +4,7 @@
 
 import UIKit
 
-extension AccountEditAlertInteractor: AlertPresenter.Interactor {}
+extension AccountEditAlertInteractor: InteractorForAlertPresenter {}
 
 extension AccountEditTransitionViewController {
     static func makeAccountEditAlertController(

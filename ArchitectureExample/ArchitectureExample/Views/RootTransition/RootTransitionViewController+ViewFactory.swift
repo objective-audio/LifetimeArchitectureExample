@@ -21,7 +21,7 @@ extension RootTransitionViewController {
 
 // MARK: -
 
-extension LoginInteractor: LoginPresenter.Interactor {}
+extension LoginInteractor: LoginInteractorForPresenter {}
 extension LoginPresenter: PresenterForLoginView {}
 
 extension RootTransitionViewController {

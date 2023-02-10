@@ -4,7 +4,7 @@
 
 import UIKit
 
-extension RootAlertInteractor: AlertPresenter.Interactor {}
+extension RootAlertInteractor: InteractorForAlertPresenter {}
 
 extension RootTransitionViewController {
     static func makeRootAlertController(lifetimeId: RootAlertLifetimeId,
