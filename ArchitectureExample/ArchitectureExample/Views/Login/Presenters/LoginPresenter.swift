@@ -6,15 +6,13 @@ import Foundation
 
 @MainActor
 final class LoginPresenter {
-    typealias Interactor = LoginInteractorForPresenter
-
-    private weak var interactor: Interactor?
+    private weak var interactor: LoginInteractorForPresenter?
 
     @Published private var isLoginEnabled: Bool = false
     @Published private var isTextEditingEnabled: Bool = false
     @Published private var isConnecting: Bool = false
 
-    init(interactor: Interactor?) {
+    init(interactor: LoginInteractorForPresenter?) {
         self.interactor = interactor
 
         guard let interactor = interactor else { return }

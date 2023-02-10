@@ -5,8 +5,6 @@
 import SwiftUI
 
 struct AccountEditView<Presenter: PresenterForAccountEditView>: View {
-    typealias Presenter = PresenterForAccountEditView
-
     @ObservedObject private var presenter: Presenter
     // TextFieldをdisableにする時に警告が表示される対策。先にフォーカスを外す
     @FocusState private var isTextFieldFocused: Bool
@@ -52,7 +50,7 @@ struct AccountEditView<Presenter: PresenterForAccountEditView>: View {
 }
 
 struct AccountEditView_Previews: PreviewProvider {
-    private class PresenterStub: AccountEditView.Presenter {
+    private class PresenterStub: PresenterForAccountEditView {
         var name: String = "test-name"
         var isSaveButtonDisabled: Bool = false
         var isTextFieldDisabled: Bool = false

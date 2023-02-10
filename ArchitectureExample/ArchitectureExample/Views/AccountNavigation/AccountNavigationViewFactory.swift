@@ -9,8 +9,8 @@ enum AccountNavigationViewFactory {}
 
 // MARK: -
 
-extension AccountMenuPresenter: AccountMenuView.Presenter {}
-extension AccountInfoSwiftUIPresenter: AccountInfoView.Presenter {}
+extension AccountMenuPresenter: PresenterForAccountMenuView {}
+extension AccountInfoSwiftUIPresenter: PresenterForAccountInfoView {}
 
 extension AccountNavigationViewFactory: FactoryForAccountNavigationView {
     static func makeAccountMenuPresenter(lifetimeId: AccountLifetimeId) -> AccountMenuPresenter? {

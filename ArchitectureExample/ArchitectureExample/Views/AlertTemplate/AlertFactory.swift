@@ -15,7 +15,7 @@ final class AlertController: UIAlertController {
 }
 
 @MainActor
-func makeAlertController<Interactor: AlertPresenter.Interactor>(
+func makeAlertController<Interactor: InteractorForAlertPresenter>(
     alertPresenter: AlertPresenter<Interactor>,
     modalSuspender: ModalSuspendable
 ) -> UIAlertController {

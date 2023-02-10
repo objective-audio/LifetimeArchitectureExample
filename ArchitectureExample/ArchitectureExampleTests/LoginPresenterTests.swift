@@ -6,7 +6,7 @@ import XCTest
 import Combine
 @testable import ArchitectureExample
 
-private class InteractorStub: LoginPresenter.Interactor {
+private class InteractorStub: LoginInteractorForPresenter {
     var accountId: String = ""
     var loginHandler: () -> Void = {}
     var cancelHandler: () -> Void = {}
