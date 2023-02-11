@@ -49,7 +49,7 @@ private extension ActionReceiverProvidable {
     func receivers(for actionId: ActionId?) -> [ActionReceivable] {
         let receivers = self.providers(for: actionId).flatMap { $0.receivers }
 
-        if let actionId = actionId {
+        if let actionId {
             return receivers
                 .filter { $0.receivableId.isMatch(actionId) }
         } else {

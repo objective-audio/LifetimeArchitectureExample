@@ -86,7 +86,7 @@ final class LoginInteractor {
                 return
             }
 
-            if let self = self {
+            if let self {
                 self.task = nil
 
                 guard !Task.isCancelled else {
