@@ -2,7 +2,7 @@
   Localizable.strings
 */
 
-"alertLoginErrorTitle" = "エラー";
+"alertLoginErrorTitle" = "ログインエラー";
 "alertLoginFailedMessage" = "ログインに失敗しました";
 "alertLoginAccountDuplicatedMessage" = "すでにログインしているアカウントです";
 "alertLoginInvalidAccountIDMessage" = "アカウントIDが不正です";

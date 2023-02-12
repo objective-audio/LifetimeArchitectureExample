@@ -28,7 +28,7 @@ extension AccountNavigationViewFactory: FactoryForAccountNavigationView {
     ) -> AccountInfoSwiftUIPresenter? {
         guard let accountInfoLifetime = LifetimeAccessor.accountInfo(id: lifetimeId),
               accountInfoLifetime.interactor.uiSystem == .swiftUI else {
-            assertionFailure()
+            // NavigationをPushした状態でログタウトするとViewが更新され呼ばれるのでAssertしない
             return nil
         }
 
@@ -40,7 +40,7 @@ extension AccountNavigationViewFactory: FactoryForAccountNavigationView {
     ) -> AccountInfoUIKitPresenter? {
         guard let accountInfoLifetime = LifetimeAccessor.accountInfo(id: lifetimeId),
               accountInfoLifetime.interactor.uiSystem == .uiKit else {
-            assertionFailure()
+            // NavigationをPushした状態でログタウトするとViewが更新され呼ばれるのでAssertしない
             return nil
         }
 
@@ -51,7 +51,7 @@ extension AccountNavigationViewFactory: FactoryForAccountNavigationView {
         lifetimeId: AccountDetailLifetimeId
     ) -> AccountDetailPresenter? {
         guard let accountDetailLifetime = LifetimeAccessor.accountDetail(id: lifetimeId) else {
-            assertionFailure()
+            // NavigationをPushした状態でログタウトするとViewが更新され呼ばれるのでAssertしない
             return nil
         }
 

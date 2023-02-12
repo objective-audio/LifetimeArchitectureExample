@@ -6,7 +6,7 @@ import SwiftUI
 
 typealias AccountNavigationHostingView = AccountNavigationView<AccountNavigationPresenter, AccountNavigationViewFactory>
 
-class AccountNavigationHostingController: UIHostingController<AccountNavigationHostingView> {
+final class AccountNavigationHostingController: UIHostingController<AccountNavigationHostingView> {
     init(presenter: AccountNavigationPresenter) {
         super.init(rootView: .init(presenter: presenter))
     }

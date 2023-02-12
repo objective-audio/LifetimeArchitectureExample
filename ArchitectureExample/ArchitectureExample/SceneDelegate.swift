@@ -92,7 +92,7 @@ private extension SceneDelegate {
             return nil
         }
 
-        return .init(sourcePublisher: sceneLifetime.rootModalLifecycle.$current)
+        return .init(lifecycle: sceneLifetime.rootModalLifecycle)
     }
 
     static func makeRootCommandPresnter(sceneLifetimeId: SceneLifetimeId) -> RootCommandPresenter? {
