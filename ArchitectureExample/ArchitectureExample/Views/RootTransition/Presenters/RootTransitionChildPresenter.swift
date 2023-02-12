@@ -9,9 +9,7 @@ import UIKit
 final class RootTransitionChildPresenter {
     private weak var launchInteractor: LaunchInteractor?
 
-    @CurrentValue private(set) var child: RootChild?
-
-    private var cancellables: Set<AnyCancellable> = .init()
+    @Published private(set) var child: RootChild?
 
     init(launchInteractor: LaunchInteractor,
          rootLifecycle: RootLifecycle<RootFactory>) {
@@ -19,9 +17,7 @@ final class RootTransitionChildPresenter {
 
         rootLifecycle.$current
             .map(RootChild.init)
-            .assign(to: \.value,
-                    on: self.$child)
-            .store(in: &self.cancellables)
+            .assign(to: &$child)
     }
 
     func viewDidAppear() {

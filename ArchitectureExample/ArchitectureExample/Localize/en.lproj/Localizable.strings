@@ -2,7 +2,7 @@
   Localizable.strings
 */
 
-"alertLoginErrorTitle" = "Error";
+"alertLoginErrorTitle" = "Login Error";
 "alertLoginFailedMessage" = "Login failed.";
 "alertLoginAccountDuplicatedMessage" = "Account Duplicated.";
 "alertLoginInvalidAccountIDMessage" = "Invalid account ID.";

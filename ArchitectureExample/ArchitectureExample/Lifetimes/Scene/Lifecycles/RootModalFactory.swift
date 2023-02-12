@@ -53,21 +53,15 @@ extension RootModalFactory {
 
 // MARK: -
 
-extension RootModalLifecycle: RootModalLifecycleForRootAlertInteractor {}
 extension RootAlertLifetime: RootAlertLifetimeForLifecycle {}
 
 extension RootModalFactory {
     static func makeRootAlertLifetime(lifetimeId: RootAlertLifetimeId,
                                       alertId: RootAlertId) -> RootAlertLifetime {
-        guard let sceneLifetime = LifetimeAccessor.scene(id: lifetimeId.scene) else {
-            fatalError()
-        }
-
         return .init(lifetimeId: lifetimeId,
                      alertId: alertId,
                      interactor: .init(lifetimeId: lifetimeId,
-                                       alertId: alertId,
-                                       modalLifecycle: sceneLifetime.rootModalLifecycle),
+                                       alertId: alertId),
                      receiver: .init())
     }
 }

@@ -50,6 +50,16 @@ extension RootModalLifecycle {
         self.current = nil
     }
 
+    func removeAlert() {
+        guard let current = self.current,
+              case .alert = current else {
+            // 明示的に閉じた場合はすでにnilなのでAssertしない
+            return
+        }
+
+        self.current = nil
+    }
+
     func addAccountEdit(accountLifetimeId: AccountLifetimeId) {
         guard self.current == nil,
               self.sceneLifetimeId == accountLifetimeId.scene else {
@@ -68,6 +78,16 @@ extension RootModalLifecycle {
               case .accountEdit(let lifetime) = current,
               lifetime.lifetimeId == lifetimeId else {
             assertionFailureIfNotTest()
+            return
+        }
+
+        self.current = nil
+    }
+
+    func removeAccountEdit() {
+        guard let current = self.current,
+              case .accountEdit = current else {
+            // 明示的に閉じた場合はすでにnilなのでAssertしない
             return
         }
 
