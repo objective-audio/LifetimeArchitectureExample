@@ -40,7 +40,8 @@ final class RootTransitionModalPresenter: ObservableObject {
             .$current
             .map(RootLoginFailedAlert.init)
             .map { $0 != nil }
-            .assign(to: &$isLoginFailedAlertPresented)    }
+            .assign(to: &$isLoginFailedAlertPresented)
+    }
 }
 
 extension RootAccountEditSheet {
