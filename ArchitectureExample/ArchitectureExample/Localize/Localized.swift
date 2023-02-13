@@ -5,6 +5,8 @@
 import SwiftUI
 
 enum Localized: String, CaseIterable {
+    case empty
+
     case alertLoginErrorTitle
     case alertLoginFailedMessage
     case alertLoginAccountDuplicatedMessage

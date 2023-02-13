@@ -2,6 +2,8 @@
   Localizable.strings
 */
 
+"empty" = "";
+
 "alertLoginErrorTitle" = "ログインエラー";
 "alertLoginFailedMessage" = "ログインに失敗しました";
 "alertLoginAccountDuplicatedMessage" = "すでにログインしているアカウントです";

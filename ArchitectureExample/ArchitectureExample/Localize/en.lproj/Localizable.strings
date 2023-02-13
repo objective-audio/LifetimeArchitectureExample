@@ -2,6 +2,8 @@
   Localizable.strings
 */
 
+"empty" = "";
+
 "alertLoginErrorTitle" = "Login Error";
 "alertLoginFailedMessage" = "Login failed.";
 "alertLoginAccountDuplicatedMessage" = "Account Duplicated.";
