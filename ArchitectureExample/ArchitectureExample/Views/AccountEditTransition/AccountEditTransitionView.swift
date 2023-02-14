@@ -24,7 +24,7 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
                isPresented: $modalPresenter.isDestructAlertPresented) {
             if let alert = modalPresenter.destructAlert,
                let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: alert.lifetimeId) {
-                ForEach(presenter.content.actions, id: \.self) { action in
+                ForEach(presenter.actions, id: \.self) { action in
                     Button(role: action.role) {
                         presenter.doAction(action)
                     } label: {
@@ -37,7 +37,7 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
         } message: {
             if let alert = modalPresenter.destructAlert,
                let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: alert.lifetimeId) {
-                Text(presenter.content.message.key)
+                Text(presenter.message.key)
             } else {
                 EmptyView()
             }
@@ -46,7 +46,7 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
                isPresented: $modalPresenter.isLogoutAlertPresented) {
             if let alert = modalPresenter.logoutAlert,
                let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: alert.lifetimeId) {
-                ForEach(presenter.content.actions, id: \.self) { action in
+                ForEach(presenter.actions, id: \.self) { action in
                     Button(role: action.role) {
                         presenter.doAction(action)
                     } label: {
@@ -59,7 +59,7 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
         } message: {
             if let alert = modalPresenter.logoutAlert,
                let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: alert.lifetimeId) {
-                Text(presenter.content.message.key)
+                Text(presenter.message.key)
             } else {
                 EmptyView()
             }

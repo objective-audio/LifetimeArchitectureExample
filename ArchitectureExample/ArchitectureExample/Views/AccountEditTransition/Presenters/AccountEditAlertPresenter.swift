@@ -14,13 +14,12 @@ final class AccountEditAlertPresenter {
 }
 
 extension AccountEditAlertPresenter {
-    var content: AccountEditAlertContent {
-        guard let alertId = self.interactor?.alertId else {
-            return .empty
-        }
+    var message: Localized {
+        self.interactor?.alertId.message ?? .empty
+    }
 
-        return .init(message: alertId.message,
-                     actions: alertId.actions)
+    var actions: [AccountEditAlertAction] {
+        self.interactor?.alertId.actions ?? []
     }
 
     func doAction(_ action: AccountEditAlertAction) {
