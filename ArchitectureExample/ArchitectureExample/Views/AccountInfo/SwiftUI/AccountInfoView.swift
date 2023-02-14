@@ -5,11 +5,7 @@
 import SwiftUI
 
 struct AccountInfoView<Presenter: PresenterForAccountInfoView>: View {
-    @ObservedObject private var presenter: Presenter
-
-    init(presenter: Presenter) {
-        self.presenter = presenter
-    }
+    @ObservedObject var presenter: Presenter
 
     var body: some View {
         List {

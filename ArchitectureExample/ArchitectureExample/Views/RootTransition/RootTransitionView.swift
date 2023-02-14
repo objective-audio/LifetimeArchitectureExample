@@ -7,14 +7,8 @@ import SwiftUI
 struct RootTransitionView<ChildPresenter: ChildPresenterForRootTransitionView,
                           ModalPresenter: ModalPresenterForRootTransitionView,
                           Factory: FactoryForRootTransitionView>: View {
-    @ObservedObject private var childPresenter: ChildPresenter
-    @ObservedObject private var modalPresenter: ModalPresenter
-
-    init(childPresenter: ChildPresenter,
-         modalPresenter: ModalPresenter) {
-        self.childPresenter = childPresenter
-        self.modalPresenter = modalPresenter
-    }
+    @ObservedObject var childPresenter: ChildPresenter
+    @ObservedObject var modalPresenter: ModalPresenter
 
     var body: some View {
         Group {
