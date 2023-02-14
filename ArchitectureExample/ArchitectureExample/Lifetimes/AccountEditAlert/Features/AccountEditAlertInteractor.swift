@@ -8,8 +8,8 @@
 
 @MainActor
 final class AccountEditAlertInteractor {
-    private let lifetimeId: AccountEditAlertLifetimeId
-    private let alertId: AccountEditAlertId
+    let lifetimeId: AccountEditAlertLifetimeId
+    let alertId: AccountEditAlertId
     private unowned var accountEditInteractor: AccountEditInteractorForAccountEditAlertInteractor
     private unowned var modalLifecycle: AccountEditModalLifecycleForAccountEditAlertInteractor?
 
@@ -23,47 +23,20 @@ final class AccountEditAlertInteractor {
         self.modalLifecycle = modalLifecycle
     }
 
-    var content: AlertContent {
-        .init(message: self.alertId.localizedMessage,
-              actions: self.alertId.actions(interactor: self.accountEditInteractor))
+    func doAction(_ action: AccountEditAlertAction) {
+        switch action {
+        case .cancel:
+            break
+        case .destruct:
+            self.accountEditInteractor.finalize()
+        case .logout:
+            self.accountEditInteractor.logout()
+        }
     }
 
     func finalize() {
         self.modalLifecycle?.removeAlert(lifetimeId: self.lifetimeId)
 
         self.modalLifecycle = nil
-    }
-}
-
-// MARK: -
-
-private extension AccountEditAlertId {
-    var localizedMessage: Localized {
-        switch self {
-        case .destruct:
-            return .alertAccountEditDestructionMessage
-        case .logout:
-            return .alertAccountEditLogoutMessage
-        }
-    }
-
-    @MainActor
-    func actions(interactor: AccountEditInteractorForAccountEditAlertInteractor) -> [AlertContent.Action] {
-        switch self {
-        case .destruct:
-            return [.init(title: .alertAccountEditCancel,
-                          role: .cancel,
-                          handler: {}),
-                    .init(title: .alertAccountEditDestruct,
-                          role: .destructive,
-                          handler: { [weak interactor] in interactor?.finalize() })]
-        case .logout:
-            return [.init(title: .alertAccountEditCancel,
-                          role: .cancel,
-                          handler: {}),
-                    .init(title: .alertAccountEditLogout,
-                          role: .destructive,
-                          handler: { [weak interactor] in interactor?.logout() })]
-        }
     }
 }

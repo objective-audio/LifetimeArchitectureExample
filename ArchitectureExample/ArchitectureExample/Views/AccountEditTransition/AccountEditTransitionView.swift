@@ -24,9 +24,9 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
                isPresented: $modalPresenter.isDestructAlertPresented) {
             if let alert = modalPresenter.destructAlert,
                let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: alert.lifetimeId) {
-                ForEach(presenter.content.actions, id: \.title) { action in
+                ForEach(presenter.content.actions, id: \.self) { action in
                     Button(role: action.role) {
-                        action.handler()
+                        presenter.doAction(action)
                     } label: {
                         Text(action.title.key)
                     }
@@ -46,9 +46,9 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
                isPresented: $modalPresenter.isLogoutAlertPresented) {
             if let alert = modalPresenter.logoutAlert,
                let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: alert.lifetimeId) {
-                ForEach(presenter.content.actions, id: \.title) { action in
+                ForEach(presenter.content.actions, id: \.self) { action in
                     Button(role: action.role) {
-                        action.handler()
+                        presenter.doAction(action)
                     } label: {
                         Text(action.title.key)
                     }

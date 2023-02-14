@@ -2,7 +2,7 @@
 //  AccountEditAlertPresenter.swift
 //
 
-import Foundation
+import SwiftUI
 
 @MainActor
 final class AccountEditAlertPresenter {
@@ -14,8 +14,58 @@ final class AccountEditAlertPresenter {
 }
 
 extension AccountEditAlertPresenter {
-    var content: AlertContent {
-        guard let interactor else { return .empty }
-        return interactor.content
+    var content: AccountEditAlertContent {
+        guard let alertId = self.interactor?.alertId else {
+            return .empty
+        }
+
+        return .init(message: alertId.message,
+                     actions: alertId.actions)
+    }
+
+    func doAction(_ action: AccountEditAlertAction) {
+        self.interactor?.doAction(action)
+    }
+}
+
+extension AccountEditAlertAction {
+    var role: ButtonRole {
+        switch self {
+        case .cancel:
+            return .cancel
+        case .logout, .destruct:
+            return .destructive
+        }
+    }
+
+    var title: Localized {
+        switch self {
+        case .cancel:
+            return .alertAccountEditCancel
+        case .logout:
+            return .alertAccountEditLogout
+        case .destruct:
+            return .alertAccountEditDestruct
+        }
+    }
+}
+
+private extension AccountEditAlertId {
+    var message: Localized {
+        switch self {
+        case .destruct:
+            return .alertAccountEditDestructionMessage
+        case .logout:
+            return .alertAccountEditLogoutMessage
+        }
+    }
+
+    var actions: [AccountEditAlertAction] {
+        switch self {
+        case .destruct:
+            return [.cancel, .destruct]
+        case .logout:
+            return [.cancel, .logout]
+        }
     }
 }
