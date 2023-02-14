@@ -5,31 +5,65 @@
 import UIKit
 import SwiftUI
 
-struct AccountEditTransitionView: View {
-    let presenter: AccountEditTransitionPresenter
-    let modalPresenter: AccountEditTransitionModalPresenter
+struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: View {
+    @ObservedObject var transitionPresenter: AccountEditTransitionPresenter
+    @ObservedObject var modalPresenter: AccountEditModalPresenter
 
     var body: some View {
-         AccountEditTransitionViewRepresentation(presenter: presenter,
-                                                 modalPresenter: modalPresenter)
+        Group {
+            if let presenter = Factory.makeAccountEditPresenter(
+                accountEditLifetimeId: transitionPresenter.accountEditLifetimeId
+            ) {
+                AccountEditView(presenter: presenter)
+            } else {
+                Text("AccountEditTransitionView")
+            }
+        }
+        .interactiveDismissDisabled(transitionPresenter.interactiveDismissDisabled)
+        .alert(Text(Localized.alertAccountEditDestructionTitle.key),
+               isPresented: $modalPresenter.isDestructAlertPresented) {
+            if let alert = modalPresenter.destructAlert,
+               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: alert.lifetimeId) {
+                ForEach(presenter.content.actions, id: \.title) { action in
+                    Button(role: action.role) {
+                        action.handler()
+                    } label: {
+                        Text(action.title.key)
+                    }
+                }
+            } else {
+                EmptyView()
+            }
+        } message: {
+            if let alert = modalPresenter.destructAlert,
+               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: alert.lifetimeId) {
+                Text(presenter.content.message.key)
+            } else {
+                EmptyView()
+            }
+        }
+        .alert(Text(Localized.alertAccountEditLogoutTitle.key),
+               isPresented: $modalPresenter.isLogoutAlertPresented) {
+            if let alert = modalPresenter.logoutAlert,
+               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: alert.lifetimeId) {
+                ForEach(presenter.content.actions, id: \.title) { action in
+                    Button(role: action.role) {
+                        action.handler()
+                    } label: {
+                        Text(action.title.key)
+                    }
+                }
+            } else {
+                EmptyView()
+            }
+        } message: {
+            if let alert = modalPresenter.logoutAlert,
+               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: alert.lifetimeId) {
+                Text(presenter.content.message.key)
+            } else {
+                EmptyView()
+            }
+        }
+
     }
-}
-
-struct AccountEditTransitionViewRepresentation: UIViewControllerRepresentable {
-    let presenter: AccountEditTransitionPresenter
-    let modalPresenter: AccountEditTransitionModalPresenter
-
-    func makeUIViewController(context: Context) -> AccountEditTransitionViewController {
-        AccountEditTransitionViewController(presenter: presenter,
-                                            modalPresenter: modalPresenter)
-    }
-
-    func updateUIViewController(_ uiViewController: AccountEditTransitionViewController, context: Context) {
-    }
-
-    func makeCoordinator() -> Coordinator {
-        Coordinator()
-    }
-
-    class Coordinator {}
 }

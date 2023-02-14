@@ -85,7 +85,7 @@ enum LifetimeAccessor {
         guard case .accountEdit(let lifetime) =
                 self.scene(id: id.account.scene)?.rootModalLifecycle.current,
               lifetime.lifetimeId == id else {
-            assertionFailure()
+            // AccountEditのSheetを閉じる時にViewが更新され呼ばれることがあるのでAssertしない
             return nil
         }
         return lifetime

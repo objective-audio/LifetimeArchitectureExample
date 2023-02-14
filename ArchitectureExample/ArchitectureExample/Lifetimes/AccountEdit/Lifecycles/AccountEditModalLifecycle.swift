@@ -49,4 +49,15 @@ extension AccountEditModalLifecycle {
 
         self.current = nil
     }
+
+    func removeAlert(id alertId: AccountEditAlertId) {
+        guard let current = self.current,
+              case .alert(let lifetime) = current,
+              lifetime.alertId == alertId else {
+            // 明示的に閉じた場合はすでにnilなのでAssertしない
+            return
+        }
+
+        self.current = nil
+    }
 }

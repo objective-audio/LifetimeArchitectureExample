@@ -1,16 +1,22 @@
 //
-//  RootLoginFailedAlertPresenter.swift
+//  RootAlertPresenter.swift
 //
 
-final class RootLoginFailedAlertPresenter {
-    let alertId: RootAlertId
+final class RootAlertPresenter {
+    private weak var interactor: RootAlertInteractor?
 
     init(interactor: RootAlertInteractor) {
-        self.alertId = interactor.alertId
+        self.interactor = interactor
+    }
+
+    var content: AlertContent {
+        guard let interactor else { return .empty }
+        return .init(message: interactor.alertId.localizedMessage,
+                     actions: interactor.alertId.actions)
     }
 }
 
-extension RootAlertId {
+private extension RootAlertId {
     var localizedMessage: Localized {
         switch self {
         case .loginFailed(let kind):
@@ -27,11 +33,11 @@ extension RootAlertId {
         }
     }
 
-    var actions: [AlertContent<Self>.Action] {
+    var actions: [AlertContent.Action] {
         switch self {
         case .loginFailed:
-            return [.init(title: Localized.alertOK.value,
-                          style: .default,
+            return [.init(title: .alertOK,
+                          role: .cancel,
                           handler: {})]
         }
     }

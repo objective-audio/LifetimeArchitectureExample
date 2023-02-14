@@ -23,9 +23,9 @@ final class AccountEditAlertInteractor {
         self.modalLifecycle = modalLifecycle
     }
 
-    var content: AlertContent<AccountEditAlertId> {
-        return .init(id: self.alertId,
-                     interactor: self.accountEditInteractor)
+    var content: AlertContent {
+        .init(message: self.alertId.localizedMessage,
+              actions: self.alertId.actions(interactor: self.accountEditInteractor))
     }
 
     func finalize() {
@@ -38,15 +38,6 @@ final class AccountEditAlertInteractor {
 // MARK: -
 
 private extension AccountEditAlertId {
-    var localizedTitle: Localized {
-        switch self {
-        case .destruct:
-            return .alertAccountEditDestructionTitle
-        case .logout:
-            return .alertAccountEditLogoutTitle
-        }
-    }
-
     var localizedMessage: Localized {
         switch self {
         case .destruct:
@@ -57,33 +48,22 @@ private extension AccountEditAlertId {
     }
 
     @MainActor
-    func actions(interactor: AccountEditInteractorForAccountEditAlertInteractor) -> [AlertContent<Self>.Action] {
+    func actions(interactor: AccountEditInteractorForAccountEditAlertInteractor) -> [AlertContent.Action] {
         switch self {
         case .destruct:
-            return [.init(title: Localized.alertAccountEditCancel.value,
-                          style: .cancel,
+            return [.init(title: .alertAccountEditCancel,
+                          role: .cancel,
                           handler: {}),
-                    .init(title: Localized.alertAccountEditDestruct.value,
-                          style: .destructive,
+                    .init(title: .alertAccountEditDestruct,
+                          role: .destructive,
                           handler: { [weak interactor] in interactor?.finalize() })]
         case .logout:
-            return [.init(title: Localized.alertAccountEditCancel.value,
-                          style: .cancel,
+            return [.init(title: .alertAccountEditCancel,
+                          role: .cancel,
                           handler: {}),
-                    .init(title: Localized.alertAccountEditLogout.value,
-                          style: .destructive,
+                    .init(title: .alertAccountEditLogout,
+                          role: .destructive,
                           handler: { [weak interactor] in interactor?.logout() })]
         }
-    }
-}
-
-private extension AlertContent where ID == AccountEditAlertId {
-    @MainActor
-    init(id alertId: AccountEditAlertId,
-         interactor: AccountEditInteractorForAccountEditAlertInteractor) {
-        self.init(id: alertId,
-                  title: alertId.localizedTitle.value,
-                  message: alertId.localizedMessage.value,
-                  actions: alertId.actions(interactor: interactor))
     }
 }

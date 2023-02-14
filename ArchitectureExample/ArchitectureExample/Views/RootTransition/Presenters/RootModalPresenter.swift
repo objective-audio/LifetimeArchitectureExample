@@ -1,11 +1,11 @@
 //
-//  RootTransitionModalPresenter.swift
+//  RootModalPresenter.swift
 //
 
 import Foundation
 
 @MainActor
-final class RootTransitionModalPresenter: ObservableObject {
+final class RootModalPresenter: ObservableObject {
     private weak var lifecycle: RootModalLifecycle<RootModalFactory>?
 
     @Published var isAccountEditSheetPresented: Bool = false {
