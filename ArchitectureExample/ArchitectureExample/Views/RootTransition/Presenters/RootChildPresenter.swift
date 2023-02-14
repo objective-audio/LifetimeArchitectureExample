@@ -1,12 +1,12 @@
 //
-//  RootTransitionChildPresenter.swift
+//  RootChildPresenter.swift
 //
 
 import Combine
 import UIKit
 
 @MainActor
-final class RootTransitionChildPresenter {
+final class RootChildPresenter {
     private weak var launchInteractor: LaunchInteractor?
 
     @Published private(set) var child: RootChild?

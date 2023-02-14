@@ -29,49 +29,51 @@ extension AccountNavigationPresenter: PresenterForAccountNavigationView {}
 
 extension RootTransitionViewFactory {
     static func makeAccountNavigationPresenter(
-        accountLifetimeId: AccountLifetimeId
+        lifetimeId: AccountLifetimeId
     ) -> AccountNavigationPresenter? {
-        guard let lifetime = LifetimeAccessor.account(id: accountLifetimeId) else {
+        guard let lifetime = LifetimeAccessor.account(id: lifetimeId) else {
             assertionFailure()
             return nil
         }
 
-        return .init(accountLifetimeId: accountLifetimeId,
+        return .init(accountLifetimeId: lifetimeId,
                      navigationLifecycle: lifetime.navigationLifecycle)
-    }
-}
-
-extension RootTransitionViewFactory {
-    static func makeAccountEditTransitionPresenter(
-        accountEditLifetimeId: AccountEditLifetimeId
-    ) -> AccountEditTransitionPresenter? {
-        guard let accountEditLifetime = LifetimeAccessor.accountEdit(id: accountEditLifetimeId) else {
-            assertionFailure()
-            return nil
-        }
-
-        return .init(accountEditLifetimeId: accountEditLifetimeId,
-                     accountEditInteractor: accountEditLifetime.interactor)
-    }
-
-    static func makeAccountEditTransitionModalPresenter(
-        accountEditLifetimeId: AccountEditLifetimeId
-    ) -> AccountEditTransitionModalPresenter? {
-        guard let accountEditLifetime = LifetimeAccessor.accountEdit(id: accountEditLifetimeId) else {
-            assertionFailure()
-            return nil
-        }
-
-        return .init(sourcePublisher: accountEditLifetime.modalLifecycle.$current)
     }
 }
 
 // MARK: -
 
 extension RootTransitionViewFactory {
-    static func makeLoginFailedAlertPresenter(
+    static func makeAccountEditTransitionPresenter(
+        lifetimeId: AccountEditLifetimeId
+    ) -> AccountEditTransitionPresenter? {
+        guard let accountEditLifetime = LifetimeAccessor.accountEdit(id: lifetimeId) else {
+            assertionFailure()
+            return nil
+        }
+
+        return .init(accountEditLifetimeId: lifetimeId,
+                     accountEditInteractor: accountEditLifetime.interactor)
+    }
+
+    static func makeAccountEditTransitionModalPresenter(
+        lifetimeId: AccountEditLifetimeId
+    ) -> AccountEditModalPresenter? {
+        guard let accountEditLifetime = LifetimeAccessor.accountEdit(id: lifetimeId) else {
+            assertionFailure()
+            return nil
+        }
+
+        return .init(lifecycle: accountEditLifetime.modalLifecycle)
+    }
+}
+
+// MARK: -
+
+extension RootTransitionViewFactory {
+    static func makeAlertPresenter(
         lifetimeId: RootAlertLifetimeId
-    ) -> RootLoginFailedAlertPresenter? {
+    ) -> RootAlertPresenter? {
         guard let lifetime = LifetimeAccessor.rootAlert(id: lifetimeId) else {
             assertionFailure()
             return nil

@@ -47,7 +47,7 @@ enum LifetimeAccessor {
     static func account(id: AccountLifetimeId) -> AccountLifetimeForLifecycle? {
         guard case .account(let lifetime) = self.scene(id: id.scene)?.rootLifecycle.current,
            lifetime.lifetimeId == id else {
-            // NavigationをPushした状態でログタウトするとViewが更新され呼ばれるのでAssertしない
+            // NavigationをPushした状態でログアウトするとViewが更新され呼ばれるのでAssertしない
             return nil
         }
         return lifetime
@@ -61,7 +61,7 @@ enum LifetimeAccessor {
               }),
               case .info(let lifetime) = subLifetime,
               lifetime.lifetimeId == id else {
-            // NavigationをPushした状態でログタウトするとViewが更新され呼ばれるのでAssertしない
+            // NavigationをPushした状態でログアウトするとViewが更新され呼ばれるのでAssertしない
             return nil
         }
         return lifetime
@@ -75,7 +75,7 @@ enum LifetimeAccessor {
               }),
               case .detail(let lifetime) = subLifetime,
               lifetime.lifetimeId == id else {
-            // NavigationをPushした状態でログタウトするとViewが更新され呼ばれるのでAssertしない
+            // NavigationをPushした状態でログアウトするとViewが更新され呼ばれるのでAssertしない
             return nil
         }
         return lifetime
@@ -85,7 +85,7 @@ enum LifetimeAccessor {
         guard case .accountEdit(let lifetime) =
                 self.scene(id: id.account.scene)?.rootModalLifecycle.current,
               lifetime.lifetimeId == id else {
-            assertionFailure()
+            // AccountEditのSheetを閉じる時にViewが更新され呼ばれることがあるのでAssertしない
             return nil
         }
         return lifetime

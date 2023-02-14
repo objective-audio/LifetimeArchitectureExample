@@ -4,22 +4,17 @@
 
 import SwiftUI
 
-extension RootTransitionChildPresenter: ChildPresenterForRootTransitionView {}
-extension RootTransitionModalPresenter: ModalPresenterForRootTransitionView {}
+extension RootChildPresenter: ChildPresenterForRootTransitionView {}
+extension RootModalPresenter: ModalPresenterForRootTransitionView {}
 
-typealias RootTransitionHostingType = RootTransitionView<RootTransitionChildPresenter,
-                                                         RootTransitionModalPresenter,
+typealias RootTransitionHostingType = RootTransitionView<RootChildPresenter,
+                                                         RootModalPresenter,
                                                          RootTransitionViewFactory>
 
 final class RootTransitionHostingController: UIHostingController<RootTransitionHostingType> {
-    let commandPresenter: RootCommandPresenter
-
-    init(presenter: RootTransitionChildPresenter,
-         modalPresenter: RootTransitionModalPresenter,
-         commandPresenter: RootCommandPresenter) {
-        self.commandPresenter = commandPresenter
-
-        super.init(rootView: .init(childPresenter: presenter,
+    init(childPresenter: RootChildPresenter,
+         modalPresenter: RootModalPresenter) {
+        super.init(rootView: .init(childPresenter: childPresenter,
                                    modalPresenter: modalPresenter))
     }
 

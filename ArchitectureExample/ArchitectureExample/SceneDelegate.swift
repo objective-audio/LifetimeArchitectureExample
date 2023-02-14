@@ -75,7 +75,7 @@ private extension SceneDelegate {
 // MARK: - RootPresenter
 
 private extension SceneDelegate {
-    static func makeRootTransitionPresenter(sceneLifetimeId: SceneLifetimeId) -> RootTransitionChildPresenter? {
+    static func makeRootTransitionPresenter(sceneLifetimeId: SceneLifetimeId) -> RootChildPresenter? {
         guard let sceneLifetime = LifetimeAccessor.scene(id: sceneLifetimeId),
               let launchLifetime = LifetimeAccessor.launch(sceneId: sceneLifetimeId) else {
             assertionFailure()
@@ -86,7 +86,7 @@ private extension SceneDelegate {
                      rootLifecycle: sceneLifetime.rootLifecycle)
     }
 
-    static func makeRootModalPresenter(sceneLifetimeId: SceneLifetimeId) -> RootTransitionModalPresenter? {
+    static func makeRootModalPresenter(sceneLifetimeId: SceneLifetimeId) -> RootModalPresenter? {
         guard let sceneLifetime = LifetimeAccessor.scene(id: sceneLifetimeId) else {
             assertionFailure()
             return nil

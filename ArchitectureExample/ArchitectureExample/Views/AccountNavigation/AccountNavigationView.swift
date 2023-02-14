@@ -6,11 +6,7 @@ import SwiftUI
 
 struct AccountNavigationView<Presenter: PresenterForAccountNavigationView,
                              Factory: FactoryForAccountNavigationView>: View {
-    @ObservedObject private var presenter: Presenter
-
-    init(presenter: Presenter) {
-        self.presenter = presenter
-    }
+    @ObservedObject var presenter: Presenter
 
     var body: some View {
         NavigationStack(path: $presenter.elements) {

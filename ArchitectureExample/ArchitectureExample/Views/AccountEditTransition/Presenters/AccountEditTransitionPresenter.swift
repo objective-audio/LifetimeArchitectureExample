@@ -5,12 +5,13 @@
 import Combine
 
 @MainActor
-final class AccountEditTransitionPresenter {
+final class AccountEditTransitionPresenter: ObservableObject {
     let accountEditLifetimeId: AccountEditLifetimeId
 
     private weak var accountEditInteractor: AccountEditInteractor?
 
     @CurrentValue private(set) var isModalInPresentation: Bool = false
+    @Published private(set) var interactiveDismissDisabled: Bool = false
 
     private var cancellables: Set<AnyCancellable> = .init()
 
@@ -24,6 +25,8 @@ final class AccountEditTransitionPresenter {
                     on: self.$isModalInPresentation)
             .store(in: &self.cancellables)
 
+        accountEditInteractor.$isEdited
+            .assign(to: &$interactiveDismissDisabled)
     }
 
     func viewDidDismiss() {

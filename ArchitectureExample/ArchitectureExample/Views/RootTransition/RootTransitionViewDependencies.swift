@@ -21,17 +21,17 @@ protocol FactoryForRootTransitionView {
     static func makeLoginPresenter(sceneId: SceneLifetimeId) -> LoginPresenter?
 
     static func makeAccountNavigationPresenter(
-        accountLifetimeId: AccountLifetimeId
+        lifetimeId: AccountLifetimeId
     ) -> AccountNavigationPresenter?
 
     static func makeAccountEditTransitionPresenter(
-        accountEditLifetimeId: AccountEditLifetimeId
+        lifetimeId: AccountEditLifetimeId
     ) -> AccountEditTransitionPresenter?
     static func makeAccountEditTransitionModalPresenter(
-        accountEditLifetimeId: AccountEditLifetimeId
-    ) -> AccountEditTransitionModalPresenter?
+        lifetimeId: AccountEditLifetimeId
+    ) -> AccountEditModalPresenter?
 
-    static func makeLoginFailedAlertPresenter(
+    static func makeAlertPresenter(
         lifetimeId: RootAlertLifetimeId
-    ) -> RootLoginFailedAlertPresenter?
+    ) -> RootAlertPresenter?
 }
