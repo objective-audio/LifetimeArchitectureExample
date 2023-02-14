@@ -155,7 +155,6 @@
 		B6E86FF7280C4DB400BEFE87 /* LaunchInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E86FF6280C4DB400BEFE87 /* LaunchInteractorTests.swift */; };
 		B6E86FF9280C4E0200BEFE87 /* LaunchInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E86FF8280C4E0200BEFE87 /* LaunchInteractorDependencies.swift */; };
 		B6E876C828366DB400BC42DE /* AccountEditTransitionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E876C728366DB400BC42DE /* AccountEditTransitionPresenter.swift */; };
-		B6EFA1A5281B885A0002371B /* AlertContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EFA1A4281B885A0002371B /* AlertContent.swift */; };
 		B6EFA1AB281BED5F0002371B /* AccountHolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EFA1AA281BED5F0002371B /* AccountHolderTests.swift */; };
 		B6EFA1AD281C12280002371B /* AccountEditInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EFA1AC281C12280002371B /* AccountEditInteractorTests.swift */; };
 		B6F22243286024F20074A0D2 /* AccountMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F22242286024F20074A0D2 /* AccountMenuInteractor.swift */; };
@@ -350,7 +349,6 @@
 		B6E86FF6280C4DB400BEFE87 /* LaunchInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInteractorTests.swift; sourceTree = "<group>"; };
 		B6E86FF8280C4E0200BEFE87 /* LaunchInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInteractorDependencies.swift; sourceTree = "<group>"; };
 		B6E876C728366DB400BC42DE /* AccountEditTransitionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditTransitionPresenter.swift; sourceTree = "<group>"; };
-		B6EFA1A4281B885A0002371B /* AlertContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertContent.swift; sourceTree = "<group>"; };
 		B6EFA1AA281BED5F0002371B /* AccountHolderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHolderTests.swift; sourceTree = "<group>"; };
 		B6EFA1AC281C12280002371B /* AccountEditInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditInteractorTests.swift; sourceTree = "<group>"; };
 		B6F22242286024F20074A0D2 /* AccountMenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuInteractor.swift; sourceTree = "<group>"; };
@@ -756,7 +754,6 @@
 		B658015428013138009EAB96 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B6EFA1A9281BA9940002371B /* AlertTemplate */,
 				B63640B6285EA0B600F37479 /* ModalTemplate */,
 				B658017828026FD3009EAB96 /* Helpers */,
 				B658015D28014BA9009EAB96 /* RootTransition */,
@@ -951,14 +948,6 @@
 				B6FEED7F2865642F002EA4A3 /* Presenters */,
 			);
 			path = AccountEditTransition;
-			sourceTree = "<group>";
-		};
-		B6EFA1A9281BA9940002371B /* AlertTemplate */ = {
-			isa = PBXGroup;
-			children = (
-				B6EFA1A4281B885A0002371B /* AlertContent.swift */,
-			);
-			path = AlertTemplate;
 			sourceTree = "<group>";
 		};
 		B6F8FACB2858A8A60038BC3D /* protocols */ = {
@@ -1321,7 +1310,6 @@
 				B658012428012FA0009EAB96 /* RootTransitionViewController.swift in Sources */,
 				B6C08E982812CD910047ABBE /* RootModalLifecycle.swift in Sources */,
 				B621766B286FCAB70068EB8B /* LifetimeIds.swift in Sources */,
-				B6EFA1A5281B885A0002371B /* AlertContent.swift in Sources */,
 				B6F22243286024F20074A0D2 /* AccountMenuInteractor.swift in Sources */,
 				B63B3465281829F9009E9A70 /* AccountEditView.swift in Sources */,
 				B6DB6FF32859D7620070596B /* AccountEditModalLifecycle+Action.swift in Sources */,
