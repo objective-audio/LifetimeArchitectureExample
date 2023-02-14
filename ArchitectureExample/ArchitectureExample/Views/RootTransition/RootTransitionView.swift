@@ -52,9 +52,9 @@ struct RootTransitionView<ChildPresenter: ChildPresenterForRootTransitionView,
                isPresented: $modalPresenter.isLoginFailedAlertPresented) {
             if let alert = modalPresenter.loginFailedAlert,
                let presenter = Factory.makeAlertPresenter(lifetimeId: alert.lifetimeId) {
-                ForEach(presenter.content.actions, id: \.title) { action in
+                ForEach(presenter.content.actions, id: \.self) { action in
                     Button(role: action.role) {
-                        action.handler()
+                        presenter.doAction(action)
                     } label: {
                         Text(action.title.key)
                     }

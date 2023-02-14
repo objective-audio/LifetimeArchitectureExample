@@ -10,10 +10,26 @@
 final class RootAlertInteractor {
     let lifetimeId: RootAlertLifetimeId
     let alertId: RootAlertId
+    private unowned var modalLifecycle: RootModalLifecycleForRootAlertInteractor?
 
     init(lifetimeId: RootAlertLifetimeId,
-         alertId: RootAlertId) {
+         alertId: RootAlertId,
+         modalLifecycle: RootModalLifecycleForRootAlertInteractor) {
         self.lifetimeId = lifetimeId
         self.alertId = alertId
+        self.modalLifecycle = modalLifecycle
+    }
+
+    func doAction(_ action: RootAlertAction) {
+        switch action {
+        case .alertOK:
+            self.finalize()
+        }
+    }
+
+    func finalize() {
+        self.modalLifecycle?.removeAlert(lifetimeId: self.lifetimeId)
+
+        self.modalLifecycle = nil
     }
 }

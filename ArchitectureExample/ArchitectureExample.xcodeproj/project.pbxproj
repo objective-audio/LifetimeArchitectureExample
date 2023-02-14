@@ -139,6 +139,9 @@
 		B6C68800285D9027008220B6 /* ModalConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C687FF285D9027008220B6 /* ModalConvertible.swift */; };
 		B6C68802285D9212008220B6 /* ModalSuspendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C68801285D9212008220B6 /* ModalSuspendingTests.swift */; };
 		B6C68804285DA21B008220B6 /* ActionSenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C68803285DA21B008220B6 /* ActionSenderTests.swift */; };
+		B6C6D515299B8CB6002F05AA /* RootAlertInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6D514299B8CB6002F05AA /* RootAlertInteractorDependencies.swift */; };
+		B6C6D517299B8D81002F05AA /* RootAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6D516299B8D81002F05AA /* RootAlertAction.swift */; };
+		B6C6D519299B8E49002F05AA /* RootAlertContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6D518299B8E49002F05AA /* RootAlertContent.swift */; };
 		B6D608E42995CD2E00CF4ABC /* ArchitectureExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D608E32995CD2E00CF4ABC /* ArchitectureExampleApp.swift */; };
 		B6D608E8299612E600CF4ABC /* RootTransitionHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D608E7299612E600CF4ABC /* RootTransitionHostingController.swift */; };
 		B6D608EA299613D700CF4ABC /* RootTransitionViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D608E9299613D700CF4ABC /* RootTransitionViewFactory.swift */; };
@@ -329,6 +332,9 @@
 		B6C687FF285D9027008220B6 /* ModalConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalConvertible.swift; sourceTree = "<group>"; };
 		B6C68801285D9212008220B6 /* ModalSuspendingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSuspendingTests.swift; sourceTree = "<group>"; };
 		B6C68803285DA21B008220B6 /* ActionSenderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSenderTests.swift; sourceTree = "<group>"; };
+		B6C6D514299B8CB6002F05AA /* RootAlertInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertInteractorDependencies.swift; sourceTree = "<group>"; };
+		B6C6D516299B8D81002F05AA /* RootAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertAction.swift; sourceTree = "<group>"; };
+		B6C6D518299B8E49002F05AA /* RootAlertContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertContent.swift; sourceTree = "<group>"; };
 		B6D608E32995CD2E00CF4ABC /* ArchitectureExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureExampleApp.swift; sourceTree = "<group>"; };
 		B6D608E7299612E600CF4ABC /* RootTransitionHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransitionHostingController.swift; sourceTree = "<group>"; };
 		B6D608E9299613D700CF4ABC /* RootTransitionViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransitionViewFactory.swift; sourceTree = "<group>"; };
@@ -568,6 +574,7 @@
 			isa = PBXGroup;
 			children = (
 				B68D3AA7280D1BB900C4C0E9 /* RootAlertId.swift */,
+				B6C6D516299B8D81002F05AA /* RootAlertAction.swift */,
 			);
 			path = ValueTypes;
 			sourceTree = "<group>";
@@ -954,6 +961,7 @@
 			isa = PBXGroup;
 			children = (
 				B6F8FAE528598D7B0038BC3D /* RootAlertReceiver.swift */,
+				B6C6D514299B8CB6002F05AA /* RootAlertInteractorDependencies.swift */,
 				B69E4EFA286C90C000911280 /* RootAlertInteractor.swift */,
 			);
 			path = Features;
@@ -1000,6 +1008,7 @@
 				B636F6432848FB3100CD2265 /* RootChild.swift */,
 				B6972E5A2997C1C50061FEED /* RootAccountEditSheet.swift */,
 				B6972E5C2997C25B0061FEED /* RootLoginFailedAlert.swift */,
+				B6C6D518299B8E49002F05AA /* RootAlertContent.swift */,
 			);
 			path = ValueTypes;
 			sourceTree = "<group>";
@@ -1326,6 +1335,7 @@
 				B6FC3713298007B000D3CC4C /* AccountDetailPresenter.swift in Sources */,
 				B636F6202846B11F00CD2265 /* SceneFactory.swift in Sources */,
 				B69A0850280A5EC0008E0430 /* AccountInfoView.swift in Sources */,
+				B6C6D517299B8D81002F05AA /* RootAlertAction.swift in Sources */,
 				B658015128013045009EAB96 /* AppLifetime.swift in Sources */,
 				B61D576129841124009E084C /* AppLifecycleDependencies.swift in Sources */,
 				B61753BB281055360057DC15 /* Localized.swift in Sources */,
@@ -1336,6 +1346,7 @@
 				B6C08EA128138DB00047ABBE /* LoginPresenterDependencies.swift in Sources */,
 				B6F8FAD32858B98C0038BC3D /* ActionSender.swift in Sources */,
 				B60E4EB8281AA9BB005E2F32 /* AccountEditInteractorDependencies.swift in Sources */,
+				B6C6D515299B8CB6002F05AA /* RootAlertInteractorDependencies.swift in Sources */,
 				B658015A280140D8009EAB96 /* LaunchInteractor.swift in Sources */,
 				B658012228012FA0009EAB96 /* SceneDelegate.swift in Sources */,
 				B60D63FD2816EEEA00EC7732 /* RootModalSubLifetime.swift in Sources */,
@@ -1346,6 +1357,7 @@
 				B652BBFC28101A3E00B7741B /* LoginPresenter.swift in Sources */,
 				B625F58C2805D03B00230B5D /* AccountRepository.swift in Sources */,
 				B63B346D2818F05B009E9A70 /* AccountHolder.swift in Sources */,
+				B6C6D519299B8E49002F05AA /* RootAlertContent.swift in Sources */,
 				B606DDC5284C49ED00CCEECD /* AccountInfoSwiftUIPresenter.swift in Sources */,
 				B6F8FACE2858B40E0038BC3D /* RootTransitionViewController+KeyCommands.swift in Sources */,
 				B658017528026B5E009EAB96 /* LogoutInteractor.swift in Sources */,
