@@ -21,9 +21,11 @@ final class RootAlertInteractor {
     }
 
     func doAction(_ action: RootAlertAction) {
+        self.finalize()
+
         switch action {
         case .alertOK:
-            self.finalize()
+            break
         }
     }
 
