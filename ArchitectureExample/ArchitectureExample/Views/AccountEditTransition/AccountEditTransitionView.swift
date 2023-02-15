@@ -2,7 +2,6 @@
 //  AccountEditTransitionView.swift
 //
 
-import UIKit
 import SwiftUI
 
 struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: View {
@@ -67,6 +66,5 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
                 EmptyView()
             }
         }
-
     }
 }

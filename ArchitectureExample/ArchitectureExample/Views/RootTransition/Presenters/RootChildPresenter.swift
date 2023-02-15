@@ -3,7 +3,6 @@
 //
 
 import Combine
-import UIKit
 
 @MainActor
 final class RootChildPresenter {
