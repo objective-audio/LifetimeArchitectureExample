@@ -26,7 +26,8 @@ protocol FactoryForRootTransitionView {
     static func makeAccountEditTransitionPresenter(
         lifetimeId: AccountEditLifetimeId
     ) -> AccountEditTransitionPresenter?
-    static func makeAccountEditTransitionModalPresenter(
+
+    static func makeAccountEditModalPresenter(
         lifetimeId: AccountEditLifetimeId
     ) -> AccountEditModalPresenter?
 

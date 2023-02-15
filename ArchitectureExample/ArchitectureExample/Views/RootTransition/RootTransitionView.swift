@@ -36,7 +36,7 @@ struct RootTransitionView<ChildPresenter: ChildPresenterForRootTransitionView,
         .sheet(isPresented: $modalPresenter.isAccountEditSheetPresented) {
             if case .accountEdit(let lifetimeId) = modalPresenter.modal {
                 if let transitionPresenter = Factory.makeAccountEditTransitionPresenter(lifetimeId: lifetimeId),
-                   let modalPresenter = Factory.makeAccountEditTransitionModalPresenter(lifetimeId: lifetimeId) {
+                   let modalPresenter = Factory.makeAccountEditModalPresenter(lifetimeId: lifetimeId) {
                     AccountEditTransitionView<AccountEditTransitionViewFactory>(
                         transitionPresenter: transitionPresenter,
                         modalPresenter: modalPresenter
@@ -116,7 +116,7 @@ struct RootTransitionChildView_Previews: PreviewProvider {
             lifetimeId: AccountEditLifetimeId
         ) -> AccountEditTransitionPresenter? { nil }
 
-        static func makeAccountEditTransitionModalPresenter(
+        static func makeAccountEditModalPresenter(
             lifetimeId: AccountEditLifetimeId
         ) -> AccountEditModalPresenter? { nil }
 

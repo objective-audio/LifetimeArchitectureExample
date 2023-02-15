@@ -56,7 +56,7 @@ extension RootTransitionViewFactory {
                      accountEditInteractor: accountEditLifetime.interactor)
     }
 
-    static func makeAccountEditTransitionModalPresenter(
+    static func makeAccountEditModalPresenter(
         lifetimeId: AccountEditLifetimeId
     ) -> AccountEditModalPresenter? {
         guard let accountEditLifetime = LifetimeAccessor.accountEdit(id: lifetimeId) else {
