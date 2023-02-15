@@ -7,7 +7,7 @@ import SwiftUI
 protocol ChildPresenterForRootTransitionView: ObservableObject {
     var child: RootChild? { get }
 
-    func viewDidAppear()
+    func onAppear()
 }
 
 protocol ModalPresenterForRootTransitionView: ObservableObject {

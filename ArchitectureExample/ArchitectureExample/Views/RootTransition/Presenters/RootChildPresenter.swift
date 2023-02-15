@@ -19,7 +19,7 @@ final class RootChildPresenter {
             .assign(to: &$child)
     }
 
-    func viewDidAppear() {
+    func onAppear() {
         self.launchInteractor?.launch()
     }
 }

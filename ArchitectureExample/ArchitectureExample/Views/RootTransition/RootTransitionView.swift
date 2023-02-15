@@ -31,7 +31,7 @@ struct RootTransitionView<ChildPresenter: ChildPresenterForRootTransitionView,
             }
         }
         .onAppear {
-            childPresenter.viewDidAppear()
+            childPresenter.onAppear()
         }
         .sheet(isPresented: $modalPresenter.isAccountEditSheetPresented) {
             if case .accountEdit(let lifetimeId) = modalPresenter.modal {
@@ -77,7 +77,7 @@ struct RootTransitionChildView_Previews: PreviewProvider {
     class PreviewChildPresenter: ChildPresenterForRootTransitionView {
         @Published var child: RootChild?
 
-        func viewDidAppear() {}
+        func onAppear() {}
 
         func toggleChild() {
             switch child {
