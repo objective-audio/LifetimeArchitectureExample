@@ -24,6 +24,8 @@ final class AccountEditAlertInteractor {
     }
 
     func doAction(_ action: AccountEditAlertAction) {
+        self.finalize()
+
         switch action {
         case .cancel:
             break
