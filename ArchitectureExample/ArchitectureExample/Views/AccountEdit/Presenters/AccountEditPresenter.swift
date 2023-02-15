@@ -16,8 +16,6 @@ final class AccountEditPresenter {
         set { self.interactor?.name = newValue }
     }
 
-    private var cancellables: Set<AnyCancellable> = .init()
-
     init(interactor: AccountEditInteractor) {
         self.interactor = interactor
 
