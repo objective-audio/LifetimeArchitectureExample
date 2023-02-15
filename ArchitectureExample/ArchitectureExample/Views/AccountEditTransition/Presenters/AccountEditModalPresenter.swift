@@ -56,35 +56,3 @@ extension AccountEditModal {
         }
     }
 }
-
-extension AccountEditDestructAlert {
-    init?(_ subLifetime: AccountEditModalSubLifetime<AccountEditModalFactory>?) {
-        switch subLifetime {
-        case .alert(let lifetime):
-            switch lifetime.alertId {
-            case .destruct:
-                self = .init(lifetimeId: lifetime.lifetimeId)
-            case .logout:
-                return nil
-            }
-        case .none:
-            return nil
-        }
-    }
-}
-
-extension AccountEditLogoutAlert {
-    init?(_ subLifetime: AccountEditModalSubLifetime<AccountEditModalFactory>?) {
-        switch subLifetime {
-        case .alert(let lifetime):
-            switch lifetime.alertId {
-            case .logout:
-                self = .init(lifetimeId: lifetime.lifetimeId)
-            case .destruct:
-                return nil
-            }
-        case .none:
-            return nil
-        }
-    }
-}
