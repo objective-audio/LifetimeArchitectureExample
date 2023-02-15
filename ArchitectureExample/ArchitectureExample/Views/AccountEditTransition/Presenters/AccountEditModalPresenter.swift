@@ -8,21 +8,9 @@ import Foundation
 final class AccountEditModalPresenter: ObservableObject {
     private weak var lifecycle: AccountEditModalLifecycle<AccountEditModalFactory>?
 
-    @Published var isDestructAlertPresented: Bool = false {
-        didSet {
-            if !isDestructAlertPresented {
-                self.lifecycle?.removeAlert(id: .destruct)
-            }
-        }
-    }
-
-    @Published var isLogoutAlertPresented: Bool = false {
-        didSet {
-            if !isLogoutAlertPresented {
-                self.lifecycle?.removeAlert(id: .logout)
-            }
-        }
-    }
+    // Alertは必ず何かしらのアクションを受けて閉じるのでfalseがセットされても無視する
+    @Published var isDestructAlertPresented: Bool = false
+    @Published var isLogoutAlertPresented: Bool = false
 
     var destructAlert: AccountEditDestructAlert? { .init(self.lifecycle?.current) }
     var logoutAlert: AccountEditLogoutAlert? { .init(self.lifecycle?.current) }
