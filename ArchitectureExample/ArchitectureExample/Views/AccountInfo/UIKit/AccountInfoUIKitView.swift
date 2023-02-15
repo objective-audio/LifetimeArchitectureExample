@@ -2,7 +2,6 @@
 //  AccountInfoUIKitView.swift
 //
 
-import UIKit
 import SwiftUI
 
 struct AccountInfoUIKitView: View {

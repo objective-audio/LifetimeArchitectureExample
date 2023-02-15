@@ -2,7 +2,7 @@
 //  AccountEditModal.swift
 //
 
-enum AccountEditModal: Equatable {
+enum AccountEditModal {
     case alert(lifetimeId: AccountEditAlertLifetimeId,
                alertId: AccountEditAlertId)
 }

@@ -21,7 +21,6 @@
 		B61753B5281054BF0057DC15 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B61753B7281054BF0057DC15 /* Localizable.strings */; };
 		B61753BB281055360057DC15 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61753BA281055360057DC15 /* Localized.swift */; };
 		B61753BD281055AB0057DC15 /* LocalizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61753BC281055AB0057DC15 /* LocalizeTests.swift */; };
-		B61753BF28110C470057DC15 /* UINavigationController+Updation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61753BE28110C470057DC15 /* UINavigationController+Updation.swift */; };
 		B61D576129841124009E084C /* AppLifecycleDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61D576029841124009E084C /* AppLifecycleDependencies.swift */; };
 		B621766B286FCAB70068EB8B /* LifetimeIds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B621766A286FCAB70068EB8B /* LifetimeIds.swift */; };
 		B621766D287028DE0068EB8B /* InstanceIdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B621766C287028DE0068EB8B /* InstanceIdGenerator.swift */; };
@@ -30,7 +29,6 @@
 		B625F5932806DE6A00230B5D /* AccountInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B625F5922806DE6A00230B5D /* AccountInfo.storyboard */; };
 		B62631DA2995084A00F50A03 /* RootTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62631D92995084A00F50A03 /* RootTransitionView.swift */; };
 		B62631DC299508F400F50A03 /* RootTransitionViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62631DB299508F400F50A03 /* RootTransitionViewDependencies.swift */; };
-		B63640B8285EA0C600F37479 /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63640B7285EA0C600F37479 /* ModalPresenter.swift */; };
 		B636F6202846B11F00CD2265 /* SceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636F61F2846B11F00CD2265 /* SceneFactory.swift */; };
 		B636F63D2848DC2A00CD2265 /* AccountEditModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636F63C2848DC2A00CD2265 /* AccountEditModal.swift */; };
 		B636F6442848FB3100CD2265 /* RootChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636F6432848FB3100CD2265 /* RootChild.swift */; };
@@ -59,7 +57,6 @@
 		B652BBF6280FC6DB00B7741B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652BBF5280FC6DB00B7741B /* LoginView.swift */; };
 		B652BBF8280FC87C00B7741B /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652BBF7280FC87C00B7741B /* ActivityIndicator.swift */; };
 		B652BBFC28101A3E00B7741B /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652BBFB28101A3E00B7741B /* LoginPresenter.swift */; };
-		B652BBFE28101C8900B7741B /* LoginHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652BBFD28101C8900B7741B /* LoginHostingController.swift */; };
 		B65671092994848C007DE355 /* AccountNavigationViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65671082994848C007DE355 /* AccountNavigationViewFactory.swift */; };
 		B656710B29948F67007DE355 /* AccountNavigationViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B656710A29948F67007DE355 /* AccountNavigationViewDependencies.swift */; };
 		B658012228012FA0009EAB96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658012128012FA0009EAB96 /* SceneDelegate.swift */; };
@@ -82,7 +79,6 @@
 		B666DD7E2830F41E0074B8F9 /* AccountEditModalLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666DD7D2830F41E0074B8F9 /* AccountEditModalLifecycle.swift */; };
 		B666DD802830F49B0074B8F9 /* AccountEditModalSubLifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666DD7F2830F49B0074B8F9 /* AccountEditModalSubLifetime.swift */; };
 		B666DD822830F4BF0074B8F9 /* AccountEditAlertId.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666DD812830F4BF0074B8F9 /* AccountEditAlertId.swift */; };
-		B67758AF2811772E00403DC6 /* UINavigationControllerUpdationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67758AE2811772E00403DC6 /* UINavigationControllerUpdationTests.swift */; };
 		B67758B12811857000403DC6 /* AccountMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67758B02811857000403DC6 /* AccountMenuCell.swift */; };
 		B67758B32811869100403DC6 /* AccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67758B22811869100403DC6 /* AccountInfoCell.swift */; };
 		B677BAFA2998AEE000C8AAB7 /* AccountEditTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B677BAF92998AEE000C8AAB7 /* AccountEditTransitionView.swift */; };
@@ -104,8 +100,7 @@
 		B68D3ABE280FAA9300C4C0E9 /* AccountRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D3ABD280FAA9300C4C0E9 /* AccountRepositoryTests.swift */; };
 		B68D820B283740AB00C2FC23 /* RootAlertLifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D820A283740AB00C2FC23 /* RootAlertLifetime.swift */; };
 		B68E3CE12803D9EC0040F3F1 /* LoginNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68E3CE02803D9EC0040F3F1 /* LoginNetwork.swift */; };
-		B6972E5B2997C1C50061FEED /* RootAccountEditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6972E5A2997C1C50061FEED /* RootAccountEditSheet.swift */; };
-		B6972E5D2997C25B0061FEED /* RootLoginFailedAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6972E5C2997C25B0061FEED /* RootLoginFailedAlert.swift */; };
+		B69586F0299C98AC007FCCD2 /* RootModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69586EF299C98AC007FCCD2 /* RootModal.swift */; };
 		B6972E602997D5450061FEED /* RootAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6972E5F2997D5450061FEED /* RootAlertPresenter.swift */; };
 		B69A0850280A5EC0008E0430 /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A084F280A5EC0008E0430 /* AccountInfoView.swift */; };
 		B69C41B12810317400340A92 /* LoginViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69C41B02810317400340A92 /* LoginViewDependencies.swift */; };
@@ -113,8 +108,6 @@
 		B69E4EF7286C8B0E00911280 /* AccountEditAlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E4EF6286C8B0E00911280 /* AccountEditAlertInteractor.swift */; };
 		B69E4EF9286C8BC400911280 /* AccountEditAlertInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E4EF8286C8BC400911280 /* AccountEditAlertInteractorDependencies.swift */; };
 		B69E4EFB286C90C000911280 /* RootAlertInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E4EFA286C90C000911280 /* RootAlertInteractor.swift */; };
-		B69E4EFF286DB7C500911280 /* UIViewController+Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E4EFE286DB7C500911280 /* UIViewController+Modal.swift */; };
-		B69E4F05286DCF6200911280 /* ModalSuspendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E4F04286DCF6200911280 /* ModalSuspendable.swift */; };
 		B6A4AFE82814FDDB00535851 /* AppPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A4AFE72814FDDB00535851 /* AppPresenter.swift */; };
 		B6A4AFEA2815017F00535851 /* ScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A4AFE92815017F00535851 /* ScenePresenter.swift */; };
 		B6A4AFF32815604A00535851 /* SceneLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A4AFF22815604A00535851 /* SceneLifecycleTests.swift */; };
@@ -124,7 +117,6 @@
 		B6B3E92B2999D509000E4E19 /* AccountEditTransitionViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3E92A2999D509000E4E19 /* AccountEditTransitionViewFactory.swift */; };
 		B6B3E92D2999D55B000E4E19 /* AccountEditTransitionViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3E92C2999D55B000E4E19 /* AccountEditTransitionViewDependencies.swift */; };
 		B6B3E92F2999DB52000E4E19 /* AccountEditModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3E92E2999DB52000E4E19 /* AccountEditModalPresenter.swift */; };
-		B6B3E9312999DC2B000E4E19 /* AccountEditDestructAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3E9302999DC2B000E4E19 /* AccountEditDestructAlert.swift */; };
 		B6BC1CBA28609CB500B28D18 /* RootCommandPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC1CB928609CB500B28D18 /* RootCommandPresenter.swift */; };
 		B6BCAA1C28293BF70053F073 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BCAA1B28293BF70053F073 /* AppFactory.swift */; };
 		B6BCAA1E28293C890053F073 /* AppLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BCAA1D28293C890053F073 /* AppLifecycleTests.swift */; };
@@ -135,10 +127,12 @@
 		B6C3B13B299A6F9A007042E2 /* AccountEditAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3B13A299A6F9A007042E2 /* AccountEditAlertPresenter.swift */; };
 		B6C3D62E282565B300A8FCFE /* InstanceId.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3D62D282565B300A8FCFE /* InstanceId.swift */; };
 		B6C687FC285CC235008220B6 /* ActionKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C687FB285CC235008220B6 /* ActionKind.swift */; };
-		B6C687FE285D6610008220B6 /* ModalSuspending.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C687FD285D6610008220B6 /* ModalSuspending.swift */; };
 		B6C68800285D9027008220B6 /* ModalConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C687FF285D9027008220B6 /* ModalConvertible.swift */; };
-		B6C68802285D9212008220B6 /* ModalSuspendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C68801285D9212008220B6 /* ModalSuspendingTests.swift */; };
 		B6C68804285DA21B008220B6 /* ActionSenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C68803285DA21B008220B6 /* ActionSenderTests.swift */; };
+		B6C6D515299B8CB6002F05AA /* RootAlertInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6D514299B8CB6002F05AA /* RootAlertInteractorDependencies.swift */; };
+		B6C6D517299B8D81002F05AA /* RootAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6D516299B8D81002F05AA /* RootAlertAction.swift */; };
+		B6C6D519299B8E49002F05AA /* RootAlertContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6D518299B8E49002F05AA /* RootAlertContent.swift */; };
+		B6C6D51E299B8F7B002F05AA /* AccountEditAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6D51D299B8F7B002F05AA /* AccountEditAlertAction.swift */; };
 		B6D608E42995CD2E00CF4ABC /* ArchitectureExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D608E32995CD2E00CF4ABC /* ArchitectureExampleApp.swift */; };
 		B6D608E8299612E600CF4ABC /* RootTransitionHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D608E7299612E600CF4ABC /* RootTransitionHostingController.swift */; };
 		B6D608EA299613D700CF4ABC /* RootTransitionViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D608E9299613D700CF4ABC /* RootTransitionViewFactory.swift */; };
@@ -150,7 +144,6 @@
 		B6E86FF7280C4DB400BEFE87 /* LaunchInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E86FF6280C4DB400BEFE87 /* LaunchInteractorTests.swift */; };
 		B6E86FF9280C4E0200BEFE87 /* LaunchInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E86FF8280C4E0200BEFE87 /* LaunchInteractorDependencies.swift */; };
 		B6E876C828366DB400BC42DE /* AccountEditTransitionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E876C728366DB400BC42DE /* AccountEditTransitionPresenter.swift */; };
-		B6EFA1A5281B885A0002371B /* AlertContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EFA1A4281B885A0002371B /* AlertContent.swift */; };
 		B6EFA1AB281BED5F0002371B /* AccountHolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EFA1AA281BED5F0002371B /* AccountHolderTests.swift */; };
 		B6EFA1AD281C12280002371B /* AccountEditInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EFA1AC281C12280002371B /* AccountEditInteractorTests.swift */; };
 		B6F22243286024F20074A0D2 /* AccountMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F22242286024F20074A0D2 /* AccountMenuInteractor.swift */; };
@@ -208,7 +201,6 @@
 		B61753B8281054FF0057DC15 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B61753BA281055360057DC15 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		B61753BC281055AB0057DC15 /* LocalizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizeTests.swift; sourceTree = "<group>"; };
-		B61753BE28110C470057DC15 /* UINavigationController+Updation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Updation.swift"; sourceTree = "<group>"; };
 		B61D576029841124009E084C /* AppLifecycleDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLifecycleDependencies.swift; sourceTree = "<group>"; };
 		B621766A286FCAB70068EB8B /* LifetimeIds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifetimeIds.swift; sourceTree = "<group>"; };
 		B621766C287028DE0068EB8B /* InstanceIdGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceIdGenerator.swift; sourceTree = "<group>"; };
@@ -217,7 +209,6 @@
 		B625F5922806DE6A00230B5D /* AccountInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountInfo.storyboard; sourceTree = "<group>"; };
 		B62631D92995084A00F50A03 /* RootTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransitionView.swift; sourceTree = "<group>"; };
 		B62631DB299508F400F50A03 /* RootTransitionViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransitionViewDependencies.swift; sourceTree = "<group>"; };
-		B63640B7285EA0C600F37479 /* ModalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresenter.swift; sourceTree = "<group>"; };
 		B636F61F2846B11F00CD2265 /* SceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneFactory.swift; sourceTree = "<group>"; };
 		B636F63C2848DC2A00CD2265 /* AccountEditModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditModal.swift; sourceTree = "<group>"; };
 		B636F6432848FB3100CD2265 /* RootChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootChild.swift; sourceTree = "<group>"; };
@@ -246,7 +237,6 @@
 		B652BBF5280FC6DB00B7741B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B652BBF7280FC87C00B7741B /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		B652BBFB28101A3E00B7741B /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
-		B652BBFD28101C8900B7741B /* LoginHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHostingController.swift; sourceTree = "<group>"; };
 		B65671082994848C007DE355 /* AccountNavigationViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNavigationViewFactory.swift; sourceTree = "<group>"; };
 		B656710A29948F67007DE355 /* AccountNavigationViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNavigationViewDependencies.swift; sourceTree = "<group>"; };
 		B658011C28012FA0009EAB96 /* ArchitectureExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArchitectureExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,7 +262,6 @@
 		B666DD7D2830F41E0074B8F9 /* AccountEditModalLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditModalLifecycle.swift; sourceTree = "<group>"; };
 		B666DD7F2830F49B0074B8F9 /* AccountEditModalSubLifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditModalSubLifetime.swift; sourceTree = "<group>"; };
 		B666DD812830F4BF0074B8F9 /* AccountEditAlertId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditAlertId.swift; sourceTree = "<group>"; };
-		B67758AE2811772E00403DC6 /* UINavigationControllerUpdationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerUpdationTests.swift; sourceTree = "<group>"; };
 		B67758B02811857000403DC6 /* AccountMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuCell.swift; sourceTree = "<group>"; };
 		B67758B22811869100403DC6 /* AccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCell.swift; sourceTree = "<group>"; };
 		B677BAF92998AEE000C8AAB7 /* AccountEditTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditTransitionView.swift; sourceTree = "<group>"; };
@@ -294,8 +283,7 @@
 		B68D3ABD280FAA9300C4C0E9 /* AccountRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepositoryTests.swift; sourceTree = "<group>"; };
 		B68D820A283740AB00C2FC23 /* RootAlertLifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertLifetime.swift; sourceTree = "<group>"; };
 		B68E3CE02803D9EC0040F3F1 /* LoginNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetwork.swift; sourceTree = "<group>"; };
-		B6972E5A2997C1C50061FEED /* RootAccountEditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAccountEditSheet.swift; sourceTree = "<group>"; };
-		B6972E5C2997C25B0061FEED /* RootLoginFailedAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootLoginFailedAlert.swift; sourceTree = "<group>"; };
+		B69586EF299C98AC007FCCD2 /* RootModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModal.swift; sourceTree = "<group>"; };
 		B6972E5F2997D5450061FEED /* RootAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertPresenter.swift; sourceTree = "<group>"; };
 		B69A084F280A5EC0008E0430 /* AccountInfoView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B69C41B02810317400340A92 /* LoginViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDependencies.swift; sourceTree = "<group>"; };
@@ -303,8 +291,6 @@
 		B69E4EF6286C8B0E00911280 /* AccountEditAlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditAlertInteractor.swift; sourceTree = "<group>"; };
 		B69E4EF8286C8BC400911280 /* AccountEditAlertInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditAlertInteractorDependencies.swift; sourceTree = "<group>"; };
 		B69E4EFA286C90C000911280 /* RootAlertInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertInteractor.swift; sourceTree = "<group>"; };
-		B69E4EFE286DB7C500911280 /* UIViewController+Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Modal.swift"; sourceTree = "<group>"; };
-		B69E4F04286DCF6200911280 /* ModalSuspendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSuspendable.swift; sourceTree = "<group>"; };
 		B6A4AFE72814FDDB00535851 /* AppPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPresenter.swift; sourceTree = "<group>"; };
 		B6A4AFE92815017F00535851 /* ScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePresenter.swift; sourceTree = "<group>"; };
 		B6A4AFF22815604A00535851 /* SceneLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLifecycleTests.swift; sourceTree = "<group>"; };
@@ -314,7 +300,6 @@
 		B6B3E92A2999D509000E4E19 /* AccountEditTransitionViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditTransitionViewFactory.swift; sourceTree = "<group>"; };
 		B6B3E92C2999D55B000E4E19 /* AccountEditTransitionViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditTransitionViewDependencies.swift; sourceTree = "<group>"; };
 		B6B3E92E2999DB52000E4E19 /* AccountEditModalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditModalPresenter.swift; sourceTree = "<group>"; };
-		B6B3E9302999DC2B000E4E19 /* AccountEditDestructAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditDestructAlert.swift; sourceTree = "<group>"; };
 		B6BC1CB928609CB500B28D18 /* RootCommandPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCommandPresenter.swift; sourceTree = "<group>"; };
 		B6BCAA1B28293BF70053F073 /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		B6BCAA1D28293C890053F073 /* AppLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLifecycleTests.swift; sourceTree = "<group>"; };
@@ -325,10 +310,12 @@
 		B6C3B13A299A6F9A007042E2 /* AccountEditAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditAlertPresenter.swift; sourceTree = "<group>"; };
 		B6C3D62D282565B300A8FCFE /* InstanceId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceId.swift; sourceTree = "<group>"; };
 		B6C687FB285CC235008220B6 /* ActionKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionKind.swift; sourceTree = "<group>"; };
-		B6C687FD285D6610008220B6 /* ModalSuspending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSuspending.swift; sourceTree = "<group>"; };
 		B6C687FF285D9027008220B6 /* ModalConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalConvertible.swift; sourceTree = "<group>"; };
-		B6C68801285D9212008220B6 /* ModalSuspendingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSuspendingTests.swift; sourceTree = "<group>"; };
 		B6C68803285DA21B008220B6 /* ActionSenderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSenderTests.swift; sourceTree = "<group>"; };
+		B6C6D514299B8CB6002F05AA /* RootAlertInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertInteractorDependencies.swift; sourceTree = "<group>"; };
+		B6C6D516299B8D81002F05AA /* RootAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertAction.swift; sourceTree = "<group>"; };
+		B6C6D518299B8E49002F05AA /* RootAlertContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertContent.swift; sourceTree = "<group>"; };
+		B6C6D51D299B8F7B002F05AA /* AccountEditAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditAlertAction.swift; sourceTree = "<group>"; };
 		B6D608E32995CD2E00CF4ABC /* ArchitectureExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureExampleApp.swift; sourceTree = "<group>"; };
 		B6D608E7299612E600CF4ABC /* RootTransitionHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransitionHostingController.swift; sourceTree = "<group>"; };
 		B6D608E9299613D700CF4ABC /* RootTransitionViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransitionViewFactory.swift; sourceTree = "<group>"; };
@@ -340,7 +327,6 @@
 		B6E86FF6280C4DB400BEFE87 /* LaunchInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInteractorTests.swift; sourceTree = "<group>"; };
 		B6E86FF8280C4E0200BEFE87 /* LaunchInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInteractorDependencies.swift; sourceTree = "<group>"; };
 		B6E876C728366DB400BC42DE /* AccountEditTransitionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditTransitionPresenter.swift; sourceTree = "<group>"; };
-		B6EFA1A4281B885A0002371B /* AlertContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertContent.swift; sourceTree = "<group>"; };
 		B6EFA1AA281BED5F0002371B /* AccountHolderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHolderTests.swift; sourceTree = "<group>"; };
 		B6EFA1AC281C12280002371B /* AccountEditInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditInteractorTests.swift; sourceTree = "<group>"; };
 		B6F22242286024F20074A0D2 /* AccountMenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuInteractor.swift; sourceTree = "<group>"; };
@@ -455,15 +441,6 @@
 			path = AccountMenu;
 			sourceTree = "<group>";
 		};
-		B63640B6285EA0B600F37479 /* ModalTemplate */ = {
-			isa = PBXGroup;
-			children = (
-				B69E4F04286DCF6200911280 /* ModalSuspendable.swift */,
-				B63640B7285EA0C600F37479 /* ModalPresenter.swift */,
-			);
-			path = ModalTemplate;
-			sourceTree = "<group>";
-		};
 		B636F6222846B3A900CD2265 /* Lifecycles */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +545,7 @@
 			isa = PBXGroup;
 			children = (
 				B68D3AA7280D1BB900C4C0E9 /* RootAlertId.swift */,
+				B6C6D516299B8D81002F05AA /* RootAlertAction.swift */,
 			);
 			path = ValueTypes;
 			sourceTree = "<group>";
@@ -714,10 +692,8 @@
 				B68D3ABB280EE04F00C4C0E9 /* AccountNavigationLifecycleTests.swift */,
 				B68D3ABD280FAA9300C4C0E9 /* AccountRepositoryTests.swift */,
 				B61753BC281055AB0057DC15 /* LocalizeTests.swift */,
-				B67758AE2811772E00403DC6 /* UINavigationControllerUpdationTests.swift */,
 				B6EFA1AA281BED5F0002371B /* AccountHolderTests.swift */,
 				B6EFA1AC281C12280002371B /* AccountEditInteractorTests.swift */,
-				B6C68801285D9212008220B6 /* ModalSuspendingTests.swift */,
 				B6C68803285DA21B008220B6 /* ActionSenderTests.swift */,
 				B6B2D795286934CA008DF3F6 /* ActionIdTests.swift */,
 			);
@@ -745,8 +721,6 @@
 		B658015428013138009EAB96 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B6EFA1A9281BA9940002371B /* AlertTemplate */,
-				B63640B6285EA0B600F37479 /* ModalTemplate */,
 				B658017828026FD3009EAB96 /* Helpers */,
 				B658015D28014BA9009EAB96 /* RootTransition */,
 				B658016128016128009EAB96 /* Login */,
@@ -810,7 +784,6 @@
 		B658016128016128009EAB96 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				B652BBFD28101C8900B7741B /* LoginHostingController.swift */,
 				B69C41B02810317400340A92 /* LoginViewDependencies.swift */,
 				B652BBF5280FC6DB00B7741B /* LoginView.swift */,
 				B6FEED78286563BE002EA4A3 /* Presenters */,
@@ -844,10 +817,7 @@
 			isa = PBXGroup;
 			children = (
 				B658017928026FF7009EAB96 /* UIViewController+Child.swift */,
-				B69E4EFE286DB7C500911280 /* UIViewController+Modal.swift */,
-				B61753BE28110C470057DC15 /* UINavigationController+Updation.swift */,
 				B652BBF7280FC87C00B7741B /* ActivityIndicator.swift */,
-				B6C687FD285D6610008220B6 /* ModalSuspending.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -901,10 +871,19 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
+		B6C6D51C299B8F6C002F05AA /* ValueTypes */ = {
+			isa = PBXGroup;
+			children = (
+				B6C6D51D299B8F7B002F05AA /* AccountEditAlertAction.swift */,
+			);
+			path = ValueTypes;
+			sourceTree = "<group>";
+		};
 		B6DB6FE92859D4700070596B /* AccountEditAlert */ = {
 			isa = PBXGroup;
 			children = (
 				B6DB6FEA2859D48E0070596B /* AccountEditAlertLifetime.swift */,
+				B6C6D51C299B8F6C002F05AA /* ValueTypes */,
 				B6DB6FEF2859D7110070596B /* Features */,
 			);
 			path = AccountEditAlert;
@@ -933,14 +912,6 @@
 			path = AccountEditTransition;
 			sourceTree = "<group>";
 		};
-		B6EFA1A9281BA9940002371B /* AlertTemplate */ = {
-			isa = PBXGroup;
-			children = (
-				B6EFA1A4281B885A0002371B /* AlertContent.swift */,
-			);
-			path = AlertTemplate;
-			sourceTree = "<group>";
-		};
 		B6F8FACB2858A8A60038BC3D /* protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -954,6 +925,7 @@
 			isa = PBXGroup;
 			children = (
 				B6F8FAE528598D7B0038BC3D /* RootAlertReceiver.swift */,
+				B6C6D514299B8CB6002F05AA /* RootAlertInteractorDependencies.swift */,
 				B69E4EFA286C90C000911280 /* RootAlertInteractor.swift */,
 			);
 			path = Features;
@@ -998,8 +970,8 @@
 			isa = PBXGroup;
 			children = (
 				B636F6432848FB3100CD2265 /* RootChild.swift */,
-				B6972E5A2997C1C50061FEED /* RootAccountEditSheet.swift */,
-				B6972E5C2997C25B0061FEED /* RootLoginFailedAlert.swift */,
+				B69586EF299C98AC007FCCD2 /* RootModal.swift */,
+				B6C6D518299B8E49002F05AA /* RootAlertContent.swift */,
 			);
 			path = ValueTypes;
 			sourceTree = "<group>";
@@ -1077,7 +1049,6 @@
 			isa = PBXGroup;
 			children = (
 				B636F63C2848DC2A00CD2265 /* AccountEditModal.swift */,
-				B6B3E9302999DC2B000E4E19 /* AccountEditDestructAlert.swift */,
 			);
 			path = ValueTypes;
 			sourceTree = "<group>";
@@ -1234,7 +1205,6 @@
 				B6C3D62E282565B300A8FCFE /* InstanceId.swift in Sources */,
 				B63D1E8C282A3662005F606E /* AccountInfoLifetime.swift in Sources */,
 				B67E5E442850BCB600B53C2B /* AccountInfoInteractorDependencies.swift in Sources */,
-				B652BBFE28101C8900B7741B /* LoginHostingController.swift in Sources */,
 				B6FA3942281E73AA00C102AB /* AppLifecycle.swift in Sources */,
 				B60D63F52816B78100EC7732 /* CurrentValue.swift in Sources */,
 				B60E4EB4281A9849005E2F32 /* UserDefaults+Helper.swift in Sources */,
@@ -1249,7 +1219,6 @@
 				B606DDC7284C49F700CCEECD /* AccountInfoUIKitPresenter.swift in Sources */,
 				B6D608EA299613D700CF4ABC /* RootTransitionViewFactory.swift in Sources */,
 				B658015828013FFF009EAB96 /* LoginLifetime.swift in Sources */,
-				B6972E5B2997C1C50061FEED /* RootAccountEditSheet.swift in Sources */,
 				B658017C2802B22A009EAB96 /* Account.swift in Sources */,
 				B67758B12811857000403DC6 /* AccountMenuCell.swift in Sources */,
 				B636F6462848FDBD00CD2265 /* AccountNavigationElement.swift in Sources */,
@@ -1264,7 +1233,6 @@
 				B658017A28026FF7009EAB96 /* UIViewController+Child.swift in Sources */,
 				B6F222452860253E0074A0D2 /* AccountMenuInteractorDependencies.swift in Sources */,
 				B636F63D2848DC2A00CD2265 /* AccountEditModal.swift in Sources */,
-				B6972E5D2997C25B0061FEED /* RootLoginFailedAlert.swift in Sources */,
 				B63FE030280BE72600A508A1 /* LoginInteractorDependencies.swift in Sources */,
 				B645D8A9281FF3F400D0D224 /* Assert.swift in Sources */,
 				B60D63FB2816EB2600EC7732 /* AccountNavigationSubLifetime.swift in Sources */,
@@ -1273,7 +1241,6 @@
 				B6E876C828366DB400BC42DE /* AccountEditTransitionPresenter.swift in Sources */,
 				B6FC37192981783100D3CC4C /* AccountEditModalLifecycleDependencies.swift in Sources */,
 				B6C687FC285CC235008220B6 /* ActionKind.swift in Sources */,
-				B6B3E9312999DC2B000E4E19 /* AccountEditDestructAlert.swift in Sources */,
 				B63B2698280AA77B009117B9 /* UISystem.swift in Sources */,
 				B62631DC299508F400F50A03 /* RootTransitionViewDependencies.swift in Sources */,
 				B69E477C28293453002F2AFF /* RootFactory.swift in Sources */,
@@ -1281,13 +1248,10 @@
 				B625F58E2806823E00230B5D /* LifetimeAccessor.swift in Sources */,
 				B6F8FAE12858C1BA0038BC3D /* AccountReceiver.swift in Sources */,
 				B63B346228182439009E9A70 /* AccountEditInteractor.swift in Sources */,
-				B69E4EFF286DB7C500911280 /* UIViewController+Modal.swift in Sources */,
 				B6F2224B286089200074A0D2 /* AccountEditReceiverDependencies.swift in Sources */,
 				B68E3CE12803D9EC0040F3F1 /* LoginNetwork.swift in Sources */,
 				B63B2691280A8463009117B9 /* AccountInfoViewDependencies.swift in Sources */,
 				B6D608E8299612E600CF4ABC /* RootTransitionHostingController.swift in Sources */,
-				B69E4F05286DCF6200911280 /* ModalSuspendable.swift in Sources */,
-				B63640B8285EA0C600F37479 /* ModalPresenter.swift in Sources */,
 				B68D3AAE280D840B00C4C0E9 /* AccountMenuViewDependencies.swift in Sources */,
 				B636F6442848FB3100CD2265 /* RootChild.swift in Sources */,
 				B6BC1CBA28609CB500B28D18 /* RootCommandPresenter.swift in Sources */,
@@ -1297,10 +1261,10 @@
 				B658012428012FA0009EAB96 /* RootTransitionViewController.swift in Sources */,
 				B6C08E982812CD910047ABBE /* RootModalLifecycle.swift in Sources */,
 				B621766B286FCAB70068EB8B /* LifetimeIds.swift in Sources */,
-				B6EFA1A5281B885A0002371B /* AlertContent.swift in Sources */,
 				B6F22243286024F20074A0D2 /* AccountMenuInteractor.swift in Sources */,
 				B63B3465281829F9009E9A70 /* AccountEditView.swift in Sources */,
 				B6DB6FF32859D7620070596B /* AccountEditModalLifecycle+Action.swift in Sources */,
+				B69586F0299C98AC007FCCD2 /* RootModal.swift in Sources */,
 				B6F8FAE628598D7B0038BC3D /* RootAlertReceiver.swift in Sources */,
 				B6F8FAD72858BB030038BC3D /* ActionReceiverProvidable.swift in Sources */,
 				B658017728026C88009EAB96 /* AccountMenuPresenter.swift in Sources */,
@@ -1320,12 +1284,13 @@
 				B6D608E42995CD2E00CF4ABC /* ArchitectureExampleApp.swift in Sources */,
 				B6F8FADD2858BFB60038BC3D /* RootLifecycle+Action.swift in Sources */,
 				B6FC37212983836F00D3CC4C /* RootLifecycleDependencies.swift in Sources */,
-				B61753BF28110C470057DC15 /* UINavigationController+Updation.swift in Sources */,
+				B6C6D51E299B8F7B002F05AA /* AccountEditAlertAction.swift in Sources */,
 				B6F8FAD02858B8FB0038BC3D /* Action.swift in Sources */,
 				B658015628013FF8009EAB96 /* AccountLifetime.swift in Sources */,
 				B6FC3713298007B000D3CC4C /* AccountDetailPresenter.swift in Sources */,
 				B636F6202846B11F00CD2265 /* SceneFactory.swift in Sources */,
 				B69A0850280A5EC0008E0430 /* AccountInfoView.swift in Sources */,
+				B6C6D517299B8D81002F05AA /* RootAlertAction.swift in Sources */,
 				B658015128013045009EAB96 /* AppLifetime.swift in Sources */,
 				B61D576129841124009E084C /* AppLifecycleDependencies.swift in Sources */,
 				B61753BB281055360057DC15 /* Localized.swift in Sources */,
@@ -1336,6 +1301,7 @@
 				B6C08EA128138DB00047ABBE /* LoginPresenterDependencies.swift in Sources */,
 				B6F8FAD32858B98C0038BC3D /* ActionSender.swift in Sources */,
 				B60E4EB8281AA9BB005E2F32 /* AccountEditInteractorDependencies.swift in Sources */,
+				B6C6D515299B8CB6002F05AA /* RootAlertInteractorDependencies.swift in Sources */,
 				B658015A280140D8009EAB96 /* LaunchInteractor.swift in Sources */,
 				B658012228012FA0009EAB96 /* SceneDelegate.swift in Sources */,
 				B60D63FD2816EEEA00EC7732 /* RootModalSubLifetime.swift in Sources */,
@@ -1346,6 +1312,7 @@
 				B652BBFC28101A3E00B7741B /* LoginPresenter.swift in Sources */,
 				B625F58C2805D03B00230B5D /* AccountRepository.swift in Sources */,
 				B63B346D2818F05B009E9A70 /* AccountHolder.swift in Sources */,
+				B6C6D519299B8E49002F05AA /* RootAlertContent.swift in Sources */,
 				B606DDC5284C49ED00CCEECD /* AccountInfoSwiftUIPresenter.swift in Sources */,
 				B6F8FACE2858B40E0038BC3D /* RootTransitionViewController+KeyCommands.swift in Sources */,
 				B658017528026B5E009EAB96 /* LogoutInteractor.swift in Sources */,
@@ -1362,7 +1329,6 @@
 				B6C3B13B299A6F9A007042E2 /* AccountEditAlertPresenter.swift in Sources */,
 				B64F1AE929936E3B0096C543 /* AccountNavigationView.swift in Sources */,
 				B6F22249286087A60074A0D2 /* AccountEditAlertReceiverDependencies.swift in Sources */,
-				B6C687FE285D6610008220B6 /* ModalSuspending.swift in Sources */,
 				B6F8FAD52858B9CC0038BC3D /* ActionReceivable.swift in Sources */,
 				B68D3AA6280D1B1A00C4C0E9 /* AccountInfoContent.swift in Sources */,
 				B6BCAA1C28293BF70053F073 /* AppFactory.swift in Sources */,
@@ -1394,9 +1360,7 @@
 				B6C68804285DA21B008220B6 /* ActionSenderTests.swift in Sources */,
 				B68D3ABC280EE04F00C4C0E9 /* AccountNavigationLifecycleTests.swift in Sources */,
 				B63FE032280BE97100A508A1 /* LoginInteractorTests.swift in Sources */,
-				B67758AF2811772E00403DC6 /* UINavigationControllerUpdationTests.swift in Sources */,
 				B61753BD281055AB0057DC15 /* LocalizeTests.swift in Sources */,
-				B6C68802285D9212008220B6 /* ModalSuspendingTests.swift in Sources */,
 				B6B2D796286934CA008DF3F6 /* ActionIdTests.swift in Sources */,
 				B6EFA1AB281BED5F0002371B /* AccountHolderTests.swift in Sources */,
 				B621766D287028DE0068EB8B /* InstanceIdGenerator.swift in Sources */,

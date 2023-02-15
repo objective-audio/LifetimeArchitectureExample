@@ -2,22 +2,50 @@
 //  RootAlertPresenter.swift
 //
 
+import SwiftUI
+
+@MainActor
 final class RootAlertPresenter {
     private weak var interactor: RootAlertInteractor?
 
     init(interactor: RootAlertInteractor) {
         self.interactor = interactor
     }
+}
 
-    var content: AlertContent {
-        guard let interactor else { return .empty }
-        return .init(message: interactor.alertId.localizedMessage,
-                     actions: interactor.alertId.actions)
+extension RootAlertPresenter {
+    var content: RootAlertContent {
+        guard let alertId = self.interactor?.alertId else {
+            return .empty
+        }
+
+        return .init(message: alertId.message,
+                     actions: alertId.actions)
+    }
+
+    func doAction(_ action: RootAlertAction) {
+        self.interactor?.doAction(action)
+    }
+}
+
+extension RootAlertAction {
+    var role: ButtonRole {
+        switch self {
+        case .alertOK:
+            return .cancel
+        }
+    }
+
+    var title: Localized {
+        switch self {
+        case .alertOK:
+            return .alertOK
+        }
     }
 }
 
 private extension RootAlertId {
-    var localizedMessage: Localized {
+    var message: Localized {
         switch self {
         case .loginFailed(let kind):
             switch kind {
@@ -33,12 +61,10 @@ private extension RootAlertId {
         }
     }
 
-    var actions: [AlertContent.Action] {
+    var actions: [RootAlertAction] {
         switch self {
         case .loginFailed:
-            return [.init(title: .alertOK,
-                          role: .cancel,
-                          handler: {})]
+            return [.alertOK]
         }
     }
 }

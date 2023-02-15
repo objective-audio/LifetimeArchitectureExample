@@ -7,14 +7,13 @@ import SwiftUI
 protocol ChildPresenterForRootTransitionView: ObservableObject {
     var child: RootChild? { get }
 
-    func viewDidAppear()
+    func onAppear()
 }
 
 protocol ModalPresenterForRootTransitionView: ObservableObject {
     var isAccountEditSheetPresented: Bool { get set }
     var isLoginFailedAlertPresented: Bool { get set }
-    var accountEditSheet: RootAccountEditSheet? { get }
-    var loginFailedAlert: RootLoginFailedAlert? { get }
+    var modal: RootModal? { get }
 }
 
 protocol FactoryForRootTransitionView {
@@ -27,7 +26,8 @@ protocol FactoryForRootTransitionView {
     static func makeAccountEditTransitionPresenter(
         lifetimeId: AccountEditLifetimeId
     ) -> AccountEditTransitionPresenter?
-    static func makeAccountEditTransitionModalPresenter(
+
+    static func makeAccountEditModalPresenter(
         lifetimeId: AccountEditLifetimeId
     ) -> AccountEditModalPresenter?
 

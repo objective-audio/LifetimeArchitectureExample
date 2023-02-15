@@ -2,7 +2,7 @@
 //  RootChild.swift
 //
 
-enum RootChild: Equatable {
+enum RootChild {
     case login(lifetimeId: SceneLifetimeId)
     case account(lifetimeId: AccountLifetimeId)
 }
