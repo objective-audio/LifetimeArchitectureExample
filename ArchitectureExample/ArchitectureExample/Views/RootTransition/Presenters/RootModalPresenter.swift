@@ -16,13 +16,8 @@ final class RootModalPresenter: ObservableObject {
         }
     }
 
-    @Published var isLoginFailedAlertPresented: Bool = false {
-        didSet {
-            if !isLoginFailedAlertPresented {
-                self.lifecycle?.removeAlert()
-            }
-        }
-    }
+    // Alertは必ず何かしらのアクションを受けて閉じるのでfalseがセットされても無視する
+    @Published var isLoginFailedAlertPresented: Bool = false
 
     var accountEditSheet: RootAccountEditSheet? { .init(self.lifecycle?.current) }
     var loginFailedAlert: RootLoginFailedAlert? { .init(self.lifecycle?.current) }
