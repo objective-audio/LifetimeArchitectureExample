@@ -101,8 +101,6 @@
 		B68D820B283740AB00C2FC23 /* RootAlertLifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D820A283740AB00C2FC23 /* RootAlertLifetime.swift */; };
 		B68E3CE12803D9EC0040F3F1 /* LoginNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68E3CE02803D9EC0040F3F1 /* LoginNetwork.swift */; };
 		B69586F0299C98AC007FCCD2 /* RootModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69586EF299C98AC007FCCD2 /* RootModal.swift */; };
-		B6972E5B2997C1C50061FEED /* RootAccountEditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6972E5A2997C1C50061FEED /* RootAccountEditSheet.swift */; };
-		B6972E5D2997C25B0061FEED /* RootLoginFailedAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6972E5C2997C25B0061FEED /* RootLoginFailedAlert.swift */; };
 		B6972E602997D5450061FEED /* RootAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6972E5F2997D5450061FEED /* RootAlertPresenter.swift */; };
 		B69A0850280A5EC0008E0430 /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A084F280A5EC0008E0430 /* AccountInfoView.swift */; };
 		B69C41B12810317400340A92 /* LoginViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69C41B02810317400340A92 /* LoginViewDependencies.swift */; };
@@ -286,8 +284,6 @@
 		B68D820A283740AB00C2FC23 /* RootAlertLifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertLifetime.swift; sourceTree = "<group>"; };
 		B68E3CE02803D9EC0040F3F1 /* LoginNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetwork.swift; sourceTree = "<group>"; };
 		B69586EF299C98AC007FCCD2 /* RootModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModal.swift; sourceTree = "<group>"; };
-		B6972E5A2997C1C50061FEED /* RootAccountEditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAccountEditSheet.swift; sourceTree = "<group>"; };
-		B6972E5C2997C25B0061FEED /* RootLoginFailedAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootLoginFailedAlert.swift; sourceTree = "<group>"; };
 		B6972E5F2997D5450061FEED /* RootAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertPresenter.swift; sourceTree = "<group>"; };
 		B69A084F280A5EC0008E0430 /* AccountInfoView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		B69C41B02810317400340A92 /* LoginViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDependencies.swift; sourceTree = "<group>"; };
@@ -975,8 +971,6 @@
 			children = (
 				B636F6432848FB3100CD2265 /* RootChild.swift */,
 				B69586EF299C98AC007FCCD2 /* RootModal.swift */,
-				B6972E5A2997C1C50061FEED /* RootAccountEditSheet.swift */,
-				B6972E5C2997C25B0061FEED /* RootLoginFailedAlert.swift */,
 				B6C6D518299B8E49002F05AA /* RootAlertContent.swift */,
 			);
 			path = ValueTypes;
@@ -1225,7 +1219,6 @@
 				B606DDC7284C49F700CCEECD /* AccountInfoUIKitPresenter.swift in Sources */,
 				B6D608EA299613D700CF4ABC /* RootTransitionViewFactory.swift in Sources */,
 				B658015828013FFF009EAB96 /* LoginLifetime.swift in Sources */,
-				B6972E5B2997C1C50061FEED /* RootAccountEditSheet.swift in Sources */,
 				B658017C2802B22A009EAB96 /* Account.swift in Sources */,
 				B67758B12811857000403DC6 /* AccountMenuCell.swift in Sources */,
 				B636F6462848FDBD00CD2265 /* AccountNavigationElement.swift in Sources */,
@@ -1240,7 +1233,6 @@
 				B658017A28026FF7009EAB96 /* UIViewController+Child.swift in Sources */,
 				B6F222452860253E0074A0D2 /* AccountMenuInteractorDependencies.swift in Sources */,
 				B636F63D2848DC2A00CD2265 /* AccountEditModal.swift in Sources */,
-				B6972E5D2997C25B0061FEED /* RootLoginFailedAlert.swift in Sources */,
 				B63FE030280BE72600A508A1 /* LoginInteractorDependencies.swift in Sources */,
 				B645D8A9281FF3F400D0D224 /* Assert.swift in Sources */,
 				B60D63FB2816EB2600EC7732 /* AccountNavigationSubLifetime.swift in Sources */,
