@@ -19,46 +19,47 @@ final class RootModalPresenter: ObservableObject {
     // Alertは必ず何かしらのアクションを受けて閉じるのでfalseがセットされても無視する
     @Published var isLoginFailedAlertPresented: Bool = false
 
-    var accountEditSheet: RootAccountEditSheet? { .init(self.lifecycle?.current) }
-    var loginFailedAlert: RootLoginFailedAlert? { .init(self.lifecycle?.current) }
+    var modal: RootModal? { .init(self.lifecycle?.current) }
 
     init(lifecycle: RootModalLifecycle<RootModalFactory>) {
         self.lifecycle = lifecycle
 
-        lifecycle
+        let modal = lifecycle
             .$current
-            .map(RootAccountEditSheet.init)
-            .map { $0 != nil }
+            .map(RootModal.init)
+
+        modal
+            .map {
+                switch $0 {
+                case .accountEdit:
+                    return true
+                case .alert, .none:
+                    return false
+                }
+            }
             .assign(to: &$isAccountEditSheetPresented)
 
-        lifecycle
-            .$current
-            .map(RootLoginFailedAlert.init)
-            .map { $0 != nil }
+        modal
+            .map {
+                switch $0 {
+                case .alert:
+                    return true
+                case .accountEdit, .none:
+                    return false
+                }
+            }
             .assign(to: &$isLoginFailedAlertPresented)
     }
 }
 
-extension RootAccountEditSheet {
+private extension RootModal {
     init?(_ subLifetime: RootModalSubLifetime<RootModalFactory>?) {
         switch subLifetime {
         case .accountEdit(let lifetime):
-            self = .init(lifetimeId: lifetime.lifetimeId)
-        case .alert, .none:
-            return nil
-        }
-    }
-}
-
-extension RootLoginFailedAlert {
-    init?(_ subLifetime: RootModalSubLifetime<RootModalFactory>?) {
-        switch subLifetime {
+            self = .accountEdit(lifetimeId: lifetime.lifetimeId)
         case .alert(let lifetime):
-            switch lifetime.alertId {
-            case .loginFailed:
-                self = .init(lifetimeId: lifetime.lifetimeId)
-            }
-        case .accountEdit, .none:
+            self = .alert(lifetimeId: lifetime.lifetimeId)
+        case .none:
             return nil
         }
     }

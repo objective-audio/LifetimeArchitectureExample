@@ -101,6 +101,7 @@
 		B68D3ABE280FAA9300C4C0E9 /* AccountRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D3ABD280FAA9300C4C0E9 /* AccountRepositoryTests.swift */; };
 		B68D820B283740AB00C2FC23 /* RootAlertLifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D820A283740AB00C2FC23 /* RootAlertLifetime.swift */; };
 		B68E3CE12803D9EC0040F3F1 /* LoginNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68E3CE02803D9EC0040F3F1 /* LoginNetwork.swift */; };
+		B69586F0299C98AC007FCCD2 /* RootModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69586EF299C98AC007FCCD2 /* RootModal.swift */; };
 		B6972E5B2997C1C50061FEED /* RootAccountEditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6972E5A2997C1C50061FEED /* RootAccountEditSheet.swift */; };
 		B6972E5D2997C25B0061FEED /* RootLoginFailedAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6972E5C2997C25B0061FEED /* RootLoginFailedAlert.swift */; };
 		B6972E602997D5450061FEED /* RootAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6972E5F2997D5450061FEED /* RootAlertPresenter.swift */; };
@@ -287,6 +288,7 @@
 		B68D3ABD280FAA9300C4C0E9 /* AccountRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepositoryTests.swift; sourceTree = "<group>"; };
 		B68D820A283740AB00C2FC23 /* RootAlertLifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertLifetime.swift; sourceTree = "<group>"; };
 		B68E3CE02803D9EC0040F3F1 /* LoginNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetwork.swift; sourceTree = "<group>"; };
+		B69586EF299C98AC007FCCD2 /* RootModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModal.swift; sourceTree = "<group>"; };
 		B6972E5A2997C1C50061FEED /* RootAccountEditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAccountEditSheet.swift; sourceTree = "<group>"; };
 		B6972E5C2997C25B0061FEED /* RootLoginFailedAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootLoginFailedAlert.swift; sourceTree = "<group>"; };
 		B6972E5F2997D5450061FEED /* RootAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertPresenter.swift; sourceTree = "<group>"; };
@@ -977,6 +979,7 @@
 			isa = PBXGroup;
 			children = (
 				B636F6432848FB3100CD2265 /* RootChild.swift */,
+				B69586EF299C98AC007FCCD2 /* RootModal.swift */,
 				B6972E5A2997C1C50061FEED /* RootAccountEditSheet.swift */,
 				B6972E5C2997C25B0061FEED /* RootLoginFailedAlert.swift */,
 				B6C6D518299B8E49002F05AA /* RootAlertContent.swift */,
@@ -1277,6 +1280,7 @@
 				B6F22243286024F20074A0D2 /* AccountMenuInteractor.swift in Sources */,
 				B63B3465281829F9009E9A70 /* AccountEditView.swift in Sources */,
 				B6DB6FF32859D7620070596B /* AccountEditModalLifecycle+Action.swift in Sources */,
+				B69586F0299C98AC007FCCD2 /* RootModal.swift in Sources */,
 				B6F8FAE628598D7B0038BC3D /* RootAlertReceiver.swift in Sources */,
 				B6F8FAD72858BB030038BC3D /* ActionReceiverProvidable.swift in Sources */,
 				B658017728026C88009EAB96 /* AccountMenuPresenter.swift in Sources */,

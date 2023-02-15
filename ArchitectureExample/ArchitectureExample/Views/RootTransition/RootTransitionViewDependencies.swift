@@ -13,8 +13,7 @@ protocol ChildPresenterForRootTransitionView: ObservableObject {
 protocol ModalPresenterForRootTransitionView: ObservableObject {
     var isAccountEditSheetPresented: Bool { get set }
     var isLoginFailedAlertPresented: Bool { get set }
-    var accountEditSheet: RootAccountEditSheet? { get }
-    var loginFailedAlert: RootLoginFailedAlert? { get }
+    var modal: RootModal? { get }
 }
 
 protocol FactoryForRootTransitionView {
