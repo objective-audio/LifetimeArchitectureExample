@@ -22,8 +22,8 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
         .interactiveDismissDisabled(transitionPresenter.interactiveDismissDisabled)
         .alert(Text(Localized.alertAccountEditDestructionTitle.key),
                isPresented: $modalPresenter.isDestructAlertPresented) {
-            if let alert = modalPresenter.destructAlert,
-               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: alert.lifetimeId) {
+            if case .alert(let lifetimeId, .destruct) = modalPresenter.modal,
+               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: lifetimeId) {
                 ForEach(presenter.actions, id: \.self) { action in
                     Button(role: action.role) {
                         presenter.doAction(action)
@@ -35,8 +35,8 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
                 EmptyView()
             }
         } message: {
-            if let alert = modalPresenter.destructAlert,
-               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: alert.lifetimeId) {
+            if case .alert(let lifetimeId, .destruct) = modalPresenter.modal,
+               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: lifetimeId) {
                 Text(presenter.message.key)
             } else {
                 EmptyView()
@@ -44,8 +44,8 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
         }
         .alert(Text(Localized.alertAccountEditLogoutTitle.key),
                isPresented: $modalPresenter.isLogoutAlertPresented) {
-            if let alert = modalPresenter.logoutAlert,
-               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: alert.lifetimeId) {
+            if case .alert(let lifetimeId, .logout) = modalPresenter.modal,
+               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: lifetimeId) {
                 ForEach(presenter.actions, id: \.self) { action in
                     Button(role: action.role) {
                         presenter.doAction(action)
@@ -57,8 +57,8 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
                 EmptyView()
             }
         } message: {
-            if let alert = modalPresenter.logoutAlert,
-               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: alert.lifetimeId) {
+            if case .alert(let lifetimeId, .logout) = modalPresenter.modal,
+               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: lifetimeId) {
                 Text(presenter.message.key)
             } else {
                 EmptyView()

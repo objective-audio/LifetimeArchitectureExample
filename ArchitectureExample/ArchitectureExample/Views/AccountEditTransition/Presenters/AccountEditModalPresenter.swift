@@ -12,8 +12,7 @@ final class AccountEditModalPresenter: ObservableObject {
     @Published var isDestructAlertPresented: Bool = false
     @Published var isLogoutAlertPresented: Bool = false
 
-    var destructAlert: AccountEditDestructAlert? { .init(self.lifecycle?.current) }
-    var logoutAlert: AccountEditLogoutAlert? { .init(self.lifecycle?.current) }
+    var modal: AccountEditModal? { .init(self.lifecycle?.current) }
 
     init(lifecycle: AccountEditModalLifecycle<AccountEditModalFactory>) {
         self.lifecycle = lifecycle
@@ -29,6 +28,18 @@ final class AccountEditModalPresenter: ObservableObject {
             .map(AccountEditLogoutAlert.init)
             .map { $0 != nil }
             .assign(to: &$isLogoutAlertPresented)
+    }
+}
+
+extension AccountEditModal {
+    init?(_ subLifetime: AccountEditModalSubLifetime<AccountEditModalFactory>?) {
+        switch subLifetime {
+        case .alert(let lifetime):
+            self = .alert(lifetimeId: lifetime.lifetimeId,
+                          alertId: lifetime.alertId)
+        case .none:
+            return nil
+        }
     }
 }
 
