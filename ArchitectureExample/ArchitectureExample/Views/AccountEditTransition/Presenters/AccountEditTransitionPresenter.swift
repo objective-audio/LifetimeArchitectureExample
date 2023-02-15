@@ -29,7 +29,7 @@ final class AccountEditTransitionPresenter: ObservableObject {
             .assign(to: &$interactiveDismissDisabled)
     }
 
-    func viewDidDismiss() {
+    func onDisappear() {
         self.accountEditInteractor?.finalize()
 
         self.accountEditInteractor = nil

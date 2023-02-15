@@ -20,6 +20,9 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
             }
         }
         .interactiveDismissDisabled(transitionPresenter.interactiveDismissDisabled)
+        .onDisappear {
+            transitionPresenter.onDisappear()
+        }
         .alert(Text(Localized.alertAccountEditDestructionTitle.key),
                isPresented: $modalPresenter.isDestructAlertPresented) {
             if case .alert(let lifetimeId, .destruct) = modalPresenter.modal,

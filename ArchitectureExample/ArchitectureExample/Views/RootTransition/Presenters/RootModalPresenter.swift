@@ -8,15 +8,10 @@ import Foundation
 final class RootModalPresenter: ObservableObject {
     private weak var lifecycle: RootModalLifecycle<RootModalFactory>?
 
-    @Published var isAccountEditSheetPresented: Bool = false {
-        didSet {
-            if !isAccountEditSheetPresented {
-                self.lifecycle?.removeAccountEdit()
-            }
-        }
-    }
+    // Sheet内のonDisappearで処理されるので、falseがセットされても無視する
+    @Published var isAccountEditSheetPresented: Bool = false
 
-    // Alertは必ず何かしらのアクションを受けて閉じるのでfalseがセットされても無視する
+    // Alertは必ず何かしらのアクションを受けて閉じるので、falseがセットされても無視する
     @Published var isLoginFailedAlertPresented: Bool = false
 
     var modal: RootModal? { .init(self.lifecycle?.current) }
