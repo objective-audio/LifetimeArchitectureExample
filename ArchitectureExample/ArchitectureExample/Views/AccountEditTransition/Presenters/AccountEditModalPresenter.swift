@@ -17,16 +17,30 @@ final class AccountEditModalPresenter: ObservableObject {
     init(lifecycle: AccountEditModalLifecycle<AccountEditModalFactory>) {
         self.lifecycle = lifecycle
 
-        lifecycle
+        let modal = lifecycle
             .$current
-            .map(AccountEditDestructAlert.init)
-            .map { $0 != nil }
+            .map(AccountEditModal.init)
+
+        modal
+            .map {
+                switch $0 {
+                case .alert(_, .destruct):
+                    return true
+                case .alert(_, .logout), .none:
+                    return false
+                }
+            }
             .assign(to: &$isDestructAlertPresented)
 
-        lifecycle
-            .$current
-            .map(AccountEditLogoutAlert.init)
-            .map { $0 != nil }
+        modal
+            .map {
+                switch $0 {
+                case .alert(_, .logout):
+                    return true
+                case .alert(_, .destruct), .none:
+                    return false
+                }
+            }
             .assign(to: &$isLogoutAlertPresented)
     }
 }
