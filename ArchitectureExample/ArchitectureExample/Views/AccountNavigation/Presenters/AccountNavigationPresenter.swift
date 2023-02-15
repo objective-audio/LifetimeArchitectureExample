@@ -17,8 +17,6 @@ final class AccountNavigationPresenter: ObservableObject {
         }
     }
 
-    private var cancellables: Set<AnyCancellable> = .init()
-
     init(accountLifetimeId: AccountLifetimeId,
          navigationLifecycle: AccountNavigationLifecycle<AccountNavigationFactory>) {
         self.accountLifetimeId = accountLifetimeId
