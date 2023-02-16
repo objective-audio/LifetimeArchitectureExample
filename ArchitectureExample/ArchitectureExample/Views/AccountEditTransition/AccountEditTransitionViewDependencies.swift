@@ -4,10 +4,10 @@
 
 protocol FactoryForAccountEditTransitionView {
     static func makeAccountEditPresenter(
-        accountEditLifetimeId: AccountEditLifetimeId
+        lifetimeId: AccountEditLifetimeId
     ) -> AccountEditPresenter?
 
     static func makeAlertPresenter(
-        accountEditAlertLifetimeId: AccountEditAlertLifetimeId
+        lifetimeId: AccountEditAlertLifetimeId?
     ) -> AccountEditAlertPresenter?
 }

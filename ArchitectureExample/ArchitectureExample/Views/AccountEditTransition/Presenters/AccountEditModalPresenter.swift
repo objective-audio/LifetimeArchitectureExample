@@ -12,35 +12,22 @@ final class AccountEditModalPresenter: ObservableObject {
     @Published var isDestructAlertPresented: Bool = false
     @Published var isLogoutAlertPresented: Bool = false
 
-    var modal: AccountEditModal? { .init(self.lifecycle?.current) }
+    var destructAlertLifetimeId: AccountEditAlertLifetimeId? { .makeDestruct(self.lifecycle?.current) }
+    var logoutAlertLifetimeId: AccountEditAlertLifetimeId? { .makeLogout(self.lifecycle?.current) }
 
     init(lifecycle: AccountEditModalLifecycle<AccountEditModalFactory>) {
         self.lifecycle = lifecycle
 
-        let modal = lifecycle
+        lifecycle
             .$current
-            .map(AccountEditModal.init)
-
-        modal
-            .map {
-                switch $0 {
-                case .alert(_, .destruct):
-                    return true
-                case .alert(_, .logout), .none:
-                    return false
-                }
-            }
+            .map(AccountEditAlertLifetimeId.makeDestruct)
+            .map { $0 != nil }
             .assign(to: &$isDestructAlertPresented)
 
-        modal
-            .map {
-                switch $0 {
-                case .alert(_, .logout):
-                    return true
-                case .alert(_, .destruct), .none:
-                    return false
-                }
-            }
+        lifecycle
+            .$current
+            .map(AccountEditAlertLifetimeId.makeLogout)
+            .map { $0 != nil }
             .assign(to: &$isLogoutAlertPresented)
     }
 }
@@ -51,6 +38,40 @@ extension AccountEditModal {
         case .alert(let lifetime):
             self = .alert(lifetimeId: lifetime.lifetimeId,
                           alertId: lifetime.alertId)
+        case .none:
+            return nil
+        }
+    }
+}
+
+private extension AccountEditAlertLifetimeId {
+    static func makeDestruct(
+        _ subLifetime: AccountEditModalSubLifetime<AccountEditModalFactory>?
+    ) -> AccountEditAlertLifetimeId? {
+        switch subLifetime {
+        case .alert(let lifetime):
+            switch lifetime.alertId {
+            case .destruct:
+                return lifetime.lifetimeId
+            case .logout:
+                return nil
+            }
+        case .none:
+            return nil
+        }
+    }
+
+    static func makeLogout(
+        _ subLifetime: AccountEditModalSubLifetime<AccountEditModalFactory>?
+    ) -> AccountEditAlertLifetimeId? {
+        switch subLifetime {
+        case .alert(let lifetime):
+            switch lifetime.alertId {
+            case .logout:
+                return lifetime.lifetimeId
+            case .destruct:
+                return nil
+            }
         case .none:
             return nil
         }

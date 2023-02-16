@@ -11,9 +11,9 @@ extension AccountEditPresenter: PresenterForAccountEditView {}
 
 extension AccountEditTransitionViewFactory: FactoryForAccountEditTransitionView {
     static func makeAccountEditPresenter(
-        accountEditLifetimeId: AccountEditLifetimeId
+        lifetimeId: AccountEditLifetimeId
     ) -> AccountEditPresenter? {
-        guard let lifetime = LifetimeAccessor.accountEdit(id: accountEditLifetimeId) else {
+        guard let lifetime = LifetimeAccessor.accountEdit(id: lifetimeId) else {
             // AccountEditのSheetを閉じる時にViewが更新され呼ばれることがあるのでAssertしない
             return nil
         }
@@ -22,9 +22,11 @@ extension AccountEditTransitionViewFactory: FactoryForAccountEditTransitionView 
     }
 
     static func makeAlertPresenter(
-        accountEditAlertLifetimeId: AccountEditAlertLifetimeId
+        lifetimeId: AccountEditAlertLifetimeId?
     ) -> AccountEditAlertPresenter? {
-        guard let lifetime = LifetimeAccessor.accountEditAlert(id: accountEditAlertLifetimeId) else {
+        guard let lifetimeId else { return nil }
+
+        guard let lifetime = LifetimeAccessor.accountEditAlert(id: lifetimeId) else {
             assertionFailure()
             return nil
         }
