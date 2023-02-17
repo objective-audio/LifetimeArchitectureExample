@@ -37,7 +37,7 @@ private extension AccountMenuSection {
 }
 
 struct AccountMenuView_Previews: PreviewProvider {
-    private class PresenterStub: PresenterForAccountMenuView {
+    private class PreviewPresenter: PresenterForAccountMenuView {
         let sections: [AccountMenuSection] = [
             .init(kind: .info,
                   contents: [.info(.swiftUI), .info(.uiKit)]),
@@ -51,7 +51,7 @@ struct AccountMenuView_Previews: PreviewProvider {
 
     static var previews: some View {
         NavigationView {
-            AccountMenuView(presenter: PresenterStub())
+            AccountMenuView(presenter: PreviewPresenter())
         }
         .navigationViewStyle(.stack)
         .environment(\.locale, .init(identifier: "ja"))

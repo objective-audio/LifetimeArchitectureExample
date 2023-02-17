@@ -49,7 +49,7 @@ struct LoginView<Presenter: PresenterForLoginView>: View {
 }
 
 struct LoginView_Previews: PreviewProvider {
-    private class PresenterStub: PresenterForLoginView {
+    private class PreviewPresenter: PresenterForLoginView {
         var accountId: String = ""
 
         let isTextFieldDisabled = false
@@ -62,7 +62,7 @@ struct LoginView_Previews: PreviewProvider {
     }
 
     static var previews: some View {
-        LoginView(presenter: PresenterStub())
+        LoginView(presenter: PreviewPresenter())
             .environment(\.locale, .init(identifier: "ja"))
     }
 }

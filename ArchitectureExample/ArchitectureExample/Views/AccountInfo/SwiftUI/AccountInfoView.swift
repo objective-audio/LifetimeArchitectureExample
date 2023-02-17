@@ -30,7 +30,7 @@ struct AccountInfoView<Presenter: PresenterForAccountInfoView>: View {
 }
 
 struct AccountInfoView_Previews: PreviewProvider {
-    private class PresenterStub: PresenterForAccountInfoView {
+    private class PreviewPresenter: PresenterForAccountInfoView {
         let title: Localized = .accountInfoNavigationTitle
         let contents: [[AccountInfoContent]] = [[.id(1), .name("account-name-1")],
                                                 [.edit]]
@@ -40,7 +40,7 @@ struct AccountInfoView_Previews: PreviewProvider {
 
     static var previews: some View {
         NavigationView {
-            AccountInfoView(presenter: PresenterStub())
+            AccountInfoView(presenter: PreviewPresenter())
         }
         .navigationViewStyle(.stack)
         .environment(\.locale, .init(identifier: "ja"))

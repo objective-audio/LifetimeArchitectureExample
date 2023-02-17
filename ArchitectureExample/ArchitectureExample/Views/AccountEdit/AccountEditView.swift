@@ -46,7 +46,7 @@ struct AccountEditView<Presenter: PresenterForAccountEditView>: View {
 }
 
 struct AccountEditView_Previews: PreviewProvider {
-    private class PresenterStub: PresenterForAccountEditView {
+    private class PreviewPresenter: PresenterForAccountEditView {
         var name: String = "test-name"
         var isSaveButtonDisabled: Bool = false
         var isTextFieldDisabled: Bool = false
@@ -56,7 +56,7 @@ struct AccountEditView_Previews: PreviewProvider {
     }
 
     static var previews: some View {
-        AccountEditView(presenter: PresenterStub())
+        AccountEditView(presenter: PreviewPresenter())
         .environment(\.locale, .init(identifier: "ja"))
     }
 }
