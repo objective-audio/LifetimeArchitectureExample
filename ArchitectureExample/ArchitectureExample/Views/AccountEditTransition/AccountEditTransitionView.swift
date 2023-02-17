@@ -4,13 +4,16 @@
 
 import SwiftUI
 
-struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: View {
-    @ObservedObject var transitionPresenter: AccountEditTransitionPresenter
-    @ObservedObject var modalPresenter: AccountEditModalPresenter
+struct AccountEditTransitionView<TransitionPresenter: TransitionPresenterForAccountEditTransitionView,
+                                 ModalPresenter: ModalPresenterForAccountEditTransitionView,
+                                 Factory: FactoryForAccountEditTransitionView>: View {
+    @ObservedObject var transitionPresenter: TransitionPresenter
+    @ObservedObject var modalPresenter: ModalPresenter
+    let factory: Factory
 
     var body: some View {
         Group {
-            if let presenter = Factory.makeAccountEditPresenter(
+            if let presenter = factory.makeAccountEditPresenter(
                 lifetimeId: transitionPresenter.accountEditLifetimeId
             ) {
                 AccountEditView(presenter: presenter)
@@ -24,7 +27,7 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
         }
         .alert(Text(Localized.alertAccountEditDestructionTitle.key),
                isPresented: $modalPresenter.isDestructAlertPresented,
-               presenting: Factory.makeAlertPresenter(lifetimeId: modalPresenter.destructAlertLifetimeId)) {
+               presenting: factory.makeAlertPresenter(lifetimeId: modalPresenter.destructAlertLifetimeId)) {
             let presenter = $0
 
             ForEach(presenter.actions, id: \.self) { action in
@@ -39,7 +42,7 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
         }
         .alert(Text(Localized.alertAccountEditLogoutTitle.key),
                isPresented: $modalPresenter.isLogoutAlertPresented,
-               presenting: Factory.makeAlertPresenter(lifetimeId: modalPresenter.logoutAlertLifetimeId)) {
+               presenting: factory.makeAlertPresenter(lifetimeId: modalPresenter.logoutAlertLifetimeId)) {
             let presenter = $0
 
             ForEach(presenter.actions, id: \.self) { action in
@@ -52,5 +55,12 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
         } message: {
             Text($0.message.key)
         }
+    }
+}
+
+struct AccountEditTransitionView_Previews: PreviewProvider {
+    static var previews: some View {
+        Text("TODO")
+            .environment(\.locale, .init(identifier: "ja"))
     }
 }

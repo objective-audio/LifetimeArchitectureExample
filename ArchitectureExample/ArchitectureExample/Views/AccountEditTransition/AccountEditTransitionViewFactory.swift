@@ -3,14 +3,14 @@
 //
 
 @MainActor
-enum AccountEditTransitionViewFactory {}
+struct AccountEditTransitionViewFactory {}
 
 // MARK: -
 
 extension AccountEditPresenter: PresenterForAccountEditView {}
 
 extension AccountEditTransitionViewFactory: FactoryForAccountEditTransitionView {
-    static func makeAccountEditPresenter(
+    func makeAccountEditPresenter(
         lifetimeId: AccountEditLifetimeId
     ) -> AccountEditPresenter? {
         guard let lifetime = LifetimeAccessor.accountEdit(id: lifetimeId) else {
@@ -21,7 +21,7 @@ extension AccountEditTransitionViewFactory: FactoryForAccountEditTransitionView 
         return .init(interactor: lifetime.interactor)
     }
 
-    static func makeAlertPresenter(
+    func makeAlertPresenter(
         lifetimeId: AccountEditAlertLifetimeId?
     ) -> AccountEditAlertPresenter? {
         guard let lifetimeId else { return nil }

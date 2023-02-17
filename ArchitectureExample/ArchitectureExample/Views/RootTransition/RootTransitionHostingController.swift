@@ -15,7 +15,8 @@ final class RootTransitionHostingController: UIHostingController<RootTransitionH
     init(childPresenter: RootChildPresenter,
          modalPresenter: RootModalPresenter) {
         super.init(rootView: .init(childPresenter: childPresenter,
-                                   modalPresenter: modalPresenter))
+                                   modalPresenter: modalPresenter,
+                                   factory: RootTransitionViewFactory()))
     }
 
     @MainActor required dynamic init?(coder aDecoder: NSCoder) {
