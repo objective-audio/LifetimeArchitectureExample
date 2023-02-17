@@ -5,7 +5,7 @@
 // MARK: -
 
 @MainActor
-enum AccountNavigationViewFactory {}
+struct AccountNavigationViewFactory {}
 
 // MARK: -
 

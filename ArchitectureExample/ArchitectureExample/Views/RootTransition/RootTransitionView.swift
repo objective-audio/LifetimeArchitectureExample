@@ -9,20 +9,21 @@ struct RootTransitionView<ChildPresenter: ChildPresenterForRootTransitionView,
                           Factory: FactoryForRootTransitionView>: View {
     @ObservedObject var childPresenter: ChildPresenter
     @ObservedObject var modalPresenter: ModalPresenter
+    let factory: Factory
 
     var body: some View {
         Group {
             switch childPresenter.child {
             case .login(let lifetimeId):
-                if let presenter = Factory.makeLoginPresenter(sceneId: lifetimeId) {
+                if let presenter = factory.makeLoginPresenter(sceneId: lifetimeId) {
                     LoginView(presenter: presenter)
                 } else {
                     Text("LoginView")
                 }
             case .account(let lifetimeId):
-                if let presenter = Factory.makeAccountNavigationPresenter(lifetimeId: lifetimeId) {
-                    AccountNavigationView<AccountNavigationPresenter,
-                                          AccountNavigationViewFactory>(presenter: presenter)
+                if let presenter = factory.makeAccountNavigationPresenter(lifetimeId: lifetimeId) {
+                    AccountNavigationView(presenter: presenter,
+                                          factory: AccountNavigationViewFactory())
                 } else {
                     Text("AccountNavigationView")
                 }
@@ -35,11 +36,12 @@ struct RootTransitionView<ChildPresenter: ChildPresenterForRootTransitionView,
         }
         .sheet(isPresented: $modalPresenter.isAccountEditSheetPresented) {
             if let lifetimeId = modalPresenter.accountEditLifetimeId {
-                if let transitionPresenter = Factory.makeAccountEditTransitionPresenter(lifetimeId: lifetimeId),
-                   let modalPresenter = Factory.makeAccountEditModalPresenter(lifetimeId: lifetimeId) {
-                    AccountEditTransitionView<AccountEditTransitionViewFactory>(
+                if let transitionPresenter = factory.makeAccountEditTransitionPresenter(lifetimeId: lifetimeId),
+                   let modalPresenter = factory.makeAccountEditModalPresenter(lifetimeId: lifetimeId) {
+                    AccountEditTransitionView(
                         transitionPresenter: transitionPresenter,
-                        modalPresenter: modalPresenter
+                        modalPresenter: modalPresenter,
+                        factory: AccountEditTransitionViewFactory()
                     )
                 } else {
                     Text("AccountEditView")
@@ -50,7 +52,7 @@ struct RootTransitionView<ChildPresenter: ChildPresenterForRootTransitionView,
         }
         .alert(Text(Localized.alertLoginErrorTitle.key),
                isPresented: $modalPresenter.isLoginFailedAlertPresented,
-               presenting: Factory.makeAlertPresenter(lifetimeId: modalPresenter.loginFailedAlertLifetimeId)) {
+               presenting: factory.makeAlertPresenter(lifetimeId: modalPresenter.loginFailedAlertLifetimeId)) {
             let presenter = $0
 
             ForEach(presenter.content.actions, id: \.self) { action in
@@ -105,22 +107,22 @@ struct RootTransitionChildView_Previews: PreviewProvider {
         var loginFailedAlertLifetimeId: RootAlertLifetimeId?
     }
 
-    enum PreviewFactory: FactoryForRootTransitionView {
-        static func makeAccountEditTransitionPresenter(
+    struct PreviewFactory: FactoryForRootTransitionView {
+        func makeAccountEditTransitionPresenter(
             lifetimeId: AccountEditLifetimeId
         ) -> AccountEditTransitionPresenter? { nil }
 
-        static func makeAccountEditModalPresenter(
+        func makeAccountEditModalPresenter(
             lifetimeId: AccountEditLifetimeId
         ) -> AccountEditModalPresenter? { nil }
 
-        static func makeLoginPresenter(sceneId: SceneLifetimeId) -> LoginPresenter? { nil }
+        func makeLoginPresenter(sceneId: SceneLifetimeId) -> LoginPresenter? { nil }
 
-        static func makeAccountNavigationPresenter(
+        func makeAccountNavigationPresenter(
             lifetimeId: AccountLifetimeId
         ) -> AccountNavigationPresenter? { nil }
 
-        static func makeAlertPresenter(
+        func makeAlertPresenter(
             lifetimeId: RootAlertLifetimeId?
         ) -> RootAlertPresenter? { nil }
     }
@@ -132,10 +134,9 @@ struct RootTransitionChildView_Previews: PreviewProvider {
                                                          accountId: 0)
 
         NavigationView {
-            RootTransitionView<PreviewChildPresenter,
-                               PreviewModalPresenter,
-                               PreviewFactory>(childPresenter: childPresenter,
-                                               modalPresenter: modalPresenter)
+            RootTransitionView(childPresenter: childPresenter,
+                               modalPresenter: modalPresenter,
+                               factory: PreviewFactory())
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button("Toggle Child") {

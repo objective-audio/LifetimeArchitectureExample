@@ -7,6 +7,7 @@ import SwiftUI
 struct AccountNavigationView<Presenter: PresenterForAccountNavigationView,
                              Factory: FactoryForAccountNavigationView>: View {
     @ObservedObject var presenter: Presenter
+    let factory: Factory
 
     var body: some View {
         NavigationStack(path: $presenter.elements) {
@@ -60,7 +61,7 @@ private class PreviewPresenter: PresenterForAccountNavigationView {
     ]
 }
 
-private enum PreviewFactory: FactoryForAccountNavigationView {
+private struct PreviewFactory: FactoryForAccountNavigationView {
     static func makeAccountMenuPresenter(lifetimeId: AccountLifetimeId) -> AccountMenuPresenter? {
         nil
     }
@@ -80,7 +81,8 @@ private enum PreviewFactory: FactoryForAccountNavigationView {
 
 struct AccountNavigationView_Previews: PreviewProvider {
     static var previews: some View {
-        AccountNavigationView<PreviewPresenter, PreviewFactory>(presenter: PreviewPresenter())
+        AccountNavigationView(presenter: PreviewPresenter(),
+                              factory: PreviewFactory())
         .environment(\.locale, .init(identifier: "ja"))
     }
 }
