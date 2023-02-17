@@ -127,7 +127,6 @@
 		B6C3B13B299A6F9A007042E2 /* AccountEditAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3B13A299A6F9A007042E2 /* AccountEditAlertPresenter.swift */; };
 		B6C3D62E282565B300A8FCFE /* InstanceId.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3D62D282565B300A8FCFE /* InstanceId.swift */; };
 		B6C687FC285CC235008220B6 /* ActionKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C687FB285CC235008220B6 /* ActionKind.swift */; };
-		B6C68800285D9027008220B6 /* ModalConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C687FF285D9027008220B6 /* ModalConvertible.swift */; };
 		B6C68804285DA21B008220B6 /* ActionSenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C68803285DA21B008220B6 /* ActionSenderTests.swift */; };
 		B6C6D515299B8CB6002F05AA /* RootAlertInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6D514299B8CB6002F05AA /* RootAlertInteractorDependencies.swift */; };
 		B6C6D517299B8D81002F05AA /* RootAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6D516299B8D81002F05AA /* RootAlertAction.swift */; };
@@ -310,7 +309,6 @@
 		B6C3B13A299A6F9A007042E2 /* AccountEditAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditAlertPresenter.swift; sourceTree = "<group>"; };
 		B6C3D62D282565B300A8FCFE /* InstanceId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceId.swift; sourceTree = "<group>"; };
 		B6C687FB285CC235008220B6 /* ActionKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionKind.swift; sourceTree = "<group>"; };
-		B6C687FF285D9027008220B6 /* ModalConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalConvertible.swift; sourceTree = "<group>"; };
 		B6C68803285DA21B008220B6 /* ActionSenderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSenderTests.swift; sourceTree = "<group>"; };
 		B6C6D514299B8CB6002F05AA /* RootAlertInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertInteractorDependencies.swift; sourceTree = "<group>"; };
 		B6C6D516299B8D81002F05AA /* RootAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertAction.swift; sourceTree = "<group>"; };
@@ -383,7 +381,6 @@
 				B645D8AA281FF42300D0D224 /* TestStatus.swift */,
 				B645D8A8281FF3F400D0D224 /* Assert.swift */,
 				B6C3D62D282565B300A8FCFE /* InstanceId.swift */,
-				B6C687FF285D9027008220B6 /* ModalConvertible.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1198,7 +1195,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6FC37232983F2DD00D3CC4C /* SceneLifecycleDependencies.swift in Sources */,
-				B6C68800285D9027008220B6 /* ModalConvertible.swift in Sources */,
 				B6F8FADB2858BF450038BC3D /* SceneLifecycle+Action.swift in Sources */,
 				B65801732801C351009EAB96 /* LaunchLifetime.swift in Sources */,
 				B65801702801BD0A009EAB96 /* LoginInteractor.swift in Sources */,
