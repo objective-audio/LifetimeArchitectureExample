@@ -14,47 +14,43 @@ final class RootModalPresenter: ObservableObject {
     // Alertは必ず何かしらのアクションを受けて閉じるので、falseがセットされても無視する
     @Published var isLoginFailedAlertPresented: Bool = false
 
-    var modal: RootModal? { .init(self.lifecycle?.current) }
+    var accountEditLifetimeId: AccountEditLifetimeId? { .init(self.lifecycle?.current) }
+    var loginFailedAlertLifetimeId: RootAlertLifetimeId? { .init(self.lifecycle?.current) }
 
     init(lifecycle: RootModalLifecycle<RootModalFactory>) {
         self.lifecycle = lifecycle
 
-        let modal = lifecycle
+        lifecycle
             .$current
-            .map(RootModal.init)
-
-        modal
-            .map {
-                switch $0 {
-                case .accountEdit:
-                    return true
-                case .alert, .none:
-                    return false
-                }
-            }
+            .map(AccountEditLifetimeId.init)
+            .map { $0 != nil }
             .assign(to: &$isAccountEditSheetPresented)
 
-        modal
-            .map {
-                switch $0 {
-                case .alert:
-                    return true
-                case .accountEdit, .none:
-                    return false
-                }
-            }
+        lifecycle
+            .$current
+            .map(RootAlertLifetimeId.init)
+            .map { $0 != nil }
             .assign(to: &$isLoginFailedAlertPresented)
     }
 }
 
-private extension RootModal {
+private extension AccountEditLifetimeId {
     init?(_ subLifetime: RootModalSubLifetime<RootModalFactory>?) {
         switch subLifetime {
         case .accountEdit(let lifetime):
-            self = .accountEdit(lifetimeId: lifetime.lifetimeId)
+            self = lifetime.lifetimeId
+        case .alert, .none:
+            return nil
+        }
+    }
+}
+
+private extension RootAlertLifetimeId {
+    init?(_ subLifetime: RootModalSubLifetime<RootModalFactory>?) {
+        switch subLifetime {
         case .alert(let lifetime):
-            self = .alert(lifetimeId: lifetime.lifetimeId)
-        case .none:
+            self = lifetime.lifetimeId
+        case .accountEdit, .none:
             return nil
         }
     }

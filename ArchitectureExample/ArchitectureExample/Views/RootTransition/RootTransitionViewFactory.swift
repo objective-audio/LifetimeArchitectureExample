@@ -72,8 +72,10 @@ extension RootTransitionViewFactory {
 
 extension RootTransitionViewFactory {
     static func makeAlertPresenter(
-        lifetimeId: RootAlertLifetimeId
+        lifetimeId: RootAlertLifetimeId?
     ) -> RootAlertPresenter? {
+        guard let lifetimeId else { return nil }
+
         guard let lifetime = LifetimeAccessor.rootAlert(id: lifetimeId) else {
             assertionFailure()
             return nil

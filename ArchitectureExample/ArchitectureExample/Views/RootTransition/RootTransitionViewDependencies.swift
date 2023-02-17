@@ -13,7 +13,8 @@ protocol ChildPresenterForRootTransitionView: ObservableObject {
 protocol ModalPresenterForRootTransitionView: ObservableObject {
     var isAccountEditSheetPresented: Bool { get set }
     var isLoginFailedAlertPresented: Bool { get set }
-    var modal: RootModal? { get }
+    var accountEditLifetimeId: AccountEditLifetimeId? { get }
+    var loginFailedAlertLifetimeId: RootAlertLifetimeId? { get }
 }
 
 protocol FactoryForRootTransitionView {
@@ -32,6 +33,6 @@ protocol FactoryForRootTransitionView {
     ) -> AccountEditModalPresenter?
 
     static func makeAlertPresenter(
-        lifetimeId: RootAlertLifetimeId
+        lifetimeId: RootAlertLifetimeId?
     ) -> RootAlertPresenter?
 }

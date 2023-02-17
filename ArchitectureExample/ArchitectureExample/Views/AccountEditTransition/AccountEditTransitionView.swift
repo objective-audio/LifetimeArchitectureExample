@@ -11,7 +11,7 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
     var body: some View {
         Group {
             if let presenter = Factory.makeAccountEditPresenter(
-                accountEditLifetimeId: transitionPresenter.accountEditLifetimeId
+                lifetimeId: transitionPresenter.accountEditLifetimeId
             ) {
                 AccountEditView(presenter: presenter)
             } else {
@@ -23,48 +23,34 @@ struct AccountEditTransitionView<Factory: FactoryForAccountEditTransitionView>: 
             transitionPresenter.onDisappear()
         }
         .alert(Text(Localized.alertAccountEditDestructionTitle.key),
-               isPresented: $modalPresenter.isDestructAlertPresented) {
-            if case .alert(let lifetimeId, .destruct) = modalPresenter.modal,
-               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: lifetimeId) {
-                ForEach(presenter.actions, id: \.self) { action in
-                    Button(role: action.role) {
-                        presenter.doAction(action)
-                    } label: {
-                        Text(action.title.key)
-                    }
+               isPresented: $modalPresenter.isDestructAlertPresented,
+               presenting: Factory.makeAlertPresenter(lifetimeId: modalPresenter.destructAlertLifetimeId)) {
+            let presenter = $0
+
+            ForEach(presenter.actions, id: \.self) { action in
+                Button(role: action.role) {
+                    presenter.doAction(action)
+                } label: {
+                    Text(action.title.key)
                 }
-            } else {
-                EmptyView()
             }
         } message: {
-            if case .alert(let lifetimeId, .destruct) = modalPresenter.modal,
-               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: lifetimeId) {
-                Text(presenter.message.key)
-            } else {
-                EmptyView()
-            }
+            Text($0.message.key)
         }
         .alert(Text(Localized.alertAccountEditLogoutTitle.key),
-               isPresented: $modalPresenter.isLogoutAlertPresented) {
-            if case .alert(let lifetimeId, .logout) = modalPresenter.modal,
-               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: lifetimeId) {
-                ForEach(presenter.actions, id: \.self) { action in
-                    Button(role: action.role) {
-                        presenter.doAction(action)
-                    } label: {
-                        Text(action.title.key)
-                    }
+               isPresented: $modalPresenter.isLogoutAlertPresented,
+               presenting: Factory.makeAlertPresenter(lifetimeId: modalPresenter.logoutAlertLifetimeId)) {
+            let presenter = $0
+
+            ForEach(presenter.actions, id: \.self) { action in
+                Button(role: action.role) {
+                    presenter.doAction(action)
+                } label: {
+                    Text(action.title.key)
                 }
-            } else {
-                EmptyView()
             }
         } message: {
-            if case .alert(let lifetimeId, .logout) = modalPresenter.modal,
-               let presenter = Factory.makeAlertPresenter(accountEditAlertLifetimeId: lifetimeId) {
-                Text(presenter.message.key)
-            } else {
-                EmptyView()
-            }
+            Text($0.message.key)
         }
     }
 }
