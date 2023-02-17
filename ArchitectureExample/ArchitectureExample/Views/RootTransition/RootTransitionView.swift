@@ -22,8 +22,8 @@ struct RootTransitionView<ChildPresenter: ChildPresenterForRootTransitionView,
                 }
             case .account(let lifetimeId):
                 if let presenter = factory.makeAccountNavigationPresenter(lifetimeId: lifetimeId) {
-                    AccountNavigationView<AccountNavigationPresenter,
-                                          AccountNavigationViewFactory>(presenter: presenter)
+                    AccountNavigationView(presenter: presenter,
+                                          factory: AccountNavigationViewFactory())
                 } else {
                     Text("AccountNavigationView")
                 }
