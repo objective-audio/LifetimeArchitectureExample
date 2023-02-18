@@ -51,7 +51,7 @@ class AccountInfoInteractorTests: XCTestCase {
     @MainActor
     override func setUpWithError() throws {
         self.lifetimeId = .init(instanceId: .init(),
-                                account: .init(scene: .init(instanceId: .init()),
+                                account: .init(scene: .init(uuid: .init()),
                                                accountId: 1))
 
         self.accountHolder = .init()

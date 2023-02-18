@@ -28,8 +28,8 @@ class SceneLifecycleTests: XCTestCase {
     func testAppendAndRemove() throws {
         let lifecycle = SceneLifecycle<FactoryStub>()
 
-        let idA = SceneLifetimeId(instanceId: .init())
-        let idB = SceneLifetimeId(instanceId: .init())
+        let idA = SceneLifetimeId(uuid: .init())
+        let idB = SceneLifetimeId(uuid: .init())
 
         XCTContext.runActivity(named: "初期状態はなし") { _ in
             XCTAssertNil(lifecycle.lifetime(id: idA))

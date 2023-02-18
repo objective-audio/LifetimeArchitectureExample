@@ -31,7 +31,7 @@ class AccountEditModalLifecycleTests: XCTestCase {
     @MainActor
     override func setUpWithError() throws {
         self.accountEditLifetimeId = .init(instanceId: .init(),
-                                           account: .init(scene: .init(instanceId: .init()),
+                                           account: .init(scene: .init(uuid: .init()),
                                                           accountId: 123))
         FactoryStub.idGenerator = .init()
     }

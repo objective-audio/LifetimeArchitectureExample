@@ -39,7 +39,7 @@ class AccountNavigationLifecycleTests: XCTestCase {
 
     @MainActor
     override func setUpWithError() throws {
-        self.accountLifetimeId = AccountLifetimeId(scene: .init(instanceId: .init()),
+        self.accountLifetimeId = AccountLifetimeId(scene: .init(uuid: .init()),
                                                    accountId: 1)
         FactoryStub.idGenerator = .init()
     }

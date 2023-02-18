@@ -5,7 +5,7 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    private let instanceId: InstanceId = .init()
+    private let uuid: UUID = .init()
     private var presenter: ScenePresenter?
 
     var window: UIWindow?
@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene,
               let presenter = self.presenter else { return }
 
-        let sceneLifetimeId = SceneLifetimeId(instanceId: self.instanceId)
+        let sceneLifetimeId = SceneLifetimeId(uuid: self.uuid)
 
         presenter.willConnect(id: sceneLifetimeId)
 
@@ -43,7 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
-        self.presenter?.didDisconnect(id: .init(instanceId: self.instanceId))
+        self.presenter?.didDisconnect(id: .init(uuid: self.uuid))
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

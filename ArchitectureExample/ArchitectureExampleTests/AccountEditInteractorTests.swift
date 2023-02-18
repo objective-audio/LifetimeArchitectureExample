@@ -47,7 +47,7 @@ class AccountEditInteractorTests: XCTestCase {
     @MainActor
     override func setUpWithError() throws {
         self.lifetimeId = .init(instanceId: .init(),
-                                account: .init(scene: .init(instanceId: .init()),
+                                account: .init(scene: .init(uuid: .init()),
                                                accountId: 123))
         self.accountHolder = .init()
         self.rootLifecycle = .init()

@@ -48,7 +48,7 @@ class LaunchInteractorTests: XCTestCase {
 
     @MainActor
     override func setUpWithError() throws {
-        self.sceneLifetimeId = .init(instanceId: .init())
+        self.sceneLifetimeId = .init(uuid: .init())
         self.sceneLifecycle = .init()
         self.rootLifecycle = .init()
         self.repository = .init()

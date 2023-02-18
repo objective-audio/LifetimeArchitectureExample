@@ -2,10 +2,12 @@
 //  LifetimeIds.swift
 //
 
+import Foundation
+
 /// SceneLifetimeのスコープを特定するID
 
 struct SceneLifetimeId: Hashable {
-    let instanceId: InstanceId
+    let uuid: UUID
 }
 
 /// RootAlertLifetimeのスコープを特定するためのID

@@ -83,9 +83,9 @@ struct RootTransitionChildView_Previews: PreviewProvider {
         func toggleChild() {
             switch child {
             case .none:
-                child = .login(lifetimeId: .init(instanceId: .init()))
+                child = .login(lifetimeId: .init(uuid: .init()))
             case .login:
-                child = .account(lifetimeId: .init(scene: .init(instanceId: .init()),
+                child = .account(lifetimeId: .init(scene: .init(uuid: .init()),
                                                    accountId: 0))
             case .account:
                 child = nil
@@ -136,7 +136,7 @@ struct RootTransitionChildView_Previews: PreviewProvider {
     static var previews: some View {
         let childPresenter: PreviewChildPresenter = .init()
         let modalPresenter: PreviewModalPresenter = .init()
-        let accountLifetimeId: AccountLifetimeId = .init(scene: .init(instanceId: .init()),
+        let accountLifetimeId: AccountLifetimeId = .init(scene: .init(uuid: .init()),
                                                          accountId: 0)
 
         NavigationView {

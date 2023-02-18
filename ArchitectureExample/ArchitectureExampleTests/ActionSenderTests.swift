@@ -85,7 +85,7 @@ class ActionSenderTests: XCTestCase {
         var called: [Called] = []
 
         // receivableIdを指定しているがactionがnilなので影響しない
-        let receivableId = ActionId(sceneLifetimeId: .init(instanceId: .init()))
+        let receivableId = ActionId(sceneLifetimeId: .init(uuid: .init()))
         self.rootReceiver.receivableId = receivableId
         self.childReceiver1.receivableId = receivableId
         self.childReceiver2.receivableId = receivableId
@@ -135,7 +135,7 @@ class ActionSenderTests: XCTestCase {
     func test_actionがありproviderのreceivableIdが一致しないと子も含めて呼ばれない() {
         var called: [Called] = []
 
-        self.childProvider1.receivableId = .init(sceneLifetimeId: .init(instanceId: .init()))
+        self.childProvider1.receivableId = .init(sceneLifetimeId: .init(uuid: .init()))
 
         self.rootReceiver.receiveHandler = { action in
             called.append(.init(receiver: .root, action: action))
@@ -157,7 +157,7 @@ class ActionSenderTests: XCTestCase {
             return .continue
         }
 
-        let actionId = ActionId(sceneLifetimeId: .init(instanceId: .init()))
+        let actionId = ActionId(sceneLifetimeId: .init(uuid: .init()))
 
         let sender = ActionSender(rootProvider: self.rootProvider)
 
@@ -177,7 +177,7 @@ class ActionSenderTests: XCTestCase {
     func test_actionがありreceiverのreceivableIdが一致しないと呼ばれない() {
         var called: [Called] = []
 
-        self.childReceiver1.receivableId = .init(sceneLifetimeId: .init(instanceId: .init()))
+        self.childReceiver1.receivableId = .init(sceneLifetimeId: .init(uuid: .init()))
 
         self.rootReceiver.receiveHandler = { action in
             called.append(.init(receiver: .root, action: action))
@@ -199,7 +199,7 @@ class ActionSenderTests: XCTestCase {
             return .continue
         }
 
-        let actionId = ActionId(sceneLifetimeId: .init(instanceId: .init()))
+        let actionId = ActionId(sceneLifetimeId: .init(uuid: .init()))
 
         let sender = ActionSender(rootProvider: self.rootProvider)
 
@@ -223,7 +223,7 @@ class ActionSenderTests: XCTestCase {
         var called: [Called] = []
 
         // receivableIdを指定しているがactionがnilなので影響しない
-        let receivableId = ActionId(sceneLifetimeId: .init(instanceId: .init()))
+        let receivableId = ActionId(sceneLifetimeId: .init(uuid: .init()))
         self.rootReceiver.receivableId = receivableId
         self.childReceiver1.receivableId = receivableId
         self.childReceiver2.receivableId = receivableId

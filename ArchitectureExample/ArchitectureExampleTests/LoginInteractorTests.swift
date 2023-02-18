@@ -519,7 +519,7 @@ class LoginInteractorTests: XCTestCase {
 
 private extension LoginInteractorTests {
     func makeInteractor() -> LoginInteractor {
-        LoginInteractor(sceneLifetimeId: .init(instanceId: .init()),
+        LoginInteractor(sceneLifetimeId: .init(uuid: .init()),
                         rootLifecycle: self.rootLifecycle,
                         rootModalLifecycle: self.rootModalLifecycle,
                         accountRepository: self.repository,
