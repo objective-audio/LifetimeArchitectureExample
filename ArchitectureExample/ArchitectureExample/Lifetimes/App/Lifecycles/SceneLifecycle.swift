@@ -20,6 +20,10 @@ extension SceneLifecycle {
         return lifetime
     }
 
+    func contains(_ id: SceneLifetimeId) -> Bool {
+        self.lifetimes.contains { $0.lifetimeId == id }
+    }
+
     func index(of id: SceneLifetimeId) -> Int? {
         guard let index = self.lifetimes.firstIndex(where: { $0.lifetimeId == id }) else {
             assertionFailureIfNotTest()
