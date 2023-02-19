@@ -29,6 +29,7 @@
 		B625F5932806DE6A00230B5D /* AccountInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B625F5922806DE6A00230B5D /* AccountInfo.storyboard */; };
 		B62631DA2995084A00F50A03 /* RootTransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62631D92995084A00F50A03 /* RootTransitionView.swift */; };
 		B62631DC299508F400F50A03 /* RootTransitionViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62631DB299508F400F50A03 /* RootTransitionViewDependencies.swift */; };
+		B631939F299FB1FC00138572 /* ArchitectureExampleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B631939E299FB1FC00138572 /* ArchitectureExampleScene.swift */; };
 		B636F6202846B11F00CD2265 /* SceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636F61F2846B11F00CD2265 /* SceneFactory.swift */; };
 		B636F63D2848DC2A00CD2265 /* AccountEditModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636F63C2848DC2A00CD2265 /* AccountEditModal.swift */; };
 		B636F6442848FB3100CD2265 /* RootChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636F6432848FB3100CD2265 /* RootChild.swift */; };
@@ -59,7 +60,6 @@
 		B652BBFC28101A3E00B7741B /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652BBFB28101A3E00B7741B /* LoginPresenter.swift */; };
 		B65671092994848C007DE355 /* AccountNavigationViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65671082994848C007DE355 /* AccountNavigationViewFactory.swift */; };
 		B656710B29948F67007DE355 /* AccountNavigationViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B656710A29948F67007DE355 /* AccountNavigationViewDependencies.swift */; };
-		B658012228012FA0009EAB96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658012128012FA0009EAB96 /* SceneDelegate.swift */; };
 		B658012428012FA0009EAB96 /* RootTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658012328012FA0009EAB96 /* RootTransitionViewController.swift */; };
 		B658012728012FA0009EAB96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B658012528012FA0009EAB96 /* Main.storyboard */; };
 		B658012928012FA0009EAB96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B658012828012FA0009EAB96 /* Assets.xcassets */; };
@@ -208,6 +208,7 @@
 		B625F5922806DE6A00230B5D /* AccountInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountInfo.storyboard; sourceTree = "<group>"; };
 		B62631D92995084A00F50A03 /* RootTransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransitionView.swift; sourceTree = "<group>"; };
 		B62631DB299508F400F50A03 /* RootTransitionViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransitionViewDependencies.swift; sourceTree = "<group>"; };
+		B631939E299FB1FC00138572 /* ArchitectureExampleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureExampleScene.swift; sourceTree = "<group>"; };
 		B636F61F2846B11F00CD2265 /* SceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneFactory.swift; sourceTree = "<group>"; };
 		B636F63C2848DC2A00CD2265 /* AccountEditModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditModal.swift; sourceTree = "<group>"; };
 		B636F6432848FB3100CD2265 /* RootChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootChild.swift; sourceTree = "<group>"; };
@@ -239,7 +240,6 @@
 		B65671082994848C007DE355 /* AccountNavigationViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNavigationViewFactory.swift; sourceTree = "<group>"; };
 		B656710A29948F67007DE355 /* AccountNavigationViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNavigationViewDependencies.swift; sourceTree = "<group>"; };
 		B658011C28012FA0009EAB96 /* ArchitectureExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArchitectureExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B658012128012FA0009EAB96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B658012328012FA0009EAB96 /* RootTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransitionViewController.swift; sourceTree = "<group>"; };
 		B658012628012FA0009EAB96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B658012828012FA0009EAB96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -659,7 +659,7 @@
 			children = (
 				B6D608E32995CD2E00CF4ABC /* ArchitectureExampleApp.swift */,
 				B6A4AFE72814FDDB00535851 /* AppPresenter.swift */,
-				B658012128012FA0009EAB96 /* SceneDelegate.swift */,
+				B631939E299FB1FC00138572 /* ArchitectureExampleScene.swift */,
 				B6A4AFE92815017F00535851 /* ScenePresenter.swift */,
 				B60D63F32816B76500EC7732 /* Helpers */,
 				B61753B9281055110057DC15 /* Localize */,
@@ -1224,6 +1224,7 @@
 				B60D63F92816EAE300EC7732 /* RootSubLifetime.swift in Sources */,
 				B6972E602997D5450061FEED /* RootAlertPresenter.swift in Sources */,
 				B68D3AAA280D818F00C4C0E9 /* AccountMenuView.swift in Sources */,
+				B631939F299FB1FC00138572 /* ArchitectureExampleScene.swift in Sources */,
 				B677BAFA2998AEE000C8AAB7 /* AccountEditTransitionView.swift in Sources */,
 				B69E4EF7286C8B0E00911280 /* AccountEditAlertInteractor.swift in Sources */,
 				B658017A28026FF7009EAB96 /* UIViewController+Child.swift in Sources */,
@@ -1299,7 +1300,6 @@
 				B60E4EB8281AA9BB005E2F32 /* AccountEditInteractorDependencies.swift in Sources */,
 				B6C6D515299B8CB6002F05AA /* RootAlertInteractorDependencies.swift in Sources */,
 				B658015A280140D8009EAB96 /* LaunchInteractor.swift in Sources */,
-				B658012228012FA0009EAB96 /* SceneDelegate.swift in Sources */,
 				B60D63FD2816EEEA00EC7732 /* RootModalSubLifetime.swift in Sources */,
 				B68D820B283740AB00C2FC23 /* RootAlertLifetime.swift in Sources */,
 				B6376FE628144550004D5F9C /* SceneLifetime.swift in Sources */,

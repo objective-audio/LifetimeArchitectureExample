@@ -54,7 +54,7 @@ struct AccountNavigationView<Presenter: PresenterForAccountNavigationView,
 // MARK: -
 
 private class PreviewPresenter: PresenterForAccountNavigationView {
-    private static let accountId: AccountLifetimeId = .init(scene: .init(instanceId: .init()),
+    private static let accountId: AccountLifetimeId = .init(scene: .init(uuid: .init()),
                                                             accountId: 0)
     var accountLifetimeId: AccountLifetimeId = accountId
     var elements: [AccountNavigationElement] = [

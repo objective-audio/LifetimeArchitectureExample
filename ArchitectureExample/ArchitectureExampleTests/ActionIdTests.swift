@@ -14,8 +14,8 @@ class ActionIdTests: XCTestCase {
     }
 
     func testIsMatch() {
-        let sceneIdA = SceneLifetimeId(instanceId: .init())
-        let sceneIdB = SceneLifetimeId(instanceId: .init())
+        let sceneIdA = SceneLifetimeId(uuid: .init())
+        let sceneIdB = SceneLifetimeId(uuid: .init())
 
         let actionIdA1: ActionId? = .init(sceneLifetimeId: sceneIdA)
         let actionIdA2: ActionId? = .init(sceneLifetimeId: sceneIdA)

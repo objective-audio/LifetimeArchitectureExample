@@ -41,7 +41,7 @@ class RootModalLifecycleTests: XCTestCase {
 
     @MainActor
     override func setUpWithError() throws {
-        self.sceneLifetimeId = .init(instanceId: .init())
+        self.sceneLifetimeId = .init(uuid: .init())
         FactoryStub.idGenerator = .init()
     }
 

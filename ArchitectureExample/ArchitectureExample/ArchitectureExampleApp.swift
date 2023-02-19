@@ -14,9 +14,7 @@ struct ArchitectureExampleApp: App {
     }
 
     var body: some Scene {
-        WindowGroup {
-            EmptyView()
-        }
+        ArchitectureExampleScene()
     }
 }
 
