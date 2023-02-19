@@ -18,21 +18,21 @@ protocol ModalPresenterForRootTransitionView: ObservableObject {
 }
 
 protocol FactoryForRootTransitionView {
-    func makeLoginPresenter(sceneId: SceneLifetimeId) -> LoginPresenter?
+    static func makeLoginPresenter(sceneId: SceneLifetimeId) -> LoginPresenter?
 
-    func makeAccountNavigationPresenter(
+    static func makeAccountNavigationPresenter(
         lifetimeId: AccountLifetimeId
     ) -> AccountNavigationPresenter?
 
-    func makeAccountEditTransitionPresenter(
+    static func makeAccountEditTransitionPresenter(
         lifetimeId: AccountEditLifetimeId
     ) -> AccountEditTransitionPresenter?
 
-    func makeAccountEditModalPresenter(
+    static func makeAccountEditModalPresenter(
         lifetimeId: AccountEditLifetimeId
     ) -> AccountEditModalPresenter?
 
-    func makeAlertPresenter(
+    static func makeAlertPresenter(
         lifetimeId: RootAlertLifetimeId?
     ) -> RootAlertPresenter?
 }
