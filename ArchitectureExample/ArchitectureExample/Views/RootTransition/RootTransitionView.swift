@@ -29,7 +29,7 @@ struct RootTransitionView<ChildPresenter: ChildPresenterForRootTransitionView,
             case .account(let lifetimeId):
                 if let presenter = Factory.makeAccountNavigationPresenter(lifetimeId: lifetimeId) {
                     AccountNavigationView(presenter: presenter,
-                                          factory: AccountNavigationViewFactory())
+                                          factory: AccountNavigationViewFactory.self)
                 } else {
                     Text("AccountNavigationView")
                 }
