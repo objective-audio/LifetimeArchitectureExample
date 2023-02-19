@@ -7,7 +7,11 @@ import SwiftUI
 struct AccountNavigationView<Presenter: PresenterForAccountNavigationView,
                              Factory: FactoryForAccountNavigationView>: View {
     @ObservedObject var presenter: Presenter
-    let factory: Factory
+
+    init(presenter: Presenter,
+         factory: Factory.Type) {
+        self.presenter = presenter
+    }
 
     var body: some View {
         NavigationStack(path: $presenter.elements) {
@@ -82,7 +86,7 @@ private struct PreviewFactory: FactoryForAccountNavigationView {
 struct AccountNavigationView_Previews: PreviewProvider {
     static var previews: some View {
         AccountNavigationView(presenter: PreviewPresenter(),
-                              factory: PreviewFactory())
+                              factory: PreviewFactory.self)
         .environment(\.locale, .init(identifier: "ja"))
     }
 }

@@ -13,7 +13,7 @@ extension LoginInteractor: LoginInteractorForPresenter {}
 extension LoginPresenter: PresenterForLoginView {}
 
 extension RootTransitionViewFactory {
-    func makeLoginPresenter(sceneId: SceneLifetimeId) -> LoginPresenter? {
+    static func makeLoginPresenter(sceneId: SceneLifetimeId) -> LoginPresenter? {
         guard let lifetime = LifetimeAccessor.login(sceneId: sceneId) else {
             assertionFailure()
             return nil
@@ -28,7 +28,7 @@ extension RootTransitionViewFactory {
 extension AccountNavigationPresenter: PresenterForAccountNavigationView {}
 
 extension RootTransitionViewFactory {
-    func makeAccountNavigationPresenter(
+    static func makeAccountNavigationPresenter(
         lifetimeId: AccountLifetimeId
     ) -> AccountNavigationPresenter? {
         guard let lifetime = LifetimeAccessor.account(id: lifetimeId) else {
@@ -47,7 +47,7 @@ extension AccountEditTransitionPresenter: TransitionPresenterForAccountEditTrans
 extension AccountEditModalPresenter: ModalPresenterForAccountEditTransitionView {}
 
 extension RootTransitionViewFactory {
-    func makeAccountEditTransitionPresenter(
+    static func makeAccountEditTransitionPresenter(
         lifetimeId: AccountEditLifetimeId
     ) -> AccountEditTransitionPresenter? {
         guard let accountEditLifetime = LifetimeAccessor.accountEdit(id: lifetimeId) else {
@@ -59,7 +59,7 @@ extension RootTransitionViewFactory {
                      accountEditInteractor: accountEditLifetime.interactor)
     }
 
-    func makeAccountEditModalPresenter(
+    static func makeAccountEditModalPresenter(
         lifetimeId: AccountEditLifetimeId
     ) -> AccountEditModalPresenter? {
         guard let accountEditLifetime = LifetimeAccessor.accountEdit(id: lifetimeId) else {
@@ -74,7 +74,7 @@ extension RootTransitionViewFactory {
 // MARK: -
 
 extension RootTransitionViewFactory {
-    func makeAlertPresenter(
+    static func makeAlertPresenter(
         lifetimeId: RootAlertLifetimeId?
     ) -> RootAlertPresenter? {
         guard let lifetimeId else { return nil }

@@ -9,11 +9,17 @@ struct AccountEditTransitionView<TransitionPresenter: TransitionPresenterForAcco
                                  Factory: FactoryForAccountEditTransitionView>: View {
     @ObservedObject var transitionPresenter: TransitionPresenter
     @ObservedObject var modalPresenter: ModalPresenter
-    let factory: Factory
+
+    init(transitionPresenter: TransitionPresenter,
+         modalPresenter: ModalPresenter,
+         factory: Factory.Type) {
+        self.transitionPresenter = transitionPresenter
+        self.modalPresenter = modalPresenter
+    }
 
     var body: some View {
         Group {
-            if let presenter = factory.makeAccountEditPresenter(
+            if let presenter = Factory.makeAccountEditPresenter(
                 lifetimeId: transitionPresenter.accountEditLifetimeId
             ) {
                 AccountEditView(presenter: presenter)
@@ -27,7 +33,7 @@ struct AccountEditTransitionView<TransitionPresenter: TransitionPresenterForAcco
         }
         .alert(Text(Localized.alertAccountEditDestructionTitle.key),
                isPresented: $modalPresenter.isDestructAlertPresented,
-               presenting: factory.makeAlertPresenter(lifetimeId: modalPresenter.destructAlertLifetimeId)) {
+               presenting: Factory.makeAlertPresenter(lifetimeId: modalPresenter.destructAlertLifetimeId)) {
             let presenter = $0
 
             ForEach(presenter.actions, id: \.self) { action in
@@ -42,7 +48,7 @@ struct AccountEditTransitionView<TransitionPresenter: TransitionPresenterForAcco
         }
         .alert(Text(Localized.alertAccountEditLogoutTitle.key),
                isPresented: $modalPresenter.isLogoutAlertPresented,
-               presenting: factory.makeAlertPresenter(lifetimeId: modalPresenter.logoutAlertLifetimeId)) {
+               presenting: Factory.makeAlertPresenter(lifetimeId: modalPresenter.logoutAlertLifetimeId)) {
             let presenter = $0
 
             ForEach(presenter.actions, id: \.self) { action in
