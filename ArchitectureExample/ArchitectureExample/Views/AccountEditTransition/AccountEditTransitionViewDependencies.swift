@@ -20,11 +20,11 @@ protocol ModalPresenterForAccountEditTransitionView: ObservableObject {
 }
 
 protocol FactoryForAccountEditTransitionView {
-    func makeAccountEditPresenter(
+    static func makeAccountEditPresenter(
         lifetimeId: AccountEditLifetimeId
     ) -> AccountEditPresenter?
 
-    func makeAlertPresenter(
+    static func makeAlertPresenter(
         lifetimeId: AccountEditAlertLifetimeId?
     ) -> AccountEditAlertPresenter?
 }

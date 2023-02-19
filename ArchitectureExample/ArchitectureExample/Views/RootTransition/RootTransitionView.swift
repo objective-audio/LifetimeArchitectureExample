@@ -47,7 +47,7 @@ struct RootTransitionView<ChildPresenter: ChildPresenterForRootTransitionView,
                     AccountEditTransitionView(
                         transitionPresenter: transitionPresenter,
                         modalPresenter: modalPresenter,
-                        factory: AccountEditTransitionViewFactory()
+                        factory: AccountEditTransitionViewFactory.self
                     )
                 } else {
                     Text("AccountEditView")
