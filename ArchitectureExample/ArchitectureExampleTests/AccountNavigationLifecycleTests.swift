@@ -50,7 +50,8 @@ class AccountNavigationLifecycleTests: XCTestCase {
     }
 
     func testPushAndPop() {
-        let lifecycle = AccountNavigationLifecycle<FactoryStub>(accountLifetimeId: self.accountLifetimeId)
+        let lifecycle = AccountNavigationLifecycle(accountLifetimeId: self.accountLifetimeId,
+                                                   factory: FactoryStub.self)
 
         var calledStacks: [[AccountNavigationSubLifetime<FactoryStub>]] = []
 

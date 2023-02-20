@@ -80,7 +80,8 @@ extension RootFactory {
         let logoutInteractor = LogoutInteractor(accountId: accountId,
                                                 rootLifecycle: sceneLifetime.rootLifecycle,
                                                 accountRepository: appLifetime.accountRepository)
-        let navigationLifecycle = AccountNavigationLifecycle<AccountNavigationFactory>(accountLifetimeId: id)
+        let navigationLifecycle = AccountNavigationLifecycle(accountLifetimeId: id,
+                                                             factory: AccountNavigationFactory.self)
 
         return .init(lifetimeId: id,
                      accountHolder: .init(id: accountId,

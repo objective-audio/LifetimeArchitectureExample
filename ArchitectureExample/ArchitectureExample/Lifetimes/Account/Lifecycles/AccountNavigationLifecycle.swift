@@ -12,7 +12,8 @@ final class AccountNavigationLifecycle<Factory: FactoryForAccountNavigationLifec
 
     @CurrentValue private(set) var stack: [AccountNavigationSubLifetime<Factory>] = []
 
-    init(accountLifetimeId: AccountLifetimeId) {
+    init(accountLifetimeId: AccountLifetimeId,
+         factory: Factory.Type) {
         self.accountLifetimeId = accountLifetimeId
     }
 }
