@@ -14,7 +14,7 @@ extension SceneFactory: FactoryForSceneLifecycle {}
 
 extension AppFactory {
     static func makeAppLifetime() -> AppLifetime {
-        let sceneLifecycle = SceneLifecycle<SceneFactory>()
+        let sceneLifecycle = SceneLifecycle(factory: SceneFactory.self)
         let userDefaults = UserDefaults.standard
 
         return .init(sceneLifecycle: sceneLifecycle,
