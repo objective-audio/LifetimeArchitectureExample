@@ -5,6 +5,8 @@
 @MainActor
 final class AppLifecycle<Factory: FactoryForAppLifecycle> {
     @CurrentValue private(set) var lifetime: Factory.AppLifetime?
+
+    init(factory: Factory.Type) {}
 }
 
 extension AppLifecycle {

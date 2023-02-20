@@ -11,7 +11,7 @@ extension AppFactory: FactoryForAppLifecycle {}
 
 @MainActor
 enum LifetimeAccessor {
-    static let appLifecycle: AppLifecycle<AppFactory> = .init()
+    static let appLifecycle: AppLifecycle = .init(factory: AppFactory.self)
 
     static var app: AppLifetimeForLifecycle? {
         guard let lifetime = self.appLifecycle.lifetime else {

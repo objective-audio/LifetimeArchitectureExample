@@ -28,7 +28,7 @@ class AppLifecycleTests: XCTestCase {
     }
 
     func testAdd() {
-        let lifecycle = AppLifecycle<FactoryStub>()
+        let lifecycle = AppLifecycle(factory: FactoryStub.self)
 
         var called: [AppLifetimeStub?] = []
 
