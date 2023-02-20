@@ -26,7 +26,7 @@ class SceneLifecycleTests: XCTestCase {
     }
 
     func testAppendAndRemove() throws {
-        let lifecycle = SceneLifecycle<FactoryStub>()
+        let lifecycle = SceneLifecycle(factory: FactoryStub.self)
 
         let idA = SceneLifetimeId(uuid: .init())
         let idB = SceneLifetimeId(uuid: .init())

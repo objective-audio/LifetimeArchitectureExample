@@ -55,7 +55,8 @@ class RootLifecycleTests: XCTestCase {
     }
 
     func testSwitch() {
-        let lifecycle = RootLifecycle<FactoryStub>(sceneLifetimeId: self.sceneLifetimeId)
+        let lifecycle = RootLifecycle(sceneLifetimeId: self.sceneLifetimeId,
+                                      factory: FactoryStub.self)
 
         guard case .launch = lifecycle.current else {
             XCTFail("currentの内容が不正")

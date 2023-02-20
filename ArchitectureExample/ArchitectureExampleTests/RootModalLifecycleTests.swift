@@ -52,7 +52,8 @@ class RootModalLifecycleTests: XCTestCase {
     }
 
     func testAddAndRemoveAlert() throws {
-        let lifecycle = RootModalLifecycle<FactoryStub>(sceneLifetimeId: self.sceneLifetimeId)
+        let lifecycle = RootModalLifecycle(sceneLifetimeId: self.sceneLifetimeId,
+                                           factory: FactoryStub.self)
 
         var called: [RootModalSubLifetime<FactoryStub>?] = []
 
@@ -133,7 +134,8 @@ class RootModalLifecycleTests: XCTestCase {
         let accountLifetimeId = AccountLifetimeId(scene: self.sceneLifetimeId,
                                                   accountId: 123)
 
-        let lifecycle = RootModalLifecycle<FactoryStub>(sceneLifetimeId: self.sceneLifetimeId)
+        let lifecycle = RootModalLifecycle(sceneLifetimeId: self.sceneLifetimeId,
+                                           factory: FactoryStub.self)
 
         var called: [RootModalSubLifetime<FactoryStub>?] = []
 

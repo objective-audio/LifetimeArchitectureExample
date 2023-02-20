@@ -34,7 +34,8 @@ extension RootModalFactory {
             fatalError()
         }
 
-        let modalLifecycle = AccountEditModalLifecycle<AccountEditModalFactory>(lifetimeId: lifetimeId)
+        let modalLifecycle = AccountEditModalLifecycle(lifetimeId: lifetimeId,
+                                                       factory: AccountEditModalFactory.self)
         let interactor = AccountEditInteractor(lifetimeId: lifetimeId,
                                                accountHolder: accountLifetime.accountHolder,
                                                rootModalLifecycle: sceneLifetime.rootModalLifecycle,
