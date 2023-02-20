@@ -3,7 +3,7 @@
 //
 
 @MainActor
-struct RootTransitionViewFactory {}
+enum RootTransitionViewFactory {}
 
 extension RootTransitionViewFactory: FactoryForRootTransitionView {}
 
