@@ -5,7 +5,9 @@
 @MainActor
 enum RootTransitionViewFactory {}
 
-extension RootTransitionViewFactory: FactoryForRootTransitionView {}
+extension RootTransitionViewFactory: FactoryForRootTransitionView {
+    typealias Command = CommandViewMaker
+}
 
 // MARK: -
 

@@ -21,7 +21,8 @@ struct ArchitectureExampleScene: Scene {
                let modalPresenter = Self.makeRootModalPresenter(
                 sceneLifetimeId: .init(uuid: uuid.wrappedValue)
                ) {
-                RootTransitionView(childPresenter: childPresenter,
+                RootTransitionView(sceneLifetimeId: .init(uuid: uuid.wrappedValue),
+                                   childPresenter: childPresenter,
                                    modalPresenter: modalPresenter,
                                    factory: RootTransitionViewFactory.self)
                 .onDisappear {
