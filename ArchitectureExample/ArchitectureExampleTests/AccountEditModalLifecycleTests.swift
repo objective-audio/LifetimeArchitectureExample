@@ -43,7 +43,8 @@ class AccountEditModalLifecycleTests: XCTestCase {
     }
 
     func testAddAndRemoveAlert() throws {
-        let lifecycle = AccountEditModalLifecycle<FactoryStub>(lifetimeId: self.accountEditLifetimeId)
+        let lifecycle = AccountEditModalLifecycle(lifetimeId: self.accountEditLifetimeId,
+                                                  factory: FactoryStub.self)
 
         var called: [AccountEditModalSubLifetime<FactoryStub>?] = []
 

@@ -14,7 +14,8 @@ final class AccountEditModalLifecycle<Factory: FactoryForAccountEditModalLifecyc
 
     @CurrentValue private(set) var current: AccountEditModalSubLifetime<Factory>?
 
-    init(lifetimeId: AccountEditLifetimeId) {
+    init(lifetimeId: AccountEditLifetimeId,
+         factory: Factory.Type) {
         self.lifetimeId = lifetimeId
     }
 }
