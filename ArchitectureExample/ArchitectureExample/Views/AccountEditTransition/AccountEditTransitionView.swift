@@ -27,6 +27,13 @@ struct AccountEditTransitionView<TransitionPresenter: TransitionPresenterForAcco
                 Text("AccountEditTransitionView")
             }
         }
+        .overlay {
+            if let presenter = Factory.Command.makeCommandPresnter(
+                sceneLifetimeId: transitionPresenter.sceneLifetimeId
+            ) {
+                CommandView(presenter: presenter)
+            }
+        }
         .interactiveDismissDisabled(transitionPresenter.interactiveDismissDisabled)
         .onDisappear {
             transitionPresenter.onDisappear()

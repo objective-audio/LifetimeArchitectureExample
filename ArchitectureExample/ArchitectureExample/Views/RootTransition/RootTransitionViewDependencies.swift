@@ -18,6 +18,8 @@ protocol ModalPresenterForRootTransitionView: ObservableObject {
 }
 
 protocol FactoryForRootTransitionView {
+    associatedtype Command: CommandViewMakeable
+
     static func makeLoginPresenter(sceneId: SceneLifetimeId) -> LoginPresenter?
 
     static func makeAccountNavigationPresenter(

@@ -11,6 +11,10 @@ protocol TransitionPresenterForAccountEditTransitionView: ObservableObject {
     func onDisappear()
 }
 
+extension TransitionPresenterForAccountEditTransitionView {
+    var sceneLifetimeId: SceneLifetimeId { accountEditLifetimeId.account.scene }
+}
+
 protocol ModalPresenterForAccountEditTransitionView: ObservableObject {
     var isDestructAlertPresented: Bool { get set }
     var isLogoutAlertPresented: Bool { get set }
@@ -20,6 +24,8 @@ protocol ModalPresenterForAccountEditTransitionView: ObservableObject {
 }
 
 protocol FactoryForAccountEditTransitionView {
+    associatedtype Command: CommandViewMakeable
+
     static func makeAccountEditPresenter(
         lifetimeId: AccountEditLifetimeId
     ) -> AccountEditPresenter?

@@ -12,9 +12,11 @@ typealias RootTransitionHostingType = RootTransitionView<RootChildPresenter,
                                                          RootTransitionViewFactory>
 
 final class RootTransitionHostingController: UIHostingController<RootTransitionHostingType> {
-    init(childPresenter: RootChildPresenter,
+    init(sceneLifetimeId: SceneLifetimeId,
+         childPresenter: RootChildPresenter,
          modalPresenter: RootModalPresenter) {
-        super.init(rootView: .init(childPresenter: childPresenter,
+        super.init(rootView: .init(sceneLifetimeId: sceneLifetimeId,
+                                   childPresenter: childPresenter,
                                    modalPresenter: modalPresenter,
                                    factory: RootTransitionViewFactory.self))
     }

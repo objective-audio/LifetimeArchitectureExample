@@ -10,6 +10,8 @@ enum AccountEditTransitionViewFactory {}
 extension AccountEditPresenter: PresenterForAccountEditView {}
 
 extension AccountEditTransitionViewFactory: FactoryForAccountEditTransitionView {
+    typealias Command = CommandViewMaker
+
     static func makeAccountEditPresenter(
         lifetimeId: AccountEditLifetimeId
     ) -> AccountEditPresenter? {
