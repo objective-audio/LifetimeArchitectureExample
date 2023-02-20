@@ -17,7 +17,8 @@ extension SceneFactory {
                                            factory: RootModalFactory.self)
 
         return .init(lifetimeId: id,
-                     rootLifecycle: .init(sceneLifetimeId: id),
+                     rootLifecycle: .init(sceneLifetimeId: id,
+                                          factory: RootFactory.self),
                      rootModalLifecycle: lifecycle)
     }
 }

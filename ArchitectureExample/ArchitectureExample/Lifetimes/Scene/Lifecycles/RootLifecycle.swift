@@ -14,7 +14,8 @@ final class RootLifecycle<Factory: FactoryForRootLifecycle> {
 
     @CurrentValue private(set) var current: RootSubLifetime<Factory>?
 
-    init(sceneLifetimeId: SceneLifetimeId) {
+    init(sceneLifetimeId: SceneLifetimeId,
+         factory: Factory.Type) {
         self.sceneLifetimeId = sceneLifetimeId
 
         let lifetime = Factory.makeLaunchLifetime(sceneLifetimeId: self.sceneLifetimeId,
