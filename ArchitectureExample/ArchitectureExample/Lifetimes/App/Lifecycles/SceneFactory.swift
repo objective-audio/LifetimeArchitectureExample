@@ -13,7 +13,8 @@ extension RootModalFactory: FactoryForRootModalLifecycle {}
 
 extension SceneFactory {
     static func makeSceneLifetime(id: SceneLifetimeId) -> SceneLifetime {
-        let lifecycle = RootModalLifecycle<RootModalFactory>(sceneLifetimeId: id)
+        let lifecycle = RootModalLifecycle(sceneLifetimeId: id,
+                                           factory: RootModalFactory.self)
 
         return .init(lifetimeId: id,
                      rootLifecycle: .init(sceneLifetimeId: id),

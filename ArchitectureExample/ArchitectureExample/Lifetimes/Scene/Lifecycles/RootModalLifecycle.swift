@@ -14,7 +14,8 @@ final class RootModalLifecycle<Factory: FactoryForRootModalLifecycle> {
 
     @CurrentValue private(set) var current: RootModalSubLifetime<Factory>?
 
-    init(sceneLifetimeId: SceneLifetimeId) {
+    init(sceneLifetimeId: SceneLifetimeId,
+         factory: Factory.Type) {
         self.sceneLifetimeId = sceneLifetimeId
     }
 }
