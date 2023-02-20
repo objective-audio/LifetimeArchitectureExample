@@ -3,7 +3,7 @@
 //
 
 @MainActor
-struct AccountEditTransitionViewFactory {}
+enum AccountEditTransitionViewFactory {}
 
 // MARK: -
 
