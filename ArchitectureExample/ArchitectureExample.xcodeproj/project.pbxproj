@@ -60,8 +60,6 @@
 		B652BBFC28101A3E00B7741B /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652BBFB28101A3E00B7741B /* LoginPresenter.swift */; };
 		B65671092994848C007DE355 /* AccountNavigationViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65671082994848C007DE355 /* AccountNavigationViewFactory.swift */; };
 		B656710B29948F67007DE355 /* AccountNavigationViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B656710A29948F67007DE355 /* AccountNavigationViewDependencies.swift */; };
-		B658012428012FA0009EAB96 /* RootTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658012328012FA0009EAB96 /* RootTransitionViewController.swift */; };
-		B658012728012FA0009EAB96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B658012528012FA0009EAB96 /* Main.storyboard */; };
 		B658012928012FA0009EAB96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B658012828012FA0009EAB96 /* Assets.xcassets */; };
 		B658012C28012FA0009EAB96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B658012A28012FA0009EAB96 /* LaunchScreen.storyboard */; };
 		B658015128013045009EAB96 /* AppLifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658015028013045009EAB96 /* AppLifetime.swift */; };
@@ -117,7 +115,6 @@
 		B6B3E92B2999D509000E4E19 /* AccountEditTransitionViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3E92A2999D509000E4E19 /* AccountEditTransitionViewFactory.swift */; };
 		B6B3E92D2999D55B000E4E19 /* AccountEditTransitionViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3E92C2999D55B000E4E19 /* AccountEditTransitionViewDependencies.swift */; };
 		B6B3E92F2999DB52000E4E19 /* AccountEditModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3E92E2999DB52000E4E19 /* AccountEditModalPresenter.swift */; };
-		B6BC1CBA28609CB500B28D18 /* RootCommandPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC1CB928609CB500B28D18 /* RootCommandPresenter.swift */; };
 		B6BCAA1C28293BF70053F073 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BCAA1B28293BF70053F073 /* AppFactory.swift */; };
 		B6BCAA1E28293C890053F073 /* AppLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BCAA1D28293C890053F073 /* AppLifecycleTests.swift */; };
 		B6C08E982812CD910047ABBE /* RootModalLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C08E972812CD910047ABBE /* RootModalLifecycle.swift */; };
@@ -150,7 +147,6 @@
 		B6F22247286086D60074A0D2 /* AccountReceiverDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F22246286086D60074A0D2 /* AccountReceiverDependencies.swift */; };
 		B6F22249286087A60074A0D2 /* AccountEditAlertReceiverDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F22248286087A60074A0D2 /* AccountEditAlertReceiverDependencies.swift */; };
 		B6F2224B286089200074A0D2 /* AccountEditReceiverDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F2224A286089200074A0D2 /* AccountEditReceiverDependencies.swift */; };
-		B6F8FACE2858B40E0038BC3D /* RootTransitionViewController+KeyCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FACD2858B40E0038BC3D /* RootTransitionViewController+KeyCommands.swift */; };
 		B6F8FAD02858B8FB0038BC3D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FACF2858B8FB0038BC3D /* Action.swift */; };
 		B6F8FAD32858B98C0038BC3D /* ActionSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FAD22858B98C0038BC3D /* ActionSender.swift */; };
 		B6F8FAD52858B9CC0038BC3D /* ActionReceivable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FAD42858B9CC0038BC3D /* ActionReceivable.swift */; };
@@ -240,8 +236,6 @@
 		B65671082994848C007DE355 /* AccountNavigationViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNavigationViewFactory.swift; sourceTree = "<group>"; };
 		B656710A29948F67007DE355 /* AccountNavigationViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNavigationViewDependencies.swift; sourceTree = "<group>"; };
 		B658011C28012FA0009EAB96 /* ArchitectureExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArchitectureExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B658012328012FA0009EAB96 /* RootTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransitionViewController.swift; sourceTree = "<group>"; };
-		B658012628012FA0009EAB96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B658012828012FA0009EAB96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B658012B28012FA0009EAB96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B658012D28012FA0009EAB96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -299,7 +293,6 @@
 		B6B3E92A2999D509000E4E19 /* AccountEditTransitionViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditTransitionViewFactory.swift; sourceTree = "<group>"; };
 		B6B3E92C2999D55B000E4E19 /* AccountEditTransitionViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditTransitionViewDependencies.swift; sourceTree = "<group>"; };
 		B6B3E92E2999DB52000E4E19 /* AccountEditModalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditModalPresenter.swift; sourceTree = "<group>"; };
-		B6BC1CB928609CB500B28D18 /* RootCommandPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCommandPresenter.swift; sourceTree = "<group>"; };
 		B6BCAA1B28293BF70053F073 /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		B6BCAA1D28293C890053F073 /* AppLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLifecycleTests.swift; sourceTree = "<group>"; };
 		B6C08E972812CD910047ABBE /* RootModalLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModalLifecycle.swift; sourceTree = "<group>"; };
@@ -332,7 +325,6 @@
 		B6F22246286086D60074A0D2 /* AccountReceiverDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceiverDependencies.swift; sourceTree = "<group>"; };
 		B6F22248286087A60074A0D2 /* AccountEditAlertReceiverDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditAlertReceiverDependencies.swift; sourceTree = "<group>"; };
 		B6F2224A286089200074A0D2 /* AccountEditReceiverDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditReceiverDependencies.swift; sourceTree = "<group>"; };
-		B6F8FACD2858B40E0038BC3D /* RootTransitionViewController+KeyCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootTransitionViewController+KeyCommands.swift"; sourceTree = "<group>"; };
 		B6F8FACF2858B8FB0038BC3D /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		B6F8FAD22858B98C0038BC3D /* ActionSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSender.swift; sourceTree = "<group>"; };
 		B6F8FAD42858B9CC0038BC3D /* ActionReceivable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionReceivable.swift; sourceTree = "<group>"; };
@@ -754,10 +746,7 @@
 		B658015D28014BA9009EAB96 /* RootTransition */ = {
 			isa = PBXGroup;
 			children = (
-				B658012528012FA0009EAB96 /* Main.storyboard */,
 				B62631DB299508F400F50A03 /* RootTransitionViewDependencies.swift */,
-				B658012328012FA0009EAB96 /* RootTransitionViewController.swift */,
-				B6F8FACD2858B40E0038BC3D /* RootTransitionViewController+KeyCommands.swift */,
 				B6D608E7299612E600CF4ABC /* RootTransitionHostingController.swift */,
 				B62631D92995084A00F50A03 /* RootTransitionView.swift */,
 				B6D608E9299613D700CF4ABC /* RootTransitionViewFactory.swift */,
@@ -978,7 +967,6 @@
 			children = (
 				B658015F28014BD7009EAB96 /* RootChildPresenter.swift */,
 				B6D608F3299664DB00CF4ABC /* RootModalPresenter.swift */,
-				B6BC1CB928609CB500B28D18 /* RootCommandPresenter.swift */,
 				B6972E5F2997D5450061FEED /* RootAlertPresenter.swift */,
 			);
 			path = Presenters;
@@ -1155,7 +1143,6 @@
 				B61753B5281054BF0057DC15 /* Localizable.strings in Resources */,
 				B658012928012FA0009EAB96 /* Assets.xcassets in Resources */,
 				B625F5932806DE6A00230B5D /* AccountInfo.storyboard in Resources */,
-				B658012728012FA0009EAB96 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1251,11 +1238,9 @@
 				B6D608E8299612E600CF4ABC /* RootTransitionHostingController.swift in Sources */,
 				B68D3AAE280D840B00C4C0E9 /* AccountMenuViewDependencies.swift in Sources */,
 				B636F6442848FB3100CD2265 /* RootChild.swift in Sources */,
-				B6BC1CBA28609CB500B28D18 /* RootCommandPresenter.swift in Sources */,
 				B656710B29948F67007DE355 /* AccountNavigationViewDependencies.swift in Sources */,
 				B6FC370A2980058800D3CC4C /* AccountDetailInteractor.swift in Sources */,
 				B6FC371B2982B5AD00D3CC4C /* AccountNavigationLifecycleDependencies.swift in Sources */,
-				B658012428012FA0009EAB96 /* RootTransitionViewController.swift in Sources */,
 				B6C08E982812CD910047ABBE /* RootModalLifecycle.swift in Sources */,
 				B621766B286FCAB70068EB8B /* LifetimeIds.swift in Sources */,
 				B6F22243286024F20074A0D2 /* AccountMenuInteractor.swift in Sources */,
@@ -1310,7 +1295,6 @@
 				B63B346D2818F05B009E9A70 /* AccountHolder.swift in Sources */,
 				B6C6D519299B8E49002F05AA /* RootAlertContent.swift in Sources */,
 				B606DDC5284C49ED00CCEECD /* AccountInfoSwiftUIPresenter.swift in Sources */,
-				B6F8FACE2858B40E0038BC3D /* RootTransitionViewController+KeyCommands.swift in Sources */,
 				B658017528026B5E009EAB96 /* LogoutInteractor.swift in Sources */,
 				B6B3E92F2999DB52000E4E19 /* AccountEditModalPresenter.swift in Sources */,
 				B6B3E92D2999D55B000E4E19 /* AccountEditTransitionViewDependencies.swift in Sources */,
@@ -1382,14 +1366,6 @@
 				B61753B8281054FF0057DC15 /* ja */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		B658012528012FA0009EAB96 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B658012628012FA0009EAB96 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		B658012A28012FA0009EAB96 /* LaunchScreen.storyboard */ = {
@@ -1531,7 +1507,6 @@
 				INFOPLIST_FILE = ArchitectureExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1559,7 +1534,6 @@
 				INFOPLIST_FILE = ArchitectureExample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

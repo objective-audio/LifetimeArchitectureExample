@@ -68,14 +68,4 @@ private extension ArchitectureExampleScene {
 
         return .init(lifecycle: sceneLifetime.rootModalLifecycle)
     }
-
-    static func makeRootCommandPresnter(sceneLifetimeId: SceneLifetimeId) -> RootCommandPresenter? {
-        guard let appLifetime = LifetimeAccessor.app else {
-            assertionFailure()
-            return nil
-        }
-
-        return .init(sceneLifetimeId: sceneLifetimeId,
-                     actionSender: appLifetime.actionSender)
-    }
 }
