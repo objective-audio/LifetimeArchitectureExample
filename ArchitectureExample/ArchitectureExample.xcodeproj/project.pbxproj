@@ -84,8 +84,8 @@
 		B67E5E422850B49E00B53C2B /* AccountNavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E5E412850B49E00B53C2B /* AccountNavigationFactory.swift */; };
 		B67E5E442850BCB600B53C2B /* AccountInfoInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E5E432850BCB600B53C2B /* AccountInfoInteractorDependencies.swift */; };
 		B67E5E462850D1A700B53C2B /* AccountInfoInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E5E452850D1A700B53C2B /* AccountInfoInteractorTests.swift */; };
-		B68A99FF285B71670006FD9E /* ActionContinuation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A99FE285B71670006FD9E /* ActionContinuation.swift */; };
-		B68A9A01285B71780006FD9E /* ActionId.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A9A00285B71780006FD9E /* ActionId.swift */; };
+		B68A99FF285B71670006FD9E /* GlobalActionContinuation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A99FE285B71670006FD9E /* GlobalActionContinuation.swift */; };
+		B68A9A01285B71780006FD9E /* GlobalActionId.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A9A00285B71780006FD9E /* GlobalActionId.swift */; };
 		B68D3AA6280D1B1A00C4C0E9 /* AccountInfoContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D3AA5280D1B1A00C4C0E9 /* AccountInfoContent.swift */; };
 		B68D3AA8280D1BB900C4C0E9 /* RootAlertId.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D3AA7280D1BB900C4C0E9 /* RootAlertId.swift */; };
 		B68D3AAA280D818F00C4C0E9 /* AccountMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68D3AA9280D818F00C4C0E9 /* AccountMenuView.swift */; };
@@ -123,7 +123,7 @@
 		B6C08EA328138FAF0047ABBE /* LoginPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C08EA228138FAF0047ABBE /* LoginPresenterTests.swift */; };
 		B6C3B13B299A6F9A007042E2 /* AccountEditAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3B13A299A6F9A007042E2 /* AccountEditAlertPresenter.swift */; };
 		B6C3D62E282565B300A8FCFE /* InstanceId.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3D62D282565B300A8FCFE /* InstanceId.swift */; };
-		B6C687FC285CC235008220B6 /* ActionKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C687FB285CC235008220B6 /* ActionKind.swift */; };
+		B6C687FC285CC235008220B6 /* GlobalActionKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C687FB285CC235008220B6 /* GlobalActionKind.swift */; };
 		B6C68804285DA21B008220B6 /* ActionSenderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C68803285DA21B008220B6 /* ActionSenderTests.swift */; };
 		B6C6D515299B8CB6002F05AA /* RootAlertInteractorDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6D514299B8CB6002F05AA /* RootAlertInteractorDependencies.swift */; };
 		B6C6D517299B8D81002F05AA /* RootAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6D516299B8D81002F05AA /* RootAlertAction.swift */; };
@@ -151,10 +151,10 @@
 		B6F22247286086D60074A0D2 /* AccountReceiverDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F22246286086D60074A0D2 /* AccountReceiverDependencies.swift */; };
 		B6F22249286087A60074A0D2 /* AccountEditAlertReceiverDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F22248286087A60074A0D2 /* AccountEditAlertReceiverDependencies.swift */; };
 		B6F2224B286089200074A0D2 /* AccountEditReceiverDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F2224A286089200074A0D2 /* AccountEditReceiverDependencies.swift */; };
-		B6F8FAD02858B8FB0038BC3D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FACF2858B8FB0038BC3D /* Action.swift */; };
+		B6F8FAD02858B8FB0038BC3D /* GlobalAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FACF2858B8FB0038BC3D /* GlobalAction.swift */; };
 		B6F8FAD32858B98C0038BC3D /* ActionSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FAD22858B98C0038BC3D /* ActionSender.swift */; };
-		B6F8FAD52858B9CC0038BC3D /* ActionReceivable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FAD42858B9CC0038BC3D /* ActionReceivable.swift */; };
-		B6F8FAD72858BB030038BC3D /* ActionReceiverProvidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FAD62858BB030038BC3D /* ActionReceiverProvidable.swift */; };
+		B6F8FAD52858B9CC0038BC3D /* GlobalActionReceivable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FAD42858B9CC0038BC3D /* GlobalActionReceivable.swift */; };
+		B6F8FAD72858BB030038BC3D /* GlobalActionReceiverProvidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FAD62858BB030038BC3D /* GlobalActionReceiverProvidable.swift */; };
 		B6F8FADB2858BF450038BC3D /* SceneLifecycle+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FADA2858BF450038BC3D /* SceneLifecycle+Action.swift */; };
 		B6F8FADD2858BFB60038BC3D /* RootLifecycle+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FADC2858BFB60038BC3D /* RootLifecycle+Action.swift */; };
 		B6F8FADF2858BFCE0038BC3D /* RootModalLifecycle+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8FADE2858BFCE0038BC3D /* RootModalLifecycle+Action.swift */; };
@@ -266,8 +266,8 @@
 		B67E5E412850B49E00B53C2B /* AccountNavigationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNavigationFactory.swift; sourceTree = "<group>"; };
 		B67E5E432850BCB600B53C2B /* AccountInfoInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoInteractorDependencies.swift; sourceTree = "<group>"; };
 		B67E5E452850D1A700B53C2B /* AccountInfoInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoInteractorTests.swift; sourceTree = "<group>"; };
-		B68A99FE285B71670006FD9E /* ActionContinuation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionContinuation.swift; sourceTree = "<group>"; };
-		B68A9A00285B71780006FD9E /* ActionId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionId.swift; sourceTree = "<group>"; };
+		B68A99FE285B71670006FD9E /* GlobalActionContinuation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalActionContinuation.swift; sourceTree = "<group>"; };
+		B68A9A00285B71780006FD9E /* GlobalActionId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalActionId.swift; sourceTree = "<group>"; };
 		B68D3AA5280D1B1A00C4C0E9 /* AccountInfoContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoContent.swift; sourceTree = "<group>"; };
 		B68D3AA7280D1BB900C4C0E9 /* RootAlertId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertId.swift; sourceTree = "<group>"; };
 		B68D3AA9280D818F00C4C0E9 /* AccountMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenuView.swift; sourceTree = "<group>"; };
@@ -305,7 +305,7 @@
 		B6C08EA228138FAF0047ABBE /* LoginPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterTests.swift; sourceTree = "<group>"; };
 		B6C3B13A299A6F9A007042E2 /* AccountEditAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditAlertPresenter.swift; sourceTree = "<group>"; };
 		B6C3D62D282565B300A8FCFE /* InstanceId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceId.swift; sourceTree = "<group>"; };
-		B6C687FB285CC235008220B6 /* ActionKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionKind.swift; sourceTree = "<group>"; };
+		B6C687FB285CC235008220B6 /* GlobalActionKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalActionKind.swift; sourceTree = "<group>"; };
 		B6C68803285DA21B008220B6 /* ActionSenderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSenderTests.swift; sourceTree = "<group>"; };
 		B6C6D514299B8CB6002F05AA /* RootAlertInteractorDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertInteractorDependencies.swift; sourceTree = "<group>"; };
 		B6C6D516299B8D81002F05AA /* RootAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertAction.swift; sourceTree = "<group>"; };
@@ -333,10 +333,10 @@
 		B6F22246286086D60074A0D2 /* AccountReceiverDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountReceiverDependencies.swift; sourceTree = "<group>"; };
 		B6F22248286087A60074A0D2 /* AccountEditAlertReceiverDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditAlertReceiverDependencies.swift; sourceTree = "<group>"; };
 		B6F2224A286089200074A0D2 /* AccountEditReceiverDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditReceiverDependencies.swift; sourceTree = "<group>"; };
-		B6F8FACF2858B8FB0038BC3D /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		B6F8FACF2858B8FB0038BC3D /* GlobalAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAction.swift; sourceTree = "<group>"; };
 		B6F8FAD22858B98C0038BC3D /* ActionSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSender.swift; sourceTree = "<group>"; };
-		B6F8FAD42858B9CC0038BC3D /* ActionReceivable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionReceivable.swift; sourceTree = "<group>"; };
-		B6F8FAD62858BB030038BC3D /* ActionReceiverProvidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionReceiverProvidable.swift; sourceTree = "<group>"; };
+		B6F8FAD42858B9CC0038BC3D /* GlobalActionReceivable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalActionReceivable.swift; sourceTree = "<group>"; };
+		B6F8FAD62858BB030038BC3D /* GlobalActionReceiverProvidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalActionReceiverProvidable.swift; sourceTree = "<group>"; };
 		B6F8FADA2858BF450038BC3D /* SceneLifecycle+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneLifecycle+Action.swift"; sourceTree = "<group>"; };
 		B6F8FADC2858BFB60038BC3D /* RootLifecycle+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootLifecycle+Action.swift"; sourceTree = "<group>"; };
 		B6F8FADE2858BFCE0038BC3D /* RootModalLifecycle+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootModalLifecycle+Action.swift"; sourceTree = "<group>"; };
@@ -389,10 +389,10 @@
 			isa = PBXGroup;
 			children = (
 				B621766A286FCAB70068EB8B /* LifetimeIds.swift */,
-				B6F8FACF2858B8FB0038BC3D /* Action.swift */,
-				B6C687FB285CC235008220B6 /* ActionKind.swift */,
-				B68A9A00285B71780006FD9E /* ActionId.swift */,
-				B68A99FE285B71670006FD9E /* ActionContinuation.swift */,
+				B6F8FACF2858B8FB0038BC3D /* GlobalAction.swift */,
+				B6C687FB285CC235008220B6 /* GlobalActionKind.swift */,
+				B68A9A00285B71780006FD9E /* GlobalActionId.swift */,
+				B68A99FE285B71670006FD9E /* GlobalActionContinuation.swift */,
 			);
 			path = ValueTypes;
 			sourceTree = "<group>";
@@ -453,7 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				B625F58D2806823E00230B5D /* LifetimeAccessor.swift */,
-				B6F8FACB2858A8A60038BC3D /* protocols */,
+				B6F8FACB2858A8A60038BC3D /* Protocols */,
 				B60D63FE2818081300EC7732 /* ValueTypes */,
 				B636F63A2848D60900CD2265 /* Lifecycles */,
 			);
@@ -918,13 +918,13 @@
 			path = AccountEditTransition;
 			sourceTree = "<group>";
 		};
-		B6F8FACB2858A8A60038BC3D /* protocols */ = {
+		B6F8FACB2858A8A60038BC3D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				B6F8FAD42858B9CC0038BC3D /* ActionReceivable.swift */,
-				B6F8FAD62858BB030038BC3D /* ActionReceiverProvidable.swift */,
+				B6F8FAD42858B9CC0038BC3D /* GlobalActionReceivable.swift */,
+				B6F8FAD62858BB030038BC3D /* GlobalActionReceiverProvidable.swift */,
 			);
-			path = protocols;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		B6F8FAE428598D6E0038BC3D /* Features */ = {
@@ -1245,7 +1245,7 @@
 				B6F22247286086D60074A0D2 /* AccountReceiverDependencies.swift in Sources */,
 				B6E876C828366DB400BC42DE /* AccountEditTransitionPresenter.swift in Sources */,
 				B6FC37192981783100D3CC4C /* AccountEditModalLifecycleDependencies.swift in Sources */,
-				B6C687FC285CC235008220B6 /* ActionKind.swift in Sources */,
+				B6C687FC285CC235008220B6 /* GlobalActionKind.swift in Sources */,
 				B63B2698280AA77B009117B9 /* UISystem.swift in Sources */,
 				B62631DC299508F400F50A03 /* RootTransitionViewDependencies.swift in Sources */,
 				B69E477C28293453002F2AFF /* RootFactory.swift in Sources */,
@@ -1270,15 +1270,15 @@
 				B6DB6FF32859D7620070596B /* AccountEditModalLifecycle+Action.swift in Sources */,
 				B69586F0299C98AC007FCCD2 /* RootModal.swift in Sources */,
 				B6F8FAE628598D7B0038BC3D /* RootAlertReceiver.swift in Sources */,
-				B6F8FAD72858BB030038BC3D /* ActionReceiverProvidable.swift in Sources */,
+				B6F8FAD72858BB030038BC3D /* GlobalActionReceiverProvidable.swift in Sources */,
 				B658017728026C88009EAB96 /* AccountMenuPresenter.swift in Sources */,
 				B69E4EFB286C90C000911280 /* RootAlertInteractor.swift in Sources */,
 				B6E044C729A386B8006FD779 /* CommandViewMaker.swift in Sources */,
 				B65801652801A0E1009EAB96 /* RootLifecycle.swift in Sources */,
 				B658016028014BD7009EAB96 /* RootChildPresenter.swift in Sources */,
-				B68A9A01285B71780006FD9E /* ActionId.swift in Sources */,
+				B68A9A01285B71780006FD9E /* GlobalActionId.swift in Sources */,
 				B645D8AB281FF42300D0D224 /* TestStatus.swift in Sources */,
-				B68A99FF285B71670006FD9E /* ActionContinuation.swift in Sources */,
+				B68A99FF285B71670006FD9E /* GlobalActionContinuation.swift in Sources */,
 				B68D3AB2280D8C2B00C4C0E9 /* AccountMenuContent.swift in Sources */,
 				B68D3AB4280D9A5E00C4C0E9 /* AccountMenuSection.swift in Sources */,
 				B6A4AFEA2815017F00535851 /* ScenePresenter.swift in Sources */,
@@ -1290,7 +1290,7 @@
 				B6F8FADD2858BFB60038BC3D /* RootLifecycle+Action.swift in Sources */,
 				B6FC37212983836F00D3CC4C /* RootLifecycleDependencies.swift in Sources */,
 				B6C6D51E299B8F7B002F05AA /* AccountEditAlertAction.swift in Sources */,
-				B6F8FAD02858B8FB0038BC3D /* Action.swift in Sources */,
+				B6F8FAD02858B8FB0038BC3D /* GlobalAction.swift in Sources */,
 				B658015628013FF8009EAB96 /* AccountLifetime.swift in Sources */,
 				B6FC3713298007B000D3CC4C /* AccountDetailPresenter.swift in Sources */,
 				B636F6202846B11F00CD2265 /* SceneFactory.swift in Sources */,
@@ -1333,7 +1333,7 @@
 				B6C3B13B299A6F9A007042E2 /* AccountEditAlertPresenter.swift in Sources */,
 				B64F1AE929936E3B0096C543 /* AccountNavigationView.swift in Sources */,
 				B6F22249286087A60074A0D2 /* AccountEditAlertReceiverDependencies.swift in Sources */,
-				B6F8FAD52858B9CC0038BC3D /* ActionReceivable.swift in Sources */,
+				B6F8FAD52858B9CC0038BC3D /* GlobalActionReceivable.swift in Sources */,
 				B68D3AA6280D1B1A00C4C0E9 /* AccountInfoContent.swift in Sources */,
 				B6BCAA1C28293BF70053F073 /* AppFactory.swift in Sources */,
 				B666DD802830F49B0074B8F9 /* AccountEditModalSubLifetime.swift in Sources */,

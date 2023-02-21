@@ -2,7 +2,7 @@
 //  ActionContinuation.swift
 //
 
-enum ActionContinuation {
+enum GlobalActionContinuation {
     case `break`
     case `continue`
 }

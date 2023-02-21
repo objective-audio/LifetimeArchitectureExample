@@ -2,14 +2,14 @@
 //  SceneLifecycle+Action.swift
 //
 
-extension SceneLifecycle: ActionReceiverProvidable {
-    var receivableId: ActionId? { nil }
-    var receivers: [ActionReceivable] { [] }
+extension SceneLifecycle: GlobalActionReceiverProvidable {
+    var receivableId: GlobalActionId? { nil }
+    var receivers: [GlobalActionReceivable] { [] }
 
-    var subProviders: [ActionReceiverProvidable] {
+    var subProviders: [GlobalActionReceiverProvidable] {
         self.lifetimes.flatMap {
             [$0.rootModalLifecycle,
-             $0.rootLifecycle] as [ActionReceiverProvidable]
+             $0.rootLifecycle] as [GlobalActionReceiverProvidable]
         }
     }
 }

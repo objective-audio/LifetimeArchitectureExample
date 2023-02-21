@@ -2,7 +2,7 @@
 //  AccountEditReceiver.swift
 //
 
-final class AccountEditReceiver: ActionReceivable {
+final class AccountEditReceiver: GlobalActionReceivable {
     private let accountLifetimeId: AccountLifetimeId
     private unowned let accountEditModalLifecycle: AccountEditModalLifecycleForAccountEditReceiver
     private unowned let interactor: AccountEditInteractorForAccountEditReceiver
@@ -16,9 +16,9 @@ final class AccountEditReceiver: ActionReceivable {
         self.interactor = interactor
     }
 
-    let receivableId: ActionId?
+    let receivableId: GlobalActionId?
 
-    func receive(_ action: Action) -> ActionContinuation {
+    func receive(_ action: GlobalAction) -> GlobalActionContinuation {
         switch action.kind {
         case .logout:
             if self.interactor.isEdited {

@@ -1,19 +1,19 @@
 //
-//  ActionId.swift
+//  GlobalActionId.swift
 //
 
 /**
  Lifetimeのヒエラルキー全体を通して送るActionのID
  */
 
-struct ActionId {
+struct GlobalActionId {
     let sceneLifetimeId: SceneLifetimeId
     let accountId: Int?
 
     // テスト用にテストターゲット側でEquatableに適合させている
 }
 
-extension ActionId {
+extension GlobalActionId {
     init(sceneLifetimeId: SceneLifetimeId) {
         self.sceneLifetimeId = sceneLifetimeId
         self.accountId = nil
@@ -25,8 +25,8 @@ extension ActionId {
     }
 }
 
-extension Optional where Wrapped == ActionId {
-    func isMatch(_ other: ActionId?) -> Bool {
+extension Optional where Wrapped == GlobalActionId {
+    func isMatch(_ other: GlobalActionId?) -> Bool {
         guard let rhs = other, let lhs = self else {
             return true
         }

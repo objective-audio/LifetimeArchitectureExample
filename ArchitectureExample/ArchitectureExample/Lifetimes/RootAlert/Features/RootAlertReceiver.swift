@@ -2,10 +2,10 @@
 //  RootAlertReceiver.swift
 //
 
-final class RootAlertReceiver: ActionReceivable {
-    let receivableId: ActionId? = nil
+final class RootAlertReceiver: GlobalActionReceivable {
+    let receivableId: GlobalActionId? = nil
 
-    func receive(_ action: Action) -> ActionContinuation {
+    func receive(_ action: GlobalAction) -> GlobalActionContinuation {
         switch action.kind {
         case .logout:
             return .continue

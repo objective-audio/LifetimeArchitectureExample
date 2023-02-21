@@ -2,7 +2,7 @@
 //  AccountReceiver.swift
 //
 
-final class AccountReceiver: ActionReceivable {
+final class AccountReceiver: GlobalActionReceivable {
     private let accountLifetimeId: AccountLifetimeId
     private unowned let logoutInteractor: LogoutInteractorForAccountReceiver
     private unowned let rootModalLifecycle: RootModalLifecycleForAccountReceiver
@@ -16,9 +16,9 @@ final class AccountReceiver: ActionReceivable {
         self.receivableId = .init(accountLifetimeId: accountLifetimeId)
     }
 
-    let receivableId: ActionId?
+    let receivableId: GlobalActionId?
 
-    func receive(_ action: Action) -> ActionContinuation {
+    func receive(_ action: GlobalAction) -> GlobalActionContinuation {
         switch action.kind {
         case .logout:
             // ここまで辿り着いたらログアウトして良い
