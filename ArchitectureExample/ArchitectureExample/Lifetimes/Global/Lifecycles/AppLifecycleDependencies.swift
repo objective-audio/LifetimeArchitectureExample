@@ -12,7 +12,7 @@ protocol AppLifetimeForLifecycle {
 }
 
 protocol FactoryForAppLifecycle {
-    associatedtype AppLifetime = AppLifetimeForLifecycle
+    associatedtype AppLifetime: AppLifetimeForLifecycle
 
     static func makeAppLifetime() -> AppLifetime
 }
