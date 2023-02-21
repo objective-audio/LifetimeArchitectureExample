@@ -14,7 +14,7 @@ struct ExampleApp: App {
     }
 
     var body: some Scene {
-        ArchitectureExampleScene()
+        ExampleScene()
     }
 }
 

@@ -1,11 +1,11 @@
 //
-//  ArchitectureExampleScene.swift
+//  ExampleScene.swift
 //
 
 import SwiftUI
 
 @MainActor
-struct ArchitectureExampleScene: Scene {
+struct ExampleScene: Scene {
     let presenter: ScenePresenter?
 
     init() {
@@ -38,7 +38,7 @@ struct ArchitectureExampleScene: Scene {
 }
 
 @MainActor
-private extension ArchitectureExampleScene {
+private extension ExampleScene {
     static func makeScenePresenter() -> ScenePresenter? {
         guard isNotTest else { return nil }
 
