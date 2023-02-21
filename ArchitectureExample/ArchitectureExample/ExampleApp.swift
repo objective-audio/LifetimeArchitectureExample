@@ -1,11 +1,11 @@
 //
-//  ArchitectureExampleApp.swift
+//  ExampleApp.swift
 //
 
 import SwiftUI
 
 @main
-struct ArchitectureExampleApp: App {
+struct ExampleApp: App {
     let presenter: AppPresenter?
 
     init() {
@@ -19,7 +19,7 @@ struct ArchitectureExampleApp: App {
 }
 
 @MainActor
-private extension ArchitectureExampleApp {
+private extension ExampleApp {
     static func makeAppPresenter() -> AppPresenter? {
         if isNotTest {
             return .init(appLifecycle: LifetimeAccessor.appLifecycle)

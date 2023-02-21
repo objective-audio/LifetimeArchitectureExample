@@ -129,7 +129,7 @@
 		B6C6D517299B8D81002F05AA /* RootAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6D516299B8D81002F05AA /* RootAlertAction.swift */; };
 		B6C6D519299B8E49002F05AA /* RootAlertContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6D518299B8E49002F05AA /* RootAlertContent.swift */; };
 		B6C6D51E299B8F7B002F05AA /* AccountEditAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C6D51D299B8F7B002F05AA /* AccountEditAlertAction.swift */; };
-		B6D608E42995CD2E00CF4ABC /* ArchitectureExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D608E32995CD2E00CF4ABC /* ArchitectureExampleApp.swift */; };
+		B6D608E42995CD2E00CF4ABC /* ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D608E32995CD2E00CF4ABC /* ExampleApp.swift */; };
 		B6D608E8299612E600CF4ABC /* RootTransitionHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D608E7299612E600CF4ABC /* RootTransitionHostingController.swift */; };
 		B6D608EA299613D700CF4ABC /* RootTransitionViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D608E9299613D700CF4ABC /* RootTransitionViewFactory.swift */; };
 		B6D608F4299664DB00CF4ABC /* RootModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D608F3299664DB00CF4ABC /* RootModalPresenter.swift */; };
@@ -310,7 +310,7 @@
 		B6C6D516299B8D81002F05AA /* RootAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertAction.swift; sourceTree = "<group>"; };
 		B6C6D518299B8E49002F05AA /* RootAlertContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAlertContent.swift; sourceTree = "<group>"; };
 		B6C6D51D299B8F7B002F05AA /* AccountEditAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditAlertAction.swift; sourceTree = "<group>"; };
-		B6D608E32995CD2E00CF4ABC /* ArchitectureExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureExampleApp.swift; sourceTree = "<group>"; };
+		B6D608E32995CD2E00CF4ABC /* ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleApp.swift; sourceTree = "<group>"; };
 		B6D608E7299612E600CF4ABC /* RootTransitionHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransitionHostingController.swift; sourceTree = "<group>"; };
 		B6D608E9299613D700CF4ABC /* RootTransitionViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransitionViewFactory.swift; sourceTree = "<group>"; };
 		B6D608F3299664DB00CF4ABC /* RootModalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModalPresenter.swift; sourceTree = "<group>"; };
@@ -655,7 +655,7 @@
 		B658011E28012FA0009EAB96 /* ArchitectureExample */ = {
 			isa = PBXGroup;
 			children = (
-				B6D608E32995CD2E00CF4ABC /* ArchitectureExampleApp.swift */,
+				B6D608E32995CD2E00CF4ABC /* ExampleApp.swift */,
 				B6A4AFE72814FDDB00535851 /* AppPresenter.swift */,
 				B631939E299FB1FC00138572 /* ArchitectureExampleScene.swift */,
 				B6A4AFE92815017F00535851 /* ScenePresenter.swift */,
@@ -1283,7 +1283,7 @@
 				B69E4EF9286C8BC400911280 /* AccountEditAlertInteractorDependencies.swift in Sources */,
 				B63B2693280AA0C8009117B9 /* AccountInfoViewController.swift in Sources */,
 				B63B346728182A00009E9A70 /* AccountEditPresenter.swift in Sources */,
-				B6D608E42995CD2E00CF4ABC /* ArchitectureExampleApp.swift in Sources */,
+				B6D608E42995CD2E00CF4ABC /* ExampleApp.swift in Sources */,
 				B6F8FADD2858BFB60038BC3D /* RootLifecycle+Action.swift in Sources */,
 				B6FC37212983836F00D3CC4C /* RootLifecycleDependencies.swift in Sources */,
 				B6C6D51E299B8F7B002F05AA /* AccountEditAlertAction.swift in Sources */,
