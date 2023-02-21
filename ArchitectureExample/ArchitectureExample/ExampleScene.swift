@@ -33,7 +33,6 @@ struct ExampleScene: Scene {
     }
 }
 
-@MainActor
 private extension ExampleScene {
     static func makeScenePresenter() -> ScenePresenter? {
         guard isNotTest else { return nil }
