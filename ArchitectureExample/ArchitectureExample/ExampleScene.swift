@@ -6,11 +6,7 @@ import SwiftUI
 
 @MainActor
 struct ExampleScene: Scene {
-    let presenter: ScenePresenter?
-
-    init() {
-        self.presenter = Self.makeScenePresenter()
-    }
+    let presenter: ScenePresenter? = Self.makeScenePresenter()
 
     var body: some Scene {
         WindowGroup(for: UUID.self) { uuid in
