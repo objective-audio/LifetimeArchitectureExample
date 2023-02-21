@@ -10,13 +10,13 @@
 final class AccountEditAlertInteractor {
     let lifetimeId: AccountEditAlertLifetimeId
     let alertId: AccountEditAlertId
-    private unowned var accountEditInteractor: AccountEditInteractorForAccountEditAlertInteractor
-    private unowned var modalLifecycle: AccountEditModalLifecycleForAccountEditAlertInteractor?
+    private unowned var accountEditInteractor: any AccountEditInteractorForAccountEditAlertInteractor
+    private unowned var modalLifecycle: (any AccountEditModalLifecycleForAccountEditAlertInteractor)?
 
     init(lifetimeId: AccountEditAlertLifetimeId,
          alertId: AccountEditAlertId,
-         accountEditInteractor: AccountEditInteractorForAccountEditAlertInteractor,
-         modalLifecycle: AccountEditModalLifecycleForAccountEditAlertInteractor) {
+         accountEditInteractor: any AccountEditInteractorForAccountEditAlertInteractor,
+         modalLifecycle: any AccountEditModalLifecycleForAccountEditAlertInteractor) {
         self.lifetimeId = lifetimeId
         self.alertId = alertId
         self.accountEditInteractor = accountEditInteractor

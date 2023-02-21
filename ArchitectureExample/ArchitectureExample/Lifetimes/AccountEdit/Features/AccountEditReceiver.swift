@@ -4,12 +4,12 @@
 
 final class AccountEditReceiver: GlobalActionReceivable {
     private let accountLifetimeId: AccountLifetimeId
-    private unowned let accountEditModalLifecycle: AccountEditModalLifecycleForAccountEditReceiver
-    private unowned let interactor: AccountEditInteractorForAccountEditReceiver
+    private unowned let accountEditModalLifecycle: any AccountEditModalLifecycleForAccountEditReceiver
+    private unowned let interactor: any AccountEditInteractorForAccountEditReceiver
 
     init(accountLifetimeId: AccountLifetimeId,
-         accountEditModalLifecycle: AccountEditModalLifecycleForAccountEditReceiver,
-         interactor: AccountEditInteractorForAccountEditReceiver) {
+         accountEditModalLifecycle: any AccountEditModalLifecycleForAccountEditReceiver,
+         interactor: any AccountEditInteractorForAccountEditReceiver) {
         self.accountLifetimeId = accountLifetimeId
         self.receivableId = .init(accountLifetimeId: accountLifetimeId)
         self.accountEditModalLifecycle = accountEditModalLifecycle

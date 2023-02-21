@@ -4,12 +4,12 @@
 
 final class AccountReceiver: GlobalActionReceivable {
     private let accountLifetimeId: AccountLifetimeId
-    private unowned let logoutInteractor: LogoutInteractorForAccountReceiver
-    private unowned let rootModalLifecycle: RootModalLifecycleForAccountReceiver
+    private unowned let logoutInteractor: any LogoutInteractorForAccountReceiver
+    private unowned let rootModalLifecycle: any RootModalLifecycleForAccountReceiver
 
     init(accountLifetimeId: AccountLifetimeId,
-         logoutInteractor: LogoutInteractorForAccountReceiver,
-         rootModalLifecycle: RootModalLifecycleForAccountReceiver) {
+         logoutInteractor: any LogoutInteractorForAccountReceiver,
+         rootModalLifecycle: any RootModalLifecycleForAccountReceiver) {
         self.accountLifetimeId = accountLifetimeId
         self.logoutInteractor = logoutInteractor
         self.rootModalLifecycle = rootModalLifecycle

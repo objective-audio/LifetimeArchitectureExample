@@ -9,9 +9,9 @@
 
 @MainActor
 final class ActionSender {
-    private unowned let rootProvider: GlobalActionReceiverProvidable
+    private unowned let rootProvider: any GlobalActionReceiverProvidable
 
-    init(rootProvider: GlobalActionReceiverProvidable) {
+    init(rootProvider: any GlobalActionReceiverProvidable) {
         self.rootProvider = rootProvider
     }
 
