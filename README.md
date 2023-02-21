@@ -125,9 +125,9 @@ struct AccountLifetime {
 ```swift
 enum LifetimeAccessor: LifetimeAccessable {
     // 最上位のLifetimeを生成するLifecycleをシングルトンにする
-    static let appLifecycle: AppLifecycle<LifetimeAccessor> = .init()
+    static let appLifecycle: AppLifecycle = .init(factory: AppFactory.self)
 
-    static var app: AppLifetime<LifetimeAccessor>? {
+    static var app: AppLifetime? {
         guard let lifetime = self.appLifecycle.lifetime else {
             return nil
         }
@@ -135,7 +135,7 @@ enum LifetimeAccessor: LifetimeAccessable {
     }
 
     // 各Lifetimeをstatic関数でIDを渡して取得できるようにする
-    static func scene(id: SceneLifetimeId) -> SceneLifetime<LifetimeAccessor>? {
+    static func scene(id: SceneLifetimeId) -> SceneLifetime? {
         guard let lifetime = self.app?.sceneLifecycle.lifetime(id: id) else {
             return nil
         }
@@ -148,20 +148,21 @@ enum LifetimeAccessor: LifetimeAccessable {
 ## Lifecycleの例
 
 ```swift
-enum RootModalSubLifetime {
-    case alert(RootAlertLifetime)
-    case accountEdit(AccountEditLifetime)
+enum RootModalSubLifetime<Factory: FactoryForRootModalLifecycle> {
+    case alert(Factory.RootAlertLifetime)
+    case accountEdit(Factory.AccountEditLifetime)
 }
 
-final class RootModalLifecycle<Accessor: LifetimeAccessable> {
+final class RootModalLifecycle<Factory: FactoryForRootModalLifecycle> {
     private let sceneLifetimeId: SceneLifetimeId
 
     // このLifecycleではenumで排他的に下位のLifetimeを保持
-    var current: RootModalSubLifetime? = nil
+    var current: RootModalSubLifetime<Factory>?
 
     ...
 
-    init(sceneLifetimeId: SceneLifetimeId) {
+    init(sceneLifetimeId: SceneLifetimeId,
+         factory: Factory.Type) {
         self.sceneLifetimeId = sceneLifetimeId
     }
 
@@ -176,10 +177,10 @@ final class RootModalLifecycle<Accessor: LifetimeAccessable> {
         }
 
         // 生成するLifetimeのスコープを表すIDを生成
-        let lifetimeId = AccountEditLifetimeId(instanceId: .init(),
+        let lifetimeId = AccountEditLifetimeId(instanceId: Factory.makeInstanceId(),
                                                account: accountLifetimeId)
         // LifetimeのIDを渡してLifetimeを生成
-        let lifetime = Self.makeAccountEditLifetime(lifetimeId: lifetimeId)
+        let lifetime = Factory.makeAccountEditLifetime(lifetimeId: lifetimeId)
         // Lifetimeを保持
         self.current = .accountEdit(lifetime)
     }
@@ -198,15 +199,14 @@ final class RootModalLifecycle<Accessor: LifetimeAccessable> {
 ```
 
 # テストの方針
-* テストではLifetimeAccessorを空のスタブに差し替え、何も返さないようにする
 * 機能オブジェクト（Interactorなど）は積極的にテストを書く
   * 依存先をプロトコルで定義してDIする
 * 保持オブジェクト（Lifetime）はただ保持しているだけなのでテストは不要
   * テストが必要になるような役割を与えてはいけない
 * 生存管理オブジェクト（Lifecycle）は生成・破棄に関してテストを書く
-  * DIの必要はない
-  * 生成されたLifetimeの保持するInteractorの依存先はLifetimeAccessorから取得できず空になるが、むしろそれが良い
   * 単にLifetimeが生成・破棄されたことや、最低限の初期化がされていることがテストできていれば良い
+  * Factoryからは空のLifetimeを返すようにする
+    * 必要なのはid程度で、InteractorなどはfatalErrorにしておく
 
 # 実装した印象
 ## よかったところ
