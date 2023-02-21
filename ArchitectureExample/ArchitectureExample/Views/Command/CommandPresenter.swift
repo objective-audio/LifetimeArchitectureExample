@@ -25,7 +25,7 @@ final class CommandPresenter: PresenterForCommandView {
 }
 
 private extension Command {
-    var actionKind: ActionKind {
+    var actionKind: GlobalActionKind {
         switch self {
         case .keyL:
             return .logout

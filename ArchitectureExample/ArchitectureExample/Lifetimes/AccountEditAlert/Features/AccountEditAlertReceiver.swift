@@ -2,7 +2,7 @@
 //  AccountEditAlertReceiver.swift
 //
 
-final class AccountEditAlertReceiver: ActionReceivable {
+final class AccountEditAlertReceiver: GlobalActionReceivable {
     private let accountLifetimeId: AccountLifetimeId
     private let alertId: AccountEditAlertId
     private unowned let interactor: AccountEditAlertInteractorForAccountEditAlertReceiver
@@ -16,9 +16,9 @@ final class AccountEditAlertReceiver: ActionReceivable {
         self.interactor = interactor
     }
 
-    let receivableId: ActionId?
+    let receivableId: GlobalActionId?
 
-    func receive(_ action: Action) -> ActionContinuation {
+    func receive(_ action: GlobalAction) -> GlobalActionContinuation {
         switch action.kind {
         case .logout:
             switch self.alertId {

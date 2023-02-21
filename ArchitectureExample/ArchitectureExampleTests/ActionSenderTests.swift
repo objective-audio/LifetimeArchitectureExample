@@ -5,20 +5,20 @@
 import XCTest
 @testable import ArchitectureExample
 
-private class ReceiverStub: ActionReceivable {
-    var receiveHandler: (Action) -> ActionContinuation = { _ in .continue }
+private class ReceiverStub: GlobalActionReceivable {
+    var receiveHandler: (GlobalAction) -> GlobalActionContinuation = { _ in .continue }
 
-    var receivableId: ActionId?
+    var receivableId: GlobalActionId?
 
-    func receive(_ action: Action) -> ActionContinuation {
+    func receive(_ action: GlobalAction) -> GlobalActionContinuation {
         return self.receiveHandler(action)
     }
 }
 
-private class ProviderStub: ActionReceiverProvidable {
-    var receivableId: ActionId?
-    var receivers: [ActionReceivable] = []
-    var subProviders: [ActionReceiverProvidable] = []
+private class ProviderStub: GlobalActionReceiverProvidable {
+    var receivableId: GlobalActionId?
+    var receivers: [GlobalActionReceivable] = []
+    var subProviders: [GlobalActionReceiverProvidable] = []
 }
 
 private enum Receiver {
@@ -30,7 +30,7 @@ private enum Receiver {
 
 private struct Called {
     let receiver: Receiver
-    let action: Action
+    let action: GlobalAction
 }
 
 @MainActor
@@ -85,7 +85,7 @@ class ActionSenderTests: XCTestCase {
         var called: [Called] = []
 
         // receivableIdを指定しているがactionがnilなので影響しない
-        let receivableId = ActionId(sceneLifetimeId: .init(uuid: .init()))
+        let receivableId = GlobalActionId(sceneLifetimeId: .init(uuid: .init()))
         self.rootReceiver.receivableId = receivableId
         self.childReceiver1.receivableId = receivableId
         self.childReceiver2.receivableId = receivableId
@@ -157,7 +157,7 @@ class ActionSenderTests: XCTestCase {
             return .continue
         }
 
-        let actionId = ActionId(sceneLifetimeId: .init(uuid: .init()))
+        let actionId = GlobalActionId(sceneLifetimeId: .init(uuid: .init()))
 
         let sender = ActionSender(rootProvider: self.rootProvider)
 
@@ -199,7 +199,7 @@ class ActionSenderTests: XCTestCase {
             return .continue
         }
 
-        let actionId = ActionId(sceneLifetimeId: .init(uuid: .init()))
+        let actionId = GlobalActionId(sceneLifetimeId: .init(uuid: .init()))
 
         let sender = ActionSender(rootProvider: self.rootProvider)
 
@@ -223,7 +223,7 @@ class ActionSenderTests: XCTestCase {
         var called: [Called] = []
 
         // receivableIdを指定しているがactionがnilなので影響しない
-        let receivableId = ActionId(sceneLifetimeId: .init(uuid: .init()))
+        let receivableId = GlobalActionId(sceneLifetimeId: .init(uuid: .init()))
         self.rootReceiver.receivableId = receivableId
         self.childReceiver1.receivableId = receivableId
         self.childReceiver2.receivableId = receivableId

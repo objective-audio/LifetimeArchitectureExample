@@ -2,10 +2,10 @@
 //  RootModalLifecycle+Action.swift
 //
 
-extension RootModalLifecycle: ActionReceiverProvidable {
-    var receivableId: ActionId? { .init(sceneLifetimeId: self.sceneLifetimeId) }
+extension RootModalLifecycle: GlobalActionReceiverProvidable {
+    var receivableId: GlobalActionId? { .init(sceneLifetimeId: self.sceneLifetimeId) }
 
-    var receivers: [ActionReceivable] {
+    var receivers: [GlobalActionReceivable] {
         switch self.current {
         case .accountEdit(let lifetime):
             return [lifetime.receiver]
@@ -16,7 +16,7 @@ extension RootModalLifecycle: ActionReceiverProvidable {
         }
     }
 
-    var subProviders: [ActionReceiverProvidable] {
+    var subProviders: [GlobalActionReceiverProvidable] {
         switch self.current {
         case .accountEdit(let lifetime):
             return [lifetime.modalLifecycle]

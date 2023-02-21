@@ -2,10 +2,10 @@
 //  RootLifecycle+Action.swift
 //
 
-extension RootLifecycle: ActionReceiverProvidable {
-    var receivableId: ActionId? { .init(sceneLifetimeId: self.sceneLifetimeId) }
+extension RootLifecycle: GlobalActionReceiverProvidable {
+    var receivableId: GlobalActionId? { .init(sceneLifetimeId: self.sceneLifetimeId) }
 
-    var receivers: [ActionReceivable] {
+    var receivers: [GlobalActionReceivable] {
         switch self.current {
         case .account(let lifetime):
             return [lifetime.receiver]
@@ -14,5 +14,5 @@ extension RootLifecycle: ActionReceiverProvidable {
         }
     }
 
-    var subProviders: [ActionReceiverProvidable] { [] }
+    var subProviders: [GlobalActionReceiverProvidable] { [] }
 }

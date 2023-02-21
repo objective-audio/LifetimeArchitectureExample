@@ -9,13 +9,13 @@
 
 @MainActor
 final class ActionSender {
-    private unowned let rootProvider: ActionReceiverProvidable
+    private unowned let rootProvider: GlobalActionReceiverProvidable
 
-    init(rootProvider: ActionReceiverProvidable) {
+    init(rootProvider: GlobalActionReceiverProvidable) {
         self.rootProvider = rootProvider
     }
 
-    func send(_ action: Action) {
+    func send(_ action: GlobalAction) {
         let receivers = self.rootProvider.receivers(for: action.id)
 
         for receiver in receivers {
@@ -36,8 +36,8 @@ extension ActionSender {
     }
 }
 
-private extension ActionReceiverProvidable {
-    func providers(for actionId: ActionId?) -> [ActionReceiverProvidable] {
+private extension GlobalActionReceiverProvidable {
+    func providers(for actionId: GlobalActionId?) -> [GlobalActionReceiverProvidable] {
         if self.receivableId.isMatch(actionId) {
             return self.subProviders
                 .flatMap { $0.providers(for: actionId) } + [self]
@@ -46,7 +46,7 @@ private extension ActionReceiverProvidable {
         }
     }
 
-    func receivers(for actionId: ActionId?) -> [ActionReceivable] {
+    func receivers(for actionId: GlobalActionId?) -> [GlobalActionReceivable] {
         let receivers = self.providers(for: actionId).flatMap { $0.receivers }
 
         if let actionId {

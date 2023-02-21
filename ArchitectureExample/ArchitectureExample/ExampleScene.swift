@@ -1,16 +1,12 @@
 //
-//  ArchitectureExampleScene.swift
+//  ExampleScene.swift
 //
 
 import SwiftUI
 
 @MainActor
-struct ArchitectureExampleScene: Scene {
-    let presenter: ScenePresenter?
-
-    init() {
-        self.presenter = Self.makeScenePresenter()
-    }
+struct ExampleScene: Scene {
+    let presenter: ScenePresenter? = Self.makeScenePresenter()
 
     var body: some Scene {
         WindowGroup(for: UUID.self) { uuid in
@@ -38,7 +34,7 @@ struct ArchitectureExampleScene: Scene {
 }
 
 @MainActor
-private extension ArchitectureExampleScene {
+private extension ExampleScene {
     static func makeScenePresenter() -> ScenePresenter? {
         guard isNotTest else { return nil }
 
