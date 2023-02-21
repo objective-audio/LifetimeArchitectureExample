@@ -4,6 +4,7 @@
 
 import UIKit
 
+@MainActor
 class AppDelegate: NSObject, UIApplicationDelegate {
     var presenter: AppPresenter?
 
@@ -15,7 +16,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 }
 
-@MainActor
 private extension AppDelegate {
     static func makeAppPresenter() -> AppPresenter? {
         if isNotTest {
