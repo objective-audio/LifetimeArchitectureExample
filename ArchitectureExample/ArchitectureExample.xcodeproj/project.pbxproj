@@ -137,6 +137,7 @@
 		B6DB6FF12859D7280070596B /* AccountEditAlertReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DB6FF02859D7280070596B /* AccountEditAlertReceiver.swift */; };
 		B6DB6FF32859D7620070596B /* AccountEditModalLifecycle+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DB6FF22859D7620070596B /* AccountEditModalLifecycle+Action.swift */; };
 		B6DB6FF52859DCBA0070596B /* AccountEditModalFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DB6FF42859DCBA0070596B /* AccountEditModalFactory.swift */; };
+		B6E03F3E29A45CA300C7169E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E03F3D29A45CA300C7169E /* AppDelegate.swift */; };
 		B6E044C329A383B8006FD779 /* CommandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E044C229A383B8006FD779 /* CommandView.swift */; };
 		B6E044C529A384FF006FD779 /* CommandViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E044C429A384FF006FD779 /* CommandViewDependencies.swift */; };
 		B6E044C729A386B8006FD779 /* CommandViewMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E044C629A386B8006FD779 /* CommandViewMaker.swift */; };
@@ -318,6 +319,7 @@
 		B6DB6FF02859D7280070596B /* AccountEditAlertReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditAlertReceiver.swift; sourceTree = "<group>"; };
 		B6DB6FF22859D7620070596B /* AccountEditModalLifecycle+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountEditModalLifecycle+Action.swift"; sourceTree = "<group>"; };
 		B6DB6FF42859DCBA0070596B /* AccountEditModalFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditModalFactory.swift; sourceTree = "<group>"; };
+		B6E03F3D29A45CA300C7169E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6E044C229A383B8006FD779 /* CommandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandView.swift; sourceTree = "<group>"; };
 		B6E044C429A384FF006FD779 /* CommandViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandViewDependencies.swift; sourceTree = "<group>"; };
 		B6E044C629A386B8006FD779 /* CommandViewMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandViewMaker.swift; sourceTree = "<group>"; };
@@ -657,6 +659,7 @@
 			children = (
 				B6D608E32995CD2E00CF4ABC /* ExampleApp.swift */,
 				B6A4AFE72814FDDB00535851 /* AppPresenter.swift */,
+				B6E03F3D29A45CA300C7169E /* AppDelegate.swift */,
 				B631939E299FB1FC00138572 /* ExampleScene.swift */,
 				B6A4AFE92815017F00535851 /* ScenePresenter.swift */,
 				B60D63F32816B76500EC7732 /* Helpers */,
@@ -1296,6 +1299,7 @@
 				B658015128013045009EAB96 /* AppLifetime.swift in Sources */,
 				B61D576129841124009E084C /* AppLifecycleDependencies.swift in Sources */,
 				B61753BB281055360057DC15 /* Localized.swift in Sources */,
+				B6E03F3E29A45CA300C7169E /* AppDelegate.swift in Sources */,
 				B67758B32811869100403DC6 /* AccountInfoCell.swift in Sources */,
 				B666DD822830F4BF0074B8F9 /* AccountEditAlertId.swift in Sources */,
 				B6DB6FEB2859D48E0070596B /* AccountEditAlertLifetime.swift in Sources */,
