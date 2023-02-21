@@ -25,7 +25,7 @@ extension GlobalActionId {
     }
 }
 
-extension Optional where Wrapped == GlobalActionId {
+extension GlobalActionId? {
     func isMatch(_ other: GlobalActionId?) -> Bool {
         guard let rhs = other, let lhs = self else {
             return true
