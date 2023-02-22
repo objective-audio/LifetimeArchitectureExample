@@ -14,6 +14,7 @@
 		B60D63F92816EAE300EC7732 /* RootSubLifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D63F82816EAE300EC7732 /* RootSubLifetime.swift */; };
 		B60D63FB2816EB2600EC7732 /* AccountNavigationSubLifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D63FA2816EB2600EC7732 /* AccountNavigationSubLifetime.swift */; };
 		B60D63FD2816EEEA00EC7732 /* RootModalSubLifetime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D63FC2816EEEA00EC7732 /* RootModalSubLifetime.swift */; };
+		B60E1C8829A5A9F600AD0E75 /* AccountDetailViewDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E1C8729A5A9F600AD0E75 /* AccountDetailViewDependencies.swift */; };
 		B60E4EA6281A1EA3005E2F32 /* RootModalFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E4EA5281A1EA3005E2F32 /* RootModalFactory.swift */; };
 		B60E4EB1281A9176005E2F32 /* AccountHolderDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E4EB0281A9176005E2F32 /* AccountHolderDependencies.swift */; };
 		B60E4EB4281A9849005E2F32 /* UserDefaults+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E4EB3281A9849005E2F32 /* UserDefaults+Helper.swift */; };
@@ -192,6 +193,7 @@
 		B60D63F82816EAE300EC7732 /* RootSubLifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSubLifetime.swift; sourceTree = "<group>"; };
 		B60D63FA2816EB2600EC7732 /* AccountNavigationSubLifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNavigationSubLifetime.swift; sourceTree = "<group>"; };
 		B60D63FC2816EEEA00EC7732 /* RootModalSubLifetime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModalSubLifetime.swift; sourceTree = "<group>"; };
+		B60E1C8729A5A9F600AD0E75 /* AccountDetailViewDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailViewDependencies.swift; sourceTree = "<group>"; };
 		B60E4EA5281A1EA3005E2F32 /* RootModalFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModalFactory.swift; sourceTree = "<group>"; };
 		B60E4EB0281A9176005E2F32 /* AccountHolderDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHolderDependencies.swift; sourceTree = "<group>"; };
 		B60E4EB3281A9849005E2F32 /* UserDefaults+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Helper.swift"; sourceTree = "<group>"; };
@@ -958,6 +960,7 @@
 		B6FC370D2980073000D3CC4C /* AccountDetail */ = {
 			isa = PBXGroup;
 			children = (
+				B60E1C8729A5A9F600AD0E75 /* AccountDetailViewDependencies.swift */,
 				B6FC3714298007E600D3CC4C /* AccountDetailView.swift */,
 				B6FC3711298007A500D3CC4C /* Presenters */,
 			);
@@ -1312,6 +1315,7 @@
 				B60D63FD2816EEEA00EC7732 /* RootModalSubLifetime.swift in Sources */,
 				B68D820B283740AB00C2FC23 /* RootAlertLifetime.swift in Sources */,
 				B6376FE628144550004D5F9C /* SceneLifetime.swift in Sources */,
+				B60E1C8829A5A9F600AD0E75 /* AccountDetailViewDependencies.swift in Sources */,
 				B67E5E422850B49E00B53C2B /* AccountNavigationFactory.swift in Sources */,
 				B6F8FAE328598AAC0038BC3D /* AccountEditReceiver.swift in Sources */,
 				B652BBFC28101A3E00B7741B /* LoginPresenter.swift in Sources */,

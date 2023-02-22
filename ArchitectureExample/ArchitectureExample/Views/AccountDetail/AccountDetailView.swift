@@ -4,8 +4,8 @@
 
 import SwiftUI
 
-struct AccountDetailView: View {
-    @ObservedObject var presenter: AccountDetailPresenter
+struct AccountDetailView<Presenter: PresenterForAccountDetailView>: View {
+    @ObservedObject var presenter: Presenter
 
     var body: some View {
         Text("Detail")
