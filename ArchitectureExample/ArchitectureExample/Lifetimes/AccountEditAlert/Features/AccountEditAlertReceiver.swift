@@ -5,11 +5,11 @@
 final class AccountEditAlertReceiver: GlobalActionReceivable {
     private let accountLifetimeId: AccountLifetimeId
     private let alertId: AccountEditAlertId
-    private unowned let interactor: AccountEditAlertInteractorForAccountEditAlertReceiver
+    private unowned let interactor: any AccountEditAlertInteractorForAccountEditAlertReceiver
 
     init(accountLifetimeId: AccountLifetimeId,
          alertId: AccountEditAlertId,
-         interactor: AccountEditAlertInteractorForAccountEditAlertReceiver) {
+         interactor: any AccountEditAlertInteractorForAccountEditAlertReceiver) {
         self.accountLifetimeId = accountLifetimeId
         self.receivableId = .init(accountLifetimeId: accountLifetimeId)
         self.alertId = alertId

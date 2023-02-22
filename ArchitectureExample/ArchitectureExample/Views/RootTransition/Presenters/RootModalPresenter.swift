@@ -5,7 +5,7 @@
 import Foundation
 
 @MainActor
-final class RootModalPresenter: ObservableObject {
+final class RootModalPresenter {
     private weak var lifecycle: RootModalLifecycle<RootModalFactory>?
 
     // Sheet内のonDisappearで処理されるので、falseがセットされても無視する

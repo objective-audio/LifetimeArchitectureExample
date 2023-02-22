@@ -8,12 +8,12 @@
 
 final class AccountMenuInteractor {
     private let lifetimeId: AccountLifetimeId
-    private unowned let navigationLifecycle: AccountNavigationLifecycleForAccountMenuInteractor
-    private unowned let actionSender: ActionSenderForAccountMenuInteractor
+    private unowned let navigationLifecycle: any AccountNavigationLifecycleForAccountMenuInteractor
+    private unowned let actionSender: any ActionSenderForAccountMenuInteractor
 
     init(lifetimeId: AccountLifetimeId,
-         navigationLifecycle: AccountNavigationLifecycleForAccountMenuInteractor,
-         actionSender: ActionSenderForAccountMenuInteractor) {
+         navigationLifecycle: any AccountNavigationLifecycleForAccountMenuInteractor,
+         actionSender: any ActionSenderForAccountMenuInteractor) {
         self.lifetimeId = lifetimeId
         self.navigationLifecycle = navigationLifecycle
         self.actionSender = actionSender

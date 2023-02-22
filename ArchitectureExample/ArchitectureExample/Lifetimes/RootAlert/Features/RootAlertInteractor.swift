@@ -10,11 +10,11 @@
 final class RootAlertInteractor {
     let lifetimeId: RootAlertLifetimeId
     let alertId: RootAlertId
-    private unowned var modalLifecycle: RootModalLifecycleForRootAlertInteractor?
+    private unowned var modalLifecycle: (any RootModalLifecycleForRootAlertInteractor)?
 
     init(lifetimeId: RootAlertLifetimeId,
          alertId: RootAlertId,
-         modalLifecycle: RootModalLifecycleForRootAlertInteractor) {
+         modalLifecycle: any RootModalLifecycleForRootAlertInteractor) {
         self.lifetimeId = lifetimeId
         self.alertId = alertId
         self.modalLifecycle = modalLifecycle
