@@ -5,7 +5,7 @@
 import Foundation
 
 @MainActor
-final class AccountEditModalPresenter: ObservableObject {
+final class AccountEditModalPresenter {
     private weak var lifecycle: AccountEditModalLifecycle<AccountEditModalFactory>?
 
     // Alertは必ず何かしらのアクションを受けて閉じるのでfalseがセットされても無視する

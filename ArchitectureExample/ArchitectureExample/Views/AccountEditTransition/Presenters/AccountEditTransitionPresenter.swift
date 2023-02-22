@@ -5,7 +5,7 @@
 import Combine
 
 @MainActor
-final class AccountEditTransitionPresenter: ObservableObject {
+final class AccountEditTransitionPresenter {
     let accountEditLifetimeId: AccountEditLifetimeId
 
     private weak var accountEditInteractor: AccountEditInteractor?

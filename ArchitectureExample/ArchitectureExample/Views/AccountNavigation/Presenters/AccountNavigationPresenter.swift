@@ -5,7 +5,7 @@
 import Combine
 
 @MainActor
-final class AccountNavigationPresenter: ObservableObject {
+final class AccountNavigationPresenter {
     let accountLifetimeId: AccountLifetimeId
     private weak var navigationLifecycle: AccountNavigationLifecycle<AccountNavigationFactory>?
 
